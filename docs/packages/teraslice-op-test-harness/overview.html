@@ -1,0 +1,408 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Teraslice Op Test Harness · Teraslice</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;This project provides a processor execution function called &lt;code&gt;run()&lt;/code&gt;, test data&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Teraslice Op Test Harness · Teraslice"/><meta property="og:type" content="website"/><meta property="og:url" content="https://terascope.github.io/teraslice/index.html"/><meta property="og:description" content="&lt;p&gt;This project provides a processor execution function called &lt;code&gt;run()&lt;/code&gt;, test data&lt;/p&gt;
+"/><meta property="og:image" content="https://terascope.github.io/teraslice/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://terascope.github.io/teraslice/img/docusaurus.png"/><link rel="shortcut icon" href="/teraslice/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://terascope.github.io/teraslice/blog/atom.xml" title="Teraslice Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://terascope.github.io/teraslice/blog/feed.xml" title="Teraslice Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/teraslice/css/main.css"/><script src="/teraslice/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/teraslice/"><img class="logo" src="/teraslice/img/logo.png" alt="Teraslice"/><h2 class="headerTitleWithLogo">Teraslice</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/teraslice/docs/overview" target="_self">Docs</a></li><li class=""><a href="/teraslice/docs/api" target="_self">API</a></li><li class=""><a href="/teraslice/docs/examples" target="_self">Examples</a></li><li class="siteNavGroupActive"><a href="/teraslice/docs/packages" target="_self">Packages</a></li><li class=""><a href="/teraslice/help" target="_self">Help</a></li><li class=""><a href="/teraslice/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Internal Packages</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Overview</h3><ul class=""><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages">Overview</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Packages</h3><ul class=""><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/data-access/overview">data-access</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/elasticsearch-store/overview">elasticsearch-store</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/terafoundation/overview">terafoundation</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/teraslice/overview">teraslice</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/teraslice-cli/overview">teraslice-cli</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/teraslice-client-js/overview">teraslice-client-js</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">ts-transforms</h4><ul><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/ts-transforms/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/ts-transforms/plugins">Plugins</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/ts-transforms/operations">Operations</a></li></ul></div><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/xlucene-evaluator/overview">xlucene-evaluator</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Internal Packages</h3><ul class=""><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/docker-compose-js/overview">docker-compose-js</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/elasticsearch-api/overview">elasticsearch-api</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/error-parser/overview">error-parser</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/generator-teraslice/overview">generator-teraslice</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/job-components/overview">job-components</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/queue/overview">queue</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/teraslice-messaging/overview">teraslice-messaging</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/teraslice/docs/packages/teraslice-op-test-harness/overview">teraslice-op-test-harness</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/teraslice-test-harness/overview">teraslice-test-harness</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/utils/overview">utils</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Teraslice Op Test Harness</h1></header><article><div><span><p>This project provides a processor execution function called <code>run()</code>, test data
+sources and common test functions to help you implement tests of your Teraslice
+operations.</p>
+<p>To start using it, require your processor and then pass it in as an argument to
+the harness module as shown below.  The code examples below assume you are using
+the harness in a <code>test/</code> or <code>test/</code> subdirectory and your processor is
+implemented in <code>../index.js</code>, adjust paths accordingly.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">var</span> processor = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../index'</span>);
+<span class="hljs-keyword">var</span> harness = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@terascope/teraslice-op-test-harness'</span>)(processor);
+</code></pre>
+<p>Now, you can access functionality using the <code>harness</code> object.</p>
+<h2><a class="anchor" aria-hidden="true" id="processor-execution-function-init"></a><a href="#processor-execution-function-init" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Processor Execution Function - <code>init()</code></h2>
+<p>The manner to instanciate a new instance of your operation is by using init
+You make pass in optional clients under the <code>clients</code> key but they must follow the format listed in the setClients definition. This will work with both the new and old Job APIs.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> { DataEntity } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@terascope/job-components'</span>);
+<span class="hljs-keyword">const</span> processor = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../asset/example-op'</span>);
+<span class="hljs-keyword">const</span> reader = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../asset/example-reader'</span>);
+
+describe(<span class="hljs-string">'setting up an operation'</span>, () =&gt; {
+    <span class="hljs-keyword">const</span> processorOpTest = opHarness(processor);
+    <span class="hljs-keyword">const</span> readerOpTest = opHarness(reader);
+    <span class="hljs-keyword">let</span> client;
+
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MockClient</span> </span>{
+        <span class="hljs-keyword">async</span> <span class="hljs-keyword">get</span>(data) { <span class="hljs-keyword">return</span> data }
+    }
+
+    beforeEach(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+        client = <span class="hljs-keyword">new</span> MockClient();
+        readerOpTest.setClients([{ client, <span class="hljs-attr">type</span>: <span class="hljs-string">'elasticsearch'</span>, <span class="hljs-attr">endpoint</span>: <span class="hljs-string">'default'</span> }])
+    });
+
+    it(<span class="hljs-string">'can make a processor instance'</span>, <span class="hljs-keyword">async</span> () =&gt; {
+        <span class="hljs-keyword">const</span> opConfig = { <span class="hljs-attr">_op</span>: <span class="hljs-string">'foo'</span>, <span class="hljs-attr">some</span>: <span class="hljs-string">'config'</span> };
+        <span class="hljs-keyword">const</span> data = { <span class="hljs-attr">some</span>: <span class="hljs-string">'data'</span> };
+        <span class="hljs-keyword">const</span> pTest = <span class="hljs-keyword">await</span> processorOpTest.init({ opConfig });
+
+        <span class="hljs-keyword">const</span> results = <span class="hljs-keyword">await</span> pTest.run(data);
+
+        expect(<span class="hljs-built_in">Array</span>.isArray(results)).toBe(<span class="hljs-literal">true</span>);
+        expect(DataEntity.isDataEntity(results[<span class="hljs-number">0</span>])).toBe(<span class="hljs-literal">true</span>);
+    });
+
+    it(<span class="hljs-string">'can make a reader instance'</span>, <span class="hljs-keyword">async</span> () =&gt; {
+        <span class="hljs-keyword">const</span> executionConfig = {
+            <span class="hljs-attr">lifecycle</span>: <span class="hljs-string">'once'</span>,
+            <span class="hljs-attr">operations</span>: [{ <span class="hljs-attr">_op</span>: <span class="hljs-string">'foo'</span>, <span class="hljs-attr">some</span>: <span class="hljs-string">'config'</span> }]
+        };
+        <span class="hljs-keyword">const</span> data = { <span class="hljs-attr">some</span>: <span class="hljs-string">'data'</span> };
+        <span class="hljs-keyword">const</span> type = <span class="hljs-string">'reader'</span>;
+        <span class="hljs-keyword">const</span> rTest = <span class="hljs-keyword">await</span> readerOpTest.init({ executionConfig, type });
+
+        <span class="hljs-keyword">const</span> results = <span class="hljs-keyword">await</span> rTest.run(data);
+
+        expect(<span class="hljs-built_in">Array</span>.isArray(results)).toBe(<span class="hljs-literal">true</span>);
+        expect(results[<span class="hljs-number">0</span>] <span class="hljs-keyword">instanceof</span> DataEntity).toBe(<span class="hljs-literal">true</span>);
+    });
+
+    it(<span class="hljs-string">'can make a slicer instance'</span>, <span class="hljs-keyword">async</span> () =&gt; {
+        <span class="hljs-keyword">const</span> executionConfig = {
+            <span class="hljs-attr">lifecycle</span>: <span class="hljs-string">'once'</span>,
+            <span class="hljs-attr">operations</span>: [{ <span class="hljs-attr">_op</span>: <span class="hljs-string">'foo'</span>, <span class="hljs-attr">some</span>: <span class="hljs-string">'config'</span> }]
+        };
+        <span class="hljs-comment">// type defaults to slicer</span>
+        <span class="hljs-keyword">const</span> sTest = <span class="hljs-keyword">await</span> readerOpTest.init({ executionConfig });
+
+        <span class="hljs-keyword">const</span> results = <span class="hljs-keyword">await</span> sTest.run();
+
+        expect(<span class="hljs-built_in">Array</span>.isArray(results)).toBe(<span class="hljs-literal">true</span>);
+        expect(results[<span class="hljs-number">0</span>]).toEqual({ <span class="hljs-attr">foo</span>: <span class="hljs-string">'bar'</span> });
+    });
+
+    it(<span class="hljs-string">'can make a multiple slicer instances'</span>, <span class="hljs-keyword">async</span> () =&gt; {
+        <span class="hljs-keyword">const</span> executionConfig = {
+            <span class="hljs-attr">lifecycle</span>: <span class="hljs-string">'once'</span>,
+            <span class="hljs-attr">slicers</span>: <span class="hljs-number">3</span>,
+            <span class="hljs-attr">operations</span>: [{ <span class="hljs-attr">_op</span>: <span class="hljs-string">'foo'</span>, <span class="hljs-attr">some</span>: <span class="hljs-string">'config'</span> }]
+        };
+
+        <span class="hljs-comment">// type defaults to slicer</span>
+        <span class="hljs-keyword">const</span> sTest = <span class="hljs-keyword">await</span> readerOpTest.init({ executionConfig });
+
+        <span class="hljs-keyword">const</span> results = <span class="hljs-keyword">await</span> sTest.run();
+
+        expect(<span class="hljs-built_in">Array</span>.isArray(results)).toBe(<span class="hljs-literal">true</span>);
+        expect(results[<span class="hljs-number">0</span>]).toEqual({ <span class="hljs-attr">foo</span>: <span class="hljs-string">'bar'</span> });
+    });
+
+    it(<span class="hljs-string">'can return the full metadata of slice'</span>, <span class="hljs-keyword">async</span> () =&gt; {
+        <span class="hljs-keyword">const</span> executionConfig = {
+            <span class="hljs-attr">lifecycle</span>: <span class="hljs-string">'once'</span>,
+            <span class="hljs-attr">slicers</span>: <span class="hljs-number">3</span>,
+            <span class="hljs-attr">operations</span>: [{ <span class="hljs-attr">_op</span>: <span class="hljs-string">'foo'</span>, <span class="hljs-attr">some</span>: <span class="hljs-string">'config'</span> }]
+        };
+
+        <span class="hljs-comment">// type defaults to slicer</span>
+        <span class="hljs-keyword">const</span> sTest = <span class="hljs-keyword">await</span> readerOpTest.init({ executionConfig });
+
+        <span class="hljs-keyword">const</span> results = <span class="hljs-keyword">await</span> sTest.run({ <span class="hljs-attr">fullSlice</span>: <span class="hljs-literal">true</span> });
+
+        expect(<span class="hljs-built_in">Array</span>.isArray(results)).toBe(<span class="hljs-literal">true</span>);
+        expect(results[<span class="hljs-number">0</span>]).toEqual({
+            <span class="hljs-attr">slice_id</span>: <span class="hljs-string">'d994d423-f3a3-411d-8973-4a4ccccd1afd'</span>,
+            <span class="hljs-attr">slicer_id</span>: <span class="hljs-number">0</span>,
+            <span class="hljs-attr">slicer_order</span>: <span class="hljs-number">10</span>,
+            <span class="hljs-attr">request</span>: { <span class="hljs-attr">foo</span>: <span class="hljs-string">'bar'</span> }
+        });
+    });
+})
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="processor-execution-function-setclients"></a><a href="#processor-execution-function-setclients" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Processor Execution Function - <code>setClients()</code></h2>
+<p>This takes an array of client configurations that will be used internally.
+The obejct must have a client key and a type key set.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> { DataEntity } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@terascope/job-components'</span>);
+<span class="hljs-keyword">const</span> reader = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../asset/example-reader'</span>);
+
+describe(<span class="hljs-string">'setting up an operation'</span>, () =&gt; {
+    <span class="hljs-keyword">const</span> opTest = opHarness(reader);
+    <span class="hljs-keyword">let</span> client;
+    <span class="hljs-keyword">let</span> client2;
+    <span class="hljs-keyword">let</span> client3;
+
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MockClient</span> </span>{
+        <span class="hljs-keyword">async</span> <span class="hljs-keyword">get</span>(data) { <span class="hljs-keyword">return</span> data }
+    }
+
+    <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OtherClient</span> </span>{
+        <span class="hljs-keyword">async</span> <span class="hljs-keyword">get</span>(data) { <span class="hljs-keyword">return</span> <span class="hljs-string">'something else'</span> }
+    }
+
+    beforeEach(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+        client = <span class="hljs-keyword">new</span> MockClient(); client2 = <span class="hljs-keyword">new</span> MockClient();
+        client3 = <span class="hljs-keyword">new</span> MockClient();
+        <span class="hljs-comment">// endpoint defaults to 'default' if not specifed, but showing none the less</span>
+        readerOpTest.setClients([
+            { client, <span class="hljs-attr">type</span>: <span class="hljs-string">'elasticsearch'</span>, <span class="hljs-attr">endpoint</span>: <span class="hljs-string">'default'</span> },
+            { <span class="hljs-attr">client</span>: client2, <span class="hljs-attr">type</span>: <span class="hljs-string">'elasticsearch'</span>, <span class="hljs-attr">endpoint</span>: <span class="hljs-string">'other_connection'</span> },
+            { <span class="hljs-attr">client</span>: client3, <span class="hljs-attr">type</span>: <span class="hljs-string">'kafka'</span> },
+        ])
+    });
+
+    it(<span class="hljs-string">'can make a reader instance'</span>, <span class="hljs-keyword">async</span> () =&gt; {
+        <span class="hljs-keyword">const</span> executionConfig = {
+            <span class="hljs-attr">lifecycle</span>: <span class="hljs-string">'once'</span>,
+            <span class="hljs-attr">operations</span>: [{ <span class="hljs-attr">_op</span>: <span class="hljs-string">'foo'</span>, <span class="hljs-attr">some</span>: <span class="hljs-string">'config'</span> }]
+        };
+        <span class="hljs-keyword">const</span> data = { <span class="hljs-attr">some</span>: <span class="hljs-string">'data'</span> };
+        <span class="hljs-keyword">const</span> type = <span class="hljs-string">'reader'</span>;
+        <span class="hljs-keyword">const</span> test = <span class="hljs-keyword">await</span> opTest.init({ executionConfig, type });
+
+        <span class="hljs-keyword">const</span> results = <span class="hljs-keyword">await</span> test.run(data)
+
+        expect(<span class="hljs-built_in">Array</span>.isArray(results)).toBe(<span class="hljs-literal">true</span>);
+        expect(DataEntity.isDataEntity(results[<span class="hljs-number">0</span>])).toBe(<span class="hljs-literal">true</span>);
+    });
+
+    it(<span class="hljs-string">'can make a slicer instance'</span>, <span class="hljs-keyword">async</span> () =&gt; {
+        <span class="hljs-keyword">const</span> executionConfig = {
+            <span class="hljs-attr">lifecycle</span>: <span class="hljs-string">'once'</span>,
+            <span class="hljs-attr">operations</span>: [{ <span class="hljs-attr">_op</span>: <span class="hljs-string">'foo'</span>, <span class="hljs-attr">some</span>: <span class="hljs-string">'config'</span> }]
+        };
+        <span class="hljs-comment">// you can override the clients at init time</span>
+        <span class="hljs-keyword">const</span> clients = [{ <span class="hljs-attr">client</span>: <span class="hljs-keyword">new</span> OtherClient(), <span class="hljs-attr">type</span>: <span class="hljs-string">'elasticsearch'</span>, <span class="hljs-attr">endpoint</span>: <span class="hljs-string">'default'</span>}]
+        <span class="hljs-comment">// these two ops now have different clients at elasticsearch : default connection</span>
+        <span class="hljs-keyword">const</span> test1 = <span class="hljs-keyword">await</span> opTest.init({ executionConfig });
+        <span class="hljs-keyword">const</span> test2 = <span class="hljs-keyword">await</span> opTest.init({ executionConfig, clients });
+
+        <span class="hljs-keyword">const</span> [results1, results2 ] = <span class="hljs-keyword">await</span> <span class="hljs-built_in">Promise</span>.all([ test1.run(), test2.run()]);
+
+        expect(<span class="hljs-built_in">Array</span>.isArray(results1)).toBe(<span class="hljs-literal">true</span>);
+        expect(results1[<span class="hljs-number">0</span>]).toEqual({ <span class="hljs-attr">foo</span>: <span class="hljs-string">'bar'</span> });
+
+        expect(<span class="hljs-built_in">Array</span>.isArray(results2)).toBe(<span class="hljs-literal">true</span>);
+        expect(results2[<span class="hljs-number">0</span>]).toEqual({ <span class="hljs-attr">foo</span>: <span class="hljs-string">'bar'</span> });
+    });
+})
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="processor-execution-function-processdata"></a><a href="#processor-execution-function-processdata" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Processor Execution Function <code>processData()</code></h2>
+<p>This provides a short hand for processors to instantiate a new operation, run some data with it and return the results.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> processor = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../asset/example-op'</span>);
+
+describe(<span class="hljs-string">'processor operation test'</span>, () =&gt; {
+    <span class="hljs-keyword">const</span> opTest = opHarness(processor);
+
+    it(<span class="hljs-string">'has a shorthand method'</span>, <span class="hljs-keyword">async</span> () =&gt; {
+        <span class="hljs-keyword">const</span> opConfig = { <span class="hljs-attr">_op</span>: <span class="hljs-string">'foo'</span>, <span class="hljs-attr">some</span>: <span class="hljs-string">'config'</span> };
+        <span class="hljs-keyword">const</span> data = [{ <span class="hljs-attr">some</span>: <span class="hljs-string">'data'</span> }];
+        <span class="hljs-keyword">const</span> results = <span class="hljs-keyword">await</span> processorOpTest.processData(opConfig, data);
+
+        expect(<span class="hljs-built_in">Array</span>.isArray(results)).toBe(<span class="hljs-literal">true</span>);
+        expect(DataEntity.isDataEntity(results[<span class="hljs-number">0</span>])).toBe(<span class="hljs-literal">true</span>);
+    })
+})
+
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="processor-execution-function-run-depreciated"></a><a href="#processor-execution-function-run-depreciated" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Processor Execution Function - <code>run()</code>  DEPRECIATED</h2>
+<p>The testing harness provides a function <code>run()</code>, that will run your processor on
+the data you have passed in to the run function.  The <code>run()</code> function returns
+the output data from your processor so you can confirm that it behaved the way
+you expected.  Generally speaking, using <code>harness.run()</code> looks like the example
+below. The second argument passed to <code>run()</code>, <code>opConfig</code> is optional.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">var</span> processor = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../index'</span>);
+<span class="hljs-keyword">var</span> harness = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@terascope/teraslice-op-test-harness'</span>)(processor);
+
+<span class="hljs-keyword">var</span> data = [];
+<span class="hljs-keyword">var</span> opConfig = {<span class="hljs-attr">option</span>: <span class="hljs-number">3</span>}
+<span class="hljs-built_in">console</span>.log(harness.run(data, opConfig));
+</code></pre>
+<p>The rest of the examples will be implemented as valid unit tests using the
+<a href="https://jasmine.github.io">jasmine</a> testing framework.  This is a convenient
+way for you to develop and test your Teraslice operations without having to run
+them in Teraslice directly.</p>
+<p>The example below shows a processor that, using the default operation settings,
+doesn't change the data in any way:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">var</span> processor = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../index'</span>);
+<span class="hljs-keyword">var</span> harness = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@terascope/teraslice-op-test-harness'</span>)(processor);
+
+describe(<span class="hljs-string">'With data in is []'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    it(<span class="hljs-string">'data out is []'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> data = [];
+        expect(harness.run(data)).toEqual(data);
+    });
+});
+</code></pre>
+<p>If you want to override the default operations used by your processor, you can
+do so by passing in an <code>opConfig</code> object with the properties you want to change.
+They will be merged into the default <code>opConfig</code> and validated automatically by
+the test harness.  The example below shows the modification of the <code>percentage</code>
+property on the operator:</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">var</span> processor = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../index'</span>);
+<span class="hljs-keyword">var</span> harness = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@terascope/teraslice-op-test-harness'</span>)(processor);
+
+describe(<span class="hljs-string">'The data doubles when'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> opConfig = {
+        <span class="hljs-attr">percentage</span>: <span class="hljs-number">100</span>
+    };
+
+    it(<span class="hljs-string">'using simple data and percentage is 100'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-comment">// prepare the data to test output data against</span>
+        <span class="hljs-keyword">var</span> newData = [];
+        harness.data.simple.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">item</span>) </span>{
+            newData.push(item, item);
+        });
+
+        <span class="hljs-comment">// run the operator, passing in input data and the overridden opConfig</span>
+        expect(harness.run(harness.data.simple, opConfig)).toEqual(newData);
+    });
+});
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="multiple-calls-to-the-same-processor-instance-depreciated"></a><a href="#multiple-calls-to-the-same-processor-instance-depreciated" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Multiple calls to the same processor instance DEPRECIATED</h2>
+<p>If you need to test a processor that maintains some type of state across slices
+you have two options:</p>
+<h3><a class="anchor" aria-hidden="true" id="1-use-runslices-promise-depreciated"></a><a href="#1-use-runslices-promise-depreciated" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1 Use <code>runSlices() -&gt; Promise</code> DEPRECIATED</h3>
+<p>This will process all of the given slices, <code>emulateShutdown()</code>, then process a
+final empty slice to give the processor a chance to flush its state.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">var</span> processor = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../sum'</span>);
+<span class="hljs-keyword">var</span> harness = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@terascope/teraslice-op-test-harness'</span>)(processor);
+
+describe(<span class="hljs-string">'Add running total'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> opConfig = { <span class="hljs-attr">src_field</span>: <span class="hljs-string">'x'</span>, <span class="hljs-attr">dst_field</span>: <span class="hljs-string">'y'</span> };
+    it(<span class="hljs-string">'works'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> slices = [ [{ <span class="hljs-attr">x</span>: <span class="hljs-number">10</span> }, { <span class="hljs-attr">x</span>: <span class="hljs-number">11</span> }], [{ <span class="hljs-attr">x</span>: <span class="hljs-number">21</span> }] ];
+        harness.runSlices(slices)
+            .then(<span class="hljs-function">(<span class="hljs-params">results</span>) =&gt;</span> {
+                expect(results.length).toEqual(<span class="hljs-number">3</span>);
+                expect(results[<span class="hljs-number">0</span>].y).toEqual([{ <span class="hljs-attr">x</span>: <span class="hljs-number">10</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">10</span> }, { <span class="hljs-attr">x</span>: <span class="hljs-number">11</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">21</span> }]);
+                expect(results[<span class="hljs-number">1</span>].y).toEqual([{ <span class="hljs-attr">x</span>: <span class="hljs-number">21</span>, <span class="hljs-attr">y</span>: <span class="hljs-number">42</span> }]);
+                expect(results[<span class="hljs-number">2</span>].y).toEqual([]);
+            });
+    });
+});
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="2-create-a-processor-instance-to-call-process-independently-depreciated"></a><a href="#2-create-a-processor-instance-to-call-process-independently-depreciated" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Create a processor instance to call <code>process()</code> independently DEPRECIATED</h3>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">var</span> processor = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../index'</span>);
+<span class="hljs-keyword">var</span> harness = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@terascope/teraslice-op-test-harness'</span>)(processor);
+
+describe(<span class="hljs-string">'The data doubles when'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> opConfig = {
+        <span class="hljs-attr">percentage</span>: <span class="hljs-number">100</span>
+    };
+
+    it(<span class="hljs-string">'using simple data and percentage is 100'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">var</span> processor = harness.getProcessor(opConfig);
+
+        <span class="hljs-comment">// First call on the processor can use the input to setup state</span>
+        harness.run(processor, harness.data.simple)
+
+        <span class="hljs-comment">// Second call is using the same processor so if you setup state</span>
+        <span class="hljs-comment">// it should still exist.</span>
+        expect(harness.run(processor, harness.data.simple)).toEqual(newData);
+    });
+});
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="async-promise-based-processors-depreciated"></a><a href="#async-promise-based-processors-depreciated" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Async/Promise based processors DEPRECIATED</h2>
+<p>In some scenarios a processor will be asynchronous and needs to return a
+promise.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">var</span> processor = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../index'</span>);
+<span class="hljs-keyword">var</span> harness = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@terascope/teraslice-op-test-harness'</span>)(processor);
+
+describe(<span class="hljs-string">'The data doubles when'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">var</span> opConfig = {
+        <span class="hljs-attr">percentage</span>: <span class="hljs-number">100</span>
+    };
+
+    it(<span class="hljs-string">'using simple data and percentage is 100'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">done</span>) </span>{
+        <span class="hljs-keyword">var</span> processor = harness.getProcessor(opConfig);
+
+        <span class="hljs-comment">// First call on the processor can use the input to setup state</span>
+        harness.runAsync(processor, harness.data.simple)
+            .then(<span class="hljs-function">(<span class="hljs-params">result</span>) =&gt;</span> {
+                    expect(result).toEqual(newData);
+                    done();
+                });
+    });
+});
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="data-sources"></a><a href="#data-sources" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Data Sources</h2>
+<p>One of the main benefits of the testing harness is that it provides a consistent
+set of testing data sources.  All of these objects are properties of the harness
+in <code>data</code> property.  The following data sources are currently available:</p>
+<ul>
+<li><code>data.simple</code> - A very small and simple array of JSON objects.</li>
+<li><code>data.arrayLike</code> - An array of 10 &quot;log like&quot; JSON documents.</li>
+<li><code>data.esLike</code> - The same 10 documents as <code>data.arrayLike</code>, but structured like
+an Elasticsearch query response.</li>
+</ul>
+<p>These data sources can be used as the first argument to your processor in tests
+as shown below.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">var</span> processor = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../index'</span>);
+<span class="hljs-keyword">var</span> harness = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@terascope/teraslice-op-test-harness'</span>)(processor);
+
+describe(<span class="hljs-string">'The data doubles when'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    it(<span class="hljs-string">'using simple data and percentage is 100'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        expect(harness.run(harness.data.simple)).toEqual(harness.data.simple);
+    });
+});
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="common-tests"></a><a href="#common-tests" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Common Tests</h2>
+<p>The harness also provides a simple set of tests that can be used on any
+processor.  These tests will ensure that the processor you have implemented
+behaves as expected by Teraslice.</p>
+<p>To use these tests, you can simply import the harness, then call,
+<code>runProcessorSpecs()</code>, passing your processor in as an argument.  I recommend
+you implement this as a stand-alone file named <code>harness_spec.js</code> in your spec
+directory but it could be included at the top of another spec file.  Keeping it
+separate might help call out the fact that these specs are different from the
+tests you've implemented yourself because they come from somewhere else.</p>
+<pre><code class="hljs css language-javascript"><span class="hljs-meta">'use strict'</span>;
+
+<span class="hljs-keyword">var</span> processor = <span class="hljs-built_in">require</span>(<span class="hljs-string">'../index'</span>);
+<span class="hljs-keyword">var</span> harness = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@terascope/teraslice-op-test-harness'</span>)(processor);
+
+<span class="hljs-comment">// Run the tests provided by the harness</span>
+harness.runProcessorSpecs(processor);
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/packages/teraslice-messaging/overview"><span class="arrow-prev">← </span><span>teraslice-messaging</span></a><a class="docs-next button" href="/teraslice/docs/packages/teraslice-test-harness/overview"><span>teraslice-test-harness</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#processor-execution-function-init">Processor Execution Function - <code>init()</code></a></li><li><a href="#processor-execution-function-setclients">Processor Execution Function - <code>setClients()</code></a></li><li><a href="#processor-execution-function-processdata">Processor Execution Function <code>processData()</code></a></li><li><a href="#processor-execution-function-run-depreciated">Processor Execution Function - <code>run()</code> DEPRECIATED</a></li><li><a href="#multiple-calls-to-the-same-processor-instance-depreciated">Multiple calls to the same processor instance DEPRECIATED</a><ul class="toc-headings"><li><a href="#1-use-runslices-promise-depreciated">1 Use <code>runSlices() -&gt; Promise</code> DEPRECIATED</a></li><li><a href="#2-create-a-processor-instance-to-call-process-independently-depreciated">2. Create a processor instance to call <code>process()</code> independently DEPRECIATED</a></li></ul></li><li><a href="#async-promise-based-processors-depreciated">Async/Promise based processors DEPRECIATED</a></li><li><a href="#data-sources">Data Sources</a></li><li><a href="#common-tests">Common Tests</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/apis.html">API Reference</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div></body></html>

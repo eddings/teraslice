@@ -1,0 +1,213 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Teraslice Configuration · Teraslice</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;This entails information on how to set your configuration for teraslice itself. You may either set a config.json or config.yaml file at the root of teraslice or pass in the config file at startup time with the -c flag and the path to the file&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Teraslice Configuration · Teraslice"/><meta property="og:type" content="website"/><meta property="og:url" content="https://terascope.github.io/teraslice/index.html"/><meta property="og:description" content="&lt;p&gt;This entails information on how to set your configuration for teraslice itself. You may either set a config.json or config.yaml file at the root of teraslice or pass in the config file at startup time with the -c flag and the path to the file&lt;/p&gt;
+"/><meta property="og:image" content="https://terascope.github.io/teraslice/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://terascope.github.io/teraslice/img/docusaurus.png"/><link rel="shortcut icon" href="/teraslice/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://terascope.github.io/teraslice/blog/atom.xml" title="Teraslice Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://terascope.github.io/teraslice/blog/feed.xml" title="Teraslice Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/teraslice/css/main.css"/><script src="/teraslice/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/teraslice/"><img class="logo" src="/teraslice/img/logo.png" alt="Teraslice"/><h2 class="headerTitleWithLogo">Teraslice</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/teraslice/docs/overview" target="_self">Docs</a></li><li class=""><a href="/teraslice/docs/api" target="_self">API</a></li><li class=""><a href="/teraslice/docs/examples" target="_self">Examples</a></li><li class=""><a href="/teraslice/docs/packages" target="_self">Packages</a></li><li class=""><a href="/teraslice/help" target="_self">Help</a></li><li class=""><a href="/teraslice/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Configuration</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Overview</h3><ul class=""><li class="navListItem"><a class="navItem" href="/teraslice/docs/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/getting-started">Getting Started</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Configuration</h3><ul class=""><li class="navListItem navListItemActive"><a class="navItem" href="/teraslice/docs/configuration/teraslice">Teraslice</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/configuration/ops">Operations</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Clustering</h3><ul class=""><li class="navListItem"><a class="navItem" href="/teraslice/docs/clustering/k8s">K8s</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Development</h3><ul class=""><li class="navListItem"><a class="navItem" href="/teraslice/docs/development/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/development/releases">Releases</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/development/tests">Tests</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/development/e2e-tests">End-to-End Tests</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/development/contributing">Contributing</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Teraslice Configuration</h1></header><article><div><span><p>This entails information on how to set your configuration for teraslice itself. You may either set a config.json or config.yaml file at the root of teraslice or pass in the config file at startup time with the -c flag and the path to the file</p>
+<p>Example Config</p>
+<pre><code class="hljs css language-json">{
+  "teraslice": {
+    "master": true,
+    "network_timeout": 20000,
+    "master_hostname": "SomeIP",
+    "name": "teracluster",
+    "assets_directory": "/Some/path/to/assets_ops",
+    "workers": 8,
+    "shutdown_timeout": 60000
+  },
+  "terafoundation": {
+    "environment": "development",
+    "logging": "elasticsearch",
+    "log_path": "/some/path/to/logs",
+    "log_level": [{console: "warn"},{elasticsearch: "info"}]
+    "connectors": {
+      "elasticsearch": {
+        "default": {
+          "host": [
+            "127.0.0.1:9200"
+          ],
+          "keepAlive": true,
+          "maxRetries": 5,
+          "maxSockets": 20
+        }
+      },
+      "mongo": {
+        "default": {
+          "host": "127.0.0.1",
+          "mock": false
+        }
+      }
+    }
+  }
+}
+
+</code></pre>
+<p>The configuration file essentially has two main fields, configuration for teraslice and for terafoundation which is a module that sits below it. terafoundation handles clustering/worker creation, general errors and database connection instantiation</p>
+<h2><a class="anchor" aria-hidden="true" id="teraslice"></a><a href="#teraslice" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>teraslice</h2>
+<table>
+<thead>
+<tr><th style="text-align:center">Configuration</th><th style="text-align:center">Description</th><th style="text-align:center">Type</th><th style="text-align:center">Notes</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center">assets_directory</td><td style="text-align:center">'path/to/directory', to look for more custom readers and processors. Usually this is where you place your custom code not part of core, unless you want to leave your code in place.</td><td style="text-align:center">String</td><td style="text-align:center">optional</td></tr>
+<tr><td style="text-align:center">action_timeout</td><td style="text-align:center">time in milliseconds for waiting for a action ( pause/stop job, etc) to complete before throwing an error</td><td style="text-align:center">Number</td><td style="text-align:center">optional, defaults to 300000 ms</td></tr>
+<tr><td style="text-align:center">network_latency_buffer</td><td style="text-align:center">time in milliseconds buffer which is combined with action_timeout to determine how long the cluster master will wait till it throws an error</td><td style="text-align:center">Number</td><td style="text-align:center">optional, defaults to 15000 ms</td></tr>
+<tr><td style="text-align:center">worker_disconnect_timeout</td><td style="text-align:center">time in milliseconds that the slicer will wait after all workers have disconnected before terminating the job</td><td style="text-align:center">Number</td><td style="text-align:center">optional, defaults to 300000 ms or 5 minutes</td></tr>
+<tr><td style="text-align:center">node_disconnect_timeout</td><td style="text-align:center">time in milliseconds that the cluster  will wait untill it drops that node from state and attempts to provision the lost workers</td><td style="text-align:center">Number</td><td style="text-align:center">optional, defaults to 300000 ms or 5 minutes</td></tr>
+<tr><td style="text-align:center">shutdown_timeout</td><td style="text-align:center">time in milliseconds, to allow workers and slicers to finish operations before forcefully shutting down when a shutdown signal occurs</td><td style="text-align:center">Number</td><td style="text-align:center">optional, defaults to 60 seconds (60000 ms)</td></tr>
+<tr><td style="text-align:center">hostname</td><td style="text-align:center">IP or hostname for server</td><td style="text-align:center">String</td><td style="text-align:center">required, this is used to identify your nodes</td></tr>
+<tr><td style="text-align:center">workers</td><td style="text-align:center">This represents the maximum number of workers that is node is permitted to make, must be set to a number greater than zero. This is currently hard set, and to change this number it must require a reboot and configuration change</td><td style="text-align:center">Number</td><td style="text-align:center">optional, defaults to the amount of cpu cores your system is running on</td></tr>
+<tr><td style="text-align:center">master</td><td style="text-align:center">determine if cluster_master should live on this node</td><td style="text-align:center">Boolean</td><td style="text-align:center">optional, defaults to false,</td></tr>
+<tr><td style="text-align:center">master_hostname</td><td style="text-align:center">hostname where the cluster_master resides, used to notify all node_masters where to connect</td><td style="text-align:center">String</td><td style="text-align:center">required, defaults to 'localhost'</td></tr>
+<tr><td style="text-align:center">port</td><td style="text-align:center">port for the cluster_master to listen on, this is the port that is exposed externally for the api</td><td style="text-align:center">Number</td><td style="text-align:center">optional, defaults to 5678</td></tr>
+<tr><td style="text-align:center">name</td><td style="text-align:center">Name for the cluster itself, its used for naming log files/indices</td><td style="text-align:center">String</td><td style="text-align:center">defaults to 'teracluster',</td></tr>
+<tr><td style="text-align:center">state</td><td style="text-align:center">Elasticsearch cluster where job state, analytics and logs are stored</td><td style="text-align:center">Object</td><td style="text-align:center">optional, defaults to {connection: 'default'},</td></tr>
+<tr><td style="text-align:center">slicer_port_range</td><td style="text-align:center">range of ports that slicers will use per node</td><td style="text-align:center">String</td><td style="text-align:center">optional, defaults to range: '45678:46678'</td></tr>
+<tr><td style="text-align:center">slicer_allocation_attempts</td><td style="text-align:center">The number of times a slicer will try to be allocated before failing</td><td style="text-align:center">Number</td><td style="text-align:center">optional, defaults to 3</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="terafoundation"></a><a href="#terafoundation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>terafoundation</h3>
+<table>
+<thead>
+<tr><th style="text-align:center">Configuration</th><th style="text-align:center">Description</th><th style="text-align:center">Type</th><th style="text-align:center">Notes</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center">log_path</td><td style="text-align:center">Path to where you would like to store logs pertaining to jobs as well as system logs</td><td style="text-align:center">String</td><td style="text-align:center">optional, defaults to the executing directory</td></tr>
+<tr><td style="text-align:center">environment</td><td style="text-align:center">Set to either development or production, in development logs are sent to the console, while in production they are written to file located within the dir you specify at log_path</td><td style="text-align:center">String</td><td style="text-align:center">defaults to development</td></tr>
+<tr><td style="text-align:center">connectors</td><td style="text-align:center">List of all databases used and connection configurations</td><td style="text-align:center">Object</td><td style="text-align:center">required</td></tr>
+<tr><td style="text-align:center">logging</td><td style="text-align:center">an array of options to specify which logging functionality to use, options: ['console', 'file', 'elasticsearch'], respectively sends logging to all those locations</td><td style="text-align:center">Array</td><td style="text-align:center">optional, defaults to ['console'], if environment is set to production, it will ignore console and add file</td></tr>
+<tr><td style="text-align:center">log_level</td><td style="text-align:center">what level of logs should be shown or saved. possible values: trace, debug, info, warn, error, fatal. if value is a string, all logging function will use that, if you specify an array then you make customize what level of logs go where. example of array =&gt; [{console: 'warn'}, {elasticsearch: 'info'}]</td><td style="text-align:center">String or Array</td><td style="text-align:center">optional, defaults to &quot;info&quot;</td></tr>
+<tr><td style="text-align:center">log_buffer_limit</td><td style="text-align:center">the number of logs stored in the ringbuffer on the logger before sent, logging must have elasticsearch set as a value for this to take effect</td><td style="text-align:center">Number</td><td style="text-align:center">optional, defaults to  30</td></tr>
+<tr><td style="text-align:center">log_buffer_interval</td><td style="text-align:center">interval (number in milliseconds) that the log buffer will send up its logs to elasticsearch if its enabled, used to prevent hanging logs of different services if they haven't hit the limit</td><td style="text-align:center">Number</td><td style="text-align:center">optional, default to 60000m which is one minute</td></tr>
+</tbody>
+</table>
+<h5><a class="anchor" aria-hidden="true" id="connectors"></a><a href="#connectors" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>connectors</h5>
+<p>The connectors is an object whose keys correspond to supported databases. Those keys should be set to an object which holds
+endpoints, allowing you to specify multiple connections and connection configurations for each database.</p>
+<p>For Example</p>
+<pre><code class="hljs css language-json">"connectors": {
+      "elasticsearch": {
+        "default": {
+          "host": [
+            "127.0.0.1:9200"
+          ],
+          "keepAlive": false,
+          "maxRetries": 5,
+          "maxSockets": 20
+        },
+        "secondary": {
+          "host": [
+             "someOtherIP:9200"
+          ],
+          "keepAlive": true,
+          "maxRetries": 8,
+          "maxSockets": 30
+        }
+      },
+      "statsd": {
+        "default": {
+          "host": "127.0.0.1",
+          "mock": false
+        }
+      },
+      "mongodb": {
+        "default": {
+          "servers": "mongodb://localhost:27017/test"
+        }
+      },
+      "redis": {
+        "default": {
+          "host": "127.0.0.1"
+        }
+      }
+    }
+</code></pre>
+<p>In this example we specify four different connections: elasticsearch, statsd, mongod, and redis. We follow an idiom of naming the primary endpoint for each of them to be called <code>default</code>. Within each endpoint you may create custom configurations that will be validated against the defaults specified in node_modules/terafoundation/lib/connectors. As noted above, in elasticsearch there is the <code>default</code> endpoint and the <code>secondary</code> endpoint which connects to a different elasticsearch cluster each having different configurations. These different endpoints can be retrieved through terafoundations's api.</p>
+<h1><a class="anchor" aria-hidden="true" id="configuration-single-node-cluster-master"></a><a href="#configuration-single-node-cluster-master" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration Single Node / Cluster Master</h1>
+<p>Teraslice requires a configuration file in order to run. The configuration file defines your service connections and system level configurations.</p>
+<p>This configuration example defines a single connection to Elasticsearch on localhost with 8 workers available to Teraslice.</p>
+<p>The cluster configuration defines this node as a master node. The node will still have workers
+available and this configuration is sufficient to do useful work if you don't have multiple
+nodes available. The workers will connect to the master on localhost and do work just as if they were in a real cluster.</p>
+<pre><code class="hljs css language-yaml"><span class="hljs-attr">teraslice:</span>
+<span class="hljs-attr">    workers:</span> <span class="hljs-number">8</span>
+<span class="hljs-attr">    master:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">    master_hostname:</span> <span class="hljs-string">"127.0.0.1"</span>
+<span class="hljs-attr">    name:</span> <span class="hljs-string">"teracluster"</span>
+
+<span class="hljs-attr">terafoundation:</span>
+<span class="hljs-attr">    environment:</span> <span class="hljs-string">'development'</span>
+<span class="hljs-attr">    log_path:</span> <span class="hljs-string">'/path/to/logs'</span>
+
+<span class="hljs-attr">    connectors:</span>
+<span class="hljs-attr">        elasticsearch:</span>
+<span class="hljs-attr">            default:</span>
+<span class="hljs-attr">                host:</span>
+<span class="hljs-bullet">                    -</span> <span class="hljs-string">"localhost:9200"</span>
+</code></pre>
+<h1><a class="anchor" aria-hidden="true" id="configuration-cluster-worker-node"></a><a href="#configuration-cluster-worker-node" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration Cluster Worker Node</h1>
+<p>Configuration for a worker node is very similar. You just set 'master' to false and provide the IP address where the master node can be located.</p>
+<pre><code class="hljs css language-yaml"><span class="hljs-attr">teraslice:</span>
+<span class="hljs-attr">    workers:</span> <span class="hljs-number">8</span>
+<span class="hljs-attr">    master:</span> <span class="hljs-literal">false</span>
+<span class="hljs-attr">    master_hostname:</span> <span class="hljs-string">"YOUR_MASTER_IP"</span>
+<span class="hljs-attr">    name:</span> <span class="hljs-string">"teracluster"</span>
+
+<span class="hljs-attr">terafoundation:</span>
+<span class="hljs-attr">    environment:</span> <span class="hljs-string">'development'</span>
+<span class="hljs-attr">    log_path:</span> <span class="hljs-string">'/path/to/logs'</span>
+
+<span class="hljs-attr">    connectors:</span>
+<span class="hljs-attr">        elasticsearch:</span>
+<span class="hljs-attr">            default:</span>
+<span class="hljs-attr">                host:</span>
+<span class="hljs-attr">                    - "YOUR_MASTER_IP":</span><span class="hljs-number">9200</span>
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/getting-started"><span class="arrow-prev">← </span><span>Getting Started</span></a><a class="docs-next button" href="/teraslice/docs/configuration/ops"><span>Operations</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#teraslice">teraslice</a><ul class="toc-headings"><li><a href="#terafoundation">terafoundation</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/apis.html">API Reference</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div></body></html>

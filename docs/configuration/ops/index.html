@@ -1,0 +1,257 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Operation Configuration · Teraslice</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;A job configuration is the main way a Teraslice user describes the processing they want done. This page provides a detailed description of the configurations available for a job.&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Operation Configuration · Teraslice"/><meta property="og:type" content="website"/><meta property="og:url" content="https://terascope.github.io/teraslice/index.html"/><meta property="og:description" content="&lt;p&gt;A job configuration is the main way a Teraslice user describes the processing they want done. This page provides a detailed description of the configurations available for a job.&lt;/p&gt;
+"/><meta property="og:image" content="https://terascope.github.io/teraslice/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://terascope.github.io/teraslice/img/docusaurus.png"/><link rel="shortcut icon" href="/teraslice/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://terascope.github.io/teraslice/blog/atom.xml" title="Teraslice Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://terascope.github.io/teraslice/blog/feed.xml" title="Teraslice Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/teraslice/css/main.css"/><script src="/teraslice/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/teraslice/"><img class="logo" src="/teraslice/img/logo.png" alt="Teraslice"/><h2 class="headerTitleWithLogo">Teraslice</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/teraslice/docs/overview" target="_self">Docs</a></li><li class=""><a href="/teraslice/docs/api" target="_self">API</a></li><li class=""><a href="/teraslice/docs/examples" target="_self">Examples</a></li><li class=""><a href="/teraslice/docs/packages" target="_self">Packages</a></li><li class=""><a href="/teraslice/help" target="_self">Help</a></li><li class=""><a href="/teraslice/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Configuration</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Overview</h3><ul class=""><li class="navListItem"><a class="navItem" href="/teraslice/docs/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/getting-started">Getting Started</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Configuration</h3><ul class=""><li class="navListItem"><a class="navItem" href="/teraslice/docs/configuration/teraslice">Teraslice</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/teraslice/docs/configuration/ops">Operations</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Clustering</h3><ul class=""><li class="navListItem"><a class="navItem" href="/teraslice/docs/clustering/k8s">K8s</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Development</h3><ul class=""><li class="navListItem"><a class="navItem" href="/teraslice/docs/development/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/development/releases">Releases</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/development/tests">Tests</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/development/e2e-tests">End-to-End Tests</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/development/contributing">Contributing</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Operation Configuration</h1></header><article><div><span><p>A job configuration is the main way a Teraslice user describes the processing they want done. This page provides a detailed description of the configurations available for a job.</p>
+<ul>
+<li><a href="#job-configuration">Job Configuration</a>
+<ul>
+<li><a href="#operation-level-configuration-options">Operation level configuration options</a></li>
+<li><a href="#api-level-configuration-options">API level configuration options</a></li>
+</ul></li>
+<li><a href="#processors">Processors</a>
+<ul>
+<li><a href="#script">script</a></li>
+<li><a href="#stdout">stdout</a></li>
+<li><a href="#noop">noop</a></li>
+<li><a href="#delay">delay</a></li>
+</ul></li>
+<li><a href="#bundles">Bundles</a>
+<ul>
+<li><a href="#elasticsearch">elasticsearch</a></li>
+<li><a href="#kafka">kafka</a></li>
+<li><a href="#file">file</a></li>
+<li><a href="#hdfs">hdfs</a></li>
+</ul></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="job-configuration"></a><a href="#job-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Job Configuration</h2>
+<p><strong>The schema for jobs can be found at lib/config/schemas/job, and the schema's for each operation can be found in their respective file located in either lib/readers or lib/processors</strong></p>
+<p>Example Job</p>
+<pre><code class="hljs css language-js">{
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"Reindex Events"</span>,
+    <span class="hljs-string">"lifecycle"</span>: <span class="hljs-string">"once"</span>,
+    <span class="hljs-string">"analytics"</span>: <span class="hljs-literal">false</span>,
+    <span class="hljs-string">"assets"</span>: [<span class="hljs-string">"elasticsearch"</span>],
+    <span class="hljs-string">"recycle_worker"</span> : <span class="hljs-number">10000</span>,
+    <span class="hljs-string">"operations"</span>: [
+        {
+            <span class="hljs-string">"_op"</span>: <span class="hljs-string">"elasticsearch_reader"</span>,
+            <span class="hljs-string">"index"</span>: <span class="hljs-string">"events-*"</span>,
+            <span class="hljs-string">"type"</span>: <span class="hljs-string">"event"</span>,
+            <span class="hljs-string">"size"</span>: <span class="hljs-number">5000</span>,
+            <span class="hljs-string">"date_field_name"</span>: <span class="hljs-string">"created"</span>
+        },
+        {
+            <span class="hljs-string">"_op"</span>: <span class="hljs-string">"custom_op"</span>,
+            <span class="hljs-string">"some"</span>: <span class="hljs-string">"configuration"</span>
+        },
+        {
+            <span class="hljs-string">"_op"</span>: <span class="hljs-string">"elasticsearch_index_selector"</span>,
+            <span class="hljs-string">"index"</span>: <span class="hljs-string">"bigdata3"</span>,
+            <span class="hljs-string">"type"</span>: <span class="hljs-string">"events"</span>
+        },
+        {
+            <span class="hljs-string">"_op"</span>: <span class="hljs-string">"elasticsearch_bulk"</span>,
+            <span class="hljs-string">"size"</span>: <span class="hljs-number">5000</span>
+        }
+    ]
+}
+</code></pre>
+<p>Note that the job configuration is divided into top level job configuration, and configuration per each individual operation withing the operations array.</p>
+<table>
+<thead>
+<tr><th>Configuration</th><th>Description</th><th>Type</th><th>Notes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>name</code></td><td>Name for the given job</td><td><code>String</code></td><td>optional</td></tr>
+<tr><td><code>lifecycle</code></td><td>Determines system exiting behaviour. Set to either <strong>&quot;once&quot;</strong> which will run the job to completion then the process will exit or <strong>&quot;persistent&quot;</strong> in which the process will continue until it is shutdown manually.</td><td><code>String</code></td><td>required</td></tr>
+<tr><td><code>analytics</code></td><td>Determines if analytics should be ran for each slice</td><td><code>Boolean</code></td><td>optional, defaults to true</td></tr>
+<tr><td><code>max_retries</code></td><td>Number of times a given slice of data will attempt to process before continuing on</td><td><code>Number</code></td><td>optional</td></tr>
+<tr><td><code>slicers</code></td><td>Number of slicer functions that will chunk and prep the data for worker</td><td><code>Number</code></td><td>optional, defaults to 1</td></tr>
+<tr><td><code>workers</code></td><td>Number of worker instances that will process data, depending on the nature of the operations you may choose to over subscribe the number of workers compared to the number of cpu's</td><td>Number</td><td>optional, defaults to 5, if the number of workers for the job is set above workers specified in system configuration, a warning is passed and the workers set in the system configuration will be used.</td></tr>
+<tr><td><code>assets</code></td><td>An array of strings that are the id's for the corresponding assets zip files.</td><td><code>Array</code></td><td>optional</td></tr>
+<tr><td><code>recycle_worker</code></td><td>The number of slices a worker processes before it exits and restarts, only use if you have leaky workers</td><td><code>Null</code>/<code>Number</code></td><td>optional, defaults to null, if specified it must be a number.</td></tr>
+<tr><td><code>operations</code></td><td>An array containing all the operations as well as their configurations. Typically the first is the reader/slicer.</td><td><code>Array</code></td><td>required</td></tr>
+<tr><td><code>apis</code></td><td>An array containing all the apis as well as their configurations.</td><td><code>Array</code></td><td>required</td></tr>
+<tr><td><code>probation_window</code></td><td>time in ms that the execution controller checks for failed slices, if there are none then it updates the state of the execution to running (this is only when lifecycle is set to persistent)</td><td><code>Number</code></td><td>optional</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="operation-level-configuration-options"></a><a href="#operation-level-configuration-options" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Operation level configuration options</h3>
+<p>Here is a list of configuration options that all operations have available to them.</p>
+<table>
+<thead>
+<tr><th>Configuration</th><th>Description</th><th>Type</th><th>Notes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>_op</code></td><td>Name of operation, it must reflect the exact name of the file</td><td><code>String</code></td><td>required</td></tr>
+<tr><td><code>_encoding</code></td><td>Used for specifying the data encoding type when using <code>DataEntity.fromBuffer</code>. Defaults to <code>json</code>.</td><td><code>String</code></td><td>optional</td></tr>
+<tr><td><code>_dead_letter_action</code></td><td>This action will specify what to do when failing to parse or transform a record. ​​​​​The following builtin actions are supported, &quot;throw&quot;, &quot;log&quot;, or &quot;none&quot;. If none of the actions are specified it will try and use a registered Dead Letter Queue API under that name.The API must be already be created by a operation before it can used.​</td><td><code>String</code></td><td>required</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="api-level-configuration-options"></a><a href="#api-level-configuration-options" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>API level configuration options</h3>
+<p>Here is a list of configuration options that all APIs have available to them.</p>
+<table>
+<thead>
+<tr><th>Configuration</th><th>Description</th><th>Type</th><th>Notes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>_name</code></td><td>The _name property is required, and it is required to be unqiue but can be suffixed with a identifier by using the format &quot;example:0&quot;, anything after the &quot;:&quot; is stripped out when searching for the file or folder.</td><td><code>String</code></td><td>required</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="processors"></a><a href="#processors" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Processors</h2>
+<h3><a class="anchor" aria-hidden="true" id="script"></a><a href="#script" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>script</h3>
+<p>This is used to allow other languages other than javascript to process data. Note that this is not meant to be highly efficient as it creates a child process that runs the specified script in the job.  Communication between teraslice and the script is done stdin and stdout with the data format expected to be JSON. If another language is needed, it might be a better idea to use C++ or rust to add a module that Node can create native bindings so that you can require the code like a regular javascript module.</p>
+<p>Example configuration</p>
+<pre><code class="hljs css language-js">{
+    <span class="hljs-string">"_op"</span>: <span class="hljs-string">"script"</span>,
+    <span class="hljs-string">"command"</span>: <span class="hljs-string">"someFile.py"</span>,
+    <span class="hljs-string">"args"</span>: [<span class="hljs-string">"-someFlag1"</span>, <span class="hljs-string">"-someFlag2"</span>],
+    <span class="hljs-string">"asset"</span>: <span class="hljs-string">"someAsset"</span>,
+    <span class="hljs-string">"options"</span>: {}
+}
+</code></pre>
+<p>Example Job: <code>examples/jobs/script/test_script_job.json</code></p>
+<pre><code class="hljs css language-js">{
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"ES DataGen test script"</span>,
+    <span class="hljs-string">"lifecycle"</span>: <span class="hljs-string">"persistent"</span>,
+    <span class="hljs-string">"workers"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-string">"assets"</span>: [<span class="hljs-string">"elasticsearch"</span>],
+    <span class="hljs-string">"operations"</span>: [
+        {
+            <span class="hljs-string">"_op"</span>: <span class="hljs-string">"elasticsearch_data_generator"</span>,
+            <span class="hljs-string">"size"</span>: <span class="hljs-number">100000</span>,
+            <span class="hljs-string">"stress_test"</span>: <span class="hljs-literal">true</span>
+        },
+        {
+            <span class="hljs-string">"_op"</span>: <span class="hljs-string">"script"</span>,
+            <span class="hljs-string">"command"</span>: <span class="hljs-string">"test_script.py"</span>,
+            <span class="hljs-string">"asset"</span>: <span class="hljs-string">"test_script"</span>,
+            <span class="hljs-string">"args"</span>: [<span class="hljs-string">""</span>],
+            <span class="hljs-string">"options"</span>: {}
+        },
+        {
+            <span class="hljs-string">"_op"</span>: <span class="hljs-string">"noop"</span>
+        }
+    ]
+}
+</code></pre>
+<table>
+<thead>
+<tr><th>Configuration</th><th>Description</th><th>Type</th><th>Notes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>_op</code></td><td>Name of operation, it must reflect the exact name of the file</td><td><code>String</code></td><td>required</td></tr>
+<tr><td><code>command</code></td><td>what command to run</td><td>String</td><td>required</td></tr>
+<tr><td><code>args</code></td><td>arguments to pass along with the command</td><td><code>Array</code></td><td>optional</td></tr>
+<tr><td><code>options</code></td><td>Obj containing options to pass into the process env</td><td><code>Object</code></td><td>optional</td></tr>
+<tr><td><code>asset</code></td><td>Name of asset containing command to run</td><td><code>String</code></td><td>optional</td></tr>
+</tbody>
+</table>
+<p>Note: <a href="https://nodejs.org/dist/latest-v8.x/docs/api/child_process.html#child_process_child_process_spawn_command_args_options"> nodejs 8.x spawn documentation </a></p>
+<p><strong>script usage example:</strong></p>
+<p>Create and upload asset</p>
+<pre><code class="hljs css language-bash"><span class="hljs-built_in">cd</span> examples/<span class="hljs-built_in">jobs</span>/script
+zip -r test_script.zip test_script
+curl -XPOST -H <span class="hljs-string">"Content-Type: application/octet-stream"</span> localhost:5678/assets --data-binary @test_script.zip
+</code></pre>
+<p>Submit Job</p>
+<pre><code class="hljs css language-bash">curl -XPOST localhost:5678/<span class="hljs-built_in">jobs</span> -d@test_script_job.json
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="stdout"></a><a href="#stdout" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>stdout</h3>
+<p>This is primarily used for develop purposes, it console logs the incoming data, it's meant to inspect in between operations or end of outputs</p>
+<p>Example configuration</p>
+<pre><code class="hljs css language-js">{
+    <span class="hljs-string">"_op"</span>: <span class="hljs-string">"stdout"</span>
+}
+</code></pre>
+<table>
+<thead>
+<tr><th>Configuration</th><th>Description</th><th>Type</th><th>Notes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>limit</code></td><td>Specify a number &gt; 0 to limit the number of results printed to the console log.  Default is to print all results.</td><td><code>Number</code></td><td>optional</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="noop"></a><a href="#noop" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>noop</h3>
+<p>This processor simply passes the data through, unmodified. It is primarily used for develop purposes.</p>
+<p>Example configuration</p>
+<pre><code class="hljs css language-js">{
+    <span class="hljs-string">"_op"</span>: <span class="hljs-string">"noop"</span>
+}
+</code></pre>
+<p>There is no configuration for this processor.</p>
+<h3><a class="anchor" aria-hidden="true" id="delay"></a><a href="#delay" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>delay</h3>
+<p>Wait a specific amount of time, and passes the data through.</p>
+<p>Example configuration</p>
+<pre><code class="hljs css language-js">{
+    <span class="hljs-string">"_op"</span>: <span class="hljs-string">"delay"</span>,
+    <span class="hljs-string">"ms"</span>: <span class="hljs-number">1000</span>
+}
+</code></pre>
+<table>
+<thead>
+<tr><th>Configuration</th><th>Description</th><th>Type</th><th>Notes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>ms</code></td><td>Milliseconds to delay before passing data through</td><td><code>Number</code></td><td>optional, defaults to <code>100</code></td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="bundles"></a><a href="#bundles" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bundles</h2>
+<p>We support a few asset bundles for dealing with different data sources and operations.</p>
+<h3><a class="anchor" aria-hidden="true" id="elasticsearch"></a><a href="#elasticsearch" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>elasticsearch</h3>
+<p><a href="https://github.com/terascope/elasticsearch-assets/blob/master/README.md">Documentation</a></p>
+<h3><a class="anchor" aria-hidden="true" id="kafka"></a><a href="#kafka" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>kafka</h3>
+<p><a href="https://github.com/terascope/kafka-assets/blob/master/README.md">Documentation</a></p>
+<h3><a class="anchor" aria-hidden="true" id="file"></a><a href="#file" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>file</h3>
+<p><a href="https://github.com/terascope/file-assets/blob/master/README.md">Documentation</a></p>
+<h3><a class="anchor" aria-hidden="true" id="hdfs"></a><a href="#hdfs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>hdfs</h3>
+<p><a href="https://github.com/terascope/hdfs-assets/blob/master/README.md">Documentation</a></p>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/configuration/teraslice"><span class="arrow-prev">← </span><span>Teraslice</span></a><a class="docs-next button" href="/teraslice/docs/clustering/k8s"><span>K8s</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#job-configuration">Job Configuration</a><ul class="toc-headings"><li><a href="#operation-level-configuration-options">Operation level configuration options</a></li><li><a href="#api-level-configuration-options">API level configuration options</a></li></ul></li><li><a href="#processors">Processors</a><ul class="toc-headings"><li><a href="#script">script</a></li><li><a href="#stdout">stdout</a></li><li><a href="#noop">noop</a></li><li><a href="#delay">delay</a></li></ul></li><li><a href="#bundles">Bundles</a><ul class="toc-headings"><li><a href="#elasticsearch">elasticsearch</a></li><li><a href="#kafka">kafka</a></li><li><a href="#file">file</a></li><li><a href="#hdfs">hdfs</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/apis.html">API Reference</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div></body></html>

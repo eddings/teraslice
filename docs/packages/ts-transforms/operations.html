@@ -1,0 +1,664 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Transform Operations · Teraslice</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;blockquote&gt;
+&lt;p&gt;All transform operations available&lt;/p&gt;
+&lt;/blockquote&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Transform Operations · Teraslice"/><meta property="og:type" content="website"/><meta property="og:url" content="https://terascope.github.io/teraslice/index.html"/><meta property="og:description" content="&lt;blockquote&gt;
+&lt;p&gt;All transform operations available&lt;/p&gt;
+&lt;/blockquote&gt;
+"/><meta property="og:image" content="https://terascope.github.io/teraslice/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://terascope.github.io/teraslice/img/docusaurus.png"/><link rel="shortcut icon" href="/teraslice/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://terascope.github.io/teraslice/blog/atom.xml" title="Teraslice Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://terascope.github.io/teraslice/blog/feed.xml" title="Teraslice Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/teraslice/css/main.css"/><script src="/teraslice/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/teraslice/"><img class="logo" src="/teraslice/img/logo.png" alt="Teraslice"/><h2 class="headerTitleWithLogo">Teraslice</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/teraslice/docs/overview" target="_self">Docs</a></li><li class=""><a href="/teraslice/docs/api" target="_self">API</a></li><li class=""><a href="/teraslice/docs/examples" target="_self">Examples</a></li><li class="siteNavGroupActive"><a href="/teraslice/docs/packages" target="_self">Packages</a></li><li class=""><a href="/teraslice/help" target="_self">Help</a></li><li class=""><a href="/teraslice/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Packages</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Overview</h3><ul class=""><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages">Overview</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Packages</h3><ul class=""><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/data-access/overview">data-access</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/elasticsearch-store/overview">elasticsearch-store</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/terafoundation/overview">terafoundation</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/teraslice/overview">teraslice</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/teraslice-cli/overview">teraslice-cli</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/teraslice-client-js/overview">teraslice-client-js</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">ts-transforms</h4><ul><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/ts-transforms/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/ts-transforms/plugins">Plugins</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/teraslice/docs/packages/ts-transforms/operations">Operations</a></li></ul></div><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/xlucene-evaluator/overview">xlucene-evaluator</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle">Internal Packages</h3><ul class=""><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/docker-compose-js/overview">docker-compose-js</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/elasticsearch-api/overview">elasticsearch-api</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/error-parser/overview">error-parser</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/generator-teraslice/overview">generator-teraslice</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/job-components/overview">job-components</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/queue/overview">queue</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/teraslice-messaging/overview">teraslice-messaging</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/teraslice-op-test-harness/overview">teraslice-op-test-harness</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/teraslice-test-harness/overview">teraslice-test-harness</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/utils/overview">utils</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Transform Operations</h1></header><article><div><span><blockquote>
+<p>All transform operations available</p>
+</blockquote>
+<h2><a class="anchor" aria-hidden="true" id="transforms"></a><a href="#transforms" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Transforms</h2>
+<p>transform globals: config parameters that may be put on any transform configurations</p>
+<ul>
+<li>output : <code>Booelan</code>(optional) = if set to true then the <code>target_field</code> listed in the configuration will be removed in the final output phase. This is used to clean up any intermediate or source values from the final output</li>
+</ul>
+<p>Example:</p>
+<pre><code class="hljs css language-ts"><span class="hljs-comment">// rules</span>
+<span class="hljs-comment">/* here we extract the field value and stick it on the first_name and last_name keys and we mark them as output false so they are not in the final results
+*/</span>
+{<span class="hljs-string">"selector"</span>: <span class="hljs-string">"hello:world"</span>, <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"first"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"first_name"</span>, <span class="hljs-string">"output"</span>: <span class="hljs-literal">false</span>}
+{<span class="hljs-string">"selector"</span>: <span class="hljs-string">"hello:world"</span>, <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"last"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"last_name"</span>, <span class="hljs-string">"output"</span>: <span class="hljs-literal">false</span>}
+{<span class="hljs-string">"selector"</span>: <span class="hljs-string">"hello:world"</span>,<span class="hljs-string">"post_process"</span>: <span class="hljs-string">"join"</span>,<span class="hljs-string">"fields"</span>: [<span class="hljs-string">"first_name"</span>, <span class="hljs-string">"last_name"</span>],<span class="hljs-string">"delimiter"</span>: <span class="hljs-string">" "</span>,<span class="hljs-string">"target_field"</span>: <span class="hljs-string">"full_name"</span>}
+
+<span class="hljs-comment">// Incoming Data to transform</span>
+[{ first: <span class="hljs-string">'John'</span>, last: <span class="hljs-string">'Wayne'</span> }]
+
+<span class="hljs-comment">// Results</span>
+
+[{ full_name: <span class="hljs-string">'John Wayne'</span> }]
+
+</code></pre>
+<ul>
+<li>other_match_required : <code>Booelan</code>(optional) = If set to true, then it sets a conditional for this field that the final object must have other keys that do not have the <code>other_match_required</code> flag to appear in the resulting object in order for this field to be set. This is used to pass along certain fields/metadata if another field passes extraction/validation etc.</li>
+</ul>
+<p>Example:</p>
+<pre><code class="hljs css language-ts"><span class="hljs-comment">// rules</span>
+<span class="hljs-comment">/* here we extract the url, date and key value. date and key WILL NOT BE EXTRACTED  if there was no succesfull extraction of value or value2
+*/</span>
+{ <span class="hljs-string">"selector"</span>: <span class="hljs-string">"domain:example.com"</span>, <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"url"</span>, <span class="hljs-string">"start"</span>: <span class="hljs-string">"value="</span>, <span class="hljs-string">"end"</span>: <span class="hljs-string">"EOP"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"value"</span> }
+{ <span class="hljs-string">"selector"</span>: <span class="hljs-string">"domain:example.com"</span>, <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"url"</span>, <span class="hljs-string">"start"</span>: <span class="hljs-string">"value2="</span>, <span class="hljs-string">"end"</span>: <span class="hljs-string">"EOP"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"value2"</span> }
+{ <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"date"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"date"</span>, <span class="hljs-string">"other_match_required"</span>: <span class="hljs-literal">true</span> }
+{ <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"key"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"key"</span>, <span class="hljs-string">"other_match_required"</span>: <span class="hljs-literal">true</span> }
+
+<span class="hljs-comment">// Incoming Data to transform</span>
+[
+    { domain: <span class="hljs-string">'example.com'</span>, url: <span class="hljs-string">'http:// www.example.com/path?value=blah&amp;value2=moreblah&amp;value3=evenmoreblah'</span> , date: <span class="hljs-string">'2019-01-29T14:29:27.097Z'</span>, key: <span class="hljs-string">'123456789'</span> },
+    <span class="hljs-comment">// Note that this next data object has date and key but no url to extract</span>
+    { domain: <span class="hljs-string">'example.com'</span>, some: <span class="hljs-string">'otherField'</span> , date: <span class="hljs-string">'2019-01-29T14:29:27.097Z'</span>, key: <span class="hljs-string">'123456789'</span> },
+]
+
+<span class="hljs-comment">// Results:</span>
+<span class="hljs-comment">/*
+    since there was no url for to extract for the second object, date and key were dropped. Since it then became an empty object it was subsequently removed since there was no succesful extraction. Hence only one result object was returned.
+*/</span>
+
+[{
+    value: <span class="hljs-string">'blah'</span>,
+    value2: <span class="hljs-string">'moreblah'</span>,
+    key: <span class="hljs-string">'123456789'</span>,
+    date: <span class="hljs-string">'2019-01-29T14:29:27.097Z'</span>
+}]
+
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="selector"></a><a href="#selector" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>selector</h3>
+<p>This is a filtering operator and determines is the documnet matches a certain criteria to let it pass, otherwise the document is removed from the list.</p>
+<ul>
+<li>selector: <code>String</code> = a lucene based query from <a href="https://github.com/terascope/teraslice/tree/master/packages/xlucene-evaluator">xlucene-evaluator</a></li>
+</ul>
+<p><strong>Note</strong></p>
+<ul>
+<li>having multiple extraction configs specify the same selector will bundle all the extractions on the same document.</li>
+</ul>
+<p>rules.txt</p>
+<pre><code class="hljs css language-txt">{<span class="hljs-attr">"selector"</span>: <span class="hljs-string">"hello:world"</span>, <span class="hljs-attr">"source_field"</span>: <span class="hljs-string">"first"</span>, <span class="hljs-attr">"target_field"</span>: <span class="hljs-string">"first_name"</span>}
+{<span class="hljs-attr">"selector"</span>: <span class="hljs-string">"hello:world"</span>, <span class="hljs-attr">"source_field"</span>: <span class="hljs-string">"last"</span>, <span class="hljs-attr">"target_field"</span>: <span class="hljs-string">"last_name"</span>}
+</code></pre>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> { Transform } <span class="hljs-keyword">from</span> <span class="hljs-string">'ts-transforms'</span>
+
+<span class="hljs-keyword">const</span> config = {
+    <span class="hljs-attr">rules</span>: [<span class="hljs-string">'/path/to/rulesFile.txt'</span>]
+};
+
+<span class="hljs-keyword">const</span> data = [
+    { <span class="hljs-attr">hello</span>: <span class="hljs-string">'world'</span>, <span class="hljs-attr">first</span>: <span class="hljs-string">'George'</span>, <span class="hljs-attr">last</span>: <span class="hljs-string">'Jungle'</span> },
+    { <span class="hljs-attr">hello</span>: <span class="hljs-string">'world'</span>, <span class="hljs-attr">first</span>: <span class="hljs-string">'John'</span>, <span class="hljs-attr">last</span>: <span class="hljs-string">'Wayne'</span> }, <span class="hljs-comment">// this will not pass through the selectors from the rules</span>
+];
+
+<span class="hljs-keyword">const</span> transform = <span class="hljs-keyword">new</span> Transform(config);
+<span class="hljs-keyword">await</span> transform.init();
+
+<span class="hljs-keyword">const</span> results = transform.run(data);
+<span class="hljs-built_in">console</span>.log(results);
+<span class="hljs-comment">/*   [
+        { first_name: 'George', last_name: 'Jungle' },
+        { first_name: 'John', last_name: 'Wayne' },
+    ]
+ */</span>
+</code></pre>
+<ul>
+<li>having no selector specified will act as a catch all and allow every document to pass through</li>
+</ul>
+<p>rules.txt</p>
+<pre><code class="hljs css language-txt">{<span class="hljs-attr">"source_field"</span>: <span class="hljs-string">"first"</span>, <span class="hljs-attr">"target_field"</span>: <span class="hljs-string">"first_name"</span>}
+{<span class="hljs-attr">"source_field"</span>: <span class="hljs-string">"last"</span>, <span class="hljs-attr">"target_field"</span>: <span class="hljs-string">"last_name"</span>}
+</code></pre>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> { Transform } <span class="hljs-keyword">from</span> <span class="hljs-string">'ts-transforms'</span>
+
+<span class="hljs-keyword">const</span> config = {
+    <span class="hljs-attr">rules</span>: [<span class="hljs-string">'/path/to/rulesFile.txt'</span>]
+};
+
+<span class="hljs-keyword">const</span> data = [
+    { <span class="hljs-attr">hello</span>: <span class="hljs-string">'world'</span>, <span class="hljs-attr">first</span>: <span class="hljs-string">'George'</span>, <span class="hljs-attr">last</span>: <span class="hljs-string">'Jungle'</span> },
+    { <span class="hljs-attr">other</span>: <span class="hljs-string">'thing'</span>, <span class="hljs-attr">first</span>: <span class="hljs-string">'John'</span>, <span class="hljs-attr">last</span>: <span class="hljs-string">'Wayne'</span> },
+];
+
+<span class="hljs-keyword">const</span> transform = <span class="hljs-keyword">new</span> Transform(config);
+<span class="hljs-keyword">await</span> transform.init();
+
+<span class="hljs-keyword">const</span> results = transform.run(data);
+<span class="hljs-built_in">console</span>.log(results);
+<span class="hljs-comment">/*   [
+        { first_name: 'George', last_name: 'Jungle' },
+        { first_name: 'John', last_name: 'Wayne' },
+    ]
+ */</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="extraction"></a><a href="#extraction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>extraction</h3>
+<p>This is the core transform class used to extract data from incoming records. If nothing can be extracted then null is returned, however if <code>mutate</code> is set to true then it will at minimum return the data it was given.</p>
+<p>Simple Extraction:</p>
+<pre><code class="hljs css language-ts"><span class="hljs-comment">// rules</span>
+{<span class="hljs-string">"selector"</span>: <span class="hljs-string">"transform:me"</span>, <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"lat"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"location.lat"</span>}
+{<span class="hljs-string">"selector"</span>: <span class="hljs-string">"transform:me"</span>, <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"lon"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"location.lon"</span>}
+{<span class="hljs-string">"selector"</span>: <span class="hljs-string">"transform:me"</span>, <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"first"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"first_name"</span>}
+
+<span class="hljs-comment">// Incoming Data to transform</span>
+[
+    { transform: <span class="hljs-string">'me'</span>, first: <span class="hljs-string">'John'</span> }
+    { transform: <span class="hljs-string">'me'</span>, lat: <span class="hljs-string">'-21.805149'</span>, lon: <span class="hljs-string">'-49.089977'</span> }
+    { transform: <span class="hljs-string">'me'</span>, first: <span class="hljs-string">'John'</span>, lat: <span class="hljs-string">'-21.805149'</span>, lon: <span class="hljs-string">'-49.089977'</span> }
+]
+
+<span class="hljs-comment">// Results</span>
+
+[
+    { first_name: <span class="hljs-string">'John'</span> }
+    { location: { lat: <span class="hljs-string">'-21.805149'</span>, lon: <span class="hljs-string">'-49.089977'</span> } }
+    { first_name: <span class="hljs-string">'John'</span>, location: { lat: <span class="hljs-string">'-21.805149'</span>, lon: <span class="hljs-string">'-49.089977'</span> }  }
+]
+
+</code></pre>
+<ul>
+<li>source_field : <code>String</code>(required) = this is the field that you will pull/search from. You may search deeply nested fields by using dot notation (ie <code>person.name</code> )</li>
+<li>target_field : <code>String</code>(required) = this is the field where the result will be put. You may create deely nested object by using dot notation (ie: <code>location.lat</code> like in the example above)</li>
+<li>start : <code>String</code> (optional) = used to do simple extractions within the source_field. It marks where is the start of the data you wish to extract</li>
+<li>end : <code>String</code> (optional) = used to do simple extractions within the source_field. It marks where is the end of the data you wish to extract. NOTE: this is a special syntax of <code>EOP</code> which stands for 'end of parameter' this is used for url base extractions where it will take until the next parameter or end of line
+Example:</li>
+</ul>
+<pre><code class="hljs css language-ts"><span class="hljs-comment">// rules</span>
+{ <span class="hljs-string">"selector"</span>: <span class="hljs-string">"domain:example.com"</span>, <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"url"</span>, <span class="hljs-string">"start"</span>: <span class="hljs-string">"field1="</span>, <span class="hljs-string">"end"</span>: <span class="hljs-string">"EOP"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"field1"</span> }
+{<span class="hljs-string">"selector"</span>: <span class="hljs-string">"transform:me"</span>, <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"string"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"extracting_string"</span>, <span class="hljs-string">"start"</span>: <span class="hljs-string">"someStuff("</span> , <span class="hljs-string">"end"</span>: <span class="hljs-string">")"</span>}
+
+<span class="hljs-comment">// Incoming Data to transform</span>
+[
+    { domain: <span class="hljs-string">'example.com'</span>, url: <span class="hljs-string">'https://someurl.com?field1=someData&amp;field2=otherData'</span> }
+    { transform: <span class="hljs-string">'me'</span>, <span class="hljs-built_in">string</span>: <span class="hljs-string">'someStuff(stringData)orOtherThings'</span> }
+]
+
+<span class="hljs-comment">// Results</span>
+
+[
+    { field1: <span class="hljs-string">'someData'</span> }
+    { extracting_string: <span class="hljs-string">'stringData'</span> }
+]
+
+</code></pre>
+<ul>
+<li>regex : <code>String</code>(optional) = instead of <code>start</code> and <code>end</code> you may specify a regex query that will be used to extract the data
+Example:</li>
+</ul>
+<pre><code class="hljs css language-ts"><span class="hljs-comment">// rules</span>
+{<span class="hljs-string">"selector"</span>: <span class="hljs-string">"hostname:www.example.com"</span>, <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"pathLat"</span>, <span class="hljs-string">"regex"</span>: <span class="hljs-string">"/path/tiles/latitude/(.*?)$"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"location.lat"</span>, <span class="hljs-string">"validation"</span>: <span class="hljs-string">"geolocation"</span>}
+{<span class="hljs-string">"selector"</span>: <span class="hljs-string">"hostname:www.example.com"</span>, <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"pathLon"</span>, <span class="hljs-string">"regex"</span>: <span class="hljs-string">"/path/tiles/longitude/(.*?)$"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"location.lon"</span>, <span class="hljs-string">"validation"</span>: <span class="hljs-string">"geolocation"</span>}
+
+<span class="hljs-comment">// Incoming Data to transform</span>
+[
+    { hostname: <span class="hljs-string">'example.com'</span>, pathLon: <span class="hljs-string">'/path/tiles/latitude/74.2342'</span>, pathLat: <span class="hljs-string">'/path/tiles/longitude/123.5332'</span> }
+
+]
+
+<span class="hljs-comment">// Results</span>
+
+[
+    { location: { lat:<span class="hljs-string">'74.2342'</span>, lon: <span class="hljs-string">'123.5332'</span> } }
+]
+
+</code></pre>
+<ul>
+<li>mutate : <code>Booelan</code>(optional) = The default of extraction is to create a brand new object with the extracted fields. If you set this to true then it will return the orignal object with the new extracted fields on it so you can keep everything else. <code>NOTE</code>: if no extraction can occur you will recieve back the object unchanged</li>
+<li>multivalue : <code>Booelan</code>(optional) = if you set this to true then all values that have the same <code>target_field</code> will be put inside an array.</li>
+</ul>
+<p>Example:</p>
+<pre><code class="hljs css language-ts"><span class="hljs-comment">// rules</span>
+
+{ <span class="hljs-string">"selector"</span>: <span class="hljs-string">"selectfield:value"</span>, <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"url"</span>, <span class="hljs-string">"start"</span>: <span class="hljs-string">"field1="</span>, <span class="hljs-string">"end"</span>: <span class="hljs-string">"EOP"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"myfield"</span>, <span class="hljs-string">"multivalue"</span>: <span class="hljs-literal">true</span> }
+{ <span class="hljs-string">"selector"</span>: <span class="hljs-string">"selectfield:value"</span>, <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"url"</span>, <span class="hljs-string">"start"</span>: <span class="hljs-string">"field2="</span>, <span class="hljs-string">"end"</span>: <span class="hljs-string">"EOP"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"myfield"</span>, <span class="hljs-string">"multivalue"</span>: <span class="hljs-literal">true</span>  }
+
+<span class="hljs-comment">// Incoming Data to transform</span>
+[
+{ selectfield: <span class="hljs-string">'value'</span>, url: <span class="hljs-string">`http://www.example.com/path?field1=someBlah&amp;field2=moreblah&amp;field3=evenmoreblah`</span> }
+]
+
+<span class="hljs-comment">// Results</span>
+
+[{ myfield: [<span class="hljs-string">'someBlah'</span>, <span class="hljs-string">'moreblah'</span>] }]
+
+</code></pre>
+<p>{ &quot;selector&quot;: &quot;selectfield:value&quot;, &quot;source_field&quot;: &quot;url&quot;, &quot;start&quot;: &quot;field1=&quot;, &quot;end&quot;: &quot;EOP&quot;, &quot;target_field&quot;: &quot;myfield&quot;, &quot;multivalue&quot;: true }
+{ &quot;selector&quot;: &quot;selectfield:value&quot;, &quot;source_field&quot;: &quot;url&quot;, &quot;start&quot;: &quot;field2=&quot;, &quot;end&quot;: &quot;EOP&quot;, &quot;target_field&quot;: &quot;myfield&quot;, &quot;multivalue&quot;: true  }</p>
+<h3><a class="anchor" aria-hidden="true" id="join"></a><a href="#join" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>join</h3>
+<p>This will attempt to join to string values together</p>
+<ul>
+<li>delimiter: <code>String</code>(required) =  string char used to join the two strings together</li>
+<li>fields: <code>Array of Strings</code>(required) = list of fields that will be joined</li>
+</ul>
+<p>rules.txt</p>
+<pre><code class="hljs css language-txt">{<span class="hljs-attr">"selector"</span>: <span class="hljs-string">"hello:world"</span>, <span class="hljs-attr">"post_process"</span>: <span class="hljs-string">"join"</span>, <span class="hljs-attr">"fields"</span>: [<span class="hljs-string">"friend1"</span>, <span class="hljs-string">"friend2"</span>], <span class="hljs-attr">"delimiter"</span>: <span class="hljs-string">" &amp; "</span>, <span class="hljs-attr">"target_field"</span>: <span class="hljs-string">"all_friends"</span>}
+
+{<span class="hljs-attr">"selector"</span>: <span class="hljs-string">"other:thing"</span>, <span class="hljs-attr">"post_process"</span>: <span class="hljs-string">"join"</span>, <span class="hljs-attr">"fields"</span>: [<span class="hljs-string">"first"</span>, <span class="hljs-string">"last"</span>], <span class="hljs-attr">"delimiter"</span>: <span class="hljs-string">" "</span>, <span class="hljs-attr">"target_field"</span>: <span class="hljs-string">"name"</span>}
+</code></pre>
+<pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> { Transform } <span class="hljs-keyword">from</span> <span class="hljs-string">'ts-transforms'</span>
+
+<span class="hljs-keyword">const</span> config = {
+    <span class="hljs-attr">rules</span>: [<span class="hljs-string">'/path/to/rulesFile.txt'</span>]
+};
+
+<span class="hljs-keyword">const</span> data = [
+    { <span class="hljs-attr">hello</span>: <span class="hljs-string">'world'</span>, <span class="hljs-attr">friend1</span>: <span class="hljs-string">'John'</span>, <span class="hljs-attr">friend2</span>: <span class="hljs-string">'Susan'</span> },
+    { <span class="hljs-attr">other</span>: <span class="hljs-string">'thing'</span>, <span class="hljs-attr">first</span>: <span class="hljs-string">'John'</span>, <span class="hljs-attr">last</span>: <span class="hljs-string">'Wayne'</span> },
+];
+
+<span class="hljs-keyword">const</span> transform = <span class="hljs-keyword">new</span> Transform(config);
+<span class="hljs-keyword">await</span> transform.init();
+
+<span class="hljs-keyword">const</span> results = transform.run(data);
+<span class="hljs-built_in">console</span>.log(results);
+<span class="hljs-comment">/* NOTE if you want to remove friend1,friend2 and first, last then you will need
+to extract them to another field and put output:false on those extracted fields
+ */</span>
+<span class="hljs-comment">/*   [
+    { hello: 'world', friend1: 'John', friend2: 'Susan', all_friends: 'John &amp; Susan' },
+    { other: 'thing', first: 'John', last: 'Wayne', name: 'John Wayne' },
+    ]
+ */</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="base64decode"></a><a href="#base64decode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>base64decode</h3>
+<p>This will attempt to base64 decode the indicated field, and will remove the field on failure</p>
+<h3><a class="anchor" aria-hidden="true" id="urldecode"></a><a href="#urldecode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>urldecode</h3>
+<p>This will attempt to url decode the indicated field, and will remove the field on failure</p>
+<ul>
+<li>no additional parameters</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="hexdecode"></a><a href="#hexdecode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>hexdecode</h3>
+<p>This will attempt to hex decode the indicated field, and will remove the field on failure</p>
+<ul>
+<li>no additional parameters</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="jsonparse"></a><a href="#jsonparse" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>jsonparse</h3>
+<p>This will attempt to parse JSON for the indicated field, and will remove the field on failure</p>
+<ul>
+<li>no additional parameters</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="lowercase"></a><a href="#lowercase" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>lowercase</h3>
+<p>This will make sure the field is a string and lowercase it, otherwise it will remove the field it</p>
+<ul>
+<li>no additional parameters</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="uppercase"></a><a href="#uppercase" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>uppercase</h3>
+<p>This will make sure the field is a string and uppercase it, otherwise it will remove the field it</p>
+<ul>
+<li>no additional parameters</li>
+</ul>
+<pre><code class="hljs css language-sh">$ curl <span class="hljs-string">'localhost:5678/v1'</span>
+{
+    <span class="hljs-string">"arch"</span>: <span class="hljs-string">"x64"</span>,
+    <span class="hljs-string">"clustering_type"</span>: <span class="hljs-string">"native"</span>,
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"example-cluster"</span>,
+    <span class="hljs-string">"node_version"</span>: <span class="hljs-string">"v8.12.0"</span>,
+    <span class="hljs-string">"platform"</span>: <span class="hljs-string">"linux"</span>,
+    <span class="hljs-string">"teraslice_version"</span>: <span class="hljs-string">"v0.43.0"</span>
+}
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="validations"></a><a href="#validations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Validations</h2>
+<p>this provides a list of validation operations. If the field failed a validation check then that field is removed from the final output</p>
+<ul>
+<li>output : <code>Booelan</code> = <strong>NOTE</strong> this does not remove the field !! if <code>output</code> is set to false then it will invert the validation and become a logical operator of <code>NOT</code>. For example, if you use the <code>numeric</code> validator, it would remove anyting that <strong>was not</strong> a number. If you specify <code>output:false</code> then it would remove anything that was a number.</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="geolocation"></a><a href="#geolocation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>geolocation</h3>
+<p>This will check if the field is a valid geolocation. For this validation the data may be a string or an object. If it is an object it must have either the keys <code>lat</code> and <code>lon</code> or <code>latitude</code> and <code>longitude</code>. If it is a string it is expected to be written as <code>latitude,longitude</code></p>
+<ul>
+<li>no additional parameters</li>
+</ul>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// ok values:</span>
+<span class="hljs-string">'53.2344,127.342'</span>
+{
+    <span class="hljs-attr">lat</span>: <span class="hljs-number">53.2344</span>,
+    <span class="hljs-attr">lon</span>: <span class="hljs-number">127.342</span>
+}
+{
+    <span class="hljs-attr">latitude</span>: <span class="hljs-number">53.2344</span>,
+    <span class="hljs-attr">longitude</span>: <span class="hljs-number">127.342</span>
+}
+
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="string"></a><a href="#string" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>string</h3>
+<p>Checks to see if this value is a string, if not then it will be removed.</p>
+<p><strong>NOTE</strong>  This attempts to convert anything to a string type, JSON.stringify for objects automatically. This will not do so in future versions.</p>
+<ul>
+<li>length: <code>Number</code>(optional) = if set then it will check the length of the new value. If the length of the string does not equal this parameter then it is dropped</li>
+<li>min: <code>Number</code>(optional) = if set then it checks that the new string value has a minimal length (inclusive) of this parameter, if not it is removed</li>
+<li>max: <code>Number</code>(optional) = if set then it checks that the new string value has a maximal length (inclusive) of this parameter, if not it is removed</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="number"></a><a href="#number" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>number</h3>
+<p>Checks to see if this value is a number, if not then it will be removed.</p>
+<p><strong>NOTE</strong>  This attempts to convert anything to a number type automatically. This will not do so in future versions.</p>
+<ul>
+<li>no additional parameters</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="boolean"></a><a href="#boolean" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>boolean</h3>
+<p>Checks to see if this value is a boolean, if not then it will be removed.</p>
+<p><strong>NOTE</strong>  This attempts to convert anything to a boolean type automatically. This will not do so in future versions. (ie 'true', 1, true =&gt; true,  'false', 0, false =&gt; false )</p>
+<ul>
+<li>no additional parameters</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="url"></a><a href="#url" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>url</h3>
+<p>Checks to see if this is a valid url</p>
+<ul>
+<li>no additional parameters</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="email"></a><a href="#email" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>email</h3>
+<p>Checks to see if this is a valid email</p>
+<ul>
+<li>no additional parameters</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="ip"></a><a href="#ip" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ip</h3>
+<p>Checks to see if this is a valid ip</p>
+<ul>
+<li>no additional parameters</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="macaddress"></a><a href="#macaddress" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>macaddress</h3>
+<p>Checks to see if this is a valid mac address.</p>
+<p><strong>NOTE</strong>  This attempts to remove colons and lowercase the string characters.
+<strong>NOTE</strong>  This normalization and parameters may change in the future to be its own post_process operation.</p>
+<ul>
+<li>case: <code>String</code>(optional) = may be set to <code>lowercase</code> or <code>uppercase</code> which will normalize the characters</li>
+<li>preserve_colons: <code>Boolean</code>(optional) = defaults to false, set to true so that it keeps colons in place</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="uuid"></a><a href="#uuid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>uuid</h3>
+<p>Checks to see if this is a valid uuid.</p>
+<p><strong>NOTE</strong>  This attempts to lowercase the string characters.
+<strong>NOTE</strong>  This normalization and parameters may change in the future to be its own post_process operation.</p>
+<ul>
+<li>case: <code>String</code>(optional) = may be set to <code>lowercase</code> or <code>uppercase</code> which will normalize the characters</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="isdn"></a><a href="#isdn" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isdn</h3>
+<p>Checks to see if this is a valid phone number, it must include the country code and the full national number. It uses the <a href="https://www.npmjs.com/package/awesome-phonenumber">awesome-phonenumber</a> package to validate and format</p>
+<p><strong>NOTE</strong>  This attempts to remove any hypens and parens from the string characters.</p>
+<ul>
+<li>no additional parameters</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="contains"></a><a href="#contains" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>contains</h3>
+<p>check if the string contains what is specified in the param <code>value</code>.</p>
+<ul>
+<li>value: <code>String</code>(require) = the value which is used to check the string</li>
+</ul>
+<p>Example:</p>
+<pre><code class="hljs css language-ts"><span class="hljs-comment">// rules</span>
+
+{ <span class="hljs-string">"selector"</span>: <span class="hljs-string">"some:value"</span>, <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"field"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"newField"</span>, <span class="hljs-string">"tag"</span>: <span class="hljs-string">"tag_field"</span> }
+{ <span class="hljs-string">"follow"</span>: <span class="hljs-string">"tag_field"</span>, <span class="hljs-string">"validation"</span>: <span class="hljs-string">"contains"</span>, <span class="hljs-string">"value"</span>: <span class="hljs-string">"null"</span>, <span class="hljs-string">"output"</span>: <span class="hljs-literal">false</span>}
+
+<span class="hljs-comment">// Incoming Data to transform</span>
+[
+   { some: <span class="hljs-string">'value'</span>, field: <span class="hljs-string">'null'</span>, other: <span class="hljs-string">'data'</span> },
+   { some: <span class="hljs-string">'value'</span>, field: <span class="hljs-string">'fieldData'</span>, other: <span class="hljs-string">'data'</span> }
+]
+
+<span class="hljs-comment">// Results, removes the 'newField' with the 'null' value</span>
+
+[
+    { some: <span class="hljs-string">'value'</span>, other: <span class="hljs-string">'data'</span> },
+    { some: <span class="hljs-string">'value'</span>, newField: <span class="hljs-string">'fieldData'</span>, other: <span class="hljs-string">'data'</span> }
+]
+
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="equals"></a><a href="#equals" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>equals</h3>
+<p>check if the string equals what is specified in the param <code>value</code>.</p>
+<ul>
+<li>value: <code>String</code>(required) = the value which is used to check the string</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="alpha"></a><a href="#alpha" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>alpha</h3>
+<p>check if the string contains only letters (a-zA-Z)</p>
+<ul>
+<li>value: <code>String</code>(optional) = defines which locale to use, defaults to <code>en-US</code>. Available locals: ['ar', 'ar-AE', 'ar-BH', 'ar-DZ', 'ar-EG', 'ar-IQ', 'ar-JO', 'ar-KW', 'ar-LB', 'ar-LY', 'ar-MA', 'ar-QA', 'ar-QM', 'ar-SA', 'ar-SD', 'ar-SY', 'ar-TN', 'ar-YE', 'bg-BG', 'cs-CZ', 'da-DK', 'de-DE', 'el-GR', 'en-AU', 'en-GB', 'en-HK', 'en-IN', 'en-NZ', 'en-US', 'en-ZA', 'en-ZM', 'es-ES', 'fr-FR', 'hu-HU', 'it-IT', 'ku-IQ', 'nb-NO', 'nl-NL', 'nn-NO', 'pl-PL', 'pt-BR', 'pt-PT', 'ru-RU', 'sl-SI', 'sk-SK', 'sr-RS', 'sr-RS@latin', 'sv-SE', 'tr-TR', 'uk-UA']</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="alphanumeric"></a><a href="#alphanumeric" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>alphanumeric</h3>
+<p>check if the string contains only letters and numbers.</p>
+<ul>
+<li>value: <code>String</code>(optional) = defines which locale to use, defaults to <code>en-US</code>. Available locals: ['ar', 'ar-AE', 'ar-BH', 'ar-DZ', 'ar-EG', 'ar-IQ', 'ar-JO', 'ar-KW', 'ar-LB', 'ar-LY', 'ar-MA', 'ar-QA', 'ar-QM', 'ar-SA', 'ar-SD', 'ar-SY', 'ar-TN', 'ar-YE', 'bg-BG', 'cs-CZ', 'da-DK', 'de-DE', 'el-GR', 'en-AU', 'en-GB', 'en-HK', 'en-IN', 'en-NZ', 'en-US', 'en-ZA', 'en-ZM', 'es-ES', 'fr-FR', 'hu-HU', 'it-IT', 'ku-IQ', 'nb-NO', 'nl-NL', 'nn-NO', 'pl-PL', 'pt-BR', 'pt-PT', 'ru-RU', 'sl-SI', 'sk-SK', 'sr-RS', 'sr-RS@latin', 'sv-SE', 'tr-TR', 'uk-UA']</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="ascii"></a><a href="#ascii" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>ascii</h3>
+<p>check if the string contains ASCII chars only.</p>
+<ul>
+<li>no additional parameters</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="base64"></a><a href="#base64" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>base64</h3>
+<p>check if a string is base64 encoded.</p>
+<ul>
+<li>no additional parameters</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="before"></a><a href="#before" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>before:</h3>
+<p>check if the string is a date that's before the specified date in the param <code>value</code>.</p>
+<ul>
+<li>value: <code>String</code>(required) = date used to check against the values</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="bytelength"></a><a href="#bytelength" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bytelength</h3>
+<p>check if the string's length (in UTF-8 bytes) falls in a range.</p>
+<ul>
+<li>min: <code>Number</code>(optional) = if set then it checks that the value has a minimal byte (inclusive) of this parameter, if not it is removed, defaults to 0</li>
+<li>max: <code>Number</code>(optional) = if set then it checks that the value has a maximal byte length (inclusive) of this parameter, if not it is removed</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="creditcard"></a><a href="#creditcard" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>creditcard</h3>
+<p>check if the string is a credit card.</p>
+<ul>
+<li>no additional parameters</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="currency"></a><a href="#currency" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>currency</h3>
+<p>check if the string is a valid currency amount.</p>
+<ul>
+<li>symbol: <code>Number</code>(optional) = defaults to'$'</li>
+<li>require_symbol: <code>Boolean</code>(optional) = defaults to false</li>
+<li>allow_space_after_symbol: <code>Boolean</code>(optional) = defaults to false</li>
+<li>symbol_after_digits: <code>Boolean</code>(optional) = defaults to false</li>
+<li>allow_negatives: <code>Boolean</code>(optional) = defaults to true</li>
+<li>parens_for_negatives: <code>Boolean</code>(optional) = defaults to false</li>
+<li>negative_sign_before_digits: <code>Boolean</code>(optional) = defaults to false,</li>
+<li>negative_sign_after_digits: <code>Boolean</code>(optional) = defaults to false,</li>
+<li>allow_negative_sign_placeholder: <code>Boolean</code>(optional) = defaults to false,</li>
+<li>thousands_separator: <code>String</code>(optional) = defaults to ','</li>
+<li>decimal_separator: <code>String</code>(optional) = defaults to '.'</li>
+<li>allow_decimal: <code>Boolean</code>(optional) = defaults to true</li>
+<li>require_decimal: <code>Boolean</code>(optional) = defaults to false</li>
+<li>digits_after_decimal: defaults to [2], Note: The array digits_after_decimal is filled with the exact number of digits allowed not a range, for example a range 1 to 3 will be given as [1, 2, 3].</li>
+<li>allow_space_after_digits: <code>Boolean</code>(optional) = defaults to false,</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="decimal"></a><a href="#decimal" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>decimal</h3>
+<p>check if the string represents a decimal number, such as 0.1, .3, 1.1, 1.00003, 4.0, etc</p>
+<ul>
+<li>force_decimal: <code>Boolean</code>(optional) = defaults to false</li>
+<li>decimal_digits: <code>String</code>(optional) = defaults to '1,'. is given as a range like '1,3', a specific value like '3' or min like '1,'.</li>
+<li>locale: <code>String</code>(optional) = defines which locale to use, defaults to <code>en-US</code>. Available locals: ['ar', 'ar-AE', 'ar-BH', 'ar-DZ', 'ar-EG', 'ar-IQ', 'ar-JO', 'ar-KW', 'ar-LB', 'ar-LY', 'ar-MA', 'ar-QA', 'ar-QM', 'ar-SA', 'ar-SD', 'ar-SY', 'ar-TN', 'ar-YE', 'bg-BG', 'cs-CZ', 'da-DK', 'de-DE', 'el-GR', 'en-AU', 'en-GB', 'en-HK', 'en-IN', 'en-NZ', 'en-US', 'en-ZA', 'en-ZM', 'es-ES', 'fr-FR', 'hu-HU', 'it-IT', 'ku-IQ', 'nb-NO', 'nl-NL', 'nn-NO', 'pl-PL', 'pt-BR', 'pt-PT', 'ru-RU', 'sl-SI', 'sk-SK', 'sr-RS', 'sr-RS@latin', 'sv-SE', 'tr-TR', 'uk-UA']</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="divisibleby"></a><a href="#divisibleby" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>divisibleby</h3>
+<p>check if the string is a number that's divisible by whats provided in the param <code>value</code>.</p>
+<ul>
+<li>value: <code>Number</code>(required) = number used to divide against the values</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="empty"></a><a href="#empty" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>empty</h3>
+<p>check if the string has a length of zero.</p>
+<ul>
+<li>ignore_whitespace: <code>Boolean</code>(optional) = defaults to false</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="fqdn"></a><a href="#fqdn" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>fqdn</h3>
+<p>check if the string is a fully qualified domain name (e.g. domain.com).</p>
+<ul>
+<li>require_tld: <code>Boolean</code>(optional) = defaults to true</li>
+<li>allow_underscores: <code>Boolean</code>(optional) = defaults to false</li>
+<li>allow_trailing_dot: <code>Boolean</code>(optional) = defaults to false</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="float"></a><a href="#float" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>float</h3>
+<p>check if the string is a float.</p>
+<ul>
+<li>min: <code>Number</code>(optional) = if set then it checks that the value is greater than what is set (inclusive) of this parameter, if not it is removed</li>
+<li>max: <code>Number</code>(optional) = if set then it checks that the value is less than what is set (inclusive) of this parameter, if not it is removed</li>
+<li>gt : <code>Number</code>(optional) = same as min but not inclusive</li>
+<li>lt : <code>Number</code>(optional) = same as max but not inclusive</li>
+<li>locale: <code>String</code>(optional) = defines which locale to use, itdetermine the decimal separator. defaults to <code>en-US</code>. Available locals: ['ar', 'ar-AE', 'ar-BH', 'ar-DZ', 'ar-EG', 'ar-IQ', 'ar-JO', 'ar-KW', 'ar-LB', 'ar-LY', 'ar-MA', 'ar-QA', 'ar-QM', 'ar-SA', 'ar-SD', 'ar-SY', 'ar-TN', 'ar-YE', 'bg-BG', 'cs-CZ', 'da-DK', 'de-DE', 'el-GR', 'en-AU', 'en-GB', 'en-HK', 'en-IN', 'en-NZ', 'en-US', 'en-ZA', 'en-ZM', 'es-ES', 'fr-FR', 'hu-HU', 'it-IT', 'ku-IQ', 'nb-NO', 'nl-NL', 'nn-NO', 'pl-PL', 'pt-BR', 'pt-PT', 'ru-RU', 'sl-SI', 'sk-SK', 'sr-RS', 'sr-RS@latin', 'sv-SE', 'tr-TR', 'uk-UA']</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="hash"></a><a href="#hash" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>hash</h3>
+<p>check if the string is a hash of type algorithm.</p>
+<ul>
+<li>value: <code>String</code>(required) = Algorithm is one of ['md4', 'md5', 'sha1', 'sha256', 'sha384', 'sha512', 'ripemd128', 'ripemd160', 'tiger128', 'tiger160', 'tiger192', 'crc32', 'crc32b']</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="hexcolor"></a><a href="#hexcolor" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>hexcolor</h3>
+<p>check if the string is a hexadecimal color.</p>
+<ul>
+<li>no additional parameters</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="hexadecimal"></a><a href="#hexadecimal" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>hexadecimal</h3>
+<p>check if the string is a hexadecimal number.</p>
+<ul>
+<li>no additional parameters</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="identitycard"></a><a href="#identitycard" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>identitycard</h3>
+<p>check if the string is a valid identity card code.</p>
+<ul>
+<li>value: <code>String</code>(optional) = locale is one of ['ES'] OR 'any'. If 'any' is used, function will check if any of the locals match. defaults to 'any'</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="iprange"></a><a href="#iprange" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>iprange</h3>
+<p>check if the string is an IP Range(version 4 only).</p>
+<ul>
+<li>no additional parameters</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="isbn"></a><a href="#isbn" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isbn</h3>
+<p>check if the string is an ISBN (version 10 or 13).</p>
+<ul>
+<li>value: <code>String</code>(optional) = which version to use, defaults to '10'</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="issn"></a><a href="#issn" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>issn</h3>
+<p>check if the string is an ISSN.</p>
+<ul>
+<li>case_sensitive: <code>Boolean</code>(optional) = defaults to false. If case_sensitive is true, ISSNs with a lowercase 'x' as the check digit are rejected.</li>
+<li>require_hyphen: <code>Boolean</code>(optional) = defaults to false</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="isin"></a><a href="#isin" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isin</h3>
+<p>check if the string is an ISIN (stock/security identifier).</p>
+<ul>
+<li>no additional parameters</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="iso8601"></a><a href="#iso8601" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>iso8601</h3>
+<p>check if the string is a valid ISO 8601 date;</p>
+<ul>
+<li>strict: <code>Boolean</code>(optional) = for additional checks for valid dates, e.g. invalidates dates like 2009-02-29 set this to <code>true</code>, defaults to <code>false</code></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="rfc3339"></a><a href="#rfc3339" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>rfc3339</h3>
+<p>check if the string is a valid RFC 3339 date.</p>
+<ul>
+<li>no additional parameters</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="iso31661alpha2"></a><a href="#iso31661alpha2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>iso31661alpha2</h3>
+<p>check if the string is a valid ISO 3166-1 alpha-2 officially assigned country code.</p>
+<ul>
+<li>no additional parameters</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="iso31661alpha3"></a><a href="#iso31661alpha3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>iso31661alpha3</h3>
+<p>check if the string is a valid ISO 3166-1 alpha-3 officially assigned country code.</p>
+<ul>
+<li>no additional parameters</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="isrc"></a><a href="#isrc" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isrc</h3>
+<p>check if the string is a ISRC.</p>
+<ul>
+<li>no additional parameters</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="in"></a><a href="#in" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>in</h3>
+<p>check if the string is in a array/object of specified in the param <code>value</code>.</p>
+<ul>
+<li>value: <code>Array of Strings or Object</code>(required) = list of strings that are allowed</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="int"></a><a href="#int" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>int</h3>
+<p>check if the string is an integer.</p>
+<ul>
+<li>min: <code>Number</code>(optional) = if set then it checks that the value is greater than what is set (inclusive) of this parameter, if not it is removed</li>
+<li>max: <code>Number</code>(optional) = if set then it checks that the value is less than what is set (inclusive) of this parameter, if not it is removed</li>
+<li>gt : <code>Number</code>(optional) = same as min but not inclusive</li>
+<li>lt : <code>Number</code>(optional) = same as max but not inclusive</li>
+<li>allow_leading_zeroes: <code>Boolean</code>(optional) = defaults to true, which when set to false will disallow integer values with leading zeroes</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="jwt"></a><a href="#jwt" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>jwt</h3>
+<p>check if the string is an integer.</p>
+<ul>
+<li>no additional parameters</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="latlong"></a><a href="#latlong" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>latlong</h3>
+<p>check if the string is a valid latitude-longitude coordinate in the format lat,long or lat, long.</p>
+<ul>
+<li>no additional parameters</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="length"></a><a href="#length" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>length</h3>
+<p>check if the string's length falls in a range.</p>
+<ul>
+<li>min: <code>Number</code>(optional) = if set then it checks that the value's length is greater than what is set (inclusive) of this parameter, if not it is removed</li>
+<li>max: <code>Number</code>(optional) = if set then it checks that the value length is less than (inclusive) of this parameter, if not it is removed</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="md5"></a><a href="#md5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>md5</h3>
+<p>check if the string is a MD5 hash.</p>
+<ul>
+<li>no additional parameters</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="mimetype"></a><a href="#mimetype" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>mimetype</h3>
+<p>check if the string matches to a valid MIME type format</p>
+<ul>
+<li>no additional parameters</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="numeric"></a><a href="#numeric" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>numeric</h3>
+<p>check if the string contains only numbers.</p>
+<ul>
+<li>no_symbols: <code>Boolean</code>(optional) = defaults to false. If no_symbols is true, the validator will reject numeric strings that feature a symbol (e.g. +, -, or .).</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="port"></a><a href="#port" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>port</h3>
+<p>check if the string is a valid port number.</p>
+<ul>
+<li>no additional parameters</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="postalcode"></a><a href="#postalcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>postalcode</h3>
+<p>check if the string is a postal code,</p>
+<ul>
+<li>value: <code>String</code>(required) = locale is one of [ 'AD', 'AT', 'AU', 'BE', 'BG', 'CA', 'CH', 'CZ', 'DE', 'DK', 'DZ', 'EE', 'ES', 'FI', 'FR', 'GB', 'GR', 'HR', 'HU', 'IL', 'IN', 'IS', 'IT', 'JP', 'KE', 'LI', 'LT', 'LU', 'LV', 'MX', 'NL', 'NO', 'PL', 'PT', 'RO', 'RU', 'SA', 'SE', 'SI', 'TN', 'TW', 'UA', 'US', 'ZA', 'ZM' ] OR 'any'. If 'any' is used, function will check if any of the locals match.</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="matches"></a><a href="#matches" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>matches</h3>
+<p>check if string matches the pattern.</p>
+<ul>
+<li>value: <code>String</code>(required) = a regex to match against (ie. /foo/i))</li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/packages/ts-transforms/plugins"><span class="arrow-prev">← </span><span>Plugins</span></a><a class="docs-next button" href="/teraslice/docs/packages/xlucene-evaluator/overview"><span>xlucene-evaluator</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#transforms">Transforms</a><ul class="toc-headings"><li><a href="#selector">selector</a></li><li><a href="#extraction">extraction</a></li><li><a href="#join">join</a></li><li><a href="#base64decode">base64decode</a></li><li><a href="#urldecode">urldecode</a></li><li><a href="#hexdecode">hexdecode</a></li><li><a href="#jsonparse">jsonparse</a></li><li><a href="#lowercase">lowercase</a></li><li><a href="#uppercase">uppercase</a></li></ul></li><li><a href="#validations">Validations</a><ul class="toc-headings"><li><a href="#geolocation">geolocation</a></li><li><a href="#string">string</a></li><li><a href="#number">number</a></li><li><a href="#boolean">boolean</a></li><li><a href="#url">url</a></li><li><a href="#email">email</a></li><li><a href="#ip">ip</a></li><li><a href="#macaddress">macaddress</a></li><li><a href="#uuid">uuid</a></li><li><a href="#isdn">isdn</a></li><li><a href="#contains">contains</a></li><li><a href="#equals">equals</a></li><li><a href="#alpha">alpha</a></li><li><a href="#alphanumeric">alphanumeric</a></li><li><a href="#ascii">ascii</a></li><li><a href="#base64">base64</a></li><li><a href="#before">before:</a></li><li><a href="#bytelength">bytelength</a></li><li><a href="#creditcard">creditcard</a></li><li><a href="#currency">currency</a></li><li><a href="#decimal">decimal</a></li><li><a href="#divisibleby">divisibleby</a></li><li><a href="#empty">empty</a></li><li><a href="#fqdn">fqdn</a></li><li><a href="#float">float</a></li><li><a href="#hash">hash</a></li><li><a href="#hexcolor">hexcolor</a></li><li><a href="#hexadecimal">hexadecimal</a></li><li><a href="#identitycard">identitycard</a></li><li><a href="#iprange">iprange</a></li><li><a href="#isbn">isbn</a></li><li><a href="#issn">issn</a></li><li><a href="#isin">isin</a></li><li><a href="#iso8601">iso8601</a></li><li><a href="#rfc3339">rfc3339</a></li><li><a href="#iso31661alpha2">iso31661alpha2</a></li><li><a href="#iso31661alpha3">iso31661alpha3</a></li><li><a href="#isrc">isrc</a></li><li><a href="#in">in</a></li><li><a href="#int">int</a></li><li><a href="#jwt">jwt</a></li><li><a href="#latlong">latlong</a></li><li><a href="#length">length</a></li><li><a href="#md5">md5</a></li><li><a href="#mimetype">mimetype</a></li><li><a href="#numeric">numeric</a></li><li><a href="#port">port</a></li><li><a href="#postalcode">postalcode</a></li><li><a href="#matches">matches</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/apis.html">API Reference</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div></body></html>

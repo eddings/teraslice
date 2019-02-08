@@ -1,0 +1,174 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Legacy Operations · Teraslice</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;It is possible to implement custom operations (slicers, readers, and processors)&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Legacy Operations · Teraslice"/><meta property="og:type" content="website"/><meta property="og:url" content="https://terascope.github.io/teraslice/index.html"/><meta property="og:description" content="&lt;p&gt;It is possible to implement custom operations (slicers, readers, and processors)&lt;/p&gt;
+"/><meta property="og:image" content="https://terascope.github.io/teraslice/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://terascope.github.io/teraslice/img/docusaurus.png"/><link rel="shortcut icon" href="/teraslice/img/favicon.png"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="alternate" type="application/atom+xml" href="https://terascope.github.io/teraslice/blog/atom.xml" title="Teraslice Blog ATOM Feed"/><link rel="alternate" type="application/rss+xml" href="https://terascope.github.io/teraslice/blog/feed.xml" title="Teraslice Blog RSS Feed"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><link rel="stylesheet" href="/teraslice/css/main.css"/><script src="/teraslice/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/teraslice/"><img class="logo" src="/teraslice/img/logo.png" alt="Teraslice"/><h2 class="headerTitleWithLogo">Teraslice</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/teraslice/docs/overview" target="_self">Docs</a></li><li class=""><a href="/teraslice/docs/api" target="_self">API</a></li><li class="siteNavGroupActive"><a href="/teraslice/docs/examples" target="_self">Examples</a></li><li class=""><a href="/teraslice/docs/packages" target="_self">Packages</a></li><li class=""><a href="/teraslice/help" target="_self">Help</a></li><li class=""><a href="/teraslice/blog/" target="_self">Blog</a></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><i></i></div><h2><i>›</i><span>Examples</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle">Examples</h3><ul class=""><li class="navListItem"><a class="navItem" href="/teraslice/docs/examples">Overview</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/teraslice/docs/examples/legacy-operations">Legacy Operations</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              const headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                if (event.target.tagName === 'A') {
+                  document.body.classList.remove('tocActive');
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Legacy Operations</h1></header><article><div><span><p>It is possible to implement custom operations (slicers, readers, and processors)
+and utilize them in your Teraslice jobs.</p>
+<p>The first step to utilizing custom operations is to configure your Teraslice
+nodes to point to the directory containing your custom code, this is done by
+setting the <code>assets_directory</code> setting in the <code>teraslice</code> section of your
+configuration file as shown below.</p>
+<pre><code class="hljs css language-yaml"><span class="hljs-string">...</span>
+<span class="hljs-attr">teraslice:</span>
+<span class="hljs-attr">    assets_directory:</span> <span class="hljs-string">'/app/source/assets/'</span>
+<span class="hljs-string">...</span>
+</code></pre>
+<p>This directory must contain a <code>package.json</code>, a <code>assets</code> directory with your
+custom operations, and the <code>node_modules</code> required by your custom code. It
+will look something like this:</p>
+<pre><code class="hljs">.
+├── node_modules
+│   └── lodash
+├── package<span class="hljs-selector-class">.json</span>
+└── assets
+    ├── asset<span class="hljs-selector-class">.json</span>
+    └── count<span class="hljs-selector-class">.js</span>
+</code></pre>
+<p>In order to decrease the size of your asset bundle keepy the <code>devDependencies</code> and any test files at the top-level of the asset bundle
+and not within the <code>assets</code> directory.</p>
+<p>An <code>asset.json</code> is used to define a bundle of operations, it contains a name and version.</p>
+<pre><code class="hljs css language-json">{
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"example"</span>,
+    <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0.0"</span>
+}
+</code></pre>
+<p>A job configuration that makes use of a custom operator would simply call the
+operator just like any other operator, as shown below:</p>
+<pre><code class="hljs css language-json">{
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Update Rate Test"</span>,
+    <span class="hljs-attr">"lifecycle"</span>: <span class="hljs-string">"once"</span>,
+    <span class="hljs-attr">"workers"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"operations"</span>: [{
+            <span class="hljs-attr">"_op"</span>: <span class="hljs-string">"elasticsearch_data_generator"</span>,
+            <span class="hljs-attr">"size"</span>: <span class="hljs-number">5000</span>
+        },
+        {
+            <span class="hljs-attr">"_op"</span>: <span class="hljs-string">"count"</span>
+        },
+        {
+            <span class="hljs-attr">"_op"</span>: <span class="hljs-string">"elasticsearch_index_selector"</span>,
+            <span class="hljs-attr">"index"</span>: <span class="hljs-string">"update-test-1"</span>,
+            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"events"</span>
+        },
+        {
+            <span class="hljs-attr">"_op"</span>: <span class="hljs-string">"elasticsearch_bulk"</span>,
+            <span class="hljs-attr">"size"</span>: <span class="hljs-number">5000</span>
+        }
+    ]
+}
+</code></pre>
+<p>The <code>count</code> operator used above simply logs the execution of the operator and
+counts the number of records passed in with the data object, it could be
+implemented as shown below:</p>
+<pre><code class="hljs css language-js"><span class="hljs-meta">'use strict'</span>;
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">newProcessor</span>(<span class="hljs-params">context, opConfig, jobConfig</span>) </span>{
+    <span class="hljs-keyword">var</span> logger = context.foundation.makeLogger(<span class="hljs-string">'count'</span>, <span class="hljs-string">'count'</span>, {
+        <span class="hljs-attr">module</span>: <span class="hljs-string">'count'</span>,
+    });
+
+    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">data</span>) </span>{
+        logger.info(<span class="hljs-string">'Inside custom processor \'count\''</span>);
+        logger.info(<span class="hljs-string">'Number of items in data: '</span> + <span class="hljs-built_in">Object</span>.keys(data).length);
+        <span class="hljs-keyword">return</span> data;
+    };
+}
+
+<span class="hljs-comment">// A schema function is required on all operations. It can be used to verify</span>
+<span class="hljs-comment">// that jobs meet the requirements of your custom processor or it can just</span>
+<span class="hljs-comment">// return an empty object if you want to skip this type of validation.</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">schema</span>(<span class="hljs-params"></span>) </span>{
+    <span class="hljs-keyword">return</span> {};
+}
+
+<span class="hljs-comment">//optional, used to validate settings within the same op</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">op_validation</span>(<span class="hljs-params">op</span>) </span>{
+    <span class="hljs-keyword">if</span> (op.id_start_key &amp;&amp; !op.set_id) {
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'elasticsearch_data_generator is mis-configured, id_start_key must be used with set_id parameter, please set the missing parameters'</span>)
+    }
+}
+
+<span class="hljs-comment">//optional, used to validate settings across different ops</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">post_validation</span>(<span class="hljs-params">job, sysconfig</span>) </span>{
+    <span class="hljs-keyword">var</span> opConfig = job.operations.find(<span class="hljs-function"><span class="hljs-params">op</span> =&gt;</span> op._op === <span class="hljs-string">'elasticsearch_data_generator'</span>);
+
+    <span class="hljs-keyword">if</span> (opConfig.set_id) {
+        <span class="hljs-keyword">var</span> indexSelectorConfig = job.operations.find(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">op</span>) </span>{
+            <span class="hljs-keyword">return</span> op._op === <span class="hljs-string">'elasticsearch_index_selector'</span>;
+        });
+
+        <span class="hljs-keyword">if</span> (!indexSelectorConfig.id_field) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'elasticsearch_data_generator is mis-configured, set_id must be used in tandem with id_field which is set in elasticsearch_index_selector'</span>)
+        }
+
+        <span class="hljs-keyword">if</span> (indexSelectorConfig.id_field !== <span class="hljs-string">'id'</span>) {
+            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">Error</span>(<span class="hljs-string">'id_field set in elasticsearch_index_selector must be set to "id" when elasticsearch_data_generator is creating ids'</span>)
+        }
+    }
+}
+
+<span class="hljs-comment">//optional, used to change the slicer queue length</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">slicerQueueLength</span>(<span class="hljs-params">jobConfig</span>)</span>{
+    <span class="hljs-comment">// the fully validated job configuration file</span>
+
+   <span class="hljs-comment">// should return a num &gt;= 1</span>
+   <span class="hljs-comment">//or return  'QUEUE_MINIMUM_SIZE' which will make the queue dynamic to the number of workers</span>
+}
+
+<span class="hljs-built_in">module</span>.exports = {
+  <span class="hljs-attr">newProcessor</span>: newProcessor,
+  schema, schema,
+  <span class="hljs-attr">op_validation</span>: op_validation,
+  <span class="hljs-attr">post_validation</span>: post_validation,
+  <span class="hljs-attr">slicerQueueLength</span>: slicerQueueLength
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/"><span class="arrow-prev">← </span><span>Overview</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/apis.html">API Reference</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div></body></html>
