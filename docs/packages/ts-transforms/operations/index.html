@@ -79,7 +79,7 @@
 
 </code></pre>
 <ul>
-<li>other_match_required : <code>Booelan</code>(optional) = If set to true, then it sets a conditional for this field that the final object must have other keys that do not have the <code>other_match_required</code> flag to appear in the resulting object in order for this field to be set. This is used to pass along certain fields/metadata if another field passes extraction/validation etc.</li>
+<li>other_match_required : <code>Booelan</code>(optional) = If set to true, then it conditionaly extracts the field. The condition is that there must be other successful extracted keys that make it all the way to the output phase. There has to be at least one key on the resulting object that did not come from a <code>other_match_required</code> configuration. This is used to pass along certain fields/metadata if another field passes extraction/validation etc. You can also specify a <code>selector</code> on the same configuration with <code>other_match_required</code> to make sure that logic is only applied to a particular rule pipline.</li>
 </ul>
 <p>Example:</p>
 <pre><code class="hljs css language-ts"><span class="hljs-comment">// rules</span>
@@ -90,11 +90,20 @@
 { <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"date"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"date"</span>, <span class="hljs-string">"other_match_required"</span>: <span class="hljs-literal">true</span> }
 { <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"key"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"key"</span>, <span class="hljs-string">"other_match_required"</span>: <span class="hljs-literal">true</span> }
 
+{ <span class="hljs-string">"selector"</span>: <span class="hljs-string">"select:me"</span>, <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"first"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"target"</span> }
+
+{ <span class="hljs-string">"selector"</span>: <span class="hljs-string">"select:me"</span>, <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"other"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"field"</span>, <span class="hljs-string">"other_match_required"</span>: <span class="hljs-literal">true</span> }
+
+
 <span class="hljs-comment">// Incoming Data to transform</span>
 [
     { domain: <span class="hljs-string">'example.com'</span>, url: <span class="hljs-string">'http:// www.example.com/path?value=blah&amp;value2=moreblah&amp;value3=evenmoreblah'</span> , date: <span class="hljs-string">'2019-01-29T14:29:27.097Z'</span>, key: <span class="hljs-string">'123456789'</span> },
-    <span class="hljs-comment">// Note that this next data object has date and key but no url to extract</span>
+    <span class="hljs-comment">// Note that this next data object has date and key but no url to extract so it does not pass</span>
     { domain: <span class="hljs-string">'example.com'</span>, some: <span class="hljs-string">'otherField'</span> , date: <span class="hljs-string">'2019-01-29T14:29:27.097Z'</span>, key: <span class="hljs-string">'123456789'</span> },
+
+    { select: <span class="hljs-string">'me'</span>, first: <span class="hljs-string">'someData'</span>, other: <span class="hljs-string">'otherData'</span> , date: <span class="hljs-string">'2019-01-29T14:29:27.097Z'</span>, key: <span class="hljs-string">'123456789'</span> },
+    <span class="hljs-comment">// Note that this next data object has date, key and other but no first field to extract so it does not pass</span>
+    { select: <span class="hljs-string">'me'</span>, first: <span class="hljs-string">'someData'</span>, other: <span class="hljs-string">'otherData'</span> , date: <span class="hljs-string">'2019-01-29T14:29:27.097Z'</span>, key: <span class="hljs-string">'123456789'</span> },
 ]
 
 <span class="hljs-comment">// Results:</span>
@@ -102,12 +111,21 @@
     since there was no url for to extract for the second object, date and key were dropped. Since it then became an empty object it was subsequently removed since there was no succesful extraction. Hence only one result object was returned.
 */</span>
 
-[{
-    value: <span class="hljs-string">'blah'</span>,
-    value2: <span class="hljs-string">'moreblah'</span>,
-    key: <span class="hljs-string">'123456789'</span>,
-    date: <span class="hljs-string">'2019-01-29T14:29:27.097Z'</span>
-}]
+[
+    {
+        value: <span class="hljs-string">'blah'</span>,
+        value2: <span class="hljs-string">'moreblah'</span>,
+        key: <span class="hljs-string">'123456789'</span>,
+        date: <span class="hljs-string">'2019-01-29T14:29:27.097Z'</span>
+    },
+    {
+        target: <span class="hljs-string">'someData'</span>,
+        field: <span class="hljs-string">'otherData'</span>, <span class="hljs-comment">// specific extraction</span>
+        key: <span class="hljs-string">'123456789'</span>,  <span class="hljs-comment">// this was a general extraction</span>
+        date: <span class="hljs-string">'2019-01-29T14:29:27.097Z'</span> <span class="hljs-comment">// this was a general extraction</span>
+
+    }
+]
 
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="selector"></a><a href="#selector" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>selector</h3>
@@ -175,7 +193,7 @@
  */</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="extraction"></a><a href="#extraction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>extraction</h3>
-<p>This is the core transform class used to extract data from incoming records. If nothing can be extracted then null is returned, however if <code>mutate</code> is set to true then it will at minimum return the data it was given.</p>
+<p>This is the core transform class used to extract data from incoming records. If nothing can be extracted then null is returned, however if <code>mutate</code> is set to true then it will at minimum return the data it was given. Please take note of the mutate setting listed below on how it could change depending if it is used as a post_process</p>
 <p>Simple Extraction:</p>
 <pre><code class="hljs css language-ts"><span class="hljs-comment">// rules</span>
 {<span class="hljs-string">"selector"</span>: <span class="hljs-string">"transform:me"</span>, <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"lat"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"location.lat"</span>}
@@ -245,7 +263,7 @@ Example:</li>
 
 </code></pre>
 <ul>
-<li>mutate : <code>Booelan</code>(optional) = The default of extraction is to create a brand new object with the extracted fields. If you set this to true then it will return the orignal object with the new extracted fields on it so you can keep everything else. <code>NOTE</code>: if no extraction can occur you will recieve back the object unchanged</li>
+<li>mutate : <code>Booelan</code>(optional) = The default of extraction is to create a brand new object with the extracted fields. If you set this to true then it will return the orignal object with the new extracted fields on it so you can keep everything else. <code>NOTE</code>: if no extraction can occur you will recieve back the object unchanged, also if extraction is used as a <code>post_process</code> this defaults to <code>true</code></li>
 <li>multivalue : <code>Booelan</code>(optional) = if you set this to true then all values that have the same <code>target_field</code> will be put inside an array.</li>
 </ul>
 <p>Example:</p>
