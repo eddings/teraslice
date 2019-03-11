@@ -171,5 +171,54 @@
         <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
     }
 }
+
+
+#### Operation Cardinality
+Each operation is designed <span class="hljs-keyword">for</span> a specify task. These operations work either work on a single input, several inputs (like the join operator) and <span class="hljs-keyword">return</span> a single output. To differentiate the operators and to determine at validation time <span class="hljs-keyword">if</span> the operator can take <span class="hljs-keyword">in</span> multiple outputs each <span class="hljs-keyword">class</span> must have a <span class="hljs-keyword">static</span> varialble labeling what it is meant to <span class="hljs-keyword">do</span>. The options are either <span class="hljs-string">`one-to-one`</span> or <span class="hljs-string">`many-to-one`</span>. If by using the tag/follow rules a <span class="hljs-string">`one-to-one`</span> has several inputs then it will be cloned <span class="hljs-keyword">as</span> many times <span class="hljs-keyword">as</span> there are inputs so that each operation will have a single input. A <span class="hljs-string">`many-to-one`</span> will take multiple outputs and <span class="hljs-keyword">set</span> it at <span class="hljs-string">`source_fields`</span> (note that it is the plural form). If you inherit <span class="hljs-keyword">from</span> the base clase then it will <span class="hljs-keyword">default</span> to <span class="hljs-string">`one-to-one`</span>.
+
+
+<span class="hljs-string">``</span><span class="hljs-string">`js
+// the none inherited version of a plugin
+export default class Double {
+    static cardinality: InputOutputCardinality = 'one-to-one';
+
+    constructor(config) {
+        this.config = config;
+    }
+
+    run(doc: DataEntity) {
+        // @ts-ignore
+        doc[this.config.source_field] = doc[this.config.source_field] * 2;
+        return doc;
+    }
+}
+</span></code></pre>
+<pre><code class="hljs css language-js">
+<span class="hljs-keyword">import</span> _ <span class="hljs-keyword">from</span> <span class="hljs-string">'lodash'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MakeArray</span> </span>{
+
+    <span class="hljs-keyword">static</span> cardinality = <span class="hljs-string">'many-to-one'</span>;
+
+    <span class="hljs-keyword">constructor</span>(config:) {
+        <span class="hljs-comment">// this will look for the fields config or look for the multi input located at source_fields</span>
+        <span class="hljs-keyword">const</span> fields = config.fields || config.source_fields;
+        <span class="hljs-keyword">this</span>.fields = fields;
+        <span class="hljs-keyword">this</span>.target = config.target_field;
+    }
+
+
+    run(doc) {
+        <span class="hljs-keyword">const</span> results = [];
+        <span class="hljs-keyword">this</span>.fields.forEach(<span class="hljs-function"><span class="hljs-params">field</span> =&gt;</span> {
+            <span class="hljs-keyword">const</span> data = _.get(doc, field);
+            <span class="hljs-keyword">if</span> (data) results.push(data);
+        });
+        <span class="hljs-keyword">if</span> (results.length &gt; <span class="hljs-number">0</span>) _.set(doc, <span class="hljs-keyword">this</span>.target, results);
+        <span class="hljs-keyword">return</span> doc;
+    }
+}
+
+
 </code></pre>
 </span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/packages/ts-transforms/overview"><span class="arrow-prev">← </span><span>Overview</span></a><a class="docs-next button" href="/teraslice/docs/packages/ts-transforms/operations"><span>Operations</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/apis.html">API Reference</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div></body></html>
