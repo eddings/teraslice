@@ -58,38 +58,53 @@
 <p>A teraserver plugin for managing data access and searching spaces</p>
 </blockquote>
 <h2><a class="anchor" aria-hidden="true" id="installation"></a><a href="#installation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h2>
-<pre><code class="hljs css language-bash"><span class="hljs-comment"># Using yarn</span>
-yarn add data-access-plugin
-<span class="hljs-comment"># Using npm</span>
-npm install --save data-access-plugin
+<pre><code class="hljs css language-bash"><span class="hljs-built_in">cd</span> path/to/teraserver
+npm install @terascope/data-access-plugin
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="configuration"></a><a href="#configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration</h3>
+<p>Here is some example configuration</p>
+<pre><code class="hljs css language-yaml"><span class="hljs-comment"># terafoundation config.yaml ...</span>
+<span class="hljs-attr">data_access:</span>
+  <span class="hljs-comment"># the index namespace</span>
+<span class="hljs-attr">  namespace:</span> <span class="hljs-string">'test_teraserver'</span>
+  <span class="hljs-comment"># the connection name</span>
+<span class="hljs-attr">  connection:</span> <span class="hljs-string">'default'</span>
+  <span class="hljs-comment"># run without authentication for data access management</span>
+<span class="hljs-attr">  bootstrap_mode:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">teraserver:</span>
+<span class="hljs-attr">  plugins:</span>
+<span class="hljs-attr">    names:</span>
+<span class="hljs-bullet">        -</span> <span class="hljs-string">'@terascope/data-access-plugin'</span>
+<span class="hljs-attr">terafoundation:</span>
+<span class="hljs-comment"># ...</span>
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="important-changes"></a><a href="#important-changes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Important Changes</h2>
 <p>Since this project is designed to replace the teraserver teranaut plugin, and the search libray, there are few important breaking changes to be aware of.</p>
 <ul>
 <li>The data access management api is under <code>GET /api/v2/data-access</code></li>
-<li>The search api is under <code>GET /api/v2/:spaceIdOrName</code></li>
+<li>The search api is under <code>GET /api/v2/:spaceIdOrEndpoint</code></li>
 <li>Pre/Post process function will need to be written to use express middleware, docs comming soon.</li>
 <li>The following configuration has been added to the space config:
 <ul>
-<li><code>index</code> under <code>metadata.indexConfig.index</code></li>
-<li><code>typesConfig</code> for <code>xlucene-evaluator</code> under <code>metadata.typesConfig</code></li>
-<li><code>connection</code> has been added under <code>metadata.indexConfig.connection</code></li>
+<li><code>index</code> under <code>search_config.index</code></li>
+<li><code>connection</code> has been added under <code>search_config.connection</code></li>
+<li><code>date_field</code> under <code>search_config.default_date_field</code></li>
+<li><code>geo_field</code> under <code>search_config.default_geo_field</code></li>
+<li><code>max_query_size</code>: under <code>search_config.max_query_size</code>;</li>
+<li><code>sort_default</code>: under <code>search_config.sort_default</code>;</li>
+<li><code>sort_enabled</code>: under <code>search_config.sort_enabled</code>;</li>
+<li><code>preserve_index_name</code>: under <code>search_config.preserve_index_name</code>;</li>
+<li><code>history_prefix</code>: under <code>search_config.history_prefix</code>;</li>
+<li><code>require_query</code>: under <code>search_config.require_query</code>;</li>
+</ul></li>
+<li>The following configuration has been moved to the data type config:
+<ul>
+<li><code>TypeConfig</code> for <code>xlucene-evaluator</code> under <code>type_config</code></li>
 </ul></li>
 <li>The following configuration has been moved to the view:
 <ul>
 <li><code>allowed_fields</code> under <code>includes</code></li>
 <li><code>type</code>, <code>date_start</code>, <code>date_end</code>, <code>geo_box_top_left</code>, <code>geo_box_bottom_right</code>, <code>geo_point</code>, <code>geo_distance</code> should be added to <code>constraint</code>.</li>
-</ul></li>
-<li>The following configuration has been moved to the view search config:
-<ul>
-<li><code>date_field</code> under <code>metadata.searchConfig.default_date_field</code></li>
-<li><code>geo_field</code> under <code>metadata.searchConfig.default_geo_field</code></li>
-<li><code>max_query_size</code>: under <code>metadata.searchConfig.max_query_size</code>;</li>
-<li><code>sort_default</code>: under <code>metadata.searchConfig.sort_default</code>;</li>
-<li><code>sort_enabled</code>: under <code>metadata.searchConfig.sort_enabled</code>;</li>
-<li><code>preserve_index_name</code>: under <code>metadata.searchConfig.preserve_index_name</code>;</li>
-<li><code>history_prefix</code>: under <code>metadata.searchConfig.history_prefix</code>;</li>
-<li><code>require_query</code>: under <code>metadata.searchConfig.require_query</code>;</li>
 </ul></li>
 <li>The following configuration has been removed:
 <ul>
@@ -103,96 +118,150 @@ npm install --save data-access-plugin
   findUsers(query:<span class="hljs-string">"*"</span>) {
     id,
     username,
-    roles,
+    role,
   }
   findRoles(query:<span class="hljs-string">"*"</span>) {
     id,
-    name,
-    spaces,
+    name
   }
   findSpaces(query:<span class="hljs-string">"*"</span>) {
     id,
     name,
     views,
-    default_view,
-    metadata
+    data_type,
+    search_config {
+      index
+    }
   }
   findViews(query:<span class="hljs-string">"*"</span>) {
     id,
     name,
-    space,
+    data_type,
     includes,
     excludes,
     constraint,
-    prevent_prefix_wildcard,
-    metadata,
+    prevent_prefix_wildcard
   }
 }
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="frist-create-the-role"></a><a href="#frist-create-the-role" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Frist create the Role</h3>
 <pre><code class="hljs css language-js">mutation {
   createRole(role:{
-    <span class="hljs-attr">name</span>:<span class="hljs-string">"Example Role"</span>,
-    <span class="hljs-attr">spaces</span>:[]
+    <span class="hljs-attr">name</span>: <span class="hljs-string">"Example Role"</span>
   }){
     id
   }
 }
 </code></pre>
-<h3><a class="anchor" aria-hidden="true" id="create-user-and-space"></a><a href="#create-user-and-space" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create user and space</h3>
+<h3><a class="anchor" aria-hidden="true" id="create-a-user"></a><a href="#create-a-user" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create a user</h3>
 <pre><code class="hljs css language-js">mutation {
   createUser(user:{
     <span class="hljs-attr">username</span>:<span class="hljs-string">"example-user"</span>,
     <span class="hljs-attr">email</span>:<span class="hljs-string">"user@example.com"</span>,
     <span class="hljs-attr">firstname</span>:<span class="hljs-string">"Billy"</span>,
     <span class="hljs-attr">lastname</span>:<span class="hljs-string">"Joe"</span>,
-    <span class="hljs-attr">roles</span>: [<span class="hljs-string">"ROLE_ID"</span>]
+    <span class="hljs-attr">role</span>: <span class="hljs-string">"&lt;ROLE_ID&gt;"</span>,
+    <span class="hljs-attr">type</span>: SUPERADMIN,
   }, <span class="hljs-attr">password</span>: <span class="hljs-string">"password"</span>) {
     id,
     api_token
   }
-
-  createSpace(space: {
-    <span class="hljs-attr">name</span>: <span class="hljs-string">"example-space"</span>,
-    <span class="hljs-attr">metadata</span>: {
-      <span class="hljs-attr">indexConfig</span>:{
-        <span class="hljs-attr">index</span>:<span class="hljs-string">"example-space"</span>
-      },
-      <span class="hljs-attr">typeConfig</span>: {
-          <span class="hljs-attr">created</span>: <span class="hljs-string">"date"</span>,
-          <span class="hljs-attr">location</span>: <span class="hljs-string">"geo"</span>
-      }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="create-a-data-type"></a><a href="#create-a-data-type" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create a Data Type</h3>
+<pre><code class="hljs css language-js">mutation {
+  createDataType(dataType:{
+    <span class="hljs-attr">name</span>: <span class="hljs-string">"Example Data Type"</span>
+    type_config: {
+        <span class="hljs-attr">created</span>: <span class="hljs-string">"date"</span>,
+        <span class="hljs-attr">location</span>: <span class="hljs-string">"geo"</span>
     }
-  }, <span class="hljs-attr">views</span>: [
-    {
-      <span class="hljs-attr">name</span>: <span class="hljs-string">"ExampleView"</span>,
-      <span class="hljs-attr">includes</span>: [<span class="hljs-string">"foo"</span>, <span class="hljs-string">"moo"</span>],
-      <span class="hljs-attr">excludes</span>: [<span class="hljs-string">"bar"</span>],
-      <span class="hljs-attr">roles</span>: [<span class="hljs-string">"ROLE_ID"</span>],
-      <span class="hljs-attr">constraint</span>:<span class="hljs-string">"moo:cow"</span>
-    }
-  ], <span class="hljs-attr">defaultView</span>: {
-      <span class="hljs-attr">metadata</span>:{
-        <span class="hljs-attr">searchConfig</span>:{
-          <span class="hljs-attr">require_query</span>:<span class="hljs-literal">true</span>
-        }
-      }
-  }) {
-    space {
-      id,
-    }
-    views {
-      id,
-    }
+  }){
+    id
   }
 }
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="create-a-view"></a><a href="#create-a-view" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create a View</h3>
+<pre><code class="hljs css language-js">mutation {
+  createView(view:{
+    <span class="hljs-attr">name</span>: <span class="hljs-string">"Example Data Type"</span>,
+    <span class="hljs-attr">data_type</span>: <span class="hljs-string">"&lt;DATA_TYPE_ID&gt;"</span>,
+    <span class="hljs-attr">includes</span>: [<span class="hljs-string">"foo"</span>, <span class="hljs-string">"moo"</span>],
+    <span class="hljs-attr">excludes</span>: [<span class="hljs-string">"bar"</span>],
+    <span class="hljs-attr">roles</span>: [<span class="hljs-string">"&lt;ROLE_ID&gt;"</span>],
+    <span class="hljs-attr">constraint</span>:<span class="hljs-string">"moo:cow"</span>
+  }){
+    id
+  }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="create-a-space"></a><a href="#create-a-space" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Create a space</h3>
+<pre><code class="hljs css language-js">mutation {
+  createSpace(space: {
+    <span class="hljs-attr">name</span>: <span class="hljs-string">"My Example Space"</span>,
+    <span class="hljs-attr">endpoint</span>: <span class="hljs-string">"example-space"</span>,
+    <span class="hljs-attr">data_type</span>: <span class="hljs-string">"&lt;DATA_TYPE_ID&gt;"</span>,
+    <span class="hljs-attr">roles</span>: [<span class="hljs-string">"&lt;ROLE_ID&gt;"</span>],
+    <span class="hljs-attr">views</span>: [<span class="hljs-string">"&lt;VIEW_ID&gt;"</span>],
+    <span class="hljs-attr">search_config</span>: {
+      <span class="hljs-attr">index</span>:<span class="hljs-string">"example-space"</span>,
+      <span class="hljs-attr">require_query</span>: <span class="hljs-literal">true</span>
+    },
+  }) {
+    id
+  }
+}
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="searching-the-space"></a><a href="#searching-the-space" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Searching the space</h3>
+<pre><code class="hljs css language-sh"><span class="hljs-comment"># replace localhost:8000 with your teraserver url</span>
+curl -sS <span class="hljs-string">'localhost:8000/api/v2/example-space?token=&lt;API_TOKEN&gt;&amp;q=foo:bar'</span> | jq <span class="hljs-string">'.'</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="using-the-search-middleware"></a><a href="#using-the-search-middleware" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Using the search middleware</h3>
+<p>The data-access-plugin sets preconfigured API for a &quot;space&quot; on the Request (<code>req.space</code>) so it can be used with minimal setup and configuration by using express middleware. To use the space API on the request, the route be registered under <code>/api/v2/:space-endpoint</code>, it can also be nested, for example <code>/api/v2/:space-endpoint/search</code>.</p>
+<p>The space request API has the following properties:</p>
+<ul>
+<li><code>searchErrorHandler</code>: An async error handler function that will mask any unwanted errors</li>
+<li><code>accessConfig</code>: The data access configuration for space/user</li>
+<li><code>search</code>: A search function preconfigured for the space</li>
+<li><code>logger</code>: A namespaced logger for that space</li>
+</ul>
+<pre><code class="hljs css language-js"><span class="hljs-comment">// ... teraserver plugin</span>
+    routes() {
+      app.get(<span class="hljs-string">'/api/v2/example-space'</span>, (req, res) =&gt; {
+        <span class="hljs-keyword">const</span> { space } = req;
+        <span class="hljs-keyword">if</span> (!space) {
+            <span class="hljs-comment">// if you get here the data-access-plugin was not registered correctly</span>
+            res.sendStatus(<span class="hljs-number">500</span>);
+            <span class="hljs-keyword">return</span>;
+        }
+
+        space.searchErrorHandler(req, res, <span class="hljs-keyword">async</span> () =&gt; {
+            <span class="hljs-comment">// do any pre-processing here...</span>
+
+            <span class="hljs-keyword">const</span> result = <span class="hljs-keyword">await</span> space.search(req.query);
+
+            <span class="hljs-comment">// do any post-processing here...</span>
+
+            res
+                .status(<span class="hljs-number">200</span>)
+                .set(<span class="hljs-string">'Content-type'</span>, <span class="hljs-string">'application/json; charset=utf-8'</span>);
+
+            <span class="hljs-keyword">if</span> (req.query.pretty) {
+                res.send(<span class="hljs-built_in">JSON</span>.stringify(result, <span class="hljs-literal">null</span>, <span class="hljs-number">2</span>));
+            } <span class="hljs-keyword">else</span> {
+                res.json(result);
+            }
+        });
+      });
+    }
+<span class="hljs-comment">// ...</span>
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="contributing"></a><a href="#contributing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Contributing</h2>
 <p>Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.</p>
 <p>Please make sure to update tests as appropriate.</p>
 <h2><a class="anchor" aria-hidden="true" id="license"></a><a href="#license" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>License</h2>
 <p><a href="./LICENSE">MIT</a> licensed.</p>
-</span></div></article></div><div class="docLastUpdate"><em>Last updated on 3/14/2019</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/packages/data-access/overview"><span class="arrow-prev">← </span><span>data-access</span></a><a class="docs-next button" href="/teraslice/docs/packages/docker-compose-js/overview"><span>docker-compose-js</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#installation">Installation</a></li><li><a href="#important-changes">Important Changes</a></li><li><a href="#graphql-usage">GraphQL Usage</a><ul class="toc-headings"><li><a href="#list-everything">List everything</a></li><li><a href="#frist-create-the-role">Frist create the Role</a></li><li><a href="#create-user-and-space">Create user and space</a></li></ul></li><li><a href="#contributing">Contributing</a></li><li><a href="#license">License</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/apis.html">API Reference</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 3/18/2019</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/packages/data-access/overview"><span class="arrow-prev">← </span><span>data-access</span></a><a class="docs-next button" href="/teraslice/docs/packages/docker-compose-js/overview"><span>docker-compose-js</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#installation">Installation</a><ul class="toc-headings"><li><a href="#configuration">Configuration</a></li></ul></li><li><a href="#important-changes">Important Changes</a></li><li><a href="#graphql-usage">GraphQL Usage</a><ul class="toc-headings"><li><a href="#list-everything">List everything</a></li><li><a href="#frist-create-the-role">Frist create the Role</a></li><li><a href="#create-a-user">Create a user</a></li><li><a href="#create-a-data-type">Create a Data Type</a></li><li><a href="#create-a-view">Create a View</a></li><li><a href="#create-a-space">Create a space</a></li><li><a href="#searching-the-space">Searching the space</a></li><li><a href="#using-the-search-middleware">Using the search middleware</a></li></ul></li><li><a href="#contributing">Contributing</a></li><li><a href="#license">License</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/apis.html">API Reference</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
