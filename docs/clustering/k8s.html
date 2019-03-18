@@ -136,8 +136,8 @@ Teraslice job definition.  These are outlined below.</p>
 workers that translate to Kubernetes resource constraints.  Currently you
 can specify optional integer values on your job as shown below. The <code>cpu</code>
 setting is in vcores and the <code>memory</code> setting is in bytes.</p>
-<pre><code class="hljs"><span class="hljs-string">"cpu"</span>: <span class="hljs-number">1</span>,
-<span class="hljs-string">"memory"</span>: <span class="hljs-number">2147483648</span>
+<pre><code class="hljs css language-json">"cpu": 1,
+"memory": 2147483648
 </code></pre>
 <p>Setting <code>cpu</code> will result in the Kubernetes <code>resources.requests.cpu</code> and
 <code>resources.limit.cpu</code> being set to <code>cpu</code> value provided.  Setting <code>memory</code>
@@ -145,24 +145,126 @@ will result in the Kubernetes <code>resources.requests.memory</code> and
 <code>resources.limit.memory</code> being set to the <code>memory</code> value provided. See the
 <a href="https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/">Kubernetes Resource docs</a>
 for further details on how Kubernetes interprets these values.</p>
-<h2><a class="anchor" aria-hidden="true" id="node-affinity-by-targets"></a><a href="#node-affinity-by-targets" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Node Affinity by Targets</h2>
+<h2><a class="anchor" aria-hidden="true" id="node-affinity-and-tolerance-using-teraslice-job-targets"></a><a href="#node-affinity-and-tolerance-using-teraslice-job-targets" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Node Affinity and Tolerance Using Teraslice Job Targets</h2>
 <p>If you need the workers (and execution controller) of your job to execute on
-specific set of nodes, you can use the Teraslice <code>targets</code> property on your
-job. You can specify one or more targets that will use <a href="https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity">Kubernetes Node Affinity</a>
-to force nodes onto specific nodes.  The targets specified here will be required
-using <code>requiredDuringSchedulingIgnoredDuringExecution</code>.</p>
-<pre><code class="hljs"><span class="hljs-string">"targets"</span>: [
-    {<span class="hljs-string">"key"</span>: <span class="hljs-string">"zone"</span>, <span class="hljs-string">"value"</span>: <span class="hljs-string">"west"</span>}
+specific set of nodes or tolerate node taints, you can use the Teraslice
+<code>targets</code> property on your job.  The simplest form of using <code>targets</code> is to
+specify a single target and by default Teraslice will configure your workers to
+only run on nodes who's labels match the <code>key</code> and <code>value</code> specified as shown
+below:</p>
+<pre><code class="hljs css language-json">"targets": [
+    {"key": "zone", "value": "west"}
 ],
 </code></pre>
-<p>For each entry in <code>targets</code> you provide, there will be a corresponding
-Kubernetes constraint, like the one shown below, added to your workers.</p>
-<pre><code class="hljs"><span class="hljs-symbol">        nodeSelectorTerms:</span>
-        - matchExpressions:
-          - key: <span class="hljs-params">&lt;KEY&gt;</span>
-<span class="hljs-symbol">            operator:</span> In
-<span class="hljs-symbol">            values:</span>
-            - <span class="hljs-params">&lt;VALUE&gt;</span>
+<p>More advanced options are also available to control how your Teraslice workers
+are scheduled in your Kubernetes cluster.  These options can be used by
+specifying an optional <code>constraint</code> property on the <code>targets</code> specified on your
+Teraslice job.  The available <code>constraint</code>s are:</p>
+<ul>
+<li><code>required</code> - Pods will only be scheduled to nodes that match the label.  If
+there are insufficient resources on the target nodes your job may have fewer
+workers than requested.  This is the <strong>default</strong> if is <code>constraint</code> is omitted.</li>
+<li><code>preferred</code> - Pods will be scheduled to nodes with this label, but if there
+are insufficient resources, they may be scheduled on nodes without this label.</li>
+<li><code>accepted</code> - Pods may be scheduled to nodes with the kubernetes taint
+provided by this label.  This uses a Kubernetes tolerance.</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="examples"></a><a href="#examples" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples</h3>
+<p>If you want to force pods to run on nodes with a given label, you can simply
+specify a target with just a <code>key</code> and <code>value</code>:</p>
+<pre><code class="hljs css language-json">"targets": [
+    {"key": "zone", "value": "west"}
+],
+</code></pre>
+<p>Using the <code>&quot;constraint&quot;: &quot;required&quot;</code> property, as shown below, achieves the same
+thing:</p>
+<pre><code class="hljs css language-json">"targets": [
+    {"key": "zone", "value": "west", "constraint": "required"}
+],
+</code></pre>
+<p>Using <code>&quot;constraint&quot;: &quot;preferred&quot;</code> establishes a looser constraint on the label:</p>
+<pre><code class="hljs css language-json">"targets": [
+    {"key": "zone", "value": "west", "constraint": "preferred"}
+],
+</code></pre>
+<p>If you wanted your Teraslice workers to target a set of nodes with a given label
+but also wanted to guarantee the availability of these nodes for this workload
+by applying a taint, you could use <code>required</code> to target the label, then use
+<code>accepted</code> to tolerate that taint as follows:</p>
+<pre><code class="hljs css language-json">"targets": [
+    {"key": "zone", "value": "west", "constraint": "required"}
+    {"key": "region", "value": "texas", "constraint": "accepted"}
+],
+</code></pre>
+<p>If you are not familiar with the details of Kubernetes affinity and
+taint/tolerance mechanisms you can find more information in the Kubernetes
+documentation below:</p>
+<ul>
+<li><a href="https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity">Kubernetes Node Affinity</a></li>
+<li><a href="https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/">Kubernetes Taints and Tolerations</a></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="pod-spec-details"></a><a href="#pod-spec-details" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Pod Spec Details</h3>
+<p>Each of the Teraslice job target <code>constraint</code>s are implemented slightly
+differently and it may be important for you to know exactly how these get
+translated into the Kubernetes manifest.  Those details are described below.</p>
+<h4><a class="anchor" aria-hidden="true" id="details-of-the-required-constraint"></a><a href="#details-of-the-required-constraint" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Details of the <code>required</code> constraint</h4>
+<p>For each entry in <code>targets</code> without a <code>constraint</code> or if <code>contraint</code> is set to
+<code>required</code>, the pod spec will include an entry in the <code>matchExpressions</code> list
+under the <code>requiredDuringSchedulingIgnoredDuringExecution</code> affinity property.
+The example below is what you would get if you provided two <code>required</code> targets:</p>
+<pre><code class="hljs css language-yaml"><span class="hljs-attr">      affinity:</span>
+<span class="hljs-attr">        nodeAffinity:</span>
+<span class="hljs-attr">          requiredDuringSchedulingIgnoredDuringExecution:</span>
+<span class="hljs-attr">            nodeSelectorTerms:</span>
+<span class="hljs-attr">              - matchExpressions:</span>
+<span class="hljs-attr">                  - key:</span> <span class="hljs-string">zone</span>
+<span class="hljs-attr">                    operator:</span> <span class="hljs-string">In</span>
+<span class="hljs-attr">                    values:</span>
+<span class="hljs-bullet">                      -</span> <span class="hljs-string">west</span>
+<span class="hljs-attr">                  - key:</span> <span class="hljs-string">region</span>
+<span class="hljs-attr">                    operator:</span> <span class="hljs-string">In</span>
+<span class="hljs-attr">                    values:</span>
+<span class="hljs-bullet">                      -</span> <span class="hljs-string">texas</span>
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="details-of-the-preferred-constraint"></a><a href="#details-of-the-preferred-constraint" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Details of the <code>preferred</code> constraint</h4>
+<p>For each entry in <code>targets</code> with a <code>constraint</code> set to <code>preferred</code>, the pod spec
+will include a separate preference in the list under the
+<code>preferredDuringSchedulingIgnoredDuringExecution</code> affinity property.  For now,
+all of these preferences will assume a weight of <code>1</code>.  The example
+below is what you would get if you provided two <code>preferred</code> targets:</p>
+<pre><code class="hljs css language-yaml"><span class="hljs-attr">      affinity:</span>
+<span class="hljs-attr">        nodeAffinity:</span>
+<span class="hljs-attr">          preferredDuringSchedulingIgnoredDuringExecution:</span>
+<span class="hljs-attr">            - weight:</span> <span class="hljs-number">1</span>
+<span class="hljs-attr">              preference:</span>
+<span class="hljs-attr">                matchExpressions:</span>
+<span class="hljs-attr">                  - key:</span> <span class="hljs-string">zone</span>
+<span class="hljs-attr">                    operator:</span> <span class="hljs-string">In</span>
+<span class="hljs-attr">                    values:</span>
+<span class="hljs-bullet">                      -</span> <span class="hljs-string">west</span>
+<span class="hljs-attr">            - weight:</span> <span class="hljs-number">1</span>
+<span class="hljs-attr">              preference:</span>
+<span class="hljs-attr">                matchExpressions:</span>
+<span class="hljs-attr">                  - key:</span> <span class="hljs-string">region</span>
+<span class="hljs-attr">                    operator:</span> <span class="hljs-string">In</span>
+<span class="hljs-attr">                    values:</span>
+<span class="hljs-bullet">                      -</span> <span class="hljs-string">texas</span>
+</code></pre>
+<h4><a class="anchor" aria-hidden="true" id="details-of-the-accepted-constraint"></a><a href="#details-of-the-accepted-constraint" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Details of the <code>accepted</code> constraint</h4>
+<p>For each entry in <code>targets</code> with a <code>constraint</code> set to <code>accepted</code>, the pod spec
+will include a separate toleration in the list under the <code>tolerations</code> property.
+Both the <code>key</code> and <code>value</code> provided in the target will be used to match the
+taint.  The example below is what you would get if you provided two <code>accepted</code>
+targets:</p>
+<pre><code class="hljs css language-yaml"><span class="hljs-attr">      tolerations:</span>
+<span class="hljs-attr">        - key:</span> <span class="hljs-string">zone</span>
+<span class="hljs-attr">          operator:</span> <span class="hljs-string">Equal</span>
+<span class="hljs-attr">          value:</span> <span class="hljs-string">west</span>
+<span class="hljs-attr">          effect:</span> <span class="hljs-string">NoSchedule</span>
+<span class="hljs-attr">        - key:</span> <span class="hljs-string">region</span>
+<span class="hljs-attr">          operator:</span> <span class="hljs-string">Equal</span>
+<span class="hljs-attr">          value:</span> <span class="hljs-string">texas</span>
+<span class="hljs-attr">          effect:</span> <span class="hljs-string">NoSchedule</span>
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="attach-existing-volumes"></a><a href="#attach-existing-volumes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Attach existing volumes</h2>
 <p>One or more volumes can be specified on your job and these volumes will be
@@ -170,8 +272,8 @@ attached to your worker and execution controller pods at runtime.  The volumes
 and their volume claims must exist prior to job execution.  Note that the <code>name</code>
 property should be the name of the Kubernetes <code>persistentVolumeClaim</code>.  The
 <code>path</code> is where the volume will be mounted within the containers in your pod.</p>
-<pre><code class="hljs"><span class="hljs-string">"volumes"</span>: [
-    {<span class="hljs-string">"name"</span>: <span class="hljs-string">"teraslice-data1"</span>, <span class="hljs-string">"path"</span>: <span class="hljs-string">"/data"</span>}
+<pre><code class="hljs css language-json">"volumes": [
+    {"name": "teraslice-data1", "path": "/data"}
 ],
 </code></pre>
 <h1><a class="anchor" aria-hidden="true" id="makefile"></a><a href="#makefile" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Makefile</h1>
@@ -179,16 +281,16 @@ property should be the name of the Kubernetes <code>persistentVolumeClaim</code>
 you can type <code>make</code> to see all of the possible targets.</p>
 <p>The standard minikube based dev workflow is and requires the <code>teraslice-cli</code>
 version <code>0.5.1</code> or higher:</p>
-<pre><code class="hljs"><span class="hljs-attr">cd</span> <span class="hljs-string">examples/k8s</span>
-<span class="hljs-attr">export</span> <span class="hljs-string">NAMESPACE=ts-dev1</span>
-<span class="hljs-attr">export</span> <span class="hljs-string">TERASLICE_K8S_IMAGE=teraslice-k8sdev:1</span>
-<span class="hljs-attr">minikube</span> <span class="hljs-string">start --memory 4096 --cpus 4</span>
-<span class="hljs-attr">eval</span> <span class="hljs-string">$(minikube docker-env)</span>
-<span class="hljs-attr">make</span> <span class="hljs-string">build</span>
-<span class="hljs-attr">make</span> <span class="hljs-string">setup-all</span>
-<span class="hljs-attr">make</span> <span class="hljs-string">show</span>
-<span class="hljs-attr">make</span> <span class="hljs-string">register</span>
-<span class="hljs-attr">make</span> <span class="hljs-string">start</span>
+<pre><code class="hljs css language-bash"><span class="hljs-built_in">cd</span> examples/k8s
+<span class="hljs-built_in">export</span> NAMESPACE=ts-dev1
+<span class="hljs-built_in">export</span> TERASLICE_K8S_IMAGE=teraslice-k8sdev:1
+minikube start --memory 4096 --cpus 4
+<span class="hljs-built_in">eval</span> $(minikube docker-env)
+make build
+make setup-all
+make show
+make register
+make start
 </code></pre>
 <p>At this point you should be able to access your Teraslice instance on port 30678
 on the minikube ip:</p>
@@ -223,10 +325,10 @@ job:</p>
 <pre><code class="hljs css language-bash">make rebuild
 </code></pre>
 <p>To tear everything down and start over, all you have to do is run:</p>
-<pre><code class="hljs"><span class="hljs-keyword">make</span> destroy-<span class="hljs-keyword">all</span>
+<pre><code class="hljs css language-bash">make destroy-all
 </code></pre>
 <p>and start at <code>make build</code> above.</p>
-</span></div></article></div><div class="docLastUpdate"><em>Last updated on 2/8/2019</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/configuration/ops"><span class="arrow-prev">← </span><span>Operations</span></a><a class="docs-next button" href="/teraslice/docs/development/overview"><span>Overview</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#default-serviceaccount-binding"><code>default</code> ServiceAccount Binding</a></li><li><a href="#master-deployment">Master Deployment</a></li><li><a href="#resources">Resources</a></li><li><a href="#node-affinity-by-targets">Node Affinity by Targets</a></li><li><a href="#attach-existing-volumes">Attach existing volumes</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/apis.html">API Reference</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 3/18/2019</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/configuration/ops"><span class="arrow-prev">← </span><span>Operations</span></a><a class="docs-next button" href="/teraslice/docs/development/overview"><span>Overview</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#default-serviceaccount-binding"><code>default</code> ServiceAccount Binding</a></li><li><a href="#master-deployment">Master Deployment</a></li><li><a href="#resources">Resources</a></li><li><a href="#node-affinity-and-tolerance-using-teraslice-job-targets">Node Affinity and Tolerance Using Teraslice Job Targets</a><ul class="toc-headings"><li><a href="#examples">Examples</a></li><li><a href="#pod-spec-details">Pod Spec Details</a></li></ul></li><li><a href="#attach-existing-volumes">Attach existing volumes</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/apis.html">API Reference</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
