@@ -83,7 +83,7 @@ npm install --global ts-transforms
 <h1><a class="anchor" aria-hidden="true" id="usage"></a><a href="#usage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h1>
 <p>There are two different executions: <code>Matcher</code> and <code>Transform</code>. The former returns the raw matching documents while the later provides additional ETL capabilities</p>
 <p>Example rules file: <code>rulesFile.txt</code></p>
-<pre><code class="hljs css language-json">{<span class="hljs-attr">"selector"</span>: <span class="hljs-string">"hello:world OR bytes:&gt;=400"</span>}
+<pre><code class="hljs css language-json">{ <span class="hljs-attr">"selector"</span>: <span class="hljs-string">"hello:world OR bytes:&gt;=400"</span> }
 </code></pre>
 <p>Example code:</p>
 <pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> { Matcher } <span class="hljs-keyword">from</span> <span class="hljs-string">'ts-transforms'</span>
@@ -205,11 +205,11 @@ npm install --global ts-transforms
 <p>This phase will go through all the configurations and apply all the extractions for a given selector. All the transformations for a given selector are merged together to return a single record back</p>
 <pre><code class="hljs css language-ts"><span class="hljs-comment">// rules</span>
 
-{<span class="hljs-string">"selector"</span>: <span class="hljs-string">"hello:world"</span>, <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"first"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"first_name"</span>}
-{<span class="hljs-string">"selector"</span>: <span class="hljs-string">"hello:world"</span>, <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"last"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"last_name"</span>}
+{ <span class="hljs-string">"selector"</span>: <span class="hljs-string">"hello:world"</span>, <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"first"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"first_name"</span> }
+{ <span class="hljs-string">"selector"</span>: <span class="hljs-string">"hello:world"</span>, <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"last"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"last_name"</span> }
 
-{<span class="hljs-string">"selector"</span>: <span class="hljs-string">"some:data"</span>, <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"first"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"other_first"</span>}
-{<span class="hljs-string">"selector"</span>: <span class="hljs-string">"some:data"</span>, <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"last"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"other_last"</span>}
+{ <span class="hljs-string">"selector"</span>: <span class="hljs-string">"some:data"</span>, <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"first"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"other_first"</span> }
+{ <span class="hljs-string">"selector"</span>: <span class="hljs-string">"some:data"</span>, <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"last"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"other_last"</span> }
 
 <span class="hljs-comment">// Incoming Data to transform</span>
 [
@@ -239,7 +239,7 @@ npm install --global ts-transforms
 { <span class="hljs-string">"selector"</span>: <span class="hljs-string">"some:value"</span>, <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"field"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"newField"</span>, <span class="hljs-string">"tag"</span>: <span class="hljs-string">"tag_field"</span> }
 { <span class="hljs-string">"follow"</span>: <span class="hljs-string">"tag_field"</span>, <span class="hljs-string">"validation"</span>: <span class="hljs-string">"email"</span>, <span class="hljs-string">"tag"</span>: <span class="hljs-string">"valid_email"</span> }
 { <span class="hljs-string">"follow"</span>: <span class="hljs-string">"valid_email"</span>, <span class="hljs-string">"post_process"</span>: <span class="hljs-string">"extraction"</span>, <span class="hljs-string">"start"</span>: <span class="hljs-string">"@"</span>, <span class="hljs-string">"end"</span>: <span class="hljs-string">"."</span>, <span class="hljs-string">"output"</span>: <span class="hljs-literal">false</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"secondary"</span>, <span class="hljs-string">"tag"</span>: <span class="hljs-string">"finalTag"</span> }
-{ <span class="hljs-string">"follow"</span>: <span class="hljs-string">"finalTag"</span>, <span class="hljs-string">"post_process"</span>: <span class="hljs-string">"array"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"final"</span>}
+{ <span class="hljs-string">"follow"</span>: <span class="hljs-string">"finalTag"</span>, <span class="hljs-string">"post_process"</span>: <span class="hljs-string">"array"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"final"</span> }
 
 <span class="hljs-comment">// Incoming Data to transform</span>
 [
@@ -256,18 +256,6 @@ npm install --global ts-transforms
 ]
 
 </code></pre>
-<p><strong>Note</strong>
-It is possible to collapse some simple post_process configs together with the original extraction config, however its not advisable if you need to specify additional parameters so that they dont conflict with each other.</p>
-<pre><code class="hljs css language-js">
-{ <span class="hljs-string">"selector"</span>: <span class="hljs-string">"domain:example.com"</span>, <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"url"</span>, <span class="hljs-string">"start"</span>: <span class="hljs-string">"field3="</span>, <span class="hljs-string">"end"</span>: <span class="hljs-string">"EOP"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"field3"</span>, <span class="hljs-string">"post_process"</span>: <span class="hljs-string">"base64decode"</span> }
-
-<span class="hljs-comment">// is the same as</span>
-
-{ <span class="hljs-string">"selector"</span>: <span class="hljs-string">"domain:example.com"</span>, <span class="hljs-string">"source_field"</span>: <span class="hljs-string">"url"</span>, <span class="hljs-string">"start"</span>: <span class="hljs-string">"field3="</span>, <span class="hljs-string">"end"</span>: <span class="hljs-string">"EOP"</span>, <span class="hljs-string">"target_field"</span>: <span class="hljs-string">"field3"</span>, <span class="hljs-string">"tag"</span>: <span class="hljs-string">"someTag"</span>}
-{ <span class="hljs-string">"follow"</span>: <span class="hljs-string">"someTag"</span>, <span class="hljs-string">"post_process"</span>: <span class="hljs-string">"base64decode"</span> }
-
-<span class="hljs-comment">// however the later is preferable when you need to do more complex chaining or any post_process or validation that requires more parameters</span>
-</code></pre>
 <h3><a class="anchor" aria-hidden="true" id="output-phase"></a><a href="#output-phase" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Output Phase</h3>
 <p>This is the last phase. This performs final removal of fields marked by <code>output:false</code> for transform configurations. This also makes sure that <code>other_match_required</code> checks the presence of additional keys</p>
 <h4><a class="anchor" aria-hidden="true" id="file-structure"></a><a href="#file-structure" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>File structure</h4>
@@ -276,14 +264,15 @@ It is possible to collapse some simple post_process configs together with the or
 <li>Transform:
 transformrules.txt</li>
 </ul>
-<pre><code class="hljs css language-json">{ <span class="hljs-attr">"selector"</span>: <span class="hljs-string">"host:fc2.com"</span>, <span class="hljs-attr">"source_field"</span>: <span class="hljs-string">"field1"</span>, <span class="hljs-attr">"start"</span>: <span class="hljs-string">"field1="</span>, <span class="hljs-attr">"end"</span>: <span class="hljs-string">"EOP"</span>, <span class="hljs-attr">"target_field"</span>: <span class="hljs-string">"field1"</span>, <span class="hljs-attr">"post_process"</span>: <span class="hljs-string">"base64decode"</span> }
+<pre><code class="hljs css language-json">{ <span class="hljs-attr">"selector"</span>: <span class="hljs-string">"host:google.com"</span>, <span class="hljs-attr">"source_field"</span>: <span class="hljs-string">"field1"</span>, <span class="hljs-attr">"start"</span>: <span class="hljs-string">"field1="</span>, <span class="hljs-attr">"end"</span>: <span class="hljs-string">"EOP"</span>, <span class="hljs-attr">"target_field"</span>: <span class="hljs-string">"field1"</span>, <span class="hljs-attr">"tag"</span>: <span class="hljs-string">"decodeMe"</span> }
+{ <span class="hljs-attr">"follow"</span>: <span class="hljs-string">"decodeMe"</span>, <span class="hljs-attr">"post_process"</span>: <span class="hljs-string">"base64decode"</span> }
 { <span class="hljs-attr">"source_field"</span>: <span class="hljs-string">"date"</span>, <span class="hljs-attr">"target_field"</span>: <span class="hljs-string">"date"</span>, <span class="hljs-attr">"other_match_required"</span>: <span class="hljs-literal">true</span> }
 </code></pre>
 <ul>
 <li>Matcher:
 matcherules.txt</li>
 </ul>
-<pre><code class="hljs css language-json">{ <span class="hljs-attr">"selector"</span>: <span class="hljs-string">"some:data AND bytes:&gt;=1000"</span>}
+<pre><code class="hljs css language-json">{ <span class="hljs-attr">"selector"</span>: <span class="hljs-string">"some:data AND bytes:&gt;=1000"</span> }
 { <span class="hljs-attr">"selector"</span>: <span class="hljs-string">"other:/.*abc.*/ OR _created:&gt;=2018-11-16T15:16:09.076Z"</span> }
 </code></pre>
 <p>is equivalent to:</p>
@@ -294,17 +283,17 @@ other:/.*abc.*/ OR _created:&gt;=<span class="hljs-number">2018</span><span clas
 <p><code>NOTE</code> you can put <code>#</code> in the rules file to act as a comment, it must be on a new line</p>
 <p>Example:</p>
 <pre><code class="hljs css language-sh">
-{ <span class="hljs-string">"selector"</span>: <span class="hljs-string">"some:data AND bytes:&gt;=1000"</span>}
+{ <span class="hljs-string">"selector"</span>: <span class="hljs-string">"some:data AND bytes:&gt;=1000"</span> }
 <span class="hljs-comment"># some comment about something</span>
 { <span class="hljs-string">"selector"</span>: <span class="hljs-string">"other:/.*abc.*/ OR _created:&gt;=2018-11-16T15:16:09.076Z"</span> }
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="matcher"></a><a href="#matcher" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Matcher</h2>
 <p>This will return all the records that match the selector rule list without any additional record manipulation/validation</p>
 <p>Example file: <code>rulesFile2.txt</code></p>
-<pre><code class="hljs css language-json">{<span class="hljs-attr">"selector"</span>: <span class="hljs-string">"person.age:[25 TO 35]"</span>}
-{<span class="hljs-attr">"selector"</span>: <span class="hljs-string">"ipfield:'192.198.0.0/24'"</span>}
-{<span class="hljs-attr">"selector"</span>: <span class="hljs-string">"_created:[2018-10-18T18:13:20.683Z TO *]"</span>}
-{<span class="hljs-attr">"selector"</span>: <span class="hljs-string">"key:?abc*]"</span>}
+<pre><code class="hljs css language-json">{ <span class="hljs-attr">"selector"</span>: <span class="hljs-string">"person.age:[25 TO 35]"</span> }
+{ <span class="hljs-attr">"selector"</span>: <span class="hljs-string">"ipfield:'192.198.0.0/24'"</span> }
+{ <span class="hljs-attr">"selector"</span>: <span class="hljs-string">"_created:[2018-10-18T18:13:20.683Z TO *]"</span> }
+{ <span class="hljs-attr">"selector"</span>: <span class="hljs-string">"key:?abc*]"</span> }
 </code></pre>
 <p>Example code:</p>
 <pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> { Matcher } <span class="hljs-keyword">from</span> <span class="hljs-string">'ts-transforms'</span>
@@ -344,9 +333,9 @@ other:/.*abc.*/ OR _created:&gt;=<span class="hljs-number">2018</span><span clas
 <h2><a class="anchor" aria-hidden="true" id="transform"></a><a href="#transform" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Transform</h2>
 <p>This will not only select for matching records based on the selector but it can allow additional transformation/validation of the data to produce an new result</p>
 <p>Example rules file:</p>
-<pre><code class="hljs css language-json">{<span class="hljs-attr">"selector"</span>: <span class="hljs-string">"hello:world"</span>, <span class="hljs-attr">"source_field"</span>: <span class="hljs-string">"first"</span>, <span class="hljs-attr">"target_field"</span>: <span class="hljs-string">"first_name"</span>, <span class="hljs-attr">"tag"</span>: <span class="hljs-string">"field"</span>}
-{<span class="hljs-attr">"selector"</span>: <span class="hljs-string">"hello:world"</span>, <span class="hljs-attr">"source_field"</span>: <span class="hljs-string">"last"</span>, <span class="hljs-attr">"target_field"</span>: <span class="hljs-string">"last_name"</span>, <span class="hljs-attr">"tag"</span>: <span class="hljs-string">"field"</span>}
-{<span class="hljs-attr">"follow"</span>: <span class="hljs-string">"field"</span>, <span class="hljs-attr">"post_process"</span>: <span class="hljs-string">"join"</span>, <span class="hljs-attr">"fields"</span>: [<span class="hljs-string">"first_name"</span>, <span class="hljs-string">"last_name"</span>], <span class="hljs-attr">"delimiter"</span>: <span class="hljs-string">" "</span>, <span class="hljs-attr">"target_field"</span>: <span class="hljs-string">"full_name"</span>}
+<pre><code class="hljs css language-json">{ <span class="hljs-attr">"selector"</span>: <span class="hljs-string">"hello:world"</span>, <span class="hljs-attr">"source_field"</span>: <span class="hljs-string">"first"</span>, <span class="hljs-attr">"target_field"</span>: <span class="hljs-string">"first_name"</span>, <span class="hljs-attr">"tag"</span>: <span class="hljs-string">"field"</span> }
+{ <span class="hljs-attr">"selector"</span>: <span class="hljs-string">"hello:world"</span>, <span class="hljs-attr">"source_field"</span>: <span class="hljs-string">"last"</span>, <span class="hljs-attr">"target_field"</span>: <span class="hljs-string">"last_name"</span>, <span class="hljs-attr">"tag"</span>: <span class="hljs-string">"field"</span> }
+{ <span class="hljs-attr">"follow"</span>: <span class="hljs-string">"field"</span>, <span class="hljs-attr">"post_process"</span>: <span class="hljs-string">"join"</span>, <span class="hljs-attr">"fields"</span>: [<span class="hljs-string">"first_name"</span>, <span class="hljs-string">"last_name"</span>], <span class="hljs-attr">"delimiter"</span>: <span class="hljs-string">" "</span>, <span class="hljs-attr">"target_field"</span>: <span class="hljs-string">"full_name"</span> }
 </code></pre>
 <p>code</p>
 <pre><code class="hljs css language-js"><span class="hljs-keyword">import</span> { Transform } <span class="hljs-keyword">from</span> <span class="hljs-string">'ts-transforms'</span>
@@ -402,7 +391,7 @@ curl <span class="hljs-string">'http://localhost:9200/test_index/_search?q=bytes
 <p>you may also pipe the results to a file for further analysis</p>
 <pre><code class="hljs css language-sh">curl <span class="hljs-string">'http://localhost:9200/test_index/_search?q=bytes:&gt;=5642500'</span> | ts-transform -r someRules.txt | tee results.txt
 </code></pre>
-</span></div></article></div><div class="docLastUpdate"><em>Last updated on 3/14/2019</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/packages/teraslice-test-harness/overview"><span class="arrow-prev">← </span><span>teraslice-test-harness</span></a><a class="docs-next button" href="/teraslice/docs/packages/ts-transforms/plugins"><span>Plugins</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#installation">Installation</a></li><li><a href="#dependency-installation">Dependency Installation</a></li><li><a href="#operations">Operations</a></li><li><a href="#plugins">Plugins</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#rules">Rules</a><ul class="toc-headings"><li><a href="#selector-phase">Selector Phase</a></li><li><a href="#extraction-phase">Extraction Phase</a></li><li><a href="#post-process-phase">Post Process Phase</a></li><li><a href="#output-phase">Output Phase</a></li></ul></li><li><a href="#matcher">Matcher</a></li><li><a href="#transform">Transform</a></li><li><a href="#cli">CLI</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/apis.html">API Reference</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 3/25/2019</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/packages/teraslice-test-harness/overview"><span class="arrow-prev">← </span><span>teraslice-test-harness</span></a><a class="docs-next button" href="/teraslice/docs/packages/ts-transforms/plugins"><span>Plugins</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#installation">Installation</a></li><li><a href="#dependency-installation">Dependency Installation</a></li><li><a href="#operations">Operations</a></li><li><a href="#plugins">Plugins</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#rules">Rules</a><ul class="toc-headings"><li><a href="#selector-phase">Selector Phase</a></li><li><a href="#extraction-phase">Extraction Phase</a></li><li><a href="#post-process-phase">Post Process Phase</a></li><li><a href="#output-phase">Output Phase</a></li></ul></li><li><a href="#matcher">Matcher</a></li><li><a href="#transform">Transform</a></li><li><a href="#cli">CLI</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/apis.html">API Reference</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
