@@ -352,7 +352,6 @@ other:/.*abc.*/ OR _created:&gt;=<span class="hljs-number">2018</span><span clas
 <span class="hljs-keyword">const</span> results = transform.run(data);
 
 <span class="hljs-built_in">console</span>.log(results);   <span class="hljs-comment">//   [ { full_name: 'John Doe' }]</span>
-
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="cli"></a><a href="#cli" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CLI</h2>
 <p>To help facilitate the construction of rules and the application of data there is a cli avaiable to help. The final results are piped out to stdout which can be piped to anything</p>
@@ -365,33 +364,20 @@ other:/.*abc.*/ OR _created:&gt;=<span class="hljs-number">2018</span><span clas
 <ul>
 <li><code>-r</code>  rules path</li>
 <li><code>-p</code>  plugins path</li>
-<li><code>-d</code>  data path or uri</li>
+<li><code>-d</code>  data path</li>
 <li><code>-t</code>  types</li>
 </ul>
 <p>NOTE: in any case that you would specify an object or array, it must be set to a comma deliminated string</p>
-<pre><code class="hljs css language-sh">ts-transform -t location:geo,_created:date -r ./rules/path,./otherRules/path -d ./data/path
-</code></pre>
-<h4><a class="anchor" aria-hidden="true" id="fetching-data-from-a-uri"></a><a href="#fetching-data-from-a-uri" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Fetching data from a uri</h4>
-<p>If you specify a uri then it is expected the the returning data from that endpoint to be formatted in a certain way. It may either be a direct elasticsearch database response, an array of data or an object that has a results field that has the array of data (teraserver compatability reasons)</p>
-<p>Uri Response Types:</p>
-<pre><code class="hljs css language-js">{ <span class="hljs-attr">hits</span>: { <span class="hljs-attr">hits</span>: [{ <span class="hljs-attr">_source</span>: { <span class="hljs-attr">some</span>: <span class="hljs-string">'data'</span>} }] }
-[{ <span class="hljs-attr">some</span>: <span class="hljs-string">'data'</span>}]
-{ <span class="hljs-attr">results</span>: [{ <span class="hljs-attr">some</span>: <span class="hljs-string">'data'</span>}] }
-</code></pre>
-<p>Example</p>
-<pre><code class="hljs css language-sh">ts-transform -r someRules.txt -d <span class="hljs-string">'http://localhost:9200/test_index/_search?q=bytes:&gt;=5642500'</span>
+<pre><code class="hljs css language-sh">ts-transform -t <span class="hljs-string">'location:geo,_created:date'</span> -r ./rules/path,./otherRules/path -d ./data/path
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="piping"></a><a href="#piping" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Piping</h4>
 <p>You may pipe the data into the cli command and omit <code>-d</code></p>
-<p>Equivalent:</p>
-<pre><code class="hljs css language-sh">ts-transform -r someRules.txt -d <span class="hljs-string">'http://localhost:9200/test_index/_search?q=bytes:&gt;=5642500'</span>
-
-curl <span class="hljs-string">'http://localhost:9200/test_index/_search?q=bytes:&gt;=5642500'</span> | ts-transform -r someRules.txt
+<pre><code class="hljs css language-sh">curl <span class="hljs-string">'http://localhost:9200/test_index/_search?q=bytes:&gt;=5642500'</span> | ts-transform -r someRules.txt
 </code></pre>
 <p>you may also pipe the results to a file for further analysis</p>
 <pre><code class="hljs css language-sh">curl <span class="hljs-string">'http://localhost:9200/test_index/_search?q=bytes:&gt;=5642500'</span> | ts-transform -r someRules.txt | tee results.txt
 </code></pre>
-</span></div></article></div><div class="docLastUpdate"><em>Last updated on 3/25/2019</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/packages/teraslice-test-harness/overview"><span class="arrow-prev">← </span><span>teraslice-test-harness</span></a><a class="docs-next button" href="/teraslice/docs/packages/ts-transforms/plugins"><span>Plugins</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#installation">Installation</a></li><li><a href="#dependency-installation">Dependency Installation</a></li><li><a href="#operations">Operations</a></li><li><a href="#plugins">Plugins</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#rules">Rules</a><ul class="toc-headings"><li><a href="#selector-phase">Selector Phase</a></li><li><a href="#extraction-phase">Extraction Phase</a></li><li><a href="#post-process-phase">Post Process Phase</a></li><li><a href="#output-phase">Output Phase</a></li></ul></li><li><a href="#matcher">Matcher</a></li><li><a href="#transform">Transform</a></li><li><a href="#cli">CLI</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/apis.html">API Reference</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 4/12/2019</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/packages/teraslice-test-harness/overview"><span class="arrow-prev">← </span><span>teraslice-test-harness</span></a><a class="docs-next button" href="/teraslice/docs/packages/ts-transforms/plugins"><span>Plugins</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#installation">Installation</a></li><li><a href="#dependency-installation">Dependency Installation</a></li><li><a href="#operations">Operations</a></li><li><a href="#plugins">Plugins</a></li><li><a href="#configuration">Configuration</a></li><li><a href="#rules">Rules</a><ul class="toc-headings"><li><a href="#selector-phase">Selector Phase</a></li><li><a href="#extraction-phase">Extraction Phase</a></li><li><a href="#post-process-phase">Post Process Phase</a></li><li><a href="#output-phase">Output Phase</a></li></ul></li><li><a href="#matcher">Matcher</a></li><li><a href="#transform">Transform</a></li><li><a href="#cli">CLI</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/apis.html">API Reference</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;

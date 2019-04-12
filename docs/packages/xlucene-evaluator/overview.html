@@ -69,41 +69,39 @@ npm install --save xlucene-evaluator
 <pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> { DocumentMatcher } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'xlucene-evaluator'</span>);
 
 <span class="hljs-comment">// you can set the configuration at instantiation time as well if you call parse()</span>
-<span class="hljs-keyword">const</span> matcher = <span class="hljs-keyword">new</span> DocumentMatcher(<span class="hljs-string">'some:data AND (other:stuff OR other:things)'</span>);
+<span class="hljs-keyword">const</span> matcher1 = <span class="hljs-keyword">new</span> DocumentMatcher(<span class="hljs-string">'some:data AND (other:stuff OR other:things)'</span>);
 
 <span class="hljs-keyword">const</span> data1 = { <span class="hljs-attr">some</span>: <span class="hljs-string">'data'</span>, <span class="hljs-attr">other</span>: <span class="hljs-string">'stuff'</span> };
 <span class="hljs-keyword">const</span> data2 = { <span class="hljs-attr">some</span>: <span class="hljs-string">'data'</span>, <span class="hljs-attr">fake</span>: <span class="hljs-string">'stuff'</span> };
 
-documentMatcher.match(data1)  =&gt; <span class="hljs-literal">true</span>
-documentMatcher.match(data2)  =&gt; <span class="hljs-literal">false</span>
+matcher1.match(data1)  =&gt; <span class="hljs-literal">true</span>
+matcher1.match(data2)  =&gt; <span class="hljs-literal">false</span>
 
-<span class="hljs-comment">//setting up by calling parse</span>
-documentMatcher.parse(<span class="hljs-string">'some:data OR (other:stuff OR other:things)'</span>);
+<span class="hljs-keyword">const</span> matcher2 = <span class="hljs-keyword">new</span> DocumentMatcher(<span class="hljs-string">'some:data OR (other:stuff OR other:things)'</span>);
 
-documentMatcher.match(data1)  =&gt; <span class="hljs-literal">true</span>
-documentMatcher.match(data2)  =&gt; <span class="hljs-literal">true</span>
-
+matcher2.match(data1)  =&gt; <span class="hljs-literal">true</span>
+matcher2.match(data2)  =&gt; <span class="hljs-literal">true</span>
 
 <span class="hljs-comment">// more complex queries</span>
 
-<span class="hljs-keyword">const</span> documentMatcher = <span class="hljs-keyword">new</span> DocumentMatcher(<span class="hljs-string">'key:value AND (duration:&lt;=10000 OR ipfield:{"192.198.0.0" TO "192.198.0.255"])'</span>, { <span class="hljs-attr">ipfield</span>: <span class="hljs-string">'ip'</span> });
+<span class="hljs-keyword">const</span> matcher3 = <span class="hljs-keyword">new</span> DocumentMatcher(<span class="hljs-string">'key:value AND (duration:&lt;=10000 OR ipfield:{"192.198.0.0" TO "192.198.0.255"])'</span>, { <span class="hljs-attr">ipfield</span>: <span class="hljs-string">'ip'</span> });
 
 <span class="hljs-keyword">const</span> data3 = { <span class="hljs-attr">ipfield</span>: <span class="hljs-string">'192.198.0.0/24'</span>, <span class="hljs-attr">key</span>: <span class="hljs-string">'value'</span>, <span class="hljs-attr">duration</span>: <span class="hljs-number">9263</span> };
 <span class="hljs-keyword">const</span> data4 = { <span class="hljs-attr">ipfield</span>: <span class="hljs-string">'192.198.0.0/24'</span>, <span class="hljs-attr">key</span>: <span class="hljs-string">'otherValue'</span>, <span class="hljs-attr">duration</span>: <span class="hljs-number">9263</span> };
 
-documentMatcher.match(data3)  =&gt; <span class="hljs-literal">true</span>
-documentMatcher.match(data4)  =&gt; <span class="hljs-literal">false</span>
+matcher3.match(data3)  =&gt; <span class="hljs-literal">true</span>
+matcher3.match(data4)  =&gt; <span class="hljs-literal">false</span>
 
 
 <span class="hljs-keyword">const</span> data5 = { <span class="hljs-attr">location</span>: <span class="hljs-string">'33.435967,-111.867710'</span>, <span class="hljs-attr">some</span>: <span class="hljs-string">'key'</span>, <span class="hljs-attr">bytes</span>: <span class="hljs-number">123432</span> };
 <span class="hljs-keyword">const</span> data6 = { <span class="hljs-attr">location</span>: <span class="hljs-string">'22.435967,-150.867710'</span>, <span class="hljs-attr">other</span>: <span class="hljs-string">'key'</span>, <span class="hljs-attr">bytes</span>: <span class="hljs-number">123432</span> };
 <span class="hljs-keyword">const</span> data7 = { <span class="hljs-attr">location</span>: <span class="hljs-string">'22.435967,-150.867710'</span>, <span class="hljs-attr">bytes</span>: <span class="hljs-number">100</span> };
 
-documentMatcher.parse(<span class="hljs-string">'location:(_geo_box_top_left_:"33.906320,-112.758421" _geo_box_bottom_right_:"32.813646,-111.058902") OR (some:/ke.*/ OR bytes:&gt;=10000)'</span>, { <span class="hljs-attr">location</span>: <span class="hljs-string">'geo'</span> });
+<span class="hljs-keyword">const</span> matcher4 = <span class="hljs-keyword">new</span> DocumentMatcher(<span class="hljs-string">'location:(_geo_box_top_left_:"33.906320,-112.758421" _geo_box_bottom_right_:"32.813646,-111.058902") OR (some:/ke.*/ OR bytes:&gt;=10000)'</span>, { <span class="hljs-attr">location</span>: <span class="hljs-string">'geo'</span> });
 
-documentMatcher.match(data5)  =&gt; <span class="hljs-literal">true</span>
-documentMatcher.match(data6)  =&gt; <span class="hljs-literal">true</span>
-documentMatcher.match(data7)  =&gt; <span class="hljs-literal">false</span>
+matcher4.match(data5)  =&gt; <span class="hljs-literal">true</span>
+matcher4.match(data6)  =&gt; <span class="hljs-literal">true</span>
+matcher4.match(data7)  =&gt; <span class="hljs-literal">false</span>
 
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="ranges"></a><a href="#ranges" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Ranges</h3>
@@ -113,38 +111,37 @@ documentMatcher.match(data7)  =&gt; <span class="hljs-literal">false</span>
 <span class="hljs-keyword">const</span> data3 = { <span class="hljs-attr">age</span>: <span class="hljs-number">15</span> };
 
 <span class="hljs-comment">// This query is the same as age:{10 TO 20}</span>
-documentMatcher.parse(<span class="hljs-string">'age:(&gt;10 AND &lt;20)'</span>);
-documentMatcher.parse(<span class="hljs-string">'age:{10 TO 20}'</span>);
+<span class="hljs-keyword">const</span> matcher1 = <span class="hljs-keyword">new</span> DocumentMatcher(<span class="hljs-string">'age:(&gt;10 AND &lt;20)'</span>); 
 
-documentMatcher.match(data)  =&gt; <span class="hljs-literal">false</span>
-documentMatcher.match(data2)  =&gt; <span class="hljs-literal">false</span>
-documentMatcher.match(data3)  =&gt; <span class="hljs-literal">true</span>
+matcher1.match(data)  =&gt; <span class="hljs-literal">false</span>
+matcher1.match(data2)  =&gt; <span class="hljs-literal">false</span>
+matcher1.match(data3)  =&gt; <span class="hljs-literal">true</span>
 
 <span class="hljs-comment">//This is functionally equivalent to the query above</span>
-documentMatcher.parse(<span class="hljs-string">'age:{10 TO 20}'</span>);
+<span class="hljs-keyword">const</span> matcher2 = <span class="hljs-keyword">new</span> DocumentMatcher(<span class="hljs-string">'age:{10 TO 20}'</span>); 
 
-documentMatcher.match(data)  =&gt; <span class="hljs-literal">false</span>
-documentMatcher.match(data2)  =&gt; <span class="hljs-literal">false</span>
-documentMatcher.match(data3)  =&gt; <span class="hljs-literal">true</span>
+matcher2.match(data)  =&gt; <span class="hljs-literal">false</span>
+matcher2.match(data2)  =&gt; <span class="hljs-literal">false</span>
+matcher2.match(data3)  =&gt; <span class="hljs-literal">true</span>
 
 <span class="hljs-comment">// This query is the same as age:[10 TO 20}</span>
-documentMatcher.parse(<span class="hljs-string">'age:(&gt;=10 AND &lt;20)'</span>);
+<span class="hljs-keyword">const</span> matcher3 = <span class="hljs-keyword">new</span> DocumentMatcher(<span class="hljs-string">'age:(&gt;=10 AND &lt;20)'</span>);
 
-documentMatcher.match(data)  =&gt; <span class="hljs-literal">false</span>
-documentMatcher.match(data2)  =&gt; <span class="hljs-literal">true</span>
-documentMatcher.match(data3)  =&gt; <span class="hljs-literal">true</span>
+matcher3.match(data)  =&gt; <span class="hljs-literal">false</span>
+matcher3.match(data2)  =&gt; <span class="hljs-literal">true</span>
+matcher3.match(data3)  =&gt; <span class="hljs-literal">true</span>
 
-documentMatcher.parse(<span class="hljs-string">'age:[10 TO 20}'</span>);
+<span class="hljs-keyword">const</span> matcher4 = <span class="hljs-keyword">new</span> DocumentMatcher(<span class="hljs-string">'age:[10 TO 20}'</span>);
 
-documentMatcher.match(data)  =&gt; <span class="hljs-literal">false</span>
-documentMatcher.match(data2)  =&gt; <span class="hljs-literal">true</span>
-documentMatcher.match(data3)  =&gt; <span class="hljs-literal">true</span>
+matcher4.match(data)  =&gt; <span class="hljs-literal">false</span>
+matcher4.match(data2)  =&gt; <span class="hljs-literal">true</span>
+matcher4.match(data3)  =&gt; <span class="hljs-literal">true</span>
 
-documentMatcher.parse(<span class="hljs-string">'age:{10 TO *}'</span>);
+<span class="hljs-keyword">const</span> matcher5 = <span class="hljs-keyword">new</span> DocumentMatcher(<span class="hljs-string">'age:{10 TO *}'</span>);
 
-documentMatcher.match(data)  =&gt; <span class="hljs-literal">false</span>
-documentMatcher.match(data2)  =&gt; <span class="hljs-literal">false</span>
-documentMatcher.match(data3)  =&gt; <span class="hljs-literal">true</span>
+matcher5.match(data)  =&gt; <span class="hljs-literal">false</span>
+matcher5.match(data2)  =&gt; <span class="hljs-literal">false</span>
+matcher5.match(data3)  =&gt; <span class="hljs-literal">true</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="types"></a><a href="#types" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Types</h3>
 <p>NOTE: Strings that contain dates, ip's and the like will be treated as exact match queries unless you specify the type of the field in the configuration</p>
@@ -154,15 +151,15 @@ documentMatcher.match(data3)  =&gt; <span class="hljs-literal">true</span>
 <span class="hljs-keyword">const</span> data2 = { <span class="hljs-attr">ipfield</span>: <span class="hljs-string">'192.198.0.10'</span> };
 
 <span class="hljs-comment">// not specifying types turns it into a exact match query</span>
-documentMatcher.parse(<span class="hljs-string">'ipfield:"192.198.0.0/24"'</span>);
+<span class="hljs-keyword">const</span> staticMatcher = <span class="hljs-keyword">new</span> DocumentMatcher(<span class="hljs-string">'ipfield:"192.198.0.0/24"'</span>);
 
-documentMatcher.match(data1)  =&gt; <span class="hljs-literal">true</span>
-documentMatcher.match(data2)  =&gt; <span class="hljs-literal">false</span>
+staticMatcher.match(data1)  =&gt; <span class="hljs-literal">true</span>
+staticMatcher.match(data2)  =&gt; <span class="hljs-literal">false</span>
 
-documentMatcher.parse(<span class="hljs-string">'ipfield:"192.198.0.0/24"'</span>, { <span class="hljs-attr">ipfield</span>: <span class="hljs-string">'ip'</span> });
+<span class="hljs-keyword">const</span> IptypeMatcher = <span class="hljs-keyword">new</span> DocumentMatcher(<span class="hljs-string">'ipfield:"192.198.0.0/24"'</span>, { <span class="hljs-attr">ipfield</span>: <span class="hljs-string">'ip'</span> });
 
-documentMatcher.match(data1)  =&gt; <span class="hljs-literal">true</span>
-documentMatcher.match(data2)  =&gt; <span class="hljs-literal">true</span>
+IptypeMatcher.match(data1)  =&gt; <span class="hljs-literal">true</span>
+IptypeMatcher.match(data2)  =&gt; <span class="hljs-literal">true</span>
 
 <span class="hljs-comment">// can use range modifiers</span>
 
@@ -172,13 +169,13 @@ documentMatcher.match(data2)  =&gt; <span class="hljs-literal">true</span>
 <span class="hljs-keyword">const</span> data6 = { <span class="hljs-attr">ipfield</span>: <span class="hljs-string">'192.198.0.255'</span> };
 <span class="hljs-keyword">const</span> data7 = { <span class="hljs-attr">ipfield</span>: <span class="hljs-string">'192.198.0.0/30'</span> };
 
-documentMatcher.parse(<span class="hljs-string">'ipfield:[192.198.0.0 TO 192.198.0.255]'</span>, { <span class="hljs-attr">ipfield</span>: <span class="hljs-string">'ip'</span> });
+<span class="hljs-keyword">const</span> rangeIpMatcher = <span class="hljs-keyword">new</span> DocumentMatcher(<span class="hljs-string">'ipfield:[192.198.0.0 TO 192.198.0.255]'</span>, { <span class="hljs-attr">ipfield</span>: <span class="hljs-string">'ip'</span> });
 
-documentMatcher.match(data3)  =&gt; <span class="hljs-literal">true</span>
-documentMatcher.match(data4)  =&gt; <span class="hljs-literal">true</span>
-documentMatcher.match(data5)  =&gt; <span class="hljs-literal">true</span>
-documentMatcher.match(data6)  =&gt; <span class="hljs-literal">true</span>
-documentMatcher.match(data7)  =&gt; <span class="hljs-literal">true</span>
+rangeIpMatcher.match(data3)  =&gt; <span class="hljs-literal">true</span>
+rangeIpMatcher.match(data4)  =&gt; <span class="hljs-literal">true</span>
+rangeIpMatcher.match(data5)  =&gt; <span class="hljs-literal">true</span>
+rangeIpMatcher.match(data6)  =&gt; <span class="hljs-literal">true</span>
+rangeIpMatcher.match(data7)  =&gt; <span class="hljs-literal">true</span>
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="dates"></a><a href="#dates" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Dates</h4>
 <p>Has support for date comparison</p>
@@ -186,17 +183,10 @@ documentMatcher.match(data7)  =&gt; <span class="hljs-literal">true</span>
 <span class="hljs-keyword">const</span> data2 = { <span class="hljs-attr">_created</span>: <span class="hljs-string">'2018-10-18T18:13:20.683Z'</span> };
 
 <span class="hljs-comment">// not specifying types turns it into a exact match query</span>
-documentMatcher.parse(<span class="hljs-string">'_created:"2018-10-18T18:13:20.683Z"'</span>);
+<span class="hljs-keyword">const</span> staticMatcher = <span class="hljs-keyword">new</span> DocumentMatcher(<span class="hljs-string">'_created:"2018-10-18T18:13:20.683Z"'</span>);
 
-documentMatcher.match(data1)  =&gt; <span class="hljs-literal">false</span>
-documentMatcher.match(data2)  =&gt; <span class="hljs-literal">true</span>
-
-<span class="hljs-comment">// not specifying types turns it into a exact match query</span>
-documentMatcher.parse(<span class="hljs-string">'_created:"Thu Oct 18 2018 11:13:20 GMT-0700"'</span>);
-
-documentMatcher.match(data1)  =&gt; <span class="hljs-literal">true</span>
-documentMatcher.match(data2)  =&gt; <span class="hljs-literal">false</span>
-
+staticMatcher.match(data1)  =&gt; <span class="hljs-literal">false</span>
+staticMatcher.match(data2)  =&gt; <span class="hljs-literal">true</span>
 
 <span class="hljs-keyword">const</span> data3 = { <span class="hljs-attr">_created</span>: <span class="hljs-string">'Thu Oct 18 2018 22:13:20 GMT-0700'</span> };
 <span class="hljs-keyword">const</span> data4 = { <span class="hljs-attr">_created</span>: <span class="hljs-string">'2018-10-18T18:13:20.683Z'</span> };
@@ -204,25 +194,26 @@ documentMatcher.match(data2)  =&gt; <span class="hljs-literal">false</span>
 <span class="hljs-keyword">const</span> data6 = { <span class="hljs-attr">_created</span>: <span class="hljs-string">'Thu, 18 Oct 2020 18:13:20 GMT'</span> };
 <span class="hljs-keyword">const</span> data7 = { <span class="hljs-attr">_created</span>: <span class="hljs-string">'Thu, 13 Oct 2018 18:13:20 GMT'</span> };
 
-documentMatcher.parse(<span class="hljs-string">'_created:[2018-10-18T18:13:20.683Z TO *]'</span>, { <span class="hljs-attr">_created</span>: <span class="hljs-string">'date'</span> });
+<span class="hljs-keyword">const</span> dateTypeMatcher = <span class="hljs-keyword">new</span> DocumentMatcher(<span class="hljs-string">'_created:[2018-10-18T18:13:20.683Z TO *]'</span>, { <span class="hljs-attr">_created</span>: <span class="hljs-string">'date'</span> });
 
-documentMatcher.match(data3)  =&gt; <span class="hljs-literal">true</span>
-documentMatcher.match(data4)  =&gt; <span class="hljs-literal">true</span>
-documentMatcher.match(data5)  =&gt; <span class="hljs-literal">true</span>
-documentMatcher.match(data6)  =&gt; <span class="hljs-literal">true</span>
-documentMatcher.match(data7)  =&gt; <span class="hljs-literal">false</span>
+dateTypeMatcher.match(data3)  =&gt; <span class="hljs-literal">true</span>
+dateTypeMatcher.match(data4)  =&gt; <span class="hljs-literal">true</span>
+dateTypeMatcher.match(data5)  =&gt; <span class="hljs-literal">true</span>
+dateTypeMatcher.match(data6)  =&gt; <span class="hljs-literal">true</span>
+dateTypeMatcher.match(data7)  =&gt; <span class="hljs-literal">false</span>
 
 
- documentMatcher.parse(<span class="hljs-string">'_created:[2018-10-18T18:13:20.000Z TO 2018-10-18T18:13:20.783Z]'</span>,  { <span class="hljs-attr">_created</span>: <span class="hljs-string">'date'</span> });
+<span class="hljs-keyword">const</span> dateTypeMatcher2 = <span class="hljs-keyword">new</span> DocumentMatcher(<span class="hljs-string">'_created:[2018-10-18T18:13:20.000Z TO 2018-10-18T18:13:20.783Z]'</span>,  { <span class="hljs-attr">_created</span>: <span class="hljs-string">'date'</span> });
 
-documentMatcher.match(data3)  =&gt; <span class="hljs-literal">false</span>
-documentMatcher.match(data4)  =&gt; <span class="hljs-literal">true</span>
-documentMatcher.match(data5)  =&gt; <span class="hljs-literal">false</span>
-documentMatcher.match(data6)  =&gt; <span class="hljs-literal">false</span>
-documentMatcher.match(data7)  =&gt; <span class="hljs-literal">false</span>
+dateTypeMatcher2.match(data3)  =&gt; <span class="hljs-literal">false</span>
+dateTypeMatcher2.match(data4)  =&gt; <span class="hljs-literal">true</span>
+dateTypeMatcher2.match(data5)  =&gt; <span class="hljs-literal">false</span>
+dateTypeMatcher2.match(data6)  =&gt; <span class="hljs-literal">false</span>
+dateTypeMatcher2.match(data7)  =&gt; <span class="hljs-literal">false</span>
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="geo"></a><a href="#geo" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Geo</h4>
 <p>Has support for geo based queries. It expects all geopoints to be in the<code>lat,lon</code> format. If you specify a <code>_geo_box_top_left_ and _geo_box_bottom_right_</code> it creates a bounding box and checks to see if the point. If you specify <code>_geo_point_ and _geo_distance_</code> it checks to see if the incoming geopoint is within distance of that point.</p>
+<p>NOTE: since geo syntax is a grammar primitive no types are needed, it can automatically infer it.</p>
 <p>distance may be set to:</p>
 <ul>
 <li>meters</li>
@@ -238,15 +229,15 @@ documentMatcher.match(data7)  =&gt; <span class="hljs-literal">false</span>
 <pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> data1 = { <span class="hljs-attr">location</span>: <span class="hljs-string">'33.435967,-111.867710'</span> };
 <span class="hljs-keyword">const</span> data2 = { <span class="hljs-attr">location</span>: <span class="hljs-string">'22.435967,-150.867710'</span> };
 
-documentMatcher.parse(<span class="hljs-string">'location:(_geo_box_top_left_:"33.906320,-112.758421" _geo_box_bottom_right_:"32.813646,-111.058902")'</span>, { <span class="hljs-attr">location</span>: <span class="hljs-string">'geo'</span> });
+<span class="hljs-keyword">const</span> geoBoundingBoxTypeMatcher = <span class="hljs-keyword">new</span> DocumentMatcher(<span class="hljs-string">'location:(_geo_box_top_left_:"33.906320,-112.758421" _geo_box_bottom_right_:"32.813646,-111.058902")'</span>);
 
-documentMatcher.match(data1)  =&gt; <span class="hljs-literal">true</span>);
-documentMatcher.match(data2)  =&gt; <span class="hljs-literal">false</span>);
+geoBoundingBoxTypeMatcher.match(data1)  =&gt; <span class="hljs-literal">true</span>);
+geoBoundingBoxTypeMatcher.match(data2)  =&gt; <span class="hljs-literal">false</span>);
 
-documentMatcher.parse(<span class="hljs-string">'location:(_geo_point_:"33.435518,-111.873616" _geo_distance_:5000m)'</span>, { <span class="hljs-attr">location</span>: <span class="hljs-string">'geo'</span> });
+<span class="hljs-keyword">const</span> geoDistanceTypeMatcher = <span class="hljs-keyword">new</span> DocumentMatcher(<span class="hljs-string">'location:(_geo_point_:"33.435518,-111.873616" _geo_distance_:5000m)'</span>);
 
-documentMatcher.match(data1)  =&gt; <span class="hljs-literal">true</span>);
-documentMatcher.match(data2)  =&gt; <span class="hljs-literal">false</span>);
+geoDistanceTypeMatcher.match(data1)  =&gt; <span class="hljs-literal">true</span>);
+geoDistanceTypeMatcher.match(data2)  =&gt; <span class="hljs-literal">false</span>);
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="regex-and-wildcard-queries"></a><a href="#regex-and-wildcard-queries" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Regex and Wildcard queries</h4>
 <p>For this types DO NOT need to be specified and is done by the query itself. A wildcard query can use the <code>?</code>to represent a single non empty char and a <code>*</code> to match anything. A regex value must be wrapped in a <code>/ expression_here /</code> and follows the regular expression standard. NOTE: all regex expressions are anchored!!! Design you regex accordingly</p>
@@ -256,48 +247,48 @@ abcd     # no match</p>
 <pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> data6 = { <span class="hljs-attr">key</span> : <span class="hljs-string">'abbccc'</span> };
 <span class="hljs-keyword">const</span> data7 = { <span class="hljs-attr">key</span> : <span class="hljs-string">'abc'</span> };
 <span class="hljs-keyword">const</span> data8 = { <span class="hljs-attr">key</span> : <span class="hljs-string">'zabcde'</span> };
- <span class="hljs-keyword">const</span> data9 = { <span class="hljs-attr">key</span> : <span class="hljs-string">'abcccde'</span> };
+<span class="hljs-keyword">const</span> data9 = { <span class="hljs-attr">key</span> : <span class="hljs-string">'abcccde'</span> };
 
 <span class="hljs-comment">// regex based queries</span>
-documentMatcher.parse(<span class="hljs-string">'key:/ab{2}c{3}/'</span>);
+<span class="hljs-keyword">const</span> regexMatcher = <span class="hljs-keyword">new</span> DocumentMatcher(<span class="hljs-string">'key:/ab{2}c{3}/'</span>);
 
-documentMatcher.match(data6)  =&gt; <span class="hljs-literal">true</span>
-documentMatcher.match(data7)  =&gt; <span class="hljs-literal">false</span>
-documentMatcher.match(data8)  =&gt; <span class="hljs-literal">false</span>
-documentMatcher.match(data9)  =&gt; <span class="hljs-literal">false</span>
-
-<span class="hljs-comment">// regex based queries</span>
-documentMatcher.parse(<span class="hljs-string">'key:/ab*c*/'</span>);
-
-documentMatcher.match(data6)  =&gt; <span class="hljs-literal">true</span>
-documentMatcher.match(data7)  =&gt; <span class="hljs-literal">true</span>
-documentMatcher.match(data8)  =&gt; <span class="hljs-literal">false</span>
-documentMatcher.match(data9)  =&gt; <span class="hljs-literal">false</span>
+regexMatcher.match(data6)  =&gt; <span class="hljs-literal">true</span>
+regexMatcher.match(data7)  =&gt; <span class="hljs-literal">false</span>
+regexMatcher.match(data8)  =&gt; <span class="hljs-literal">false</span>
+regexMatcher.match(data9)  =&gt; <span class="hljs-literal">false</span>
 
 <span class="hljs-comment">// regex based queries</span>
-documentMatcher.parse(<span class="hljs-string">'key:/.*abcd?e?/'</span>);
+<span class="hljs-keyword">const</span> regexMatcher2 = <span class="hljs-keyword">new</span> DocumentMatcher(<span class="hljs-string">'key:/ab*c*/'</span>);
 
-documentMatcher.match(data6)  =&gt; <span class="hljs-literal">false</span>
-documentMatcher.match(data7)  =&gt; <span class="hljs-literal">true</span>
-documentMatcher.match(data8)  =&gt; <span class="hljs-literal">true</span>
-documentMatcher.match(data9)  =&gt; <span class="hljs-literal">false</span>
+regexMatcher2.match(data6)  =&gt; <span class="hljs-literal">true</span>
+regexMatcher2.match(data7)  =&gt; <span class="hljs-literal">true</span>
+regexMatcher2.match(data8)  =&gt; <span class="hljs-literal">false</span>
+regexMatcher2.match(data9)  =&gt; <span class="hljs-literal">false</span>
+
+<span class="hljs-comment">// regex based queries</span>
+<span class="hljs-keyword">const</span> regexMatcher3 = <span class="hljs-keyword">new</span> DocumentMatcher(<span class="hljs-string">'key:/.*abcd?e?/'</span>);
+
+regexMatcher3.match(data6)  =&gt; <span class="hljs-literal">false</span>
+regexMatcher3.match(data7)  =&gt; <span class="hljs-literal">true</span>
+regexMatcher3.match(data8)  =&gt; <span class="hljs-literal">true</span>
+regexMatcher3.match(data9)  =&gt; <span class="hljs-literal">false</span>
 
 <span class="hljs-comment">// wildcard query</span>
-documentMatcher.parse(<span class="hljs-string">'key:?abc*'</span>);
+<span class="hljs-keyword">const</span> wildcardMatcher = <span class="hljs-keyword">new</span> DocumentMatcher(<span class="hljs-string">'key:?abc*'</span>);
 
-documentMatcher.match(data6)  =&gt; <span class="hljs-literal">false</span>
-documentMatcher.match(data7)  =&gt; <span class="hljs-literal">false</span>
-documentMatcher.match(data8)  =&gt; <span class="hljs-literal">true</span>
-documentMatcher.match(data9)  =&gt; <span class="hljs-literal">false</span>
+wildcardMatcher.match(data6)  =&gt; <span class="hljs-literal">false</span>
+wildcardMatcher.match(data7)  =&gt; <span class="hljs-literal">false</span>
+wildcardMatcher.match(data8)  =&gt; <span class="hljs-literal">true</span>
+wildcardMatcher.match(data9)  =&gt; <span class="hljs-literal">false</span>
 
-documentMatcher.parse(<span class="hljs-string">'key:abc??de'</span>);
+<span class="hljs-keyword">const</span> wildcardMatcher2 = <span class="hljs-keyword">new</span> DocumentMatcher(<span class="hljs-string">'key:abc??de'</span>);
 
-documentMatcher.match(data6)  =&gt; <span class="hljs-literal">false</span>
-documentMatcher.match(data7)  =&gt; <span class="hljs-literal">false</span>
-documentMatcher.match(data8)  =&gt; <span class="hljs-literal">false</span>
-documentMatcher.match(data9)  =&gt; <span class="hljs-literal">true</span>
+wildcardMatcher2.match(data6)  =&gt; <span class="hljs-literal">false</span>
+wildcardMatcher2.match(data7)  =&gt; <span class="hljs-literal">false</span>
+wildcardMatcher2.match(data8)  =&gt; <span class="hljs-literal">false</span>
+wildcardMatcher2.match(data9)  =&gt; <span class="hljs-literal">true</span>
 </code></pre>
-</span></div></article></div><div class="docLastUpdate"><em>Last updated on 3/14/2019</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/packages/utils/overview"><span class="arrow-prev">← </span><span>utils</span></a><a class="docs-next button" href="/teraslice/docs/packages/error-parser/overview"><span>error-parser</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#installation-1">Installation</a></li><li><a href="#document-matcher">Document Matcher</a><ul class="toc-headings"><li><a href="#ranges">Ranges</a></li><li><a href="#types">Types</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/apis.html">API Reference</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 4/12/2019</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/packages/utils/overview"><span class="arrow-prev">← </span><span>utils</span></a><a class="docs-next button" href="/teraslice/docs/packages/error-parser/overview"><span>error-parser</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#installation-1">Installation</a></li><li><a href="#document-matcher">Document Matcher</a><ul class="toc-headings"><li><a href="#ranges">Ranges</a></li><li><a href="#types">Types</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/apis.html">API Reference</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
