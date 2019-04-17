@@ -83,8 +83,8 @@ jobs:
 
   e2e_tests:
     working_directory: ~/teraslice
-    machine:
-      enabled: true
+    docker:
+      - image: circleci/node:10
     steps:
       - checkout
       - restore-cache: *restore-cache
@@ -97,6 +97,8 @@ jobs:
             set -x
             curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
             chmod +x /usr/local/bin/docker-compose
+      # configure job to execute remote docker commands
+      - setup_remote_docker
 
       # FIXME add the actual test
 
