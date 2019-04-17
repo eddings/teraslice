@@ -1,0 +1,133 @@
+version: 2.0
+
+# Aliases to avoid code duplication
+aliases:
+  - &restore-dependencies-cache
+    keys:
+      - v2-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      # Fallback in case checksum fails
+      - v2-dependencies-{{ .Branch }}-
+
+  - &save-dependencies-cache
+    name: Dependencies Cache
+    paths:
+      - node_modules
+      - website/node_modules
+    key: v2-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
+
+  - &restore-dist-cache
+    keys:
+        - v2-dist-{{ .Branch }}-{{ .Revision }}
+        - v2-dist-{{ .Branch }}-
+
+  - &save-dist-cache
+    name: Packages Dist
+    paths:
+        - packages/*/dist
+    key: v2-dist-{{ .Branch }}-{{ .Revision }}
+
+  - &filter-ignore-gh-pages
+    branches:
+      ignore: gh-pages
+
+  - &elasticsearch-service
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.5.4
+    environment:
+      - ES_JAVA_OPTS: "-Xms1g -Xmx1g"
+      - network.host: '0.0.0.0'
+      - http.port: 9200
+      - transport.tcp.port: 9300
+      - discovery.type: single-node
+      - xpack.security.enabled: false
+      - xpack.ml.enabled: false
+      - xpack.watcher.enabled: false
+      - bootstrap.memory_lock: true
+
+jobs:
+  setup_code:
+    docker:
+      - image: circleci/node:10
+    steps:
+      - checkout
+      - restore-cache: *restore-dependencies-cache
+      - run: yarn --no-progress --frozen-lockfile
+      - save-cache: *save-dependencies-cache
+      - restore-cache: *restore-dist-cache
+      - run: yarn setup
+      - save-cache: *save-dist-cache
+
+  test_packages:
+    docker:
+      - image: circleci/node:10
+      - *elasticsearch-service
+    steps:
+      - restore-cache: *restore-dependencies-cache
+      - run: yarn --no-progress --frozen-lockfile
+      - save-cache: *save-dependencies-cache
+      - restore-cache: *restore-dist-cache
+      - run: yarn setup
+      - save-cache: *save-dist-cache
+      - run:
+        name: Waiting for elasticsearch...
+        command: >
+          ./scripts/wait-for-it.sh
+            localhost:9200
+            --timeout=60
+            --strict
+      - run:
+          name: Run all package tests
+          command: ./scripts/run-test.sh
+      - run:
+          name: Report coverage
+          command: bash <(curl -s https://codecov.io/bash)
+
+  lint_and_benchmark:
+      docker:
+        - image: circleci/node:10
+      steps:
+        - restore-cache: *restore-dependencies-cache
+        - run: yarn --no-progress --frozen-lockfile
+        - save-cache: *save-dependencies-cache
+        - restore-cache: *restore-dist-cache
+        - run: yarn setup
+        - save-cache: *save-dist-cache
+        - run:
+          name: Lint all packages
+          command: yarn lint
+        - run:
+          name: Run the benchmarks
+          command: yarn bencmark
+
+  e2e_tests:
+    machine:
+      enabled: true
+    steps:
+      - restore-cache: *restore-dependencies-cache
+      - run: yarn --no-progress --frozen-lockfile
+      - save-cache: *save-dependencies-cache
+      - restore-cache: *restore-dist-cache
+      - run: yarn setup
+      - save-cache: *save-dist-cache
+      - run:
+          name: Install Docker Compose
+          command: |
+            set -x
+            curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+            chmod +x /usr/local/bin/docker-compose
+      # FIXME add the actual test
+
+# Workflows enables mutltiple jobs to run in parallel
+workflows:
+  version: 2
+  build-and-deploy:
+    jobs:
+      - setup_code
+      - test_packages:
+          requires:
+            - setup_code
+      - lint_and_benchmark:
+          requires:
+            - setup_code
+      - e2e_tests:
+          requires:
+            - setup_code
