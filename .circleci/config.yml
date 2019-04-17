@@ -51,6 +51,8 @@ jobs:
     docker:
       - image: circleci/node:10
       - *elasticsearch-service
+    environment:
+        ELASTICSEARCH_HOST: 'http://127.0.0.1:9200'
     steps:
       - checkout
       - restore-cache: *restore-cache
