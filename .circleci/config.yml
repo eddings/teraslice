@@ -2,29 +2,16 @@ version: 2.0
 
 # Aliases to avoid code duplication
 aliases:
-  - &restore-dependencies-cache
+  - &restore-cache
+    name: Restore Yarn Package Cache
     keys:
-      - v2-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
-      # Fallback in case checksum fails
-      - v2-dependencies-{{ .Branch }}-
+      - yarn-packages-{{ checksum "yarn.lock" }}
 
-  - &save-dependencies-cache
-    name: Dependencies Cache
+  - &save-cache
+    name: Save Yarn Package Cache
     paths:
-      - node_modules
-      - website/node_modules
-    key: v2-dependencies-{{ .Branch }}-{{ checksum "yarn.lock" }}
-
-  - &restore-dist-cache
-    keys:
-        - v2-dist-{{ .Branch }}-{{ .Revision }}
-        - v2-dist-{{ .Branch }}-
-
-  - &save-dist-cache
-    name: Packages Dist
-    paths:
-        - packages/*/dist
-    key: v2-dist-{{ .Branch }}-{{ .Revision }}
+      - ~/.cache/yarn
+    key: yarn-packages-{{ checksum "yarn.lock" }}
 
   - &filter-ignore-gh-pages
     branches:
@@ -50,12 +37,10 @@ jobs:
       - image: circleci/node:10
     steps:
       - checkout
-      - restore-cache: *restore-dependencies-cache
+      - restore-cache: *restore-cache
       - run: yarn --no-progress --frozen-lockfile
-      - save-cache: *save-dependencies-cache
-      - restore-cache: *restore-dist-cache
+      - save-cache: *save-cache
       - run: yarn setup
-      - save-cache: *save-dist-cache
 
   test_packages:
     working_directory: ~/teraslice
@@ -63,12 +48,10 @@ jobs:
       - image: circleci/node:10
       - *elasticsearch-service
     steps:
-      - restore-cache: *restore-dependencies-cache
+      - restore-cache: *restore-cache
       - run: yarn --no-progress --frozen-lockfile
-      - save-cache: *save-dependencies-cache
-      - restore-cache: *restore-dist-cache
+      - save-cache: *save-cache
       - run: yarn setup
-      - save-cache: *save-dist-cache
       - run:
           name: Waiting for elasticsearch...
           command: ./scripts/wait-for-it.sh localhost:9200 --timeout=60 --strict
@@ -80,34 +63,30 @@ jobs:
           command: bash <(curl -s https://codecov.io/bash)
 
   lint_and_benchmark:
-      working_directory: ~/teraslice
-      docker:
-        - image: circleci/node:10
-      steps:
-        - restore-cache: *restore-dependencies-cache
-        - run: yarn --no-progress --frozen-lockfile
-        - save-cache: *save-dependencies-cache
-        - restore-cache: *restore-dist-cache
-        - run: yarn setup
-        - save-cache: *save-dist-cache
-        - run:
-            name: Lint all packages
-            command: yarn lint
-        - run:
-            name: Run the benchmarks
-            command: yarn bencmark
+    working_directory: ~/teraslice
+    docker:
+      - image: circleci/node:10
+    steps:
+      - restore-cache: *restore-cache
+      - run: yarn --no-progress --frozen-lockfile
+      - save-cache: *save-cache
+      - run: yarn setup
+      - run:
+          name: Lint all packages
+          command: yarn lint
+      - run:
+          name: Run the benchmarks
+          command: yarn bencmark
 
   e2e_tests:
     working_directory: ~/teraslice
     machine:
       enabled: true
     steps:
-      - restore-cache: *restore-dependencies-cache
+      - restore-cache: *restore-cache
       - run: yarn --no-progress --frozen-lockfile
-      - save-cache: *save-dependencies-cache
-      - restore-cache: *restore-dist-cache
+      - save-cache: *save-cache
       - run: yarn setup
-      - save-cache: *save-dist-cache
       - run:
           name: Install Docker Compose
           command: |
