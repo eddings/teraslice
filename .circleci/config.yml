@@ -68,12 +68,8 @@ jobs:
       - run: yarn setup
       - save-cache: *save-dist-cache
       - run:
-        name: Waiting for elasticsearch...
-        command: >
-          ./scripts/wait-for-it.sh
-            localhost:9200
-            --timeout=60
-            --strict
+          name: Waiting for elasticsearch...
+          command: ./scripts/wait-for-it.sh localhost:9200 --timeout=60 --strict
       - run:
           name: Run all package tests
           command: ./scripts/run-test.sh
@@ -92,11 +88,11 @@ jobs:
         - run: yarn setup
         - save-cache: *save-dist-cache
         - run:
-          name: Lint all packages
-          command: yarn lint
+            name: Lint all packages
+            command: yarn lint
         - run:
-          name: Run the benchmarks
-          command: yarn bencmark
+            name: Run the benchmarks
+            command: yarn bencmark
 
   e2e_tests:
     machine:
