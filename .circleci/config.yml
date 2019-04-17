@@ -45,6 +45,7 @@ aliases:
 
 jobs:
   setup_code:
+    working_directory: ~/teraslice
     docker:
       - image: circleci/node:10
     steps:
@@ -57,6 +58,7 @@ jobs:
       - save-cache: *save-dist-cache
 
   test_packages:
+    working_directory: ~/teraslice
     docker:
       - image: circleci/node:10
       - *elasticsearch-service
@@ -78,6 +80,7 @@ jobs:
           command: bash <(curl -s https://codecov.io/bash)
 
   lint_and_benchmark:
+      working_directory: ~/teraslice
       docker:
         - image: circleci/node:10
       steps:
@@ -95,6 +98,7 @@ jobs:
             command: yarn bencmark
 
   e2e_tests:
+    working_directory: ~/teraslice
     machine:
       enabled: true
     steps:
