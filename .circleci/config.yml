@@ -29,7 +29,7 @@ aliases:
   - &elasticsearch-service
     image: docker.elastic.co/elasticsearch/elasticsearch:6.5.4
     environment:
-      - ES_JAVA_OPTS: "-Xms1g -Xmx1g"
+      - ES_JAVA_OPTS: "-Xms512g -Xmx512g"
       - network.host: '0.0.0.0'
       - http.port: 9200
       - transport.tcp.port: 9300
@@ -107,12 +107,18 @@ jobs:
             sudo mv ~/docker-compose /usr/local/bin/docker-compose
       # configure job to execute remote docker commands
       - setup_remote_docker
+      - run:
+          name: Run End-to-End Tests
+          command: |
+            cd e2e
+            yarn test:ci
 
       # FIXME add the actual test
 
 # Workflows enables mutltiple jobs to run in parallel
 workflows:
   version: 2
+  # FIXME add scheduled jobs
   build-and-deploy:
     jobs:
       - setup_code
@@ -125,3 +131,4 @@ workflows:
       - e2e_tests:
           requires:
             - setup_code
+      # FIXME add deploy
