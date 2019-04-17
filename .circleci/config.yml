@@ -29,15 +29,10 @@ aliases:
   - &elasticsearch-service
     image: docker.elastic.co/elasticsearch/elasticsearch:6.5.4
     environment:
-      - ES_JAVA_OPTS: "-Xms512g -Xmx512g"
-      - network.host: '0.0.0.0'
-      - http.port: 9200
-      - transport.tcp.port: 9300
       - discovery.type: single-node
       - xpack.security.enabled: false
       - xpack.ml.enabled: false
       - xpack.watcher.enabled: false
-      - bootstrap.memory_lock: true
 
 jobs:
   setup_code:
