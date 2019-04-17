@@ -118,14 +118,7 @@ workflows:
   # FIXME add scheduled jobs
   build-and-deploy:
     jobs:
-      - setup_code
-      - test_packages:
-          requires:
-            - setup_code
-      - lint_and_benchmark:
-          requires:
-            - setup_code
-      - e2e_tests:
-          requires:
-            - setup_code
+      - test_packages
+      - lint_and_benchmark
+      - e2e_tests
       # FIXME add deploy
