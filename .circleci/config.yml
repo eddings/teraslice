@@ -6,6 +6,7 @@ aliases:
     name: Restore Yarn Package Cache
     keys:
       - yarn-packages-{{ checksum "yarn.lock" }}
+      - yarn-packages
 
   - &save-cache
     name: Save Yarn Package Cache
@@ -48,6 +49,7 @@ jobs:
       - image: circleci/node:10
       - *elasticsearch-service
     steps:
+      - checkout
       - restore-cache: *restore-cache
       - run: yarn --no-progress --frozen-lockfile
       - save-cache: *save-cache
@@ -67,6 +69,7 @@ jobs:
     docker:
       - image: circleci/node:10
     steps:
+      - checkout
       - restore-cache: *restore-cache
       - run: yarn --no-progress --frozen-lockfile
       - save-cache: *save-cache
@@ -83,6 +86,7 @@ jobs:
     machine:
       enabled: true
     steps:
+      - checkout
       - restore-cache: *restore-cache
       - run: yarn --no-progress --frozen-lockfile
       - save-cache: *save-cache
