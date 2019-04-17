@@ -27,12 +27,10 @@ aliases:
     command: yarn setup
 
   - &elasticsearch-service
-    image: docker.elastic.co/elasticsearch/elasticsearch:6.5.4
+    image: blacktop/elasticsearch:6
     environment:
+      - network.host: '0.0.0.0'
       - discovery.type: single-node
-      - xpack.security.enabled: false
-      - xpack.ml.enabled: false
-      - xpack.watcher.enabled: false
 
 jobs:
   setup_code:
@@ -52,7 +50,7 @@ jobs:
       - image: circleci/node:10
       - *elasticsearch-service
     environment:
-        ELASTICSEARCH_HOST: 'http://127.0.0.1:9200'
+        ELASTICSEARCH_HOST: 'http://0.0.0.0:9200'
     steps:
       - checkout
       - restore-cache: *restore-cache
@@ -104,11 +102,13 @@ jobs:
             sudo mv ~/docker-compose /usr/local/bin/docker-compose
       # configure job to execute remote docker commands
       - setup_remote_docker
+      - run: cd e2e
+      - run:
+          name: Build docker-compose
+          command: docker-compose build
       - run:
           name: Run End-to-End Tests
-          command: |
-            cd e2e
-            yarn test:ci
+          command: yarn test:ci
 
       # FIXME add the actual test
 
