@@ -3,13 +3,13 @@ version: 2.0
 # Aliases to avoid code duplication
 aliases:
   - &restore-cache
-    name: Restore Yarn Package Cache
+    name: Restore yarn package cache
     keys:
       - yarn-packages-{{ checksum "yarn.lock" }}
       - yarn-packages
 
   - &save-cache
-    name: Save Yarn Package Cache
+    name: Save yarn package cache
     paths:
       - ~/.cache/yarn
     key: yarn-packages-{{ checksum "yarn.lock" }}
@@ -17,6 +17,14 @@ aliases:
   - &filter-ignore-gh-pages
     branches:
       ignore: gh-pages
+
+  - &yarn-install
+    name: Install node_modules
+    command: yarn --no-progress --frozen-lockfile
+
+  - &yarn-setup
+    name: Link & build packages
+    command: yarn setup
 
   - &elasticsearch-service
     image: docker.elastic.co/elasticsearch/elasticsearch:6.5.4
@@ -39,9 +47,9 @@ jobs:
     steps:
       - checkout
       - restore-cache: *restore-cache
-      - run: yarn --no-progress --frozen-lockfile
+      - run: *yarn-install
       - save-cache: *save-cache
-      - run: yarn setup
+      - run: *yarn-setup
 
   test_packages:
     working_directory: ~/teraslice
@@ -51,14 +59,14 @@ jobs:
     steps:
       - checkout
       - restore-cache: *restore-cache
-      - run: yarn --no-progress --frozen-lockfile
+      - run: *yarn-install
       - save-cache: *save-cache
-      - run: yarn setup
+      - run: *yarn-setup
       - run:
           name: Waiting for elasticsearch...
           command: ./scripts/wait-for-it.sh localhost:9200 --timeout=60 --strict
       - run:
-          name: Run all package tests
+          name: Run tests
           command: ./scripts/run-tests.sh
       - run:
           name: Report coverage
@@ -71,15 +79,15 @@ jobs:
     steps:
       - checkout
       - restore-cache: *restore-cache
-      - run: yarn --no-progress --frozen-lockfile
+      - run: *yarn-install
       - save-cache: *save-cache
-      - run: yarn setup
+      - run: *yarn-setup
       - run:
-          name: Lint all packages
+          name: Lint
           command: yarn lint
       - run:
-          name: Run the benchmarks
-          command: yarn bencmark
+          name: Run benchmarks
+          command: yarn benchmark
 
   e2e_tests:
     working_directory: ~/teraslice
@@ -88,15 +96,15 @@ jobs:
     steps:
       - checkout
       - restore-cache: *restore-cache
-      - run: yarn --no-progress --frozen-lockfile
+      - run: *yarn-install
       - save-cache: *save-cache
-      - run: yarn setup
+      - run: *yarn-setup
       - run:
-          name: Install Docker Compose
+          name: Install docker-compose
           command: |
-            set -x
-            curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
-            chmod +x /usr/local/bin/docker-compose
+            curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
+            chmod +x ~/docker-compose
+            sudo mv ~/docker-compose /usr/local/bin/docker-compose
       # configure job to execute remote docker commands
       - setup_remote_docker
 
