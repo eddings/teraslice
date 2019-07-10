@@ -1,0 +1,122 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Configuration · Teraslice</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;A job configuration is the main way a Teraslice user describes the processing they want done. This page provides a detailed description of the configurations available for a job.&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Configuration · Teraslice"/><meta property="og:type" content="website"/><meta property="og:url" content="https://terascope.github.io/teraslice/"/><meta property="og:description" content="&lt;p&gt;A job configuration is the main way a Teraslice user describes the processing they want done. This page provides a detailed description of the configurations available for a job.&lt;/p&gt;
+"/><meta property="og:image" content="https://terascope.github.io/teraslice/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://terascope.github.io/teraslice/img/docusaurus.png"/><link rel="shortcut icon" href="/teraslice/img/favicon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"/><link rel="stylesheet" href="/teraslice/css/copy-code-block.css"/><link rel="stylesheet" href="/teraslice/css/custom.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/teraslice/js/copy-code-block.js"></script><script src="/teraslice/js/scrollSpy.js"></script><link rel="stylesheet" href="/teraslice/css/main.css"/><script src="/teraslice/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/teraslice/"><img class="logo" src="/teraslice/img/logo.png" alt="Teraslice"/><h2 class="headerTitleWithLogo">Teraslice</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/teraslice/docs/overview" target="_self">Docs</a></li><li class=""><a href="/teraslice/docs/asset-bundles" target="_self">Assets</a></li><li class=""><a href="/teraslice/docs/packages" target="_self">Packages</a></li><li class=""><a href="https://github.com/terascope/teraslice" target="_self">GitHub</a></li><li class=""><a href="/teraslice/help" target="_self">Help</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Jobs</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Overview<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/teraslice/docs/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/getting-started">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/configuration">Configuration</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">REST API<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/teraslice/docs/rest-api/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/rest-api/endpoints">Endpoints</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Jobs<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/teraslice/docs/jobs/overview">Overview</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/teraslice/docs/jobs/configuration">Configuration</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/jobs/types-of-operations">Types of Operations</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/jobs/builtin-operations">Built-in Operations</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/jobs/slices">Slices</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/jobs/data-entities">Data Entities</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/jobs/dead-letter-queue">Dead Letter Queue</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/jobs/development">Development</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/jobs/testing">Testing</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Clustering<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/teraslice/docs/clustering/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/clustering/k8s">K8s</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/clustering/native">Native</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Nodes<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/teraslice/docs/nodes/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/nodes/cluster-master">Cluster Master</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/nodes/execution-controller">Execution Controller</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/nodes/worker">Worker</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Development<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/teraslice/docs/development/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/development/packages">Packages</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/development/scripts">Scripts</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/development/releases">Releases</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/development/tests">Tests</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/development/e2e-tests">End-to-End Tests</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/development/contributing">Contributing</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Configuration</h1></header><article><div><span><p>A job configuration is the main way a Teraslice user describes the processing they want done. This page provides a detailed description of the configurations available for a job.</p>
+<h2><a class="anchor" aria-hidden="true" id="job-configuration"></a><a href="#job-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Job Configuration</h2>
+<p>Note that the job configuration is divided into top level job configuration, and configuration per each individual operation withing the operations array.</p>
+<p>The first operation in the <a href="#operations">operations</a> list, reads from a particular source, <a href="/teraslice/docs/jobs/types-of-operations#readers">see &quot;Reader&quot;</a>. The &quot;Reader&quot; will creates <a href="/teraslice/docs/packages/job-components/api/interfaces/slice">Slices</a> which goes through the pipeline of operations specified on the job.</p>
+<table>
+<thead>
+<tr><th>Configuration</th><th>Description</th><th>Type</th><th>Notes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>name</code></td><td>Name for the given job</td><td><code>String</code></td><td>optional</td></tr>
+<tr><td><code>lifecycle</code></td><td>Determines system exiting behaviour. Set to either <strong>&quot;once&quot;</strong> which will run the job to completion then the process will exit or <strong>&quot;persistent&quot;</strong> in which the process will continue until it is shutdown manually.</td><td><code>String</code></td><td>required</td></tr>
+<tr><td><code>analytics</code></td><td>Determines if analytics should be ran for each slice</td><td><code>Boolean</code></td><td>optional, defaults to true</td></tr>
+<tr><td><code>max_retries</code></td><td>Number of times a given slice of data will attempt to process before continuing on</td><td><code>Number</code></td><td>optional</td></tr>
+<tr><td><code>slicers</code></td><td>Number of slicer functions that will chunk and prep the data for worker</td><td><code>Number</code></td><td>optional, defaults to 1</td></tr>
+<tr><td><code>workers</code></td><td>Number of worker instances that will process data, depending on the nature of the operations you may choose to over subscribe the number of workers compared to the number of cpu's</td><td>Number</td><td>optional, defaults to 5, if the number of workers for the job is set above workers specified in system configuration, a warning is passed and the workers set in the system configuration will be used.</td></tr>
+<tr><td><code>assets</code></td><td>An array of strings that are the id's for the corresponding assets zip files.</td><td><code>Array</code></td><td>optional</td></tr>
+<tr><td><code>operations</code></td><td>An array containing all the <a href="#operations">operations</a> as well as their configurations. Typically the first is the reader/slicer.</td><td><code>Array</code></td><td>required</td></tr>
+<tr><td><code>apis</code></td><td>An array containing all the <a href="#apis">apis</a> as well as their configurations.</td><td><code>Array</code></td><td>required</td></tr>
+<tr><td><code>probation_window</code></td><td>time in ms that the execution controller checks for failed slices, if there are none then it updates the state of the execution to running (this is only when lifecycle is set to persistent)</td><td><code>Number</code></td><td>optional</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="operations"></a><a href="#operations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>operations</h3>
+<table>
+<thead>
+<tr><th>Configuration</th><th>Description</th><th>Type</th><th>Notes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>_op</code></td><td>Name of operation, it must reflect the exact name of the file</td><td><code>String</code></td><td>required</td></tr>
+<tr><td><code>_encoding</code></td><td>Used for specifying the data encoding type when using <code>DataEntity.fromBuffer</code>. Defaults to <code>json</code>.</td><td><code>String</code></td><td>optional</td></tr>
+<tr><td><code>_dead_letter_action</code></td><td>This action will specify what to do when failing to parse or transform a record. ​​​​​The following builtin actions are supported, &quot;throw&quot;, &quot;log&quot;, or &quot;none&quot;. If none of the actions are specified it will try and use a registered <a href="/teraslice/docs/jobs/dead-letter-queue">Dead Letter Queue</a> API under that name. The API must be already be created by a operation before it can used.​</td><td><code>String</code></td><td>required</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="apis"></a><a href="#apis" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>apis</h3>
+<table>
+<thead>
+<tr><th>Configuration</th><th>Description</th><th>Type</th><th>Notes</th></tr>
+</thead>
+<tbody>
+<tr><td><code>_name</code></td><td>The <code>_name</code> property is required, and it is required to be unqiue but can be suffixed with a identifier by using the format <code>&quot;example:0&quot;</code>, anything after the <code>:</code> is stripped out when searching for the file or folder.</td><td><code>String</code></td><td>required</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="examples"></a><a href="#examples" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Examples</h2>
+<div class="tabs"><div class="nav-tabs"><div id="tab-group-7-tab-8" class="nav-link active" data-group="group_7" data-tab="tab-group-7-content-8">Reindex Job</div><div id="tab-group-7-tab-9" class="nav-link" data-group="group_7" data-tab="tab-group-7-content-9">Kafka with Dead Letter Queue</div></div><div class="tab-content"><div id="tab-group-7-content-8" class="tab-pane active" data-group="group_7" tabindex="-1"><div><span><pre><code class="hljs css language-json">{<br />    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Reindex Events"</span>,<br />    <span class="hljs-attr">"lifecycle"</span>: <span class="hljs-string">"once"</span>,<br />    <span class="hljs-attr">"analytics"</span>: <span class="hljs-literal">false</span>,<br />    <span class="hljs-attr">"assets"</span>: [<span class="hljs-string">"elasticsearch"</span>],<br />    <span class="hljs-attr">"operations"</span>: [<br />        {<br />            <span class="hljs-attr">"_op"</span>: <span class="hljs-string">"elasticsearch_reader"</span>,<br />            <span class="hljs-attr">"index"</span>: <span class="hljs-string">"events-*"</span>,<br />            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"event"</span>,<br />            <span class="hljs-attr">"size"</span>: <span class="hljs-number">5000</span>,<br />            <span class="hljs-attr">"date_field_name"</span>: <span class="hljs-string">"created"</span><br />        },<br />        {<br />            <span class="hljs-attr">"_op"</span>: <span class="hljs-string">"custom_op"</span>,<br />            <span class="hljs-attr">"some"</span>: <span class="hljs-string">"configuration"</span><br />        },<br />        {<br />            <span class="hljs-attr">"_op"</span>: <span class="hljs-string">"elasticsearch_index_selector"</span>,<br />            <span class="hljs-attr">"index"</span>: <span class="hljs-string">"bigdata3"</span>,<br />            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"events"</span><br />        },<br />        {<br />            <span class="hljs-attr">"_op"</span>: <span class="hljs-string">"elasticsearch_bulk"</span>,<br />            <span class="hljs-attr">"size"</span>: <span class="hljs-number">5000</span><br />        }<br />    ]<br />}<br /></code></pre>
+</span></div></div><div id="tab-group-7-content-9" class="tab-pane" data-group="group_7" tabindex="-1"><div><span><pre><code class="hljs css language-json">{<br />    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Kafka with Dead Letter Queue"</span>,<br />    <span class="hljs-attr">"max_retries"</span>: <span class="hljs-number">0</span>,<br />    <span class="hljs-attr">"assets"</span>: [ <span class="hljs-string">"kafka"</span> ],<br />    <span class="hljs-attr">"apis"</span>: [<br />        {<br />            <span class="hljs-attr">"_name"</span>: <span class="hljs-string">"kafka_dead_letter"</span>,<br />            <span class="hljs-attr">"topic"</span> : <span class="hljs-string">"a9bs823..."</span>,<br />        }<br />    ],<br />    <span class="hljs-attr">"operations"</span>: [<br />        {<br />            <span class="hljs-attr">"_op"</span>: <span class="hljs-string">"kafka_reader"</span>,<br />            <span class="hljs-attr">"_dead_letter_action"</span>: <span class="hljs-string">"kafka_dead_letter"</span>,<br />            <span class="hljs-attr">"topic"</span>: <span class="hljs-string">"d9c7ba7..."</span>,<br />            <span class="hljs-attr">"group"</span>: <span class="hljs-string">"4e69b5271-4a6..."</span><br />        },<br />        {<br />            <span class="hljs-attr">"_op"</span>: <span class="hljs-string">"noop"</span><br />        }<br />    ]<br />}<br /></code></pre>
+</span></div></div></div></div>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 7/10/2019</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/jobs/overview"><span class="arrow-prev">← </span><span>Overview</span></a><a class="docs-next button" href="/teraslice/docs/jobs/types-of-operations"><span>Types of Operations</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#job-configuration">Job Configuration</a><ul class="toc-headings"><li><a href="#operations">operations</a></li><li><a href="#apis">apis</a></li></ul></li><li><a href="#examples">Examples</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/apis.html">API Reference</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'b074b9b57bfd2e4d8b411aee052825d2',
+                indexName: 'terascope_teraslice',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

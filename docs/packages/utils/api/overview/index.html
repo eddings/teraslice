@@ -1,0 +1,1308 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Utils API Overview · Teraslice</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;h4&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;classes&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#classes&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Classes&lt;/h4&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Utils API Overview · Teraslice"/><meta property="og:type" content="website"/><meta property="og:url" content="https://terascope.github.io/teraslice/"/><meta property="og:description" content="&lt;h4&gt;&lt;a class=&quot;anchor&quot; aria-hidden=&quot;true&quot; id=&quot;classes&quot;&gt;&lt;/a&gt;&lt;a href=&quot;#classes&quot; aria-hidden=&quot;true&quot; class=&quot;hash-link&quot;&gt;&lt;svg class=&quot;hash-link-icon&quot; aria-hidden=&quot;true&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;Classes&lt;/h4&gt;
+"/><meta property="og:image" content="https://terascope.github.io/teraslice/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://terascope.github.io/teraslice/img/docusaurus.png"/><link rel="shortcut icon" href="/teraslice/img/favicon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"/><link rel="stylesheet" href="/teraslice/css/copy-code-block.css"/><link rel="stylesheet" href="/teraslice/css/custom.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/teraslice/js/copy-code-block.js"></script><script src="/teraslice/js/scrollSpy.js"></script><link rel="stylesheet" href="/teraslice/css/main.css"/><script src="/teraslice/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/teraslice/"><img class="logo" src="/teraslice/img/logo.png" alt="Teraslice"/><h2 class="headerTitleWithLogo">Teraslice</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/teraslice/docs/overview" target="_self">Docs</a></li><li class=""><a href="/teraslice/docs/asset-bundles" target="_self">Assets</a></li><li class="siteNavGroupActive"><a href="/teraslice/docs/packages" target="_self">Packages</a></li><li class=""><a href="https://github.com/terascope/teraslice" target="_self">GitHub</a></li><li class=""><a href="/teraslice/help" target="_self">Help</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>utils</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Overview<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages">Overview</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Packages<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">data-types</h4><ul><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/data-types/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/data-types/api/overview">API</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">elasticsearch-store</h4><ul><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/elasticsearch-store/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/elasticsearch-store/api/overview">API</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">elasticsearch-api</h4><ul><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/elasticsearch-api/overview">Overview</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">job-components</h4><ul><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/job-components/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/job-components/api/overview">API</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">queue</h4><ul><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/queue/overview">Overview</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">terafoundation</h4><ul><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/terafoundation/overview">Overview</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">teraslice</h4><ul><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/teraslice/overview">Overview</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">teraslice-cli</h4><ul><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/teraslice-cli/overview">Overview</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">teraslice-client-js</h4><ul><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/teraslice-client-js/overview">Overview</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">teraslice-test-harness</h4><ul><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/teraslice-test-harness/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/teraslice-test-harness/api/overview">API</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">ts-transforms</h4><ul><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/ts-transforms/plugins">Plugins</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/ts-transforms/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/ts-transforms/operations">Operations</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/ts-transforms/api/overview">API</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">utils</h4><ul><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/utils/overview">Overview</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/teraslice/docs/packages/utils/api/overview">API</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">xlucene-evaluator</h4><ul><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/xlucene-evaluator/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/xlucene-evaluator/api/overview">API</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Legacy<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">error-parser</h4><ul><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/error-parser/overview">Overview</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">teraslice-op-test-harness</h4><ul><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/teraslice-op-test-harness/overview">Overview</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Internal<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">chunked-file-reader</h4><ul><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/chunked-file-reader/overview">Overview</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">data-access</h4><ul><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/data-access/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/data-access/api/overview">API</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">data-access-plugin</h4><ul><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/data-access-plugin/overview">Overview</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">docker-compose-js</h4><ul><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/docker-compose-js/overview">docker-compose-js</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">generator-teraslice</h4><ul><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/generator-teraslice/overview">Overview</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">teraslice-messaging</h4><ul><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/teraslice-messaging/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/packages/teraslice-messaging/api/overview">API</a></li></ul></div></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Utils API Overview</h1></header><article><div><span><h4><a class="anchor" aria-hidden="true" id="classes"></a><a href="#classes" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Classes</h4>
+<ul>
+<li><a href="/teraslice/docs/packages/utils/api/classes/collector">Collector</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/classes/dataentity">DataEntity</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/classes/tserror">TSError</a></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="interfaces"></a><a href="#interfaces" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Interfaces</h4>
+<ul>
+<li><a href="/teraslice/docs/packages/utils/api/interfaces/anyobject">AnyObject</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/interfaces/elasticsearcherror">ElasticsearchError</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/interfaces/encodingconfig">EncodingConfig</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/interfaces/many">Many</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/interfaces/pretryconfig">PRetryConfig</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/interfaces/tserrorconfig">TSErrorConfig</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/interfaces/tserrorcontext">TSErrorContext</a></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="type-aliases"></a><a href="#type-aliases" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Type aliases</h4>
+<ul>
+<li><a href="/teraslice/docs/packages/utils/api/overview#dataarrayinput">DataArrayInput</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#dataencoding">DataEncoding</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#datainput">DataInput</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#omit">Omit</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#optional">Optional</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#override">Override</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#overwrite">Overwrite</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#required">Required</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#withoutnil">WithoutNil</a></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="variables"></a><a href="#variables" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Variables</h4>
+<ul>
+<li><a href="/teraslice/docs/packages/utils/api/overview#const-dataencodings">dataEncodings</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#const-isdev">isDev</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#const-isprod">isProd</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#const-istest">isTest</a></li>
+</ul>
+<h4><a class="anchor" aria-hidden="true" id="functions"></a><a href="#functions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Functions</h4>
+<ul>
+<li><a href="/teraslice/docs/packages/utils/api/overview#castarray">castArray</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#chunk">chunk</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#concat">concat</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#debuglogger">debugLogger</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#enumerable">enumerable</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#escapestring">escapeString</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#fastassign">fastAssign</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#fastmap">fastMap</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#firsttolower">firstToLower</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#firsttoupper">firstToUpper</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#flatten">flatten</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#getbackoffdelay">getBackoffDelay</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#geterrorstatuscode">getErrorStatusCode</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#getfield">getField</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#getfirst">getFirst</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#getfirstchar">getFirstChar</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#gettypeof">getTypeOf</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#getvaliddate">getValidDate</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#has">has</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#isbooleanlike">isBooleanLike</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#iselasticsearcherror">isElasticsearchError</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#isempty">isEmpty</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#iserror">isError</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#isfatalerror">isFatalError</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#isfunction">isFunction</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#isinteger">isInteger</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#isnumber">isNumber</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#isretryableerror">isRetryableError</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#isstring">isString</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#istserror">isTSError</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#isvaliddate">isValidDate</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#locked">locked</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#makeisodate">makeISODate</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#noop">noop</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#const-pdelay">pDelay</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#const-pimmediate">pImmediate</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#pretry">pRetry</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#parseerror">parseError</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#parseerrorinfo">parseErrorInfo</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#parsejson">parseJSON</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#parselist">parseList</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#parsenumberlist">parseNumberList</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#prefixerrormsg">prefixErrorMsg</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#random">random</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#startswith">startsWith</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#striperrormessage">stripErrorMessage</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#times">times</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#toboolean">toBoolean</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#tointeger">toInteger</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#tonumber">toNumber</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#tosafestring">toSafeString</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#tostatuserrorcode">toStatusErrorCode</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#tostring">toString</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#trim">trim</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#trimandtolower">trimAndToLower</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#trimandtoupper">trimAndToUpper</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#truncate">truncate</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#tryparsejson">tryParseJSON</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#unescapestring">unescapeString</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#uniq">uniq</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#waterfall">waterfall</a></li>
+<li><a href="/teraslice/docs/packages/utils/api/overview#withoutnil">withoutNil</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="type-aliases-1"></a><a href="#type-aliases-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Type aliases</h2>
+<h3><a class="anchor" aria-hidden="true" id="dataarrayinput"></a><a href="#dataarrayinput" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DataArrayInput</h3>
+<p>Ƭ <strong>DataArrayInput</strong>: <em><a href="/teraslice/docs/packages/utils/api/overview#datainput">DataInput</a> | <a href="/teraslice/docs/packages/utils/api/overview#datainput">DataInput</a>[]</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/data-entity.ts#L229">data-entity.ts:229</a></em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="dataencoding"></a><a href="#dataencoding" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DataEncoding</h3>
+<p>Ƭ <strong>DataEncoding</strong>: <em>&quot;json&quot;</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/data-entity.ts#L257">data-entity.ts:257</a></em></p>
+<p>available data encoding types</p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="datainput"></a><a href="#datainput" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>DataInput</h3>
+<p>Ƭ <strong>DataInput</strong>: <em>object | <a href="/teraslice/docs/packages/utils/api/classes/dataentity">DataEntity</a></em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/data-entity.ts#L228">data-entity.ts:228</a></em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="omit"></a><a href="#omit" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Omit</h3>
+<p>Ƭ <strong>Omit</strong>: <em><code>Pick&lt;T, Exclude&lt;keyof T, K&gt;&gt;</code></em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/interfaces.ts#L7">interfaces.ts:7</a></em></p>
+<p>Omit the properties available to type.
+Useful for excluding properties from a type</p>
+<p><strong><code>example</code></strong> <code>Omit&lt;{ a: number, b: number, c: number }, 'b'|'c'&gt; // =&gt; { a: 1 }</code></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="optional"></a><a href="#optional" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Optional</h3>
+<p>Ƭ <strong>Optional</strong>: <em>object</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/interfaces.ts#L39">interfaces.ts:39</a></em></p>
+<p>Like Partial but makes certain properties optional</p>
+<p><strong><code>example</code></strong> <code>Optional&lt;{ a: number, b: number }, 'b'&gt;</code></p>
+<h4><a class="anchor" aria-hidden="true" id="type-declaration"></a><a href="#type-declaration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Type declaration:</h4>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="override"></a><a href="#override" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Override</h3>
+<p>Ƭ <strong>Override</strong>: <em>object</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/interfaces.ts#L23">interfaces.ts:23</a></em></p>
+<p>Override specific properties on a type</p>
+<p><strong><code>example</code></strong> <code>Override&lt;{ a: number, b: number }, { b: string }&gt;</code></p>
+<h4><a class="anchor" aria-hidden="true" id="type-declaration-1"></a><a href="#type-declaration-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Type declaration:</h4>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="overwrite"></a><a href="#overwrite" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Overwrite</h3>
+<p>Ƭ <strong>Overwrite</strong>: <em>object &amp; <code>T2</code></em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/interfaces.ts#L15">interfaces.ts:15</a></em></p>
+<p>Overwrite a simple type with different properties.
+Useful changing and adding additional properties</p>
+<p><strong><code>example</code></strong> <code>Overwrite&lt;{ a: number, b: number }, { b?: number }&gt;</code></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="required"></a><a href="#required" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Required</h3>
+<p>Ƭ <strong>Required</strong>: <em>object</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/interfaces.ts#L32">interfaces.ts:32</a></em></p>
+<p>Like Partial but makes certain properties required</p>
+<p><strong><code>example</code></strong> <code>Required&lt;{ a: number, b: number }, 'b'&gt;</code></p>
+<h4><a class="anchor" aria-hidden="true" id="type-declaration-2"></a><a href="#type-declaration-2" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Type declaration:</h4>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="withoutnil"></a><a href="#withoutnil" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>WithoutNil</h3>
+<p>Ƭ <strong>WithoutNil</strong>: <em>object</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/interfaces.ts#L44">interfaces.ts:44</a></em></p>
+<p>Without null or undefined properties</p>
+<h4><a class="anchor" aria-hidden="true" id="type-declaration-3"></a><a href="#type-declaration-3" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Type declaration:</h4>
+<h2><a class="anchor" aria-hidden="true" id="variables-1"></a><a href="#variables-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Variables</h2>
+<h3><a class="anchor" aria-hidden="true" id="const-dataencodings"></a><a href="#const-dataencodings" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Const</code> dataEncodings</h3>
+<p>• <strong>dataEncodings</strong>: <em><a href="/teraslice/docs/packages/utils/api/overview#dataencoding">DataEncoding</a>[]</em> =  ['json']</p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/data-entity.ts#L260">data-entity.ts:260</a></em></p>
+<p>A list of supported encoding formats</p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="const-isdev"></a><a href="#const-isdev" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Const</code> isDev</h3>
+<p>• <strong>isDev</strong>: <em>boolean</em> =  NODE_ENV === 'development'</p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/misc.ts#L5">misc.ts:5</a></em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="const-isprod"></a><a href="#const-isprod" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Const</code> isProd</h3>
+<p>• <strong>isProd</strong>: <em>boolean</em> =  NODE_ENV === 'production'</p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/misc.ts#L3">misc.ts:3</a></em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="const-istest"></a><a href="#const-istest" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Const</code> isTest</h3>
+<p>• <strong>isTest</strong>: <em>boolean</em> =  NODE_ENV === 'test'</p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/misc.ts#L4">misc.ts:4</a></em></p>
+<h2><a class="anchor" aria-hidden="true" id="functions-1"></a><a href="#functions-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Functions</h2>
+<h3><a class="anchor" aria-hidden="true" id="castarray"></a><a href="#castarray" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>castArray</h3>
+<p>▸ <strong>castArray</strong>&lt;<strong>T</strong>&gt;(<code>input</code>: <em><code>T</code> | <code>T</code>[]</em>): <em><code>T</code>[]</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/arrays.ts#L9">arrays.ts:9</a></em></p>
+<p>A simplified implemation of lodash castArray</p>
+<p><strong>Type parameters:</strong></p>
+<p>▪ <strong>T</strong></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>input</code></td><td><code>T</code> \</td><td><code>T</code>[]</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em><code>T</code>[]</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="chunk"></a><a href="#chunk" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>chunk</h3>
+<p>▸ <strong>chunk</strong>&lt;<strong>T</strong>&gt;(<code>dataArray</code>: <em><code>T</code>[]</em>, <code>size</code>: <em>number</em>): <em><code>T</code>[][]</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/arrays.ts#L71">arrays.ts:71</a></em></p>
+<p><strong>Type parameters:</strong></p>
+<p>▪ <strong>T</strong></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>dataArray</code></td><td><code>T</code>[]</td></tr>
+<tr><td><code>size</code></td><td>number</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em><code>T</code>[][]</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="concat"></a><a href="#concat" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>concat</h3>
+<p>▸ <strong>concat</strong>&lt;<strong>T</strong>&gt;(<code>arr</code>: <em><code>T</code> | <code>T</code>[]</em>, <code>arr1?</code>: <em><code>T</code> | <code>T</code>[]</em>): <em><code>T</code>[]</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/arrays.ts#L18">arrays.ts:18</a></em></p>
+<p>Concat and unique the items in the array
+Any non-array value will be converted to an array</p>
+<p><strong>Type parameters:</strong></p>
+<p>▪ <strong>T</strong></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>arr</code></td><td><code>T</code> \</td><td><code>T</code>[]</td></tr>
+<tr><td><code>arr1?</code></td><td><code>T</code> \</td><td><code>T</code>[]</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em><code>T</code>[]</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="debuglogger"></a><a href="#debuglogger" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>debugLogger</h3>
+<p>▸ <strong>debugLogger</strong>(<code>testName</code>: <em>string</em>, <code>param?</code>: <em><code>debugParam</code></em>, <code>otherName?</code>: <em>undefined | string</em>): <em><code>Logger</code></em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/logger.ts#L26">logger.ts:26</a></em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>testName</code></td><td>string</td></tr>
+<tr><td><code>param?</code></td><td><code>debugParam</code></td></tr>
+<tr><td><code>otherName?</code></td><td>undefined \</td><td>string</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em><code>Logger</code></em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="enumerable"></a><a href="#enumerable" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>enumerable</h3>
+<p>▸ <strong>enumerable</strong>(<code>enabled</code>: <em>boolean</em>): <em><code>(Anonymous function)</code></em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/misc.ts#L18">misc.ts:18</a></em></p>
+<p>A decorator for making a method enumerable or none-enumerable</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Default</th></tr>
+</thead>
+<tbody>
+<tr><td><code>enabled</code></td><td>boolean</td><td>true</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em><code>(Anonymous function)</code></em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="escapestring"></a><a href="#escapestring" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>escapeString</h3>
+<p>▸ <strong>escapeString</strong>(<code>str</code>: <em>string</em>, <code>chars</code>: <em>string[]</em>): <em>string</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/strings.ts#L29">strings.ts:29</a></em></p>
+<p>Escape characters in string and avoid double escaping</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Default</th></tr>
+</thead>
+<tbody>
+<tr><td><code>str</code></td><td>string</td><td>&quot;&quot;</td></tr>
+<tr><td><code>chars</code></td><td>string[]</td><td>-</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>string</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="fastassign"></a><a href="#fastassign" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>fastAssign</h3>
+<p>▸ <strong>fastAssign</strong>&lt;<strong>T</strong>, <strong>U</strong>&gt;(<code>target</code>: <em><code>T</code></em>, <code>source</code>: <em><code>U</code></em>): <em><code>T</code></em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/utils.ts#L76">utils.ts:76</a></em></p>
+<p>Perform a shallow clone of an object to another, in the fastest way possible</p>
+<p><strong>Type parameters:</strong></p>
+<p>▪ <strong>T</strong></p>
+<p>▪ <strong>U</strong></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>target</code></td><td><code>T</code></td></tr>
+<tr><td><code>source</code></td><td><code>U</code></td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em><code>T</code></em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="fastmap"></a><a href="#fastmap" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>fastMap</h3>
+<p>▸ <strong>fastMap</strong>&lt;<strong>T</strong>, <strong>U</strong>&gt;(<code>arr</code>: <em><code>T</code>[]</em>, <code>fn</code>: <em>function</em>): <em><code>U</code>[]</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/arrays.ts#L59">arrays.ts:59</a></em></p>
+<p>Map an array faster without sparse array handling</p>
+<p><strong>Type parameters:</strong></p>
+<p>▪ <strong>T</strong></p>
+<p>▪ <strong>U</strong></p>
+<p><strong>Parameters:</strong></p>
+<p>▪ <strong>arr</strong>: <em><code>T</code>[]</em></p>
+<p>▪ <strong>fn</strong>: <em>function</em></p>
+<p>▸ (<code>val</code>: <em><code>T</code></em>, <code>index</code>: <em>number</em>): <em><code>U</code></em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>val</code></td><td><code>T</code></td></tr>
+<tr><td><code>index</code></td><td>number</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em><code>U</code>[]</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="firsttolower"></a><a href="#firsttolower" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>firstToLower</h3>
+<p>▸ <strong>firstToLower</strong>(<code>str</code>: <em>string</em>): <em>string</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/strings.ts#L108">strings.ts:108</a></em></p>
+<p>Change first character in string to lower case</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>str</code></td><td>string</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>string</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="firsttoupper"></a><a href="#firsttoupper" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>firstToUpper</h3>
+<p>▸ <strong>firstToUpper</strong>(<code>str</code>: <em>string</em>): <em>string</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/strings.ts#L103">strings.ts:103</a></em></p>
+<p>Change first character in string to upper case</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>str</code></td><td>string</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>string</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="flatten"></a><a href="#flatten" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>flatten</h3>
+<p>▸ <strong>flatten</strong>&lt;<strong>T</strong>&gt;(<code>val</code>: <em><a href="/teraslice/docs/packages/utils/api/interfaces/many">Many</a>‹</em><code>T</code>[]<em>›</em>): <em><code>T</code>[]</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/arrays.ts#L4">arrays.ts:4</a></em></p>
+<p>A native implemation of lodash flatten</p>
+<p><strong>Type parameters:</strong></p>
+<p>▪ <strong>T</strong></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>val</code></td><td><a href="/teraslice/docs/packages/utils/api/interfaces/many">Many</a>‹<em><code>T</code>[]</em>›</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em><code>T</code>[]</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="getbackoffdelay"></a><a href="#getbackoffdelay" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>getBackoffDelay</h3>
+<p>▸ <strong>getBackoffDelay</strong>(<code>current</code>: <em>number</em>, <code>factor</code>: <em>number</em>, <code>max</code>: <em>number</em>, <code>min</code>: <em>number</em>): <em>number</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/promises.ts#L147">promises.ts:147</a></em></p>
+<p>Get backoff delay that will safe to retry and is slightly staggered</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Default</th></tr>
+</thead>
+<tbody>
+<tr><td><code>current</code></td><td>number</td><td>-</td></tr>
+<tr><td><code>factor</code></td><td>number</td><td>2</td></tr>
+<tr><td><code>max</code></td><td>number</td><td>60000</td></tr>
+<tr><td><code>min</code></td><td>number</td><td>500</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>number</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="geterrorstatuscode"></a><a href="#geterrorstatuscode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>getErrorStatusCode</h3>
+<p>▸ <strong>getErrorStatusCode</strong>(<code>err</code>: <em>any</em>, <code>config</code>: <em><a href="/teraslice/docs/packages/utils/api/interfaces/tserrorconfig">TSErrorConfig</a></em>, <code>defaultCode</code>: <em>number</em>): <em>number</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/errors.ts#L357">errors.ts:357</a></em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Default</th></tr>
+</thead>
+<tbody>
+<tr><td><code>err</code></td><td>any</td><td>-</td></tr>
+<tr><td><code>config</code></td><td><a href="/teraslice/docs/packages/utils/api/interfaces/tserrorconfig">TSErrorConfig</a></td><td>{}</td></tr>
+<tr><td><code>defaultCode</code></td><td>number</td><td>DEFAULT_STATUS_CODE</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>number</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="getfield"></a><a href="#getfield" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>getField</h3>
+<p>▸ <strong>getField</strong>&lt;<strong>V</strong>&gt;(<code>input</code>: <em>undefined</em>, <code>field</code>: <em>string</em>, <code>defaultVal?</code>: <em><a href="">V</a></em>): <em><code>V</code></em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/utils.ts#L132">utils.ts:132</a></em></p>
+<p>A typesafe get function (will always return the correct type)</p>
+<p><strong>IMPORTANT</strong> This does not behave like lodash.get,
+it does not deal with dot notation (nested fields)
+and it will use the default when dealing with OR statements</p>
+<p><strong>Type parameters:</strong></p>
+<p>▪ <strong>V</strong></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>input</code></td><td>undefined</td></tr>
+<tr><td><code>field</code></td><td>string</td></tr>
+<tr><td><code>defaultVal?</code></td><td><a href="">V</a></td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em><code>V</code></em></p>
+<p>▸ <strong>getField</strong>&lt;<strong>T</strong>, <strong>P</strong>&gt;(<code>input</code>: <em><code>T</code></em>, <code>field</code>: <em><code>P</code></em>): <em><code>T[P]</code></em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/utils.ts#L133">utils.ts:133</a></em></p>
+<p><strong>Type parameters:</strong></p>
+<p>▪ <strong>T</strong>: <em><code>__type</code></em></p>
+<p>▪ <strong>P</strong>: <em>keyof T</em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>input</code></td><td><code>T</code></td></tr>
+<tr><td><code>field</code></td><td><code>P</code></td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em><code>T[P]</code></em></p>
+<p>▸ <strong>getField</strong>&lt;<strong>T</strong>, <strong>P</strong>&gt;(<code>input</code>: <em><code>T</code> | undefined</em>, <code>field</code>: <em><code>P</code></em>): <em><code>T[P]</code></em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/utils.ts#L134">utils.ts:134</a></em></p>
+<p><strong>Type parameters:</strong></p>
+<p>▪ <strong>T</strong>: <em><code>__type</code></em></p>
+<p>▪ <strong>P</strong>: <em>keyof T</em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>input</code></td><td><code>T</code> \</td><td>undefined</td></tr>
+<tr><td><code>field</code></td><td><code>P</code></td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em><code>T[P]</code></em></p>
+<p>▸ <strong>getField</strong>&lt;<strong>T</strong>, <strong>P</strong>&gt;(<code>input</code>: <em><code>T</code> | undefined</em>, <code>field</code>: <em><code>P</code></em>, <code>defaultVal</code>: <em>never[]</em>): <em><code>T[P]</code></em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/utils.ts#L135">utils.ts:135</a></em></p>
+<p><strong>Type parameters:</strong></p>
+<p>▪ <strong>T</strong>: <em><code>__type</code></em></p>
+<p>▪ <strong>P</strong>: <em>keyof T</em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>input</code></td><td><code>T</code> \</td><td>undefined</td></tr>
+<tr><td><code>field</code></td><td><code>P</code></td></tr>
+<tr><td><code>defaultVal</code></td><td>never[]</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em><code>T[P]</code></em></p>
+<p>▸ <strong>getField</strong>&lt;<strong>T</strong>, <strong>P</strong>, <strong>V</strong>&gt;(<code>input</code>: <em><code>T</code> | undefined</em>, <code>field</code>: <em><code>P</code></em>, <code>defaultVal</code>: <em><code>V</code></em>): <em><code>T[P]</code> | <code>V</code></em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/utils.ts#L136">utils.ts:136</a></em></p>
+<p><strong>Type parameters:</strong></p>
+<p>▪ <strong>T</strong>: <em><code>__type</code></em></p>
+<p>▪ <strong>P</strong>: <em>keyof T</em></p>
+<p>▪ <strong>V</strong></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>input</code></td><td><code>T</code> \</td><td>undefined</td></tr>
+<tr><td><code>field</code></td><td><code>P</code></td></tr>
+<tr><td><code>defaultVal</code></td><td><code>V</code></td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em><code>T[P]</code> | <code>V</code></em></p>
+<p>▸ <strong>getField</strong>&lt;<strong>T</strong>, <strong>P</strong>, <strong>V</strong>&gt;(<code>input</code>: <em><code>T</code> | undefined</em>, <code>field</code>: <em><code>P</code></em>, <code>defaultVal</code>: <em><code>V</code></em>): <em><code>T[P]</code></em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/utils.ts#L137">utils.ts:137</a></em></p>
+<p><strong>Type parameters:</strong></p>
+<p>▪ <strong>T</strong>: <em><code>__type</code></em></p>
+<p>▪ <strong>P</strong>: <em>keyof T</em></p>
+<p>▪ <strong>V</strong>: <em><code>T[P]</code></em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>input</code></td><td><code>T</code> \</td><td>undefined</td></tr>
+<tr><td><code>field</code></td><td><code>P</code></td></tr>
+<tr><td><code>defaultVal</code></td><td><code>V</code></td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em><code>T[P]</code></em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="getfirst"></a><a href="#getfirst" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>getFirst</h3>
+<p>▸ <strong>getFirst</strong>&lt;<strong>T</strong>&gt;(<code>input</code>: <em><code>T</code> | <code>T</code>[]</em>): <em><code>T</code></em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/utils.ts#L71">utils.ts:71</a></em></p>
+<p>If the input is an array it will return the first item
+else if it will return the input</p>
+<p><strong>Type parameters:</strong></p>
+<p>▪ <strong>T</strong></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>input</code></td><td><code>T</code> \</td><td><code>T</code>[]</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em><code>T</code></em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="getfirstchar"></a><a href="#getfirstchar" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>getFirstChar</h3>
+<p>▸ <strong>getFirstChar</strong>(<code>input</code>: <em>string</em>): <em>string</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/strings.ts#L112">strings.ts:112</a></em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>input</code></td><td>string</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>string</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="gettypeof"></a><a href="#gettypeof" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>getTypeOf</h3>
+<p>▸ <strong>getTypeOf</strong>(<code>val</code>: <em>any</em>): <em>string</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/utils.ts#L44">utils.ts:44</a></em></p>
+<p>Determine the type of an input</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>val</code></td><td>any</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>string</em></p>
+<p>a human friendly string that describes the input</p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="getvaliddate"></a><a href="#getvaliddate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>getValidDate</h3>
+<p>▸ <strong>getValidDate</strong>(<code>val</code>: <em>any</em>): <em><code>Date</code> | false</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/dates.ts#L16">dates.ts:16</a></em></p>
+<p>Check if the data is valid and return if it is</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>val</code></td><td>any</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em><code>Date</code> | false</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="has"></a><a href="#has" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>has</h3>
+<p>▸ <strong>has</strong>(<code>data</code>: <em>object</em>, <code>key</code>: <em>any</em>): <em>boolean</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/arrays.ts#L88">arrays.ts:88</a></em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>data</code></td><td>object</td></tr>
+<tr><td><code>key</code></td><td>any</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>boolean</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="isbooleanlike"></a><a href="#isbooleanlike" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isBooleanLike</h3>
+<p>▸ <strong>isBooleanLike</strong>(<code>input</code>: <em>any</em>): <em>boolean</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/utils.ts#L95">utils.ts:95</a></em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>input</code></td><td>any</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>boolean</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="iselasticsearcherror"></a><a href="#iselasticsearcherror" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isElasticsearchError</h3>
+<p>▸ <strong>isElasticsearchError</strong>(<code>err</code>: <em>any</em>): <em>boolean</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/errors.ts#L321">errors.ts:321</a></em></p>
+<p>Check is a elasticsearch error</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>err</code></td><td>any</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>boolean</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="isempty"></a><a href="#isempty" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isEmpty</h3>
+<p>▸ <strong>isEmpty</strong>(<code>val?</code>: <em>any</em>): <em>boolean</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/utils.ts#L9">utils.ts:9</a></em></p>
+<p>Check if an input is empty, similar to lodash.isEmpty</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>val?</code></td><td>any</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>boolean</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="iserror"></a><a href="#iserror" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isError</h3>
+<p>▸ <strong>isError</strong>(<code>err</code>: <em>any</em>): <em>boolean</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/errors.ts#L307">errors.ts:307</a></em></p>
+<p>Check if an input has an error compatible api</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>err</code></td><td>any</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>boolean</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="isfatalerror"></a><a href="#isfatalerror" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isFatalError</h3>
+<p>▸ <strong>isFatalError</strong>(<code>err</code>: <em>any</em>): <em>boolean</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/errors.ts#L298">errors.ts:298</a></em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>err</code></td><td>any</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>boolean</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="isfunction"></a><a href="#isfunction" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isFunction</h3>
+<p>▸ <strong>isFunction</strong>(<code>input</code>: <em>any</em>): <em>boolean</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/utils.ts#L63">utils.ts:63</a></em></p>
+<p>Verify an input is a function</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>input</code></td><td>any</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>boolean</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="isinteger"></a><a href="#isinteger" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isInteger</h3>
+<p>▸ <strong>isInteger</strong>(<code>val</code>: <em>any</em>): <em>boolean</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/numbers.ts#L2">numbers.ts:2</a></em></p>
+<p>A simplified implemation of lodash isInteger</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>val</code></td><td>any</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>boolean</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="isnumber"></a><a href="#isnumber" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isNumber</h3>
+<p>▸ <strong>isNumber</strong>(<code>input</code>: <em>any</em>): <em>boolean</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/numbers.ts#L13">numbers.ts:13</a></em></p>
+<p>Check if an input is a number</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>input</code></td><td>any</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>boolean</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="isretryableerror"></a><a href="#isretryableerror" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isRetryableError</h3>
+<p>▸ <strong>isRetryableError</strong>(<code>err</code>: <em>any</em>): <em>boolean</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/errors.ts#L302">errors.ts:302</a></em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>err</code></td><td>any</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>boolean</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="isstring"></a><a href="#isstring" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isString</h3>
+<p>▸ <strong>isString</strong>(<code>val</code>: <em>any</em>): <em>boolean</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/strings.ts#L2">strings.ts:2</a></em></p>
+<p>A simplified implemation of lodash isString</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>val</code></td><td>any</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>boolean</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="istserror"></a><a href="#istserror" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isTSError</h3>
+<p>▸ <strong>isTSError</strong>(<code>err</code>: <em>any</em>): <em>boolean</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/errors.ts#L312">errors.ts:312</a></em></p>
+<p>Check is a TSError</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>err</code></td><td>any</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>boolean</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="isvaliddate"></a><a href="#isvaliddate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isValidDate</h3>
+<p>▸ <strong>isValidDate</strong>(<code>val</code>: <em>any</em>): <em>boolean</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/dates.ts#L9">dates.ts:9</a></em></p>
+<p>A simplified implemation of moment(new Date(val)).isValid()</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>val</code></td><td>any</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>boolean</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="locked"></a><a href="#locked" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>locked</h3>
+<p>▸ <strong>locked</strong>(): <em><code>(Anonymous function)</code></em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/misc.ts#L8">misc.ts:8</a></em></p>
+<p>A decorator for locking down a method</p>
+<p><strong>Returns:</strong> <em><code>(Anonymous function)</code></em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="makeisodate"></a><a href="#makeisodate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>makeISODate</h3>
+<p>▸ <strong>makeISODate</strong>(): <em>string</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/dates.ts#L4">dates.ts:4</a></em></p>
+<p>A helper function for making an ISODate string</p>
+<p><strong>Returns:</strong> <em>string</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="noop"></a><a href="#noop" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>noop</h3>
+<p>▸ <strong>noop</strong>(...<code>args</code>: <em>any[]</em>): <em>any</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/utils.ts#L123">utils.ts:123</a></em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>...args</code></td><td>any[]</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>any</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="const-pdelay"></a><a href="#const-pdelay" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Const</code> pDelay</h3>
+<p>▸ <strong>pDelay</strong>(<code>delay</code>: <em>number</em>): <em><code>Promise&lt;unknown&gt;</code></em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/promises.ts#L172">promises.ts:172</a></em></p>
+<p>promisified setTimeout</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Default</th></tr>
+</thead>
+<tbody>
+<tr><td><code>delay</code></td><td>number</td><td>1</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em><code>Promise&lt;unknown&gt;</code></em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="const-pimmediate"></a><a href="#const-pimmediate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Const</code> pImmediate</h3>
+<p>▸ <strong>pImmediate</strong>(): <em><code>Promise&lt;unknown&gt;</code></em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/promises.ts#L179">promises.ts:179</a></em></p>
+<p>promisified setImmediate</p>
+<p><strong>Returns:</strong> <em><code>Promise&lt;unknown&gt;</code></em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="pretry"></a><a href="#pretry" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>pRetry</h3>
+<p>▸ <strong>pRetry</strong>&lt;<strong>T</strong>&gt;(<code>fn</code>: <em><code>PromiseFn&lt;T&gt;</code></em>, <code>options?</code>: <em><code>Partial&lt;PRetryConfig&gt;</code></em>): <em><code>Promise&lt;T&gt;</code></em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/promises.ts#L63">promises.ts:63</a></em></p>
+<p>A promise retry fn.</p>
+<p><strong>Type parameters:</strong></p>
+<p>▪ <strong>T</strong></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>fn</code></td><td><code>PromiseFn&lt;T&gt;</code></td></tr>
+<tr><td><code>options?</code></td><td><code>Partial&lt;PRetryConfig&gt;</code></td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em><code>Promise&lt;T&gt;</code></em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="parseerror"></a><a href="#parseerror" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>parseError</h3>
+<p>▸ <strong>parseError</strong>(<code>input</code>: <em>any</em>, <code>withStack</code>: <em>boolean</em>): <em>string</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/errors.ts#L199">errors.ts:199</a></em></p>
+<p>parse input to get error message or stack</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Default</th></tr>
+</thead>
+<tbody>
+<tr><td><code>input</code></td><td>any</td><td>-</td></tr>
+<tr><td><code>withStack</code></td><td>boolean</td><td>false</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>string</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="parseerrorinfo"></a><a href="#parseerrorinfo" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>parseErrorInfo</h3>
+<p>▸ <strong>parseErrorInfo</strong>(<code>input</code>: <em>any</em>, <code>config</code>: <em><a href="/teraslice/docs/packages/utils/api/interfaces/tserrorconfig">TSErrorConfig</a></em>): <em><code>ErrorInfo</code></em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/errors.ts#L130">errors.ts:130</a></em></p>
+<p>parse error for info</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Default</th></tr>
+</thead>
+<tbody>
+<tr><td><code>input</code></td><td>any</td><td>-</td></tr>
+<tr><td><code>config</code></td><td><a href="/teraslice/docs/packages/utils/api/interfaces/tserrorconfig">TSErrorConfig</a></td><td>{}</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em><code>ErrorInfo</code></em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="parsejson"></a><a href="#parsejson" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>parseJSON</h3>
+<p>▸ <strong>parseJSON</strong>&lt;<strong>T</strong>&gt;(<code>buf</code>: <em><code>Buffer</code> | string</em>): <em><code>T</code></em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/utils.ts#L27">utils.ts:27</a></em></p>
+<p>JSON encoded buffer into a json object</p>
+<p><strong>Type parameters:</strong></p>
+<p>▪ <strong>T</strong></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>buf</code></td><td><code>Buffer</code> \</td><td>string</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em><code>T</code></em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="parselist"></a><a href="#parselist" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>parseList</h3>
+<p>▸ <strong>parseList</strong>(<code>input</code>: <em>any</em>): <em>string[]</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/utils.ts#L106">utils.ts:106</a></em></p>
+<p>Maps an array of strings and and trims the result, or
+parses a comma separated list and trims the result</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>input</code></td><td>any</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>string[]</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="parsenumberlist"></a><a href="#parsenumberlist" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>parseNumberList</h3>
+<p>▸ <strong>parseNumberList</strong>(<code>input</code>: <em>any</em>): <em>number[]</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/numbers.ts#L35">numbers.ts:35</a></em></p>
+<p>Like parseList, except it returns numbers</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>input</code></td><td>any</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>number[]</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="prefixerrormsg"></a><a href="#prefixerrormsg" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>prefixErrorMsg</h3>
+<p>▸ <strong>prefixErrorMsg</strong>(<code>input</code>: <em>any</em>, <code>prefix?</code>: <em>undefined | string</em>, <code>defaultMsg</code>: <em>string</em>): <em>string</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/errors.ts#L288">errors.ts:288</a></em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Default</th></tr>
+</thead>
+<tbody>
+<tr><td><code>input</code></td><td>any</td><td>-</td></tr>
+<tr><td><code>prefix?</code></td><td>undefined \</td><td>string</td><td>-</td></tr>
+<tr><td><code>defaultMsg</code></td><td>string</td><td>&quot;Unknown Error&quot;</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>string</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="random"></a><a href="#random" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>random</h3>
+<p>▸ <strong>random</strong>(<code>min</code>: <em>number</em>, <code>max</code>: <em>number</em>): <em>number</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/numbers.ts#L8">numbers.ts:8</a></em></p>
+<p>A native implemation of lodash random</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>min</code></td><td>number</td></tr>
+<tr><td><code>max</code></td><td>number</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>number</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="startswith"></a><a href="#startswith" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>startsWith</h3>
+<p>▸ <strong>startsWith</strong>(<code>str</code>: <em>string</em>, <code>val</code>: <em>string</em>): <em>boolean</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/strings.ts#L71">strings.ts:71</a></em></p>
+<p>A native implemation of lodash startsWith</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>str</code></td><td>string</td></tr>
+<tr><td><code>val</code></td><td>string</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>boolean</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="striperrormessage"></a><a href="#striperrormessage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>stripErrorMessage</h3>
+<p>▸ <strong>stripErrorMessage</strong>(<code>error</code>: <em>any</em>, <code>reason</code>: <em>string</em>, <code>requireSafe</code>: <em>boolean</em>): <em>string</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/errors.ts#L374">errors.ts:374</a></em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Default</th></tr>
+</thead>
+<tbody>
+<tr><td><code>error</code></td><td>any</td><td>-</td></tr>
+<tr><td><code>reason</code></td><td>string</td><td>DEFAULT_ERR_MSG</td></tr>
+<tr><td><code>requireSafe</code></td><td>boolean</td><td>false</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>string</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="times"></a><a href="#times" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>times</h3>
+<p>▸ <strong>times</strong>(<code>n</code>: <em>number</em>): <em>number[]</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/arrays.ts#L45">arrays.ts:45</a></em></p>
+<p>A native implemation of lodash times</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>n</code></td><td>number</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>number[]</em></p>
+<p>▸ <strong>times</strong>&lt;<strong>T</strong>&gt;(<code>n</code>: <em>number</em>, <code>fn</code>: <em>function</em>): <em><code>T</code>[]</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/arrays.ts#L46">arrays.ts:46</a></em></p>
+<p><strong>Type parameters:</strong></p>
+<p>▪ <strong>T</strong></p>
+<p><strong>Parameters:</strong></p>
+<p>▪ <strong>n</strong>: <em>number</em></p>
+<p>▪ <strong>fn</strong>: <em>function</em></p>
+<p>▸ (<code>index</code>: <em>number</em>): <em><code>T</code></em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>index</code></td><td>number</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em><code>T</code>[]</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="toboolean"></a><a href="#toboolean" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>toBoolean</h3>
+<p>▸ <strong>toBoolean</strong>(<code>input</code>: <em>any</em>): <em>boolean</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/utils.ts#L89">utils.ts:89</a></em></p>
+<p>Convert any input into a boolean, this will work with stringified boolean</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>input</code></td><td>any</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>boolean</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="tointeger"></a><a href="#tointeger" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>toInteger</h3>
+<p>▸ <strong>toInteger</strong>(<code>input</code>: <em>any</em>): <em>number | false</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/numbers.ts#L25">numbers.ts:25</a></em></p>
+<p>Convert any input to a integer, return false if unable to convert input</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>input</code></td><td>any</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>number | false</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="tonumber"></a><a href="#tonumber" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>toNumber</h3>
+<p>▸ <strong>toNumber</strong>(<code>input</code>: <em>any</em>): <em>number</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/numbers.ts#L18">numbers.ts:18</a></em></p>
+<p>Convert any input to a number, return Number.NaN if unable to convert input</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>input</code></td><td>any</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>number</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="tosafestring"></a><a href="#tosafestring" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>toSafeString</h3>
+<p>▸ <strong>toSafeString</strong>(<code>input</code>: <em>string</em>): <em>string</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/strings.ts#L88">strings.ts:88</a></em></p>
+<p>Make a string url/elasticsearch safe.
+safeString converts the string to lower case,
+removes any invalid characters,
+and replaces whitespace with _ (if it exists in the string) or -
+Warning this may reduce the str length</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>input</code></td><td>string</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>string</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="tostatuserrorcode"></a><a href="#tostatuserrorcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>toStatusErrorCode</h3>
+<p>▸ <strong>toStatusErrorCode</strong>(<code>input</code>: <em>string | undefined</em>): <em>string</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/errors.ts#L256">errors.ts:256</a></em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>input</code></td><td>string \</td><td>undefined</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>string</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="tostring"></a><a href="#tostring" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>toString</h3>
+<p>▸ <strong>toString</strong>(<code>val</code>: <em>any</em>): <em>string</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/strings.ts#L7">strings.ts:7</a></em></p>
+<p>Safely convert any input to a string</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>val</code></td><td>any</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>string</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="trim"></a><a href="#trim" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>trim</h3>
+<p>▸ <strong>trim</strong>(<code>input</code>: <em>any</em>): <em>string</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/strings.ts#L66">strings.ts:66</a></em></p>
+<p>safely trim an input</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>input</code></td><td>any</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>string</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="trimandtolower"></a><a href="#trimandtolower" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>trimAndToLower</h3>
+<p>▸ <strong>trimAndToLower</strong>(<code>input?</code>: <em>undefined | string</em>): <em>string</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/strings.ts#L19">strings.ts:19</a></em></p>
+<p>safely trim and to lower a input, useful for string comparison</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>input?</code></td><td>undefined \</td><td>string</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>string</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="trimandtoupper"></a><a href="#trimandtoupper" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>trimAndToUpper</h3>
+<p>▸ <strong>trimAndToUpper</strong>(<code>input?</code>: <em>undefined | string</em>): <em>string</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/strings.ts#L24">strings.ts:24</a></em></p>
+<p>safely trim and to lower a input, useful for string comparison</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>input?</code></td><td>undefined \</td><td>string</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>string</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="truncate"></a><a href="#truncate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>truncate</h3>
+<p>▸ <strong>truncate</strong>(<code>str</code>: <em>string</em>, <code>len</code>: <em>number</em>): <em>string</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/strings.ts#L76">strings.ts:76</a></em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>str</code></td><td>string</td></tr>
+<tr><td><code>len</code></td><td>number</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>string</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="tryparsejson"></a><a href="#tryparsejson" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>tryParseJSON</h3>
+<p>▸ <strong>tryParseJSON</strong>(<code>input</code>: <em>any</em>): <em>any</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/utils.ts#L18">utils.ts:18</a></em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>input</code></td><td>any</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>any</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="unescapestring"></a><a href="#unescapestring" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>unescapeString</h3>
+<p>▸ <strong>unescapeString</strong>(<code>str</code>: <em>string</em>): <em>string</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/strings.ts#L47">strings.ts:47</a></em></p>
+<p>Unescape characters in string and avoid double escaping</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Default</th></tr>
+</thead>
+<tbody>
+<tr><td><code>str</code></td><td>string</td><td>&quot;&quot;</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em>string</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="uniq"></a><a href="#uniq" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>uniq</h3>
+<p>▸ <strong>uniq</strong>&lt;<strong>T</strong>&gt;(<code>arr</code>: <em><code>T</code>[]</em>): <em><code>T</code>[]</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/arrays.ts#L40">arrays.ts:40</a></em></p>
+<p>A native implemation of lodash uniq</p>
+<p><strong>Type parameters:</strong></p>
+<p>▪ <strong>T</strong></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>arr</code></td><td><code>T</code>[]</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em><code>T</code>[]</em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="waterfall"></a><a href="#waterfall" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>waterfall</h3>
+<p>▸ <strong>waterfall</strong>(<code>input</code>: <em>any</em>, <code>fns</code>: <em><code>PromiseFn</code>[]</em>, <code>addBreak</code>: <em>boolean</em>): <em><code>Promise&lt;any&gt;</code></em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/promises.ts#L190">promises.ts:190</a></em></p>
+<p>Async waterfall function</p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th><th>Default</th></tr>
+</thead>
+<tbody>
+<tr><td><code>input</code></td><td>any</td><td>-</td></tr>
+<tr><td><code>fns</code></td><td><code>PromiseFn</code>[]</td><td>-</td></tr>
+<tr><td><code>addBreak</code></td><td>boolean</td><td>false</td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em><code>Promise&lt;any&gt;</code></em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="withoutnil-1"></a><a href="#withoutnil-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>withoutNil</h3>
+<p>▸ <strong>withoutNil</strong>&lt;<strong>T</strong>&gt;(<code>input</code>: <em><code>T</code></em>): <em><a href="/teraslice/docs/packages/utils/api/overview#withoutnil">WithoutNil</a>‹</em><code>T</code><em>›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/a6866b7/packages/utils/src/arrays.ts#L26">arrays.ts:26</a></em></p>
+<p>Build a new object without null or undefined values (shallow)</p>
+<p><strong>Type parameters:</strong></p>
+<p>▪ <strong>T</strong>: <em>object</em></p>
+<p><strong>Parameters:</strong></p>
+<table>
+<thead>
+<tr><th>Name</th><th>Type</th></tr>
+</thead>
+<tbody>
+<tr><td><code>input</code></td><td><code>T</code></td></tr>
+</tbody>
+</table>
+<p><strong>Returns:</strong> <em><a href="/teraslice/docs/packages/utils/api/overview#withoutnil">WithoutNil</a>‹</em><code>T</code><em>›</em></p>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 7/10/2019</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/packages/utils/overview"><span class="arrow-prev">← </span><span>Overview</span></a><a class="docs-next button" href="/teraslice/docs/packages/xlucene-evaluator/overview"><span>Overview</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#type-aliases-1">Type aliases</a><ul class="toc-headings"><li><a href="#dataarrayinput">DataArrayInput</a></li><li><a href="#dataencoding">DataEncoding</a></li><li><a href="#datainput">DataInput</a></li><li><a href="#omit">Omit</a></li><li><a href="#optional">Optional</a></li><li><a href="#override">Override</a></li><li><a href="#overwrite">Overwrite</a></li><li><a href="#required">Required</a></li><li><a href="#withoutnil">WithoutNil</a></li></ul></li><li><a href="#variables-1">Variables</a><ul class="toc-headings"><li><a href="#const-dataencodings"><code>Const</code> dataEncodings</a></li><li><a href="#const-isdev"><code>Const</code> isDev</a></li><li><a href="#const-isprod"><code>Const</code> isProd</a></li><li><a href="#const-istest"><code>Const</code> isTest</a></li></ul></li><li><a href="#functions-1">Functions</a><ul class="toc-headings"><li><a href="#castarray">castArray</a></li><li><a href="#chunk">chunk</a></li><li><a href="#concat">concat</a></li><li><a href="#debuglogger">debugLogger</a></li><li><a href="#enumerable">enumerable</a></li><li><a href="#escapestring">escapeString</a></li><li><a href="#fastassign">fastAssign</a></li><li><a href="#fastmap">fastMap</a></li><li><a href="#firsttolower">firstToLower</a></li><li><a href="#firsttoupper">firstToUpper</a></li><li><a href="#flatten">flatten</a></li><li><a href="#getbackoffdelay">getBackoffDelay</a></li><li><a href="#geterrorstatuscode">getErrorStatusCode</a></li><li><a href="#getfield">getField</a></li><li><a href="#getfirst">getFirst</a></li><li><a href="#getfirstchar">getFirstChar</a></li><li><a href="#gettypeof">getTypeOf</a></li><li><a href="#getvaliddate">getValidDate</a></li><li><a href="#has">has</a></li><li><a href="#isbooleanlike">isBooleanLike</a></li><li><a href="#iselasticsearcherror">isElasticsearchError</a></li><li><a href="#isempty">isEmpty</a></li><li><a href="#iserror">isError</a></li><li><a href="#isfatalerror">isFatalError</a></li><li><a href="#isfunction">isFunction</a></li><li><a href="#isinteger">isInteger</a></li><li><a href="#isnumber">isNumber</a></li><li><a href="#isretryableerror">isRetryableError</a></li><li><a href="#isstring">isString</a></li><li><a href="#istserror">isTSError</a></li><li><a href="#isvaliddate">isValidDate</a></li><li><a href="#locked">locked</a></li><li><a href="#makeisodate">makeISODate</a></li><li><a href="#noop">noop</a></li><li><a href="#const-pdelay"><code>Const</code> pDelay</a></li><li><a href="#const-pimmediate"><code>Const</code> pImmediate</a></li><li><a href="#pretry">pRetry</a></li><li><a href="#parseerror">parseError</a></li><li><a href="#parseerrorinfo">parseErrorInfo</a></li><li><a href="#parsejson">parseJSON</a></li><li><a href="#parselist">parseList</a></li><li><a href="#parsenumberlist">parseNumberList</a></li><li><a href="#prefixerrormsg">prefixErrorMsg</a></li><li><a href="#random">random</a></li><li><a href="#startswith">startsWith</a></li><li><a href="#striperrormessage">stripErrorMessage</a></li><li><a href="#times">times</a></li><li><a href="#toboolean">toBoolean</a></li><li><a href="#tointeger">toInteger</a></li><li><a href="#tonumber">toNumber</a></li><li><a href="#tosafestring">toSafeString</a></li><li><a href="#tostatuserrorcode">toStatusErrorCode</a></li><li><a href="#tostring">toString</a></li><li><a href="#trim">trim</a></li><li><a href="#trimandtolower">trimAndToLower</a></li><li><a href="#trimandtoupper">trimAndToUpper</a></li><li><a href="#truncate">truncate</a></li><li><a href="#tryparsejson">tryParseJSON</a></li><li><a href="#unescapestring">unescapeString</a></li><li><a href="#uniq">uniq</a></li><li><a href="#waterfall">waterfall</a></li><li><a href="#withoutnil-1">withoutNil</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/apis.html">API Reference</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'b074b9b57bfd2e4d8b411aee052825d2',
+                indexName: 'terascope_teraslice',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>

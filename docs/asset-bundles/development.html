@@ -1,0 +1,149 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Asset Development · Teraslice</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="&lt;p&gt;It is possible to implement custom operations (slicers, readers, and processors)&lt;/p&gt;
+"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Asset Development · Teraslice"/><meta property="og:type" content="website"/><meta property="og:url" content="https://terascope.github.io/teraslice/"/><meta property="og:description" content="&lt;p&gt;It is possible to implement custom operations (slicers, readers, and processors)&lt;/p&gt;
+"/><meta property="og:image" content="https://terascope.github.io/teraslice/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://terascope.github.io/teraslice/img/docusaurus.png"/><link rel="shortcut icon" href="/teraslice/img/favicon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"/><link rel="stylesheet" href="/teraslice/css/copy-code-block.css"/><link rel="stylesheet" href="/teraslice/css/custom.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/teraslice/js/copy-code-block.js"></script><script src="/teraslice/js/scrollSpy.js"></script><link rel="stylesheet" href="/teraslice/css/main.css"/><script src="/teraslice/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/teraslice/"><img class="logo" src="/teraslice/img/logo.png" alt="Teraslice"/><h2 class="headerTitleWithLogo">Teraslice</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/teraslice/docs/overview" target="_self">Docs</a></li><li class="siteNavGroupActive"><a href="/teraslice/docs/asset-bundles" target="_self">Assets</a></li><li class=""><a href="/teraslice/docs/packages" target="_self">Packages</a></li><li class=""><a href="https://github.com/terascope/teraslice" target="_self">GitHub</a></li><li class=""><a href="/teraslice/help" target="_self">Help</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Overview</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Overview<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/teraslice/docs/asset-bundles">Overview</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/teraslice/docs/asset-bundles/development">Development</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Available Bundles<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/teraslice/docs/asset-bundles/elasticsearch-assets/overview">Elasticsearch</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/asset-bundles/standard-assets/overview">Standard</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/asset-bundles/kafka-assets/overview">Kafka</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/asset-bundles/file-assets/overview">Files</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/asset-bundles/hdfs-assets/overview">HDFS</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Asset Development</h1></header><article><div><span><p>It is possible to implement custom operations (slicers, readers, and processors)
+and utilize them in your Teraslice jobs.</p>
+<p>The first step to utilizing custom operations is to configure your Teraslice
+nodes to point to the directory containing your custom code, this is done by
+setting the <code>assets_directory</code> setting in the <code>teraslice</code> section of your
+configuration file as shown below.</p>
+<pre><code class="hljs css language-yaml"><span class="hljs-comment"># ...</span>
+<span class="hljs-attr">teraslice:</span>
+<span class="hljs-attr">    assets_directory:</span> <span class="hljs-string">'/app/source/assets/'</span>
+<span class="hljs-comment"># ...</span>
+</code></pre>
+<p>This directory must contain a <code>package.json</code>, a <code>assets</code> directory with your
+custom operations, and the <code>node_modules</code> required by your custom code. It
+will look something like this:</p>
+<pre><code class="hljs css language-sh">.
+├── node_modules
+│   └── lodash
+├── package.json
+└── assets
+    ├── asset.json
+    └── count
+        ├── processor.js
+        └── schema.js
+</code></pre>
+<p>In order to decrease the size of your asset bundle keepy the <code>devDependencies</code> and any test files at the top-level of the asset bundle
+and not within the <code>assets</code> directory.</p>
+<p>An <code>asset.json</code> is used to define a bundle of operations, it contains a name and version.</p>
+<pre><code class="hljs css language-json">{
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"example"</span>,
+    <span class="hljs-attr">"version"</span>: <span class="hljs-string">"1.0.0"</span>
+}
+</code></pre>
+<p>A job configuration that makes use of a custom operator would simply call the
+operator just like any other operator, as shown below:</p>
+<pre><code class="hljs css language-json">{
+    <span class="hljs-attr">"name"</span>: <span class="hljs-string">"Update Rate Test"</span>,
+    <span class="hljs-attr">"lifecycle"</span>: <span class="hljs-string">"once"</span>,
+    <span class="hljs-attr">"workers"</span>: <span class="hljs-number">1</span>,
+    <span class="hljs-attr">"assets"</span>: [<span class="hljs-string">"elasticsearch"</span>, <span class="hljs-string">"example"</span>],
+    <span class="hljs-attr">"operations"</span>: [
+        {
+            <span class="hljs-attr">"_op"</span>: <span class="hljs-string">"elasticsearch_data_generator"</span>,
+            <span class="hljs-attr">"size"</span>: <span class="hljs-number">5000</span>
+        },
+        {
+            <span class="hljs-attr">"_op"</span>: <span class="hljs-string">"count"</span>,
+            <span class="hljs-attr">"log_level"</span>: <span class="hljs-string">"debug"</span>
+        },
+        {
+            <span class="hljs-attr">"_op"</span>: <span class="hljs-string">"elasticsearch_index_selector"</span>,
+            <span class="hljs-attr">"index"</span>: <span class="hljs-string">"update-test-1"</span>,
+            <span class="hljs-attr">"type"</span>: <span class="hljs-string">"events"</span>
+        },
+        {
+            <span class="hljs-attr">"_op"</span>: <span class="hljs-string">"elasticsearch_bulk"</span>,
+            <span class="hljs-attr">"size"</span>: <span class="hljs-number">5000</span>
+        }
+    ]
+}
+</code></pre>
+<p>The <code>count</code> operator used above simply logs the execution of the operator and
+counts the number of records passed in with the data object, it could be
+implemented as shown below:</p>
+<p><strong>Processor:</strong></p>
+<div class="tabs"><div class="nav-tabs"><div id="tab-group-1-tab-2" class="nav-link active" data-group="group_1" data-tab="tab-group-1-content-2">JavaScript</div><div id="tab-group-1-tab-3" class="nav-link" data-group="group_1" data-tab="tab-group-1-content-3">TypeScript</div></div><div class="tab-content"><div id="tab-group-1-content-2" class="tab-pane active" data-group="group_1" tabindex="-1"><div><span><pre><code class="hljs css language-js"><span class="hljs-meta">'use strict'</span>;<br /><br /><span class="hljs-keyword">const</span> { BatchProcessor } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@terascope/job-components'</span>);<br /><br /><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CountProcessor</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">BatchProcessor</span> </span>{<br />    <span class="hljs-keyword">async</span> onBatch(data) {<br />        <span class="hljs-keyword">const</span> level = <span class="hljs-keyword">this</span>.opConfig.log_level;<br />        <span class="hljs-keyword">this</span>.logger[level](<span class="hljs-string">'Inside custom processor \'count\''</span>);<br />        <span class="hljs-keyword">this</span>.logger[level](<span class="hljs-string">'Number of items in data: '</span> + <span class="hljs-built_in">Object</span>.keys(data).length);<br />        <span class="hljs-keyword">return</span> data;<br />    }<br />}<br /><br /><span class="hljs-built_in">module</span>.exports = CountProcessor;<br /></code></pre>
+</span></div></div><div id="tab-group-1-content-3" class="tab-pane" data-group="group_1" tabindex="-1"><div><span><pre><code class="hljs css language-ts"><span class="hljs-keyword">import</span> { BatchProcessor } <span class="hljs-keyword">from</span> <span class="hljs-string">'@terascope/job-components'</span>;<br /><br /><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">class</span> CountProcessor <span class="hljs-keyword">extends</span> BatchProcessor {<br />    <span class="hljs-keyword">async</span> onBatch(data) {<br />        <span class="hljs-keyword">const</span> level = <span class="hljs-keyword">this</span>.opConfig.log_level;<br />        <span class="hljs-keyword">this</span>.logger[level](<span class="hljs-string">'Inside custom processor \'count\''</span>);<br />        <span class="hljs-keyword">this</span>.logger[level](<span class="hljs-string">'Number of items in data: '</span> + <span class="hljs-built_in">Object</span>.keys(data).length);<br />        <span class="hljs-keyword">return</span> data;<br />    }<br />}<br /></code></pre>
+</span></div></div></div></div>
+<p><strong>Schema:</strong></p>
+<div class="tabs"><div class="nav-tabs"><div id="tab-group-4-tab-5" class="nav-link active" data-group="group_4" data-tab="tab-group-4-content-5">JavaScript</div><div id="tab-group-4-tab-6" class="nav-link" data-group="group_4" data-tab="tab-group-4-content-6">TypeScript</div></div><div class="tab-content"><div id="tab-group-4-content-5" class="tab-pane active" data-group="group_4" tabindex="-1"><div><span><pre><code class="hljs css language-js"><span class="hljs-meta">'use strict'</span>;<br /><br /><span class="hljs-keyword">const</span> { ConvictSchema } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@terascope/job-components'</span>);<br /><br /><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Schema</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">ConvictSchema</span> </span>{<br />    build() {<br />        <span class="hljs-keyword">return</span> {<br />            <span class="hljs-attr">log_level</span>: {<br />                <span class="hljs-attr">default</span>: <span class="hljs-string">'info'</span>,<br />                <span class="hljs-attr">doc</span>: <span class="hljs-string">'The log level to use'</span>,<br />                <span class="hljs-attr">format</span>: [<span class="hljs-string">'trace'</span>, <span class="hljs-string">'debug'</span>, <span class="hljs-string">'info'</span>],<br />            }<br />        };<br />    }<br />}<br /><br /><span class="hljs-built_in">module</span>.exports = Schema;<br /></code></pre>
+</span></div></div><div id="tab-group-4-content-6" class="tab-pane" data-group="group_4" tabindex="-1"><div><span><pre><code class="hljs css language-ts"><span class="hljs-keyword">import</span> { ConvictSchema } <span class="hljs-keyword">from</span> <span class="hljs-string">'@terascope/job-components'</span>;<br /><br /><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-keyword">class</span> Schema <span class="hljs-keyword">extends</span> ConvictSchema {<br />    build() {<br />        <span class="hljs-keyword">return</span> {<br />            log_level: {<br />                <span class="hljs-keyword">default</span>: <span class="hljs-string">'info'</span>,<br />                doc: <span class="hljs-string">'The log level to use'</span>,<br />                format: [<span class="hljs-string">'trace'</span>, <span class="hljs-string">'debug'</span>, <span class="hljs-string">'info'</span>],<br />            }<br />        };<br />    }<br />}<br /></code></pre>
+</span></div></div></div></div>
+<p>See the <a href="../packages/teraslice-cli#assets">teraslice-cli</a> documentation for assets.</p>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 7/10/2019</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/asset-bundles"><span class="arrow-prev">← </span><span>Overview</span></a><a class="docs-next button" href="/teraslice/docs/asset-bundles/elasticsearch-assets/overview"><span>Elasticsearch</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/apis.html">API Reference</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'b074b9b57bfd2e4d8b411aee052825d2',
+                indexName: 'terascope_teraslice',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
