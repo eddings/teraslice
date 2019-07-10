@@ -28,6 +28,7 @@
         "@terascope/data-types": "^0.4.1",
         "@terascope/utils": "^0.12.4",
         "ajv": "^6.10.0",
+        "elasticsearch6": "npm:@elastic/elasticsearch@^6.7.0",
         "nanoid": "^2.0.3",
         "rambda": "^2.11.1",
         "xlucene-evaluator": "^0.9.4"
