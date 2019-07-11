@@ -1,5 +1,6 @@
 import * as es6 from 'elasticsearch6';
 import * as ts from '@terascope/utils';
+import * as dt from '@terascope/data-types';
 
 /**
  * A limited/simple api abstraction for the elasticsearch client
@@ -14,36 +15,19 @@ export default class SimpleESClient {
         this.client = new es6.Client(options);
     }
 
-    async indexAvailable(index: string, timeout?: number): Promise<boolean> {
-        const startTime = Date.now();
-        const timeoutMs = timeout || 1000 * 60 * 60;
-        const intervalMs = timeoutMs > 1000 ? timeoutMs : 1000;
-
-        return new Promise((resolve, reject) => {
-            let running = false;
-            const interval = setInterval(() => {
-                if (running) return;
-                const elapsed = Date.now() - startTime;
-                if (timeoutMs > elapsed) {
-                    reject(
-                        new ts.TSError(`Index ${index} unavailable`, {
-                            statusCode: 503,
-                        })
-                    );
-                    return;
-                }
-
-                running = true;
-
-                this._checkIndexAvailable(index).then(available => {
-                    running = false;
-                    if (available) {
-                        clearInterval(interval);
-                        resolve();
-                    }
-                });
-            }, intervalMs).unref();
-        });
+    async indexAvailable(index: string, timeout?: number) {
+        try {
+            await ts.pWhile(async () => this._checkIndexAvailable(index), {
+                timeoutMs: timeout || -1,
+                enabledJitter: true,
+            });
+            return true;
+        } catch (err) {
+            throw new ts.TSError(err, {
+                reason: `Index ${index} is unavailable`,
+                statusCode: 503,
+            });
+        }
     }
 
     async indexExists(index: string): Promise<boolean> {
@@ -51,6 +35,20 @@ export default class SimpleESClient {
             index,
         });
         return response.body;
+    }
+
+    async indexCreate(index: string, mapping: dt.ESMapping) {
+        return this.client.indices.create({
+            index,
+            body: mapping,
+        });
+    }
+
+    async indexDelete(index: string) {
+        return this.client.indices.delete({
+            index,
+            ignore_unavailable: true,
+        });
     }
 
     close() {
