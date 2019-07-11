@@ -35,6 +35,7 @@ describe('SimpleESClient', () => {
 
         describe('when creating the index', () => {
             const index = 'test_foo_bar_1';
+            const template = 'foo';
             const dataType = new DataType({
                 version: LATEST_VERSION,
                 fields: {
@@ -56,7 +57,10 @@ describe('SimpleESClient', () => {
             const mapping = dataType.toESMapping({ typeName: 'foo', settings, mappingMetaData });
 
             beforeAll(() => client.indexCreate(index, mapping));
-            afterAll(() => client.indexDelete(index));
+            afterAll(async () => {
+                await client.indexDelete(index);
+                await client.templateDelete(template);
+            });
 
             it('should exist', async () => {
                 return expect(client.indexExists(index)).resolves.toBeTrue();
@@ -67,7 +71,15 @@ describe('SimpleESClient', () => {
             });
 
             it('should NOT be to create it again', async () => {
-                return expect(client.indexCreate(index, mapping)).toReject();
+                return expect(client.indexCreate(index, mapping)).rejects.toThrow();
+            });
+
+            it('should be able to create a template', () => {
+                return expect(client.templateUpsert(mapping, template, 1)).resolves.toBeTrue();
+            });
+
+            it('should be able to update a template', () => {
+                return expect(client.templateUpsert(mapping, template, 1)).resolves.toBeFalse();
             });
         });
     });

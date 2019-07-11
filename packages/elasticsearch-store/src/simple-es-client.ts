@@ -51,6 +51,47 @@ export default class SimpleESClient {
         });
     }
 
+    async indexRefresh(index: string) {
+        return this.client.indices.refresh({ index });
+    }
+
+    /**
+     * Safely create or update a template
+     */
+    async templateUpsert(mapping: dt.ESMapping, name: string, version: number): Promise<boolean> {
+        try {
+            const templates = await this.client.indices.getTemplate({
+                name,
+                flat_settings: true,
+            });
+            const latestVersion = templates[name].version;
+            if (version === latestVersion) return false;
+        } catch (err) {
+            if (err.statusCode !== 404) {
+                throw err;
+            }
+        }
+
+        await this.client.indices.putTemplate({
+            body: {
+                ...mapping,
+                name,
+                version,
+            },
+            name,
+        });
+        return true;
+    }
+
+    /**
+     * Safely create or update a template
+     */
+    async templateDelete(name: string) {
+        await this.client.indices.deleteTemplate({
+            name,
+        });
+    }
+
     close() {
         this.client.close();
     }
