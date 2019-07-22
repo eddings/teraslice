@@ -162,6 +162,7 @@ export async function pWhile(fn: PromiseFn, options: PWhileOptions = {}): Promis
     const timeoutMs = options.timeoutMs != null ? options.timeoutMs : -1;
     const minJitter = timeoutMs > 100 ? timeoutMs : 100;
     const name = options.name || 'Request';
+    const startTime = Date.now();
 
     const checkTimeout = trackTimeout(timeoutMs);
     let running = false;
@@ -195,7 +196,13 @@ export async function pWhile(fn: PromiseFn, options: PWhileOptions = {}): Promis
                 }
             } catch (err) {
                 clearInterval(interval);
-                reject(err);
+                reject(
+                    new TSError(err, {
+                        context: {
+                            elapsed: Date.now() - startTime,
+                        },
+                    })
+                );
             } finally {
                 running = false;
             }

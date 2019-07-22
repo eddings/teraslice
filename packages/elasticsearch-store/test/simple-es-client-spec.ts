@@ -82,4 +82,110 @@ describe('SimpleESClient', () => {
             });
         });
     });
+
+    describe('when using the document apis', () => {
+        const index = 'test_foo_bar_2';
+        const typeName = 'foo';
+        const dataType = new DataType({
+            version: LATEST_VERSION,
+            fields: {
+                id: { type: 'Keyword' },
+                foo: { type: 'Keyword' },
+                bar: { type: 'Keyword' },
+            },
+        });
+
+        const overrides = {
+            settings: {
+                'index.number_of_shards': 1,
+                'index.number_of_replicas': 0,
+            },
+        };
+
+        const mapping = dataType.toESMapping({ typeName, overrides });
+
+        beforeAll(() => client.indexCreate(index, mapping));
+        afterAll(async () => {
+            await client.indexDelete(index);
+        });
+
+        describe('when the document does not exist', () => {
+            it('should be able to upsert a record without an id', () => {
+                return expect(
+                    client.docUpsert({
+                        doc: {
+                            id: 'unique-id-0',
+                            foo: 'hello',
+                            bar: 'hi',
+                        },
+                        refresh: true,
+                        type: typeName,
+                        index,
+                    })
+                ).resolves.toMatchObject({
+                    created: true,
+                    version: 1,
+                });
+            });
+
+            it('should be able to upsert a record with an id', () => {
+                const id = 'unique-id-1';
+                return expect(
+                    client.docUpsert({
+                        id,
+                        doc: {
+                            id,
+                            foo: 'hello',
+                            bar: 'hi',
+                        },
+                        refresh: true,
+                        type: typeName,
+                        index,
+                    })
+                ).resolves.toMatchObject({
+                    id,
+                    created: true,
+                    version: 1,
+                });
+            });
+        });
+
+        describe('when the document does exist', () => {
+            const id = 'unique-id-2';
+            const doc = {
+                id,
+                foo: 'howdy',
+                bar: 'sup',
+            };
+
+            beforeAll(() => {
+                return client.docUpsert({
+                    id,
+                    doc,
+                    refresh: true,
+                    type: typeName,
+                    index,
+                });
+            });
+
+            it('should be able to update it', () => {
+                return expect(
+                    client.docUpsert({
+                        id,
+                        doc: {
+                            ...doc,
+                            bar: 'aloha',
+                        },
+                        refresh: true,
+                        type: typeName,
+                        index,
+                    })
+                ).resolves.toMatchObject({
+                    id,
+                    created: false,
+                    version: 2,
+                });
+            });
+        });
+    });
 });
