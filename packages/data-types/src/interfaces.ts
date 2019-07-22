@@ -167,6 +167,7 @@ export interface ESMapping {
     mappings: {
         [typeName: string]: ESTypeMappings;
     };
+    version?: number;
     template?: string;
     order?: number;
     aliases?: AnyObject;

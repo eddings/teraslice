@@ -58,14 +58,24 @@ export default class SimpleESClient {
     /**
      * Safely create or update a template
      */
-    async templateUpsert(mapping: dt.ESMapping, name: string, version: number): Promise<boolean> {
+    async templateUpsert(mapping: dt.ESMapping): Promise<boolean> {
+        const { template: name, version } = mapping;
+        if (!name) {
+            throw new ts.TSError('Template mapping requires `template` property');
+        }
+        if (!version) {
+            throw new ts.TSError('Template mapping requires `version` property');
+        }
+
         try {
-            const templates = await this.client.indices.getTemplate({
+            const { body: templates } = await this.client.indices.getTemplate({
                 name,
                 flat_settings: true,
             });
-            const latestVersion = templates[name].version;
-            if (version === latestVersion) return false;
+            if (templates[name]) {
+                const latestVersion = templates[name].version;
+                if (version === latestVersion) return false;
+            }
         } catch (err) {
             if (err.statusCode !== 404) {
                 throw err;
@@ -73,9 +83,9 @@ export default class SimpleESClient {
         }
 
         await this.client.indices.putTemplate({
+            include_type_name: true,
             body: {
                 ...mapping,
-                name,
                 version,
             },
             name,

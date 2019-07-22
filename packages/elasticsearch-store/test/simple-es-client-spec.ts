@@ -36,6 +36,7 @@ describe('SimpleESClient', () => {
         describe('when creating the index', () => {
             const index = 'test_foo_bar_1';
             const template = 'foo';
+            const templateVersion = 1;
             const dataType = new DataType({
                 version: LATEST_VERSION,
                 fields: {
@@ -43,18 +44,16 @@ describe('SimpleESClient', () => {
                 },
             });
 
-            const settings = {
-                'index.number_of_shards': 1,
-                'index.number_of_replicas': 0,
-            };
-            const mappingMetaData = {
-                _all: {
-                    enabled: false,
+            const overrides = {
+                template,
+                version: templateVersion,
+                settings: {
+                    'index.number_of_shards': 1,
+                    'index.number_of_replicas': 0,
                 },
-                dynamic: false,
             };
 
-            const mapping = dataType.toESMapping({ typeName: 'foo', settings, mappingMetaData });
+            const mapping = dataType.toESMapping({ typeName: 'foo', overrides });
 
             beforeAll(() => client.indexCreate(index, mapping));
             afterAll(async () => {
@@ -75,11 +74,11 @@ describe('SimpleESClient', () => {
             });
 
             it('should be able to create a template', () => {
-                return expect(client.templateUpsert(mapping, template, 1)).resolves.toBeTrue();
+                return expect(client.templateUpsert(mapping)).resolves.toBeTrue();
             });
 
             it('should be able to update a template', () => {
-                return expect(client.templateUpsert(mapping, template, 1)).resolves.toBeFalse();
+                return expect(client.templateUpsert(mapping)).resolves.toBeFalse();
             });
         });
     });
