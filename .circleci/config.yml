@@ -2,123 +2,123 @@ version: 2.0
 
 # Aliases to avoid code duplication
 aliases:
-  - &restore-cache
-    name: Restore yarn package cache
-    keys:
-      - yarn-packages-{{ checksum "yarn.lock" }}
-      - yarn-packages
+    - &restore-cache
+      name: Restore yarn package cache
+      keys:
+          - yarn-packages-{{ checksum "yarn.lock" }}
+          - yarn-packages
 
-  - &save-cache
-    name: Save yarn package cache
-    paths:
-      - ~/.cache/yarn
-    key: yarn-packages-{{ checksum "yarn.lock" }}
+    - &save-cache
+      name: Save yarn package cache
+      paths:
+          - ~/.cache/yarn
+      key: yarn-packages-{{ checksum "yarn.lock" }}
 
-  - &filter-ignore-gh-pages
-    branches:
-      ignore: gh-pages
+    - &filter-ignore-gh-pages
+      branches:
+          ignore: gh-pages
 
-  - &yarn-install
-    name: Install node_modules
-    command: yarn --no-progress --frozen-lockfile
+    - &yarn-install
+      name: Install node_modules
+      command: yarn --no-progress --frozen-lockfile
 
-  - &yarn-setup
-    name: Link & build packages
-    command: yarn setup
+    - &yarn-setup
+      name: Link & build packages
+      command: yarn setup
 
-  - &elasticsearch-service
-    image: blacktop/elasticsearch:6
-    environment:
-      - network.host: '0.0.0.0'
-      - discovery.type: single-node
+    - &elasticsearch-service
+      image: blacktop/elasticsearch:6.8
+      environment:
+          - network.host: '0.0.0.0'
+          - discovery.type: single-node
 
 jobs:
-  setup_code:
-    working_directory: ~/teraslice
-    docker:
-      - image: circleci/node:10
-    steps:
-      - checkout
-      - restore-cache: *restore-cache
-      - run: *yarn-install
-      - save-cache: *save-cache
-      - run: *yarn-setup
+    setup_code:
+        working_directory: ~/teraslice
+        docker:
+            - image: circleci/node:10
+        steps:
+            - checkout
+            - restore-cache: *restore-cache
+            - run: *yarn-install
+            - save-cache: *save-cache
+            - run: *yarn-setup
 
-  test_packages:
-    working_directory: ~/teraslice
-    docker:
-      - image: circleci/node:10
-      - *elasticsearch-service
-    environment:
-        ELASTICSEARCH_HOST: 'http://0.0.0.0:9200'
-    steps:
-      - checkout
-      - restore-cache: *restore-cache
-      - run: *yarn-install
-      - save-cache: *save-cache
-      - run: *yarn-setup
-      - run:
-          name: Waiting for elasticsearch...
-          command: ./scripts/wait-for-it.sh localhost:9200 --timeout=60 --strict
-      - run:
-          name: Run tests
-          command: ./scripts/run-tests.sh
-      - run:
-          name: Report coverage
-          command: bash <(curl -s https://codecov.io/bash)
+    test_packages:
+        working_directory: ~/teraslice
+        docker:
+            - image: circleci/node:10
+            - *elasticsearch-service
+        environment:
+            ELASTICSEARCH_HOST: 'http://0.0.0.0:9200'
+        steps:
+            - checkout
+            - restore-cache: *restore-cache
+            - run: *yarn-install
+            - save-cache: *save-cache
+            - run: *yarn-setup
+            - run:
+                  name: Waiting for elasticsearch...
+                  command: ./scripts/wait-for-it.sh localhost:9200 --timeout=60 --strict
+            - run:
+                  name: Run tests
+                  command: ./scripts/run-tests.sh
+            - run:
+                  name: Report coverage
+                  command: bash <(curl -s https://codecov.io/bash)
 
-  lint_and_benchmark:
-    working_directory: ~/teraslice
-    docker:
-      - image: circleci/node:10
-    steps:
-      - checkout
-      - restore-cache: *restore-cache
-      - run: *yarn-install
-      - save-cache: *save-cache
-      - run: *yarn-setup
-      - run:
-          name: Lint
-          command: yarn lint
-      - run:
-          name: Run benchmarks
-          command: yarn benchmark
+    lint_and_benchmark:
+        working_directory: ~/teraslice
+        docker:
+            - image: circleci/node:10
+        steps:
+            - checkout
+            - restore-cache: *restore-cache
+            - run: *yarn-install
+            - save-cache: *save-cache
+            - run: *yarn-setup
+            - run:
+                  name: Lint
+                  command: yarn lint
+            - run:
+                  name: Run benchmarks
+                  command: yarn benchmark
 
-  e2e_tests:
-    working_directory: ~/teraslice
-    docker:
-      - image: circleci/node:10
-    steps:
-      - checkout
-      - restore-cache: *restore-cache
-      - run: *yarn-install
-      - save-cache: *save-cache
-      - run: *yarn-setup
-      - run:
-          name: Install docker-compose
-          command: |
-            curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
-            chmod +x ~/docker-compose
-            sudo mv ~/docker-compose /usr/local/bin/docker-compose
-      # configure job to execute remote docker commands
-      - setup_remote_docker
-      - run: cd e2e
-      - run:
-          name: Build docker-compose
-          command: docker-compose build
-      - run:
-          name: Run End-to-End Tests
-          command: yarn test:ci
+    e2e_tests:
+        working_directory: ~/teraslice
+        docker:
+            - image: circleci/node:10
+        steps:
+            - checkout
+            - restore-cache: *restore-cache
+            - run: *yarn-install
+            - save-cache: *save-cache
+            - run: *yarn-setup
+            - run:
+                  name: Install docker-compose
+                  command: |
+                      curl -L https://github.com/docker/compose/releases/download/1.22.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
+                      chmod +x ~/docker-compose
+                      sudo mv ~/docker-compose /usr/local/bin/docker-compose
+            # configure job to execute remote docker commands
+            - setup_remote_docker
+            - run: cd e2e
+            - run:
+                  name: Build docker-compose
+                  command: docker-compose build
+            - run:
+                  name: Run End-to-End Tests
+                  command: yarn test:ci
 
-      # FIXME add the actual test
+            # FIXME add the actual test
 
 # Workflows enables mutltiple jobs to run in parallel
 workflows:
-  version: 2
-  # FIXME add scheduled jobs
-  build-and-deploy:
-    jobs:
-      - test_packages
-      - lint_and_benchmark
-      - e2e_tests
-      # FIXME add deploy
+    version: 2
+    # FIXME add scheduled jobs
+    build-and-deploy:
+        jobs:
+            - test_packages
+            - lint_and_benchmark
+            - e2e_tests
+            # FIXME add deploy
