@@ -1,4 +1,5 @@
 import { fastMap } from './arrays';
+import { AnyObject } from './interfaces';
 import { fastAssign, isFunction, isPlainObject, parseJSON, getTypeOf } from './utils';
 
 // WeakMaps are used as a memory efficient reference to private data
@@ -11,7 +12,7 @@ const _metadata = new WeakMap();
  * IMPORTANT: Use `DataEntity.make`, `DataEntity.fromBuffer` and `DataEntity.makeArray`
  * to create DataEntities that are significantly faster (600x-1000x faster).
  */
-export class DataEntity<T extends object = object> {
+export class DataEntity<T extends object = object, M = {}> {
     /**
      * A utility for safely converting an object a `DataEntity`.
      * If the input is a DataEntity it will return it and have no side-effect.
@@ -24,8 +25,8 @@ export class DataEntity<T extends object = object> {
      * onto the `DataEntity` instance, this is significatly faster and so it
      * is recommended to use this in production.
      */
-    static make<T extends object = object>(input: DataInput, metadata?: object): DataEntity<T> {
-        if (input == null) return DataEntity.makeRaw({}, metadata).entity;
+    static make<T extends object, M = {}>(input: DataInput<T, M>, metadata?: M): MakeResult<T, M> {
+        if (input == null) return DataEntity.makeRaw().entity;
         if (DataEntity.isDataEntity(input)) return input;
         if (!isPlainObject(input)) {
             throw new Error(`Invalid data source, must be an object, got "${getTypeOf(input)}"`);
@@ -38,8 +39,11 @@ export class DataEntity<T extends object = object> {
      * A barebones method for creating data-entities. This does not do type detection
      * and returns both the metadata and entity
      */
-    static makeRaw<T extends object = object>(input?: T, metadata?: object): { entity: DataEntity<T>; metadata: DataEntityMetadata } {
-        const entity = makeEntity(input || {});
+    static makeRaw<T extends object = object, M = {}>(
+        input?: T,
+        metadata?: M
+    ): { entity: DataEntity<T, M>; metadata: DataEntityMetadata & M } {
+        const entity = input ? makeEntity<T, M>(input) : makeEntity<T, M>({} as T);
         return {
             entity,
             metadata: makeMetadata(entity, metadata),
@@ -52,7 +56,7 @@ export class DataEntity<T extends object = object> {
      * @param opConfig The operation config used to get the encoding type of the Buffer, defaults to "json"
      * @param metadata Optionally add any metadata
      */
-    static fromBuffer<T extends object = object>(input: Buffer, opConfig: EncodingConfig = {}, metadata?: object): DataEntity<T> {
+    static fromBuffer<T = {}, M = {}>(input: Buffer, opConfig: EncodingConfig = {}, metadata?: M): DataEntity<T, M> {
         const { _encoding = 'json' } = opConfig || {};
         if (_encoding === 'json') {
             return DataEntity.make(parseJSON(input), metadata);
@@ -66,7 +70,7 @@ export class DataEntity<T extends object = object> {
      * or an array of objects, to an array of DataEntities.
      * This will detect if passed an already converted input and return it.
      */
-    static makeArray<T extends object = object>(input: DataInput | DataInput[]): DataEntity<T>[] {
+    static makeArray<T extends object, M = {}>(input: DataArrayInput<T>): MakeArrayResult<T, M> {
         if (!Array.isArray(input)) {
             return [DataEntity.make(input)];
         }
@@ -102,7 +106,7 @@ export class DataEntity<T extends object = object> {
      * Safely get the metadata from a `DataEntity`.
      * If the input is object it will get the property from the object
      */
-    static getMetadata(input: DataInput, key?: string): any {
+    static getMetadata<M = {}, K extends MetadataKey<M> = string>(input: DataInput<any, M>, key?: K): GetMetadataResult<M, K> {
         if (input == null) return null;
 
         if (DataEntity.isDataEntity(input)) {
@@ -115,7 +119,7 @@ export class DataEntity<T extends object = object> {
     // Add the ability to specify any additional properties
     [prop: string]: any;
 
-    constructor(data: T, metadata?: object) {
+    constructor(data: T, metadata?: M) {
         makeMetadata(this, metadata);
 
         Object.defineProperty(this, '__isDataEntity', {
@@ -133,16 +137,17 @@ export class DataEntity<T extends object = object> {
         fastAssign(this, data);
     }
 
-    getMetadata<K extends keyof DataEntityMetadata>(key?: K): DataEntityMetadata[K] | any {
+    getMetadata<K extends MetadataKey<M> = string>(key?: K): GetMetadataResult<M, K> {
         return getMetadata(this, key);
     }
 
-    setMetadata(key: string, value: any) {
+    setMetadata(key: MetadataKey<M> | string, value: any): void {
         return setMetadata(this, key, value);
     }
 
     /**
      * Convert the DataEntity to an encoded buffer
+     *
      * @param opConfig The operation config used to get the encoding type of the buffer, defaults to "json"
      */
     toBuffer(opConfig: EncodingConfig = {}): Buffer {
@@ -150,15 +155,15 @@ export class DataEntity<T extends object = object> {
     }
 }
 
-function getMetadata<K extends keyof DataEntityMetadata>(ctx: any, key?: K): DataEntityMetadata[K] | any {
-    const metadata = _metadata.get(ctx) as DataEntityMetadata;
-    if (key) {
+function getMetadata<T extends DataEntity<any, any>, K>(ctx: T, key?: K): any {
+    const metadata = _metadata.get(ctx);
+    if (key != null) {
         return metadata[key];
     }
     return metadata;
 }
 
-function setMetadata(ctx: any, key: string, value: string): void {
+function setMetadata<T extends DataEntity<any, any>, M, K extends keyof (DataEntityMetadata & M)>(ctx: T, key: K | any, value: any): void {
     const readonlyMetadataKeys: string[] = ['_createTime'];
     if (readonlyMetadataKeys.includes(key)) {
         throw new Error(`Cannot set readonly metadata property ${key}`);
@@ -169,7 +174,7 @@ function setMetadata(ctx: any, key: string, value: string): void {
     _metadata.set(ctx, metadata);
 }
 
-function toBuffer(ctx: any, opConfig: EncodingConfig): Buffer {
+function toBuffer<T extends DataEntity<any, any>>(ctx: T, opConfig: EncodingConfig): Buffer {
     const { _encoding = 'json' } = opConfig;
     if (_encoding === 'json') {
         return Buffer.from(JSON.stringify(ctx));
@@ -178,14 +183,16 @@ function toBuffer(ctx: any, opConfig: EncodingConfig): Buffer {
     throw new Error(`Unsupported encoding type, got "${_encoding}"`);
 }
 
-function makeMetadata<T extends object, M extends object>(entity: T, metadata?: M) {
+function makeMetadata<T extends DataEntity<any, any>>(entity: T): DataEntityMetadata;
+function makeMetadata<T extends DataEntity<any, any>, M = {}>(entity: T, metadata: M): DataEntityMetadata & M;
+function makeMetadata<T extends DataEntity<any, any>, M = {}>(entity: T, metadata?: M): (DataEntityMetadata & M) | DataEntityMetadata {
     const newMetadata = { _createTime: Date.now(), ...metadata };
     _metadata.set(entity, newMetadata);
     return newMetadata;
 }
 
-function makeEntity<T extends object>(input: T): DataEntity<T> {
-    const entity = input as DataEntity<T>;
+function makeEntity<T extends object, M = {}>(input: T): DataEntity<T, M> {
+    const entity = input as DataEntity<T, M>;
     Object.defineProperties(entity, dataEntityProperties);
     return entity;
 }
@@ -197,22 +204,22 @@ const dataEntityProperties = {
         writable: false,
     },
     getMetadata: {
-        value(key?: string) {
-            return getMetadata(this, key);
+        value(key?: any) {
+            return getMetadata(this as any, key);
         },
         enumerable: false,
         writable: false,
     },
     setMetadata: {
-        value(key: string, value: any) {
-            return setMetadata(this, key, value);
+        value(key: any, value: any) {
+            return setMetadata(this as any, key, value);
         },
         enumerable: false,
         writable: false,
     },
     toBuffer: {
         value(opConfig: EncodingConfig = {}) {
-            return toBuffer(this, opConfig);
+            return toBuffer(this as any, opConfig);
         },
         enumerable: false,
         writable: false,
@@ -225,10 +232,22 @@ export interface EncodingConfig {
     _encoding?: DataEncoding;
 }
 
-export type DataInput = object | DataEntity;
-export type DataArrayInput = DataInput | DataInput[];
+export type DataInput<T extends object, M> = T extends DataEntity<object, M> ? T : T;
+export type DataArrayInput<T extends object, M> = DataInput<T, M> | (DataInput<T, M>)[];
 
-interface DataEntityMetadata {
+type MakeResult<T extends object, M> = T extends DataEntity<any, M> ? T : DataEntity<T, M>;
+type MakeArrayResult<T extends object, M> = (MakeResult<T, M>)[];
+
+type MetadataKey<M> = (keyof M) | (keyof DataEntityMetadata) | string | undefined;
+type GetMetadataResult<M, K extends MetadataKey<M>> = K extends keyof M
+    ? M[K]
+    : K extends keyof DataEntityMetadata
+    ? DataEntityMetadata[K]
+    : K extends undefined
+    ? DataEntityMetadata & M
+    : unknown;
+
+type DataEntityMetadata = {
     /** The time at which this entity was created */
     readonly _createTime: number;
 
@@ -247,9 +266,8 @@ interface DataEntityMetadata {
     /** A unique key for the data which will be can be used to key the data */
     _key?: string;
 
-    // Add the ability to specify any additional properties
-    [prop: string]: any;
-}
+    [key: string]: any;
+};
 
 /**
  * available data encoding types

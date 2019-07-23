@@ -142,7 +142,7 @@ describe('SimpleESClient', () => {
                         type: typeName,
                         index,
                     })
-                ).resolves.toMatchObject({
+                ).resolves.toEqual({
                     id,
                     created: true,
                     version: 1,
@@ -180,10 +180,23 @@ describe('SimpleESClient', () => {
                         type: typeName,
                         index,
                     })
-                ).resolves.toMatchObject({
+                ).resolves.toEqual({
                     id,
                     created: false,
                     version: 2,
+                });
+            });
+
+            it('should be able to get the doc', () => {
+                return expect(
+                    client.docGet({
+                        id,
+                        type: typeName,
+                        index,
+                    })
+                ).resolves.toEqual({
+                    ...doc,
+                    bar: 'aloha',
                 });
             });
         });

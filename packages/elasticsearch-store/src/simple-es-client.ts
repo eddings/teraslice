@@ -135,7 +135,23 @@ export default class SimpleESClient {
         this.client.close();
     }
 
-    async docUpsert<T extends {}>(param: DocUpsertOptions<T>): Promise<DocUpsertResult> {
+    async docGet<T extends {}>(param: DocGetParam<T>): Promise<DocGetResult<T>> {
+        const { body } = await ts.pRetry(
+            () =>
+                this.client.get({
+                    id: param.id,
+                    index: param.index,
+                    type: param.type,
+                    _source_includes: param.includes,
+                    _source_excludes: param.excludes,
+                }),
+            getRetryConfig()
+        );
+
+        return body;
+    }
+
+    async docUpsert<T extends {}>(param: DocUpsertParam<T>): Promise<DocUpsertResult<T>> {
         if (!param.index) {
             throw new ts.TSError('Document Upsert requires index');
         }
@@ -176,16 +192,28 @@ export default class SimpleESClient {
     }
 }
 
-export type DocUpsertOptions<T extends {}> = {
-    doc: T;
-    id?: string;
+export type DocUpsertParam<T extends {}> = {
     index: string;
     type: string;
+
+    doc: T;
+    id?: string;
     refresh?: boolean;
 };
 
-export type DocUpsertResult = {
+export type DocUpsertResult<T extends {}> = {
     id: string;
     created: boolean;
     version: number;
 };
+
+export type DocGetParam<T extends {}> = {
+    index: string;
+    type: string;
+
+    id: string;
+    includes?: string[];
+    excludes?: string[];
+};
+
+export type DocGetResult<T extends {}> = ts.DataEntity<T>;
