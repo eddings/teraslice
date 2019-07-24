@@ -1,5 +1,5 @@
 import 'jest-extended'; // require for type definitions
-import { DataEntity, parseJSON } from '../src';
+import { DataEntity, parseJSON, ConventionalMetadata } from '../src';
 
 describe('DataEntity', () => {
     const testCases = [
@@ -94,6 +94,40 @@ describe('DataEntity', () => {
             it('should be return undefined if getting a metadata that does not exist', () => {
                 expect(dataEntity.getMetadata('hello')).toBeUndefined();
             });
+        });
+
+        it('should be strongly typed with data and metadata', () => {
+            type Data = {
+                hello: boolean;
+            };
+            type Metadata = {
+                howdy: boolean;
+            };
+            const inputData: Data = {
+                hello: true,
+            };
+            const inputMetadata: Metadata & ConventionalMetadata = {
+                howdy: false,
+            };
+            let hello: boolean;
+            let howdy: boolean;
+            let _ingestTime: number | undefined;
+
+            if (useClass) {
+                const entity: DataEntity<Data, Metadata> = new DataEntity(inputData, inputMetadata);
+                hello = entity.hello;
+                howdy = entity.getMetadata('_howdy');
+                _ingestTime = entity.getMetadata('_ingestTime');
+            } else {
+                const entity = DataEntity.make(inputData, inputMetadata);
+                hello = entity.hello;
+                howdy = entity.getMetadata('_howdy');
+                _ingestTime = entity.getMetadata('_ingestTime');
+            }
+
+            expect(hello).toBeBoolean();
+            expect(howdy).toBeBoolean();
+            expect(_ingestTime).toBeUndefined();
         });
 
         describe('when constructed with a DataEntity', () => {

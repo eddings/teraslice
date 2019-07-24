@@ -187,14 +187,19 @@ describe('SimpleESClient', () => {
                 });
             });
 
-            it('should be able to get the doc', () => {
-                return expect(
-                    client.docGet({
-                        id,
-                        type: typeName,
-                        index,
-                    })
-                ).resolves.toEqual({
+            it('should be able to get the doc', async () => {
+                const result = await client.docGet({
+                    id,
+                    type: typeName,
+                    index,
+                });
+
+                const m = result.getMetadata();
+                expect(m).toMatchObject({
+                    _key: id,
+                });
+
+                expect(result).toEqual({
                     ...doc,
                     bar: 'aloha',
                 });

@@ -135,23 +135,24 @@ export default class SimpleESClient {
         this.client.close();
     }
 
-    async docGet<T extends {}>(param: DocGetParam<T>): Promise<DocGetResult<T>> {
+    async docGet<T extends object>(param: DocGetParam<T>): Promise<DocGetResult<T>> {
+        const { id, index, type, includes, excludes, ...fns } = param;
         const { body } = await ts.pRetry(
             () =>
                 this.client.get({
-                    id: param.id,
-                    index: param.index,
-                    type: param.type,
-                    _source_includes: param.includes,
-                    _source_excludes: param.excludes,
+                    id,
+                    index,
+                    type,
+                    _source_includes: includes,
+                    _source_excludes: excludes,
                 }),
             getRetryConfig()
         );
 
-        return body;
+        return this._resultToDataEntity(body, fns);
     }
 
-    async docUpsert<T extends {}>(param: DocUpsertParam<T>): Promise<DocUpsertResult<T>> {
+    async docUpsert<T extends object>(param: DocUpsertParam<T>): Promise<DocUpsertResult<T>> {
         if (!param.index) {
             throw new ts.TSError('Document Upsert requires index');
         }
@@ -190,30 +191,69 @@ export default class SimpleESClient {
             return false;
         }
     }
+
+    private _resultToDataEntity<T extends object>(result: any, fns: DocFns<T>): ts.DataEntity<T> {
+        const { getIngestTime, getEventTime } = this._getDocFns<T>(fns);
+
+        return ts.DataEntity.make<T, ESDataEntityMetadata>(result._source, {
+            _key: result._id,
+            _processTime: timeFn(),
+            _ingestTime: getIngestTime(result._source),
+            _eventTime: getEventTime(result._source),
+            _index: result._index,
+            _type: result._type,
+            _version: result._version,
+        });
+    }
+
+    private _getDocFns<T extends object>(param: DocFns<T>) {
+        return {
+            getIngestTime: param.getIngestTime ? param.getIngestTime : timeFn,
+            getEventTime: param.getEventTime ? param.getEventTime : timeFn,
+        };
+    }
 }
 
-export type DocUpsertParam<T extends {}> = {
+function timeFn() {
+    return Date.now();
+}
+
+export interface ESDataEntityMetadata {
+    _index: string;
+    _type: string;
+    _version: number;
+}
+
+export interface DocUpsertParam<T extends object> {
     index: string;
     type: string;
 
     doc: T;
     id?: string;
     refresh?: boolean;
-};
+}
 
-export type DocUpsertResult<T extends {}> = {
+export interface DocUpsertResult<T extends object> {
     id: string;
     created: boolean;
     version: number;
-};
+}
 
-export type DocGetParam<T extends {}> = {
+export interface DocFns<T extends object> {
+    getIngestTime?: GetIngestTimeFn<T>;
+    getEventTime?: GetEventTimeFn<T>;
+}
+
+export interface DocGetParam<T extends object> extends DocFns<T> {
     index: string;
     type: string;
 
     id: string;
     includes?: string[];
     excludes?: string[];
-};
+}
 
-export type DocGetResult<T extends {}> = ts.DataEntity<T>;
+export type GetIngestTimeFn<T extends object> = (input: T) => number;
+export type GetEventTimeFn<T extends object> = (input: T) => number;
+
+export type DocGetResult<T extends object> = ts.DataEntity<T>;
