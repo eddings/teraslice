@@ -1,20 +1,9 @@
 import 'jest-extended';
-import {
-    DataEntity,
-    isPlainObject,
-    parseJSON,
-    getTypeOf,
-    isEmpty,
-    parseList,
-    parseNumberList,
-    toNumber,
-} from '../src';
+import { DataEntity, isPlainObject, parseJSON, getTypeOf, isEmpty, parseList, parseNumberList, toNumber } from '../src';
 
 describe('Utils', () => {
     describe('isPlainObject', () => {
-        class TestObj {
-
-        }
+        class TestObj {}
 
         it('should correctly detect the an object type', () => {
             // @ts-ignore
@@ -26,7 +15,7 @@ describe('Utils', () => {
             expect(isPlainObject('some-string')).toBeFalse();
             expect(isPlainObject(Buffer.from('some-string'))).toBeFalse();
             expect(isPlainObject(new TestObj())).toBeFalse();
-            expect(isPlainObject(new DataEntity({}))).toBeFalse();
+            expect(isPlainObject(new DataEntity({}))).toBeTrue();
             expect(isPlainObject(Promise.resolve())).toBeFalse();
             expect(isPlainObject(Object.create({}))).toBeTrue();
             expect(isPlainObject(Object.create({ hello: true }))).toBeTrue();
@@ -61,7 +50,7 @@ describe('Utils', () => {
             [[1, 2], false],
             [[null], false],
             ['howdy', false],
-        // @ts-ignore
+            // @ts-ignore
         ])('when given %p', (input, expected) => {
             it(`should return ${expected ? 'true' : 'false'}`, () => {
                 expect(isEmpty(input)).toBe(expected);
@@ -139,8 +128,8 @@ describe('Utils', () => {
             ['a,b,c', ['a', 'b', 'c']],
             ['a , b,c,   ', ['a', 'b', 'c']],
             [['a ', ' b ', 'c ', false, '', null], ['a', 'b', 'c']],
-            [null, []]
-        // @ts-ignore
+            [null, []],
+            // @ts-ignore
         ])('should parse %j to be %j', (input, expected) => {
             expect(parseList(input)).toEqual(expected);
         });
@@ -154,8 +143,8 @@ describe('Utils', () => {
             [['33.435518 ', -111.873616], [33.435518, -111.873616]],
             [[Infinity, 0, 'c ', '', null, 10], [Infinity, 0, 10]],
             [[Infinity, 0, 'c ', '', null, 10], [Infinity, 0, 10]],
-            [null, []]
-        // @ts-ignore
+            [null, []],
+            // @ts-ignore
         ])('should parse %j to be %j', (input, expected) => {
             expect(parseNumberList(input)).toEqual(expected);
         });
@@ -179,10 +168,10 @@ describe('Utils', () => {
             [Buffer.from('0'), 0],
             [Buffer.from('1'), 1],
             [{ a: 1 }, Number.NaN],
-            [{ }, Number.NaN],
+            [{}, Number.NaN],
             [[], 0],
             [[1], 1],
-        // @ts-ignore
+            // @ts-ignore
         ])('should convert %j to be %j', (input, expected) => {
             expect(toNumber(input)).toEqual(expected);
         });

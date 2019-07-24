@@ -3,7 +3,6 @@ import STATUS_CODES from './status-codes';
 export * from './arrays';
 export * from './collector';
 export * from './data-entity';
-export * from './data-entity-interfaces';
 export * from './dates';
 export * from './interfaces';
 export * from './logger';
