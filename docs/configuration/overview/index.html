@@ -1,0 +1,224 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Teraslice Configuration · Teraslice</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Teraslice configuration is provided via a YAML configuration file. This file will typically have 2 sections."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Teraslice Configuration · Teraslice"/><meta property="og:type" content="website"/><meta property="og:url" content="https://terascope.github.io/teraslice/"/><meta property="og:description" content="Teraslice configuration is provided via a YAML configuration file. This file will typically have 2 sections."/><meta property="og:image" content="https://terascope.github.io/teraslice/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://terascope.github.io/teraslice/img/docusaurus.png"/><link rel="shortcut icon" href="/teraslice/img/favicon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"/><link rel="stylesheet" href="/teraslice/css/copy-code-block.css"/><link rel="stylesheet" href="/teraslice/css/custom.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/teraslice/js/copy-code-block.js"></script><script src="/teraslice/js/scrollSpy.js"></script><link rel="stylesheet" href="/teraslice/css/main.css"/><script src="/teraslice/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/teraslice/"><img class="logo" src="/teraslice/img/logo.png" alt="Teraslice"/><h2 class="headerTitleWithLogo">Teraslice</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/teraslice/docs/overview" target="_self">Docs</a></li><li class=""><a href="/teraslice/docs/asset-bundles" target="_self">Assets</a></li><li class=""><a href="/teraslice/docs/packages" target="_self">Packages</a></li><li class=""><a href="https://github.com/terascope/teraslice" target="_self">GitHub</a></li><li class=""><a href="/teraslice/help" target="_self">Help</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Configuration</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Overview<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/teraslice/docs/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/getting-started">Getting Started</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/terminology">Terminology</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Configuration<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem navListItemActive"><a class="navItem" href="/teraslice/docs/configuration/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/configuration/clustering-native">Native Clustering</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/configuration/clustering-k8s">Kubernetes Clustering</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Management APIs<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/teraslice/docs/management-apis/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/management-apis/endpoints-json">JSON APIs</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/management-apis/endpoints-txt">Txt APIs</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Jobs<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/teraslice/docs/jobs/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/jobs/configuration">Configuration</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/jobs/types-of-operations">Types of Operations</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/jobs/builtin-operations">Built-in Operations</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/jobs/slices">Slices</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/jobs/data-entities">Data Entities</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/jobs/dead-letter-queue">Dead Letter Queue</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/jobs/development">Development</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/jobs/testing">Testing</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Development<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/teraslice/docs/development/overview">Overview</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/development/packages">Packages</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/development/scripts">Scripts</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/development/releases">Releases</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/development/tests">Tests</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/development/e2e-tests">End-to-End Tests</a></li><li class="navListItem"><a class="navItem" href="/teraslice/docs/development/contributing">Contributing</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Teraslice Configuration</h1></header><article><div><span><p>Teraslice configuration is provided via a YAML configuration file. This file will typically have 2 sections.</p>
+<ol>
+<li><code>terafoundation</code> - Configuration related to the terafoundation runtime. Most significantly this is where you configure your datasource connectors.</li>
+<li><code>teraslice</code> - Configuration for the Teraslice node. When deploying a <code>native</code> clustering Teraslice you'll have separate configurations for the master and worker nodes. Otherwise a single configuration is all that is required.</li>
+</ol>
+<p>The configuration file is provided to the Teraslice process at startup using the <code>-c</code> command line option along with the path to the file</p>
+<h4><a class="anchor" aria-hidden="true" id="example-config"></a><a href="#example-config" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Config</h4>
+<pre><code class="hljs css language-yaml"><span class="hljs-string">```yaml</span>
+<span class="hljs-attr">terafoundation:</span>
+<span class="hljs-attr">    connectors:</span>
+<span class="hljs-attr">        elasticsearch:</span>
+<span class="hljs-attr">            default:</span>
+<span class="hljs-attr">                host:</span>
+<span class="hljs-attr">                    - localhost:</span><span class="hljs-number">9200</span>
+
+<span class="hljs-attr">teraslice:</span>
+<span class="hljs-attr">    workers:</span> <span class="hljs-number">8</span>
+<span class="hljs-attr">    master:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">    master_hostname:</span> <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>
+<span class="hljs-attr">    name:</span> <span class="hljs-string">teraslice</span>
+<span class="hljs-attr">    hostname:</span> <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>
+
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="terafoundation-configuration-reference"></a><a href="#terafoundation-configuration-reference" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Terafoundation Configuration Reference</h2>
+<table>
+<thead>
+<tr><th style="text-align:center">Field</th><th style="text-align:center">Type</th><th style="text-align:center">Default</th><th style="text-align:center">Description</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center"><strong>environment</strong></td><td style="text-align:center"><code>String</code></td><td style="text-align:center"><code>&quot;development&quot;</code></td><td style="text-align:center">If set to <code>production</code>, console logging will be disabled and logs will be sent to a file</td></tr>
+<tr><td style="text-align:center"><strong>log_buffer_interval</strong></td><td style="text-align:center"><code>Number</code></td><td style="text-align:center"><code>60000</code></td><td style="text-align:center">How often the log buffer will flush the logs (number in milliseconds)</td></tr>
+<tr><td style="text-align:center"><strong>log_buffer_limit</strong></td><td style="text-align:center"><code>Number</code></td><td style="text-align:center"><code>30</code></td><td style="text-align:center">Number of log lines to buffer before sending to elasticsearch, logging must have elasticsearch set as a value for this to take effect</td></tr>
+<tr><td style="text-align:center"><strong>log_connection</strong></td><td style="text-align:center"><code>String</code></td><td style="text-align:center"><code>&quot;default&quot;</code></td><td style="text-align:center">logging connection endpoint if logging is saved to elasticsearch</td></tr>
+<tr><td style="text-align:center"><strong>log_index_rollover_frequency</strong></td><td style="text-align:center"><code>&quot;daily&quot;</code>, <code>&quot;monthly&quot;</code>, <code>&quot;yearly&quot;</code></td><td style="text-align:center"><code>&quot;monthly&quot;</code></td><td style="text-align:center">How frequently the log indices are created</td></tr>
+<tr><td style="text-align:center"><strong>log_level</strong></td><td style="text-align:center"><code>String</code></td><td style="text-align:center"><code>&quot;info&quot;</code></td><td style="text-align:center">Default logging levels</td></tr>
+<tr><td style="text-align:center"><strong>log_path</strong></td><td style="text-align:center"><code>String</code></td><td style="text-align:center"><code>&quot;$PWD&quot;</code></td><td style="text-align:center">Directory where the logs will be stored if logging is set to <code>file</code></td></tr>
+<tr><td style="text-align:center"><strong>logging</strong></td><td style="text-align:center"><code>Array</code></td><td style="text-align:center"><code>&quot;console&quot;</code></td><td style="text-align:center">Logging destinations. Expects an array of logging targets. options: console, file, elasticsearch</td></tr>
+<tr><td style="text-align:center"><strong>workers</strong></td><td style="text-align:center"><code>Number</code></td><td style="text-align:center"><code>4</code></td><td style="text-align:center">Number of workers per server</td></tr>
+</tbody>
+</table>
+<h2><a class="anchor" aria-hidden="true" id="teraslice-configuration-reference"></a><a href="#teraslice-configuration-reference" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Teraslice Configuration Reference</h2>
+<table>
+<thead>
+<tr><th style="text-align:center">Field</th><th style="text-align:center">Type</th><th style="text-align:center">Default</th><th style="text-align:center">Description</th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center"><strong>action_timeout</strong></td><td style="text-align:center"><code>Number</code></td><td style="text-align:center"><code>300000</code></td><td style="text-align:center">time in milliseconds for waiting for a action ( pause/stop job, etc) to complete before throwing an error</td></tr>
+<tr><td style="text-align:center"><strong>analytics_rate</strong></td><td style="text-align:center"><code>Number</code></td><td style="text-align:center"><code>60000</code></td><td style="text-align:center">Rate in ms in which to push analytics to cluster master</td></tr>
+<tr><td style="text-align:center"><strong>assets_directory</strong></td><td style="text-align:center"><code>String</code></td><td style="text-align:center"><code>&quot;$PWD/assets&quot;</code></td><td style="text-align:center">directory to look for assets</td></tr>
+<tr><td style="text-align:center"><strong>assets_volume</strong></td><td style="text-align:center"><code>String</code></td><td style="text-align:center">-</td><td style="text-align:center">name of shared asset volume (k8s)</td></tr>
+<tr><td style="text-align:center"><strong>autoload_directory</strong></td><td style="text-align:center"><code>String</code></td><td style="text-align:center"><code>&quot;$PWD/autoload&quot;</code></td><td style="text-align:center">directory to look for assets to auto deploy when teraslice boots up</td></tr>
+<tr><td style="text-align:center"><strong>cluster_manager_type</strong></td><td style="text-align:center"><code>&quot;native&quot;</code>, <code>&quot;kubernetes&quot;</code></td><td style="text-align:center"><code>&quot;native&quot;</code></td><td style="text-align:center">determines which cluster system should be used</td></tr>
+<tr><td style="text-align:center"><strong>cpu</strong></td><td style="text-align:center"><code>Number</code></td><td style="text-align:center">-</td><td style="text-align:center">number of cpus to reserve per teraslice worker in kubernetes</td></tr>
+<tr><td style="text-align:center"><strong>hostname</strong></td><td style="text-align:center"><code>String</code></td><td style="text-align:center"><code>&quot;$HOST_IP&quot;</code></td><td style="text-align:center">IP or hostname for server</td></tr>
+<tr><td style="text-align:center"><strong>index_rollover_frequency.analytics</strong></td><td style="text-align:center"><code>&quot;daily&quot;</code>, <code>&quot;monthly&quot;</code>, <code>&quot;yearly&quot;</code></td><td style="text-align:center"><code>&quot;monthly&quot;</code></td><td style="text-align:center">How frequently the analytics indices are created</td></tr>
+<tr><td style="text-align:center"><strong>index_rollover_frequency.state</strong></td><td style="text-align:center"><code>&quot;daily&quot;</code>, <code>&quot;monthly&quot;</code>, <code>&quot;yearly&quot;</code></td><td style="text-align:center"><code>&quot;monthly&quot;</code></td><td style="text-align:center">How frequently the teraslice state indices are created</td></tr>
+<tr><td style="text-align:center"><strong>index_settings.analytics.number_of_replicas</strong></td><td style="text-align:center"><code>Number</code></td><td style="text-align:center"><code>1</code></td><td style="text-align:center">The number of replicas for the analytics index</td></tr>
+<tr><td style="text-align:center"><strong>index_settings.analytics.number_of_shards</strong></td><td style="text-align:center"><code>Number</code></td><td style="text-align:center"><code>5</code></td><td style="text-align:center">The number of shards for the analytics index</td></tr>
+<tr><td style="text-align:center"><strong>index_settings.assets.number_of_replicas</strong></td><td style="text-align:center"><code>Number</code></td><td style="text-align:center"><code>1</code></td><td style="text-align:center">The number of replicas for the assets index</td></tr>
+<tr><td style="text-align:center"><strong>index_settings.assets.number_of_shards</strong></td><td style="text-align:center"><code>Number</code></td><td style="text-align:center"><code>5</code></td><td style="text-align:center">The number of shards for the assets index</td></tr>
+<tr><td style="text-align:center"><strong>index_settings.execution.number_of_replicas</strong></td><td style="text-align:center"><code>Number</code></td><td style="text-align:center"><code>1</code></td><td style="text-align:center">The number of replicas for the execution index</td></tr>
+<tr><td style="text-align:center"><strong>index_settings.execution.number_of_shards</strong></td><td style="text-align:center"><code>Number</code></td><td style="text-align:center"><code>5</code></td><td style="text-align:center">The number of shards for the execution index</td></tr>
+<tr><td style="text-align:center"><strong>index_settings.jobs.number_of_replicas</strong></td><td style="text-align:center"><code>Number</code></td><td style="text-align:center"><code>1</code></td><td style="text-align:center">The number of replicas for the jobs index</td></tr>
+<tr><td style="text-align:center"><strong>index_settings.jobs.number_of_shards</strong></td><td style="text-align:center"><code>Number</code></td><td style="text-align:center"><code>5</code></td><td style="text-align:center">The number of shards for the jobs index</td></tr>
+<tr><td style="text-align:center"><strong>index_settings.state.number_of_replicas</strong></td><td style="text-align:center"><code>Number</code></td><td style="text-align:center"><code>1</code></td><td style="text-align:center">The number of replicas for the state index</td></tr>
+<tr><td style="text-align:center"><strong>index_settings.state.number_of_shards</strong></td><td style="text-align:center"><code>Number</code></td><td style="text-align:center"><code>5</code></td><td style="text-align:center">The number of shards for the state index</td></tr>
+<tr><td style="text-align:center"><strong>kubernetes_config_map_name</strong></td><td style="text-align:center"><code>String</code></td><td style="text-align:center"><code>&quot;teraslice-worker&quot;</code></td><td style="text-align:center">Specify the name of the Kubernetes ConfigMap used to configure worker pods</td></tr>
+<tr><td style="text-align:center"><strong>kubernetes_image</strong></td><td style="text-align:center"><code>String</code></td><td style="text-align:center"><code>&quot;terascope/teraslice&quot;</code></td><td style="text-align:center">Specify a custom image name for kubernetes, this only applies to kubernetes systems</td></tr>
+<tr><td style="text-align:center"><strong>kubernetes_image_pull_secret</strong></td><td style="text-align:center"><code>String</code></td><td style="text-align:center">-</td><td style="text-align:center">Name of Kubernetes secret used to pull docker images from private repository</td></tr>
+<tr><td style="text-align:center"><strong>kubernetes_namespace</strong></td><td style="text-align:center"><code>String</code></td><td style="text-align:center"><code>&quot;default&quot;</code></td><td style="text-align:center">Specify a custom kubernetes namespace, this only applies to kubernetes systems</td></tr>
+<tr><td style="text-align:center"><strong>master</strong></td><td style="text-align:center"><code>Boolean</code></td><td style="text-align:center"><code>false</code></td><td style="text-align:center">boolean for determining if cluster_master should live on this node</td></tr>
+<tr><td style="text-align:center"><strong>master_hostname</strong></td><td style="text-align:center"><code>String</code></td><td style="text-align:center"><code>&quot;localhost&quot;</code></td><td style="text-align:center">hostname where the cluster_master resides, used to notify all node_masters where to connect</td></tr>
+<tr><td style="text-align:center"><strong>memory</strong></td><td style="text-align:center"><code>Number</code></td><td style="text-align:center">-</td><td style="text-align:center">memory, in bytes, to reserve per teraslice worker in kubernetes</td></tr>
+<tr><td style="text-align:center"><strong>name</strong></td><td style="text-align:center"><code>elasticsearch_Name</code></td><td style="text-align:center"><code>&quot;teracluster&quot;</code></td><td style="text-align:center">Name for the cluster itself, its used for naming log files/indices</td></tr>
+<tr><td style="text-align:center"><strong>network_latency_buffer</strong></td><td style="text-align:center"><code>Number</code></td><td style="text-align:center"><code>15000</code></td><td style="text-align:center">time in milliseconds buffer which is combined with action_timeout to determine how long the cluster master will wait till it throws an error</td></tr>
+<tr><td style="text-align:center"><strong>node_disconnect_timeout</strong></td><td style="text-align:center"><code>Number</code></td><td style="text-align:center"><code>300000</code></td><td style="text-align:center">time in milliseconds that the cluster  will wait untill it drops that node from state and attempts to provision the lost workers</td></tr>
+<tr><td style="text-align:center"><strong>node_state_interval</strong></td><td style="text-align:center"><code>Number</code></td><td style="text-align:center"><code>5000</code></td><td style="text-align:center">time in milliseconds that indicates when the cluster master will ping nodes for their state</td></tr>
+<tr><td style="text-align:center"><strong>port</strong></td><td style="text-align:center"><code>port</code></td><td style="text-align:center"><code>5678</code></td><td style="text-align:center">port for the cluster_master to listen on</td></tr>
+<tr><td style="text-align:center"><strong>reporter</strong></td><td style="text-align:center"><code>String</code></td><td style="text-align:center">-</td><td style="text-align:center">not currently operational</td></tr>
+<tr><td style="text-align:center"><strong>shutdown_timeout</strong></td><td style="text-align:center"><code>Number</code></td><td style="text-align:center"><code>60000</code></td><td style="text-align:center">time in milliseconds, to allow workers and slicers to finish operations before forcefully shutting down</td></tr>
+<tr><td style="text-align:center"><strong>slicer_allocation_attempts</strong></td><td style="text-align:center"><code>Number</code></td><td style="text-align:center"><code>3</code></td><td style="text-align:center">The number of times a slicer will try to be allocated before failing</td></tr>
+<tr><td style="text-align:center"><strong>slicer_port_range</strong></td><td style="text-align:center"><code>String</code></td><td style="text-align:center"><code>&quot;45679:46678&quot;</code></td><td style="text-align:center">range of ports that slicers will use per node</td></tr>
+<tr><td style="text-align:center"><strong>slicer_timeout</strong></td><td style="text-align:center"><code>Number</code></td><td style="text-align:center"><code>180000</code></td><td style="text-align:center">time in milliseconds that the slicer will wait for worker connection before terminating the job</td></tr>
+<tr><td style="text-align:center"><strong>state</strong></td><td style="text-align:center"><code>Object</code></td><td style="text-align:center"><code>{&quot;connection&quot;:&quot;default&quot;}</code></td><td style="text-align:center">Elasticsearch cluster where job state, analytics and logs are stored</td></tr>
+<tr><td style="text-align:center"><strong>worker_disconnect_timeout</strong></td><td style="text-align:center"><code>Number</code></td><td style="text-align:center"><code>300000</code></td><td style="text-align:center">time in milliseconds that the slicer will wait after all workers have disconnected before terminating the job</td></tr>
+<tr><td style="text-align:center"><strong>workers</strong></td><td style="text-align:center"><code>Number</code></td><td style="text-align:center"><code>4</code></td><td style="text-align:center">Number of workers per server</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="terafoundation-connectors"></a><a href="#terafoundation-connectors" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Terafoundation Connectors</h3>
+<p>You use Terafoundation connectors to define how to access your various data sources. Connectors are grouped by type with each each key defining a separate connection name for that type of data source. This allows you to define many connections to different data sources so that you can route data between them. The connection name defined here can then be used in the <code>connection</code> attribute provided to processors in your jobs.</p>
+<p>For Example</p>
+<pre><code class="hljs css language-yaml"><span class="hljs-comment"># ...</span>
+<span class="hljs-attr">terafoundation:</span>
+    <span class="hljs-comment"># ...</span>
+<span class="hljs-attr">    connectors:</span>
+<span class="hljs-attr">        elasticsearch:</span>
+<span class="hljs-attr">            default:</span>
+<span class="hljs-attr">                host:</span>
+<span class="hljs-bullet">                    -</span> <span class="hljs-string">'127.0.0.1:9200'</span>
+<span class="hljs-attr">                keepAlive:</span> <span class="hljs-literal">false</span>
+<span class="hljs-attr">                maxRetries:</span> <span class="hljs-number">5</span>
+<span class="hljs-attr">                maxSockets:</span> <span class="hljs-number">20</span>
+<span class="hljs-attr">            secondary:</span>
+<span class="hljs-attr">                host:</span>
+<span class="hljs-bullet">                    -</span> <span class="hljs-string">'some-other-ip:9200'</span>
+<span class="hljs-attr">                apiVersion:</span> <span class="hljs-string">'6.5'</span>
+<span class="hljs-attr">                maxRetries:</span> <span class="hljs-number">0</span>
+<span class="hljs-attr">        kafka:</span>
+<span class="hljs-attr">            default:</span>
+<span class="hljs-attr">                brokers:</span> <span class="hljs-string">"localhost:9092"</span>            
+<span class="hljs-comment"># ...</span>
+</code></pre>
+<p>In this example we specify two different connector types: <code>elasticsearch</code> and <code>kafka</code>. Under each connector type you may then create custom endpoint configurations that will be validated against the defaults specified in node_modules/terafoundation/lib/connectors. In the elasticsearch example there is the <code>default</code> endpoint and the <code>secondary</code> endpoint which connects to a different elasticsearch cluster. Each endpoint has independent configuration options.</p>
+<p>These different endpoints can be retrieved through terafoundations's connector API. As it's name implies, the <code>default</code> connector is what will be provided if a connection is requested without providing a specific name. In general we don't recommend doing that if you have multiple clusters, but it's convenient if you only have one.</p>
+<h2><a class="anchor" aria-hidden="true" id="configuration-single-node-native-clustering-cluster-master"></a><a href="#configuration-single-node-native-clustering-cluster-master" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration Single Node / Native Clustering - Cluster Master</h2>
+<p>If you're running a single Teraslice node or using the simple native clustering you'll need a master node configuration.</p>
+<p>The master node will still have workers available and this configuration is sufficient to do useful work if you don't yet have multiple nodes available. The workers will connect to the master on localhost and do work just as if they were in a real cluster. Then if you want to add workers you can use the worker configuration below as a starting point on adding more nodes.</p>
+<pre><code class="hljs css language-yaml"><span class="hljs-attr">teraslice:</span>
+<span class="hljs-attr">    workers:</span> <span class="hljs-number">8</span>
+<span class="hljs-attr">    master:</span> <span class="hljs-literal">true</span>
+<span class="hljs-attr">    master_hostname:</span> <span class="hljs-string">"127.0.0.1"</span>
+<span class="hljs-attr">    name:</span> <span class="hljs-string">"teracluster"</span>
+
+<span class="hljs-attr">terafoundation:</span>
+<span class="hljs-attr">    log_path:</span> <span class="hljs-string">'/path/to/logs'</span>
+
+<span class="hljs-attr">    connectors:</span>
+<span class="hljs-attr">        elasticsearch:</span>
+<span class="hljs-attr">            default:</span>
+<span class="hljs-attr">                host:</span>
+<span class="hljs-attr">                    - YOUR_ELASTICSEARCH_IP:</span><span class="hljs-number">9200</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="configuration-native-clustering-worker-node"></a><a href="#configuration-native-clustering-worker-node" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration Native Clustering - Worker Node</h2>
+<p>Configuration for a worker node is very similar. You just set <code>master</code> to false and provide the IP address where the master node can be located.</p>
+<pre><code class="hljs css language-yaml"><span class="hljs-attr">teraslice:</span>
+<span class="hljs-attr">    workers:</span> <span class="hljs-number">8</span>
+<span class="hljs-attr">    master:</span> <span class="hljs-literal">false</span>
+<span class="hljs-attr">    master_hostname:</span> <span class="hljs-string">"YOUR_MASTER_IP"</span>
+<span class="hljs-attr">    name:</span> <span class="hljs-string">"teracluster"</span>
+
+<span class="hljs-attr">terafoundation:</span>
+<span class="hljs-attr">    log_path:</span> <span class="hljs-string">'/path/to/logs'</span>
+
+<span class="hljs-attr">    connectors:</span>
+<span class="hljs-attr">        elasticsearch:</span>
+<span class="hljs-attr">            default:</span>
+<span class="hljs-attr">                host:</span>
+<span class="hljs-attr">                    - YOUR_ELASTICSEARCH_IP:</span><span class="hljs-number">9200</span>
+</code></pre>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 7/10/2019</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/terminology"><span class="arrow-prev">← </span><span>Terminology</span></a><a class="docs-next button" href="/teraslice/docs/configuration/clustering-native"><span>Native Clustering</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#terafoundation-configuration-reference">Terafoundation Configuration Reference</a></li><li><a href="#teraslice-configuration-reference">Teraslice Configuration Reference</a><ul class="toc-headings"><li><a href="#terafoundation-connectors">Terafoundation Connectors</a></li></ul></li><li><a href="#configuration-single-node-native-clustering-cluster-master">Configuration Single Node / Native Clustering - Cluster Master</a></li><li><a href="#configuration-native-clustering-worker-node">Configuration Native Clustering - Worker Node</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/apis.html">API Reference</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: 'b074b9b57bfd2e4d8b411aee052825d2',
+                indexName: 'terascope_teraslice',
+                inputSelector: '#search_input_react'
+              });
+            </script></body></html>
