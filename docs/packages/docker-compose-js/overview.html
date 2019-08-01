@@ -70,7 +70,7 @@ npm install --save  @terascope/docker-compose-js
 <p>The API is Promise based using the Bluebird promises library.</p>
 <p>The examples below show the common patterns for calls. Since this is a wrapper around the standard docker-compose command details on each operation can be found <a href="https://docs.docker.com/compose/reference/">in the docker-compose documentation</a>.</p>
 <p>Note: Each function takes an object for keyword parameters as the last argument.</p>
-<pre><code class="hljs css language-js"><span class="hljs-keyword">var</span> compose = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@terascope/docker-compose-js'</span>)(<span class="hljs-string">'docker-compose.yaml'</span>);
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> compose = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@terascope/docker-compose-js'</span>)(<span class="hljs-string">'docker-compose.yaml'</span>);
 
 compose.up()
     .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
@@ -84,14 +84,14 @@ compose.up()
     })
     .then(<span class="hljs-built_in">console</span>.log)
     .catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>) </span>{
-        <span class="hljs-built_in">console</span>.log(error);
+        <span class="hljs-built_in">console</span>.error(error);
     })
-    .finally(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-        compose.down();
-    })
+    .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">return</span> compose.down();
+    });
 </code></pre>
 <p>Example of scaling a particular task</p>
-<pre><code class="hljs css language-js"><span class="hljs-keyword">var</span> compose = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@terascope/docker-compose-js'</span>)(<span class="hljs-string">'docker-compose.yaml'</span>);
+<pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> compose = <span class="hljs-built_in">require</span>(<span class="hljs-string">'@terascope/docker-compose-js'</span>)(<span class="hljs-string">'docker-compose.yaml'</span>);
 
 compose.up()
     .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">result</span>) </span>{
@@ -104,11 +104,11 @@ compose.up()
     .catch(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">error</span>) </span>{
         <span class="hljs-built_in">console</span>.log(error);
     })
-    .finally(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+    .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
         <span class="hljs-keyword">return</span> compose.down();
     })
 </code></pre>
-</span></div></article></div><div class="docLastUpdate"><em>Last updated on 7/10/2019</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/packages/data-access-plugin/overview"><span class="arrow-prev">← </span><span>Overview</span></a><a class="docs-next button" href="/teraslice/docs/packages/generator-teraslice/overview"><span>Overview</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#installation">Installation</a></li><li><a href="#usage">Usage</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/apis.html">API Reference</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 8/1/2019</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/packages/data-access-plugin/overview"><span class="arrow-prev">← </span><span>Overview</span></a><a class="docs-next button" href="/teraslice/docs/packages/generator-teraslice/overview"><span>Overview</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#installation">Installation</a></li><li><a href="#usage">Usage</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/apis.html">API Reference</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
