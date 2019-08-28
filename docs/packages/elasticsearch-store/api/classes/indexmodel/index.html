@@ -18,6 +18,10 @@ for an elasticsearch DataType, with a CRUD-like interface</p>
 <li><a href="/teraslice/docs/packages/elasticsearch-store/api/classes/indexmodel#name">name</a></li>
 <li><a href="/teraslice/docs/packages/elasticsearch-store/api/classes/indexmodel#store">store</a></li>
 </ul>
+<h3><a class="anchor" aria-hidden="true" id="accessors"></a><a href="#accessors" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Accessors</h3>
+<ul>
+<li><a href="/teraslice/docs/packages/elasticsearch-store/api/classes/indexmodel#xlucenetypeconfig">xluceneTypeConfig</a></li>
+</ul>
 <h3><a class="anchor" aria-hidden="true" id="methods"></a><a href="#methods" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Methods</h3>
 <ul>
 <li><a href="/teraslice/docs/packages/elasticsearch-store/api/classes/indexmodel#protected-_appendtoarray">_appendToArray</a></li>
@@ -47,36 +51,41 @@ for an elasticsearch DataType, with a CRUD-like interface</p>
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="constructors-1"></a><a href="#constructors-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Constructors</h2>
 <h3><a class="anchor" aria-hidden="true" id="constructor"></a><a href="#constructor" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>constructor</h3>
-<p>+ <strong>new IndexModel</strong>(<code>client</code>: <code>Client</code>, <code>options</code>: <a href="/teraslice/docs/packages/elasticsearch-store/api/interfaces/indexmodeloptions">IndexModelOptions</a>, <code>modelConfig</code>: <a href="/teraslice/docs/packages/elasticsearch-store/api/interfaces/indexmodelconfig">IndexModelConfig</a>‹<em><code>T</code></em>›): <em><a href="/teraslice/docs/packages/elasticsearch-store/api/classes/indexmodel">IndexModel</a></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-model.ts#L18">index-model.ts:18</a></em></p>
+<p>+ <strong>new IndexModel</strong>(<code>client</code>: Client, <code>options</code>: <a href="/teraslice/docs/packages/elasticsearch-store/api/interfaces/indexmodeloptions">IndexModelOptions</a>, <code>modelConfig</code>: <a href="/teraslice/docs/packages/elasticsearch-store/api/interfaces/indexmodelconfig">IndexModelConfig</a>‹T›): <em><a href="/teraslice/docs/packages/elasticsearch-store/api/classes/indexmodel">IndexModel</a></em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-model.ts#L18">index-model.ts:18</a></em></p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>client</code></td><td><code>Client</code></td></tr>
+<tr><td><code>client</code></td><td>Client</td></tr>
 <tr><td><code>options</code></td><td><a href="/teraslice/docs/packages/elasticsearch-store/api/interfaces/indexmodeloptions">IndexModelOptions</a></td></tr>
-<tr><td><code>modelConfig</code></td><td><a href="/teraslice/docs/packages/elasticsearch-store/api/interfaces/indexmodelconfig">IndexModelConfig</a>‹<em><code>T</code></em>›</td></tr>
+<tr><td><code>modelConfig</code></td><td><a href="/teraslice/docs/packages/elasticsearch-store/api/interfaces/indexmodelconfig">IndexModelConfig</a>‹T›</td></tr>
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em><a href="/teraslice/docs/packages/elasticsearch-store/api/classes/indexmodel">IndexModel</a></em></p>
 <h2><a class="anchor" aria-hidden="true" id="properties-1"></a><a href="#properties-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Properties</h2>
 <h3><a class="anchor" aria-hidden="true" id="logger"></a><a href="#logger" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>logger</h3>
-<p>• <strong>logger</strong>: <em><code>Logger</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-model.ts#L15">index-model.ts:15</a></em></p>
+<p>• <strong>logger</strong>: <em>Logger</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-model.ts#L15">index-model.ts:15</a></em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="name"></a><a href="#name" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>name</h3>
 <p>• <strong>name</strong>: <em>string</em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-model.ts#L14">index-model.ts:14</a></em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-model.ts#L14">index-model.ts:14</a></em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="store"></a><a href="#store" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>store</h3>
-<p>• <strong>store</strong>: <em><a href="/teraslice/docs/packages/elasticsearch-store/api/classes/indexstore">IndexStore</a>‹</em><code>T</code><em>›</em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-model.ts#L13">index-model.ts:13</a></em></p>
+<p>• <strong>store</strong>: <em><a href="/teraslice/docs/packages/elasticsearch-store/api/classes/indexstore">IndexStore</a>‹T›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-model.ts#L13">index-model.ts:13</a></em></p>
+<h2><a class="anchor" aria-hidden="true" id="accessors-1"></a><a href="#accessors-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Accessors</h2>
+<h3><a class="anchor" aria-hidden="true" id="xlucenetypeconfig"></a><a href="#xlucenetypeconfig" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>xluceneTypeConfig</h3>
+<p>• <strong>get xluceneTypeConfig</strong>(): <em>undefined | TypeConfig</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-model.ts#L72">index-model.ts:72</a></em></p>
+<p><strong>Returns:</strong> <em>undefined | TypeConfig</em></p>
 <h2><a class="anchor" aria-hidden="true" id="methods-1"></a><a href="#methods-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Methods</h2>
 <h3><a class="anchor" aria-hidden="true" id="protected-_appendtoarray"></a><a href="#protected-_appendtoarray" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Protected</code> _appendToArray</h3>
-<p>▸ <strong>_appendToArray</strong>(<code>id</code>: string, <code>field</code>: keyof T, <code>values</code>: string[] | string): <em><code>Promise&lt;void&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-model.ts#L231">index-model.ts:231</a></em></p>
+<p>▸ <strong>_appendToArray</strong>(<code>id</code>: string, <code>field</code>: keyof T, <code>values</code>: string[] | string): <em>Promise‹void›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-model.ts#L256">index-model.ts:256</a></em></p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -88,42 +97,42 @@ for an elasticsearch DataType, with a CRUD-like interface</p>
 <tr><td><code>values</code></td><td>string[] \</td><td>string</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;void&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹void›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="protected-_createjoinquery"></a><a href="#protected-_createjoinquery" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Protected</code> _createJoinQuery</h3>
-<p>▸ <strong>_createJoinQuery</strong>(<code>fields</code>: <code>AnyInput&lt;T&gt;</code>, <code>joinBy</code>: <code>JoinBy</code>, <code>arrayJoinBy</code>: <code>JoinBy</code>): <em>string</em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-model.ts#L362">index-model.ts:362</a></em></p>
+<p>▸ <strong>_createJoinQuery</strong>(<code>fields</code>: AnyInput‹T›, <code>joinBy</code>: JoinBy, <code>arrayJoinBy</code>: JoinBy): <em>string</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-model.ts#L395">index-model.ts:395</a></em></p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
 <tr><th>Name</th><th>Type</th><th>Default</th></tr>
 </thead>
 <tbody>
-<tr><td><code>fields</code></td><td><code>AnyInput&lt;T&gt;</code></td><td>-</td></tr>
-<tr><td><code>joinBy</code></td><td><code>JoinBy</code></td><td>&quot;AND&quot;</td></tr>
-<tr><td><code>arrayJoinBy</code></td><td><code>JoinBy</code></td><td>&quot;OR&quot;</td></tr>
+<tr><td><code>fields</code></td><td>AnyInput‹T›</td><td>-</td></tr>
+<tr><td><code>joinBy</code></td><td>JoinBy</td><td>&quot;AND&quot;</td></tr>
+<tr><td><code>arrayJoinBy</code></td><td>JoinBy</td><td>&quot;OR&quot;</td></tr>
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>string</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="protected-_ensureunique"></a><a href="#protected-_ensureunique" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Protected</code> _ensureUnique</h3>
-<p>▸ <strong>_ensureUnique</strong>(<code>record</code>: <code>T</code>, <code>existing?</code>: <a href="">T</a>): <em><code>Promise&lt;void&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-model.ts#L302">index-model.ts:302</a></em></p>
+<p>▸ <strong>_ensureUnique</strong>(<code>record</code>: T, <code>existing?</code>: <a href="">T</a>): <em>Promise‹void›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-model.ts#L337">index-model.ts:337</a></em></p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>record</code></td><td><code>T</code></td></tr>
+<tr><td><code>record</code></td><td>T</td></tr>
 <tr><td><code>existing?</code></td><td><a href="">T</a></td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;void&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹void›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="protected-_find"></a><a href="#protected-_find" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Protected</code> _find</h3>
-<p>▸ <strong>_find</strong>(<code>q</code>: string, <code>options</code>: <code>i.FindOptions&lt;T&gt;</code>, <code>queryAccess?</code>: <code>QueryAccess&lt;T&gt;</code>): <em><code>Promise&lt;T[]&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-model.ts#L281">index-model.ts:281</a></em></p>
+<p>▸ <strong>_find</strong>(<code>q</code>: string, <code>options</code>: i.FindOptions‹T›, <code>queryAccess?</code>: QueryAccess‹T›): <em>Promise‹T[]›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-model.ts#L314">index-model.ts:314</a></em></p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -131,43 +140,43 @@ for an elasticsearch DataType, with a CRUD-like interface</p>
 </thead>
 <tbody>
 <tr><td><code>q</code></td><td>string</td><td>&quot;&quot;</td></tr>
-<tr><td><code>options</code></td><td><code>i.FindOptions&lt;T&gt;</code></td><td>{}</td></tr>
-<tr><td><code>queryAccess?</code></td><td><code>QueryAccess&lt;T&gt;</code></td><td>-</td></tr>
+<tr><td><code>options</code></td><td>i.FindOptions‹T›</td><td>{}</td></tr>
+<tr><td><code>queryAccess?</code></td><td>QueryAccess‹T›</td><td>-</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;T[]&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹T[]›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="protected-_postprocess"></a><a href="#protected-_postprocess" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Protected</code> _postProcess</h3>
-<p>▸ <strong>_postProcess</strong>(<code>record</code>: <code>T</code>): <em><code>T</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-model.ts#L354">index-model.ts:354</a></em></p>
+<p>▸ <strong>_postProcess</strong>(<code>record</code>: T): <em>T</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-model.ts#L387">index-model.ts:387</a></em></p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>record</code></td><td><code>T</code></td></tr>
+<tr><td><code>record</code></td><td>T</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>T</code></em></p>
+<p><strong>Returns:</strong> <em>T</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="protected-_preprocess"></a><a href="#protected-_preprocess" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Protected</code> _preProcess</h3>
-<p>▸ <strong>_preProcess</strong>(<code>record</code>: <code>T</code>): <em><code>T</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-model.ts#L358">index-model.ts:358</a></em></p>
+<p>▸ <strong>_preProcess</strong>(<code>record</code>: T): <em>T</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-model.ts#L391">index-model.ts:391</a></em></p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>record</code></td><td><code>T</code></td></tr>
+<tr><td><code>record</code></td><td>T</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>T</code></em></p>
+<p><strong>Returns:</strong> <em>T</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="protected-_removefromarray"></a><a href="#protected-_removefromarray" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Protected</code> _removeFromArray</h3>
-<p>▸ <strong>_removeFromArray</strong>(<code>id</code>: string, <code>field</code>: keyof T, <code>values</code>: string[] | string): <em><code>Promise&lt;void&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-model.ts#L252">index-model.ts:252</a></em></p>
+<p>▸ <strong>_removeFromArray</strong>(<code>id</code>: string, <code>field</code>: keyof T, <code>values</code>: string[] | string): <em>Promise‹void›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-model.ts#L281">index-model.ts:281</a></em></p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -179,25 +188,25 @@ for an elasticsearch DataType, with a CRUD-like interface</p>
 <tr><td><code>values</code></td><td>string[] \</td><td>string</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;void&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹void›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="protected-_sanitizerecord"></a><a href="#protected-_sanitizerecord" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Protected</code> _sanitizeRecord</h3>
-<p>▸ <strong>_sanitizeRecord</strong>(<code>record</code>: <code>T</code>): <em><code>T</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-model.ts#L330">index-model.ts:330</a></em></p>
+<p>▸ <strong>_sanitizeRecord</strong>(<code>record</code>: T): <em>T</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-model.ts#L363">index-model.ts:363</a></em></p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>record</code></td><td><code>T</code></td></tr>
+<tr><td><code>record</code></td><td>T</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>T</code></em></p>
+<p><strong>Returns:</strong> <em>T</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="protected-_updatewith"></a><a href="#protected-_updatewith" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><code>Protected</code> _updateWith</h3>
-<p>▸ <strong>_updateWith</strong>(<code>id</code>: string, <code>body</code>: any): <em><code>Promise&lt;void&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-model.ts#L227">index-model.ts:227</a></em></p>
+<p>▸ <strong>_updateWith</strong>(<code>id</code>: string, <code>body</code>: any): <em>Promise‹void›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-model.ts#L252">index-model.ts:252</a></em></p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -208,11 +217,11 @@ for an elasticsearch DataType, with a CRUD-like interface</p>
 <tr><td><code>body</code></td><td>any</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;void&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹void›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="count"></a><a href="#count" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>count</h3>
-<p>▸ <strong>count</strong>(<code>q</code>: string, <code>queryAccess?</code>: <code>QueryAccess&lt;T&gt;</code>): <em><code>Promise&lt;number&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-model.ts#L76">index-model.ts:76</a></em></p>
+<p>▸ <strong>count</strong>(<code>q</code>: string, <code>queryAccess?</code>: QueryAccess‹T›): <em>Promise‹number›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-model.ts#L84">index-model.ts:84</a></em></p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -220,44 +229,44 @@ for an elasticsearch DataType, with a CRUD-like interface</p>
 </thead>
 <tbody>
 <tr><td><code>q</code></td><td>string</td><td>&quot;&quot;</td></tr>
-<tr><td><code>queryAccess?</code></td><td><code>QueryAccess&lt;T&gt;</code></td><td>-</td></tr>
+<tr><td><code>queryAccess?</code></td><td>QueryAccess‹T›</td><td>-</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;number&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹number›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="countby"></a><a href="#countby" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>countBy</h3>
-<p>▸ <strong>countBy</strong>(<code>fields</code>: <code>AnyInput&lt;T&gt;</code>, <code>joinBy?</code>: <code>JoinBy</code>, <code>arrayJoinBy?</code>: <code>JoinBy</code>): <em><code>Promise&lt;number&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-model.ts#L81">index-model.ts:81</a></em></p>
+<p>▸ <strong>countBy</strong>(<code>fields</code>: AnyInput‹T›, <code>joinBy?</code>: JoinBy, <code>arrayJoinBy?</code>: JoinBy): <em>Promise‹number›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-model.ts#L89">index-model.ts:89</a></em></p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>fields</code></td><td><code>AnyInput&lt;T&gt;</code></td></tr>
-<tr><td><code>joinBy?</code></td><td><code>JoinBy</code></td></tr>
-<tr><td><code>arrayJoinBy?</code></td><td><code>JoinBy</code></td></tr>
+<tr><td><code>fields</code></td><td>AnyInput‹T›</td></tr>
+<tr><td><code>joinBy?</code></td><td>JoinBy</td></tr>
+<tr><td><code>arrayJoinBy?</code></td><td>JoinBy</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;number&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹number›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="create"></a><a href="#create" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>create</h3>
-<p>▸ <strong>create</strong>(<code>record</code>: <code>i.CreateRecordInput&lt;T&gt;</code>): <em><code>Promise&lt;T&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-model.ts#L85">index-model.ts:85</a></em></p>
+<p>▸ <strong>create</strong>(<code>record</code>: i.CreateRecordInput‹T›): <em>Promise‹T›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-model.ts#L93">index-model.ts:93</a></em></p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>record</code></td><td><code>i.CreateRecordInput&lt;T&gt;</code></td></tr>
+<tr><td><code>record</code></td><td>i.CreateRecordInput‹T›</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;T&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹T›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="deleteall"></a><a href="#deleteall" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>deleteAll</h3>
-<p>▸ <strong>deleteAll</strong>(<code>ids</code>: string[]): <em><code>Promise&lt;void&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-model.ts#L108">index-model.ts:108</a></em></p>
+<p>▸ <strong>deleteAll</strong>(<code>ids</code>: string[]): <em>Promise‹void›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-model.ts#L116">index-model.ts:116</a></em></p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -267,11 +276,11 @@ for an elasticsearch DataType, with a CRUD-like interface</p>
 <tr><td><code>ids</code></td><td>string[]</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;void&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹void›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="deletebyid"></a><a href="#deletebyid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>deleteById</h3>
-<p>▸ <strong>deleteById</strong>(<code>id</code>: string): <em><code>Promise&lt;void&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-model.ts#L104">index-model.ts:104</a></em></p>
+<p>▸ <strong>deleteById</strong>(<code>id</code>: string): <em>Promise‹void›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-model.ts#L112">index-model.ts:112</a></em></p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -281,11 +290,11 @@ for an elasticsearch DataType, with a CRUD-like interface</p>
 <tr><td><code>id</code></td><td>string</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;void&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹void›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="exists"></a><a href="#exists" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>exists</h3>
-<p>▸ <strong>exists</strong>(<code>id</code>: string[] | string): <em><code>Promise&lt;boolean&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-model.ts#L114">index-model.ts:114</a></em></p>
+<p>▸ <strong>exists</strong>(<code>id</code>: string[] | string): <em>Promise‹boolean›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-model.ts#L122">index-model.ts:122</a></em></p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -295,11 +304,11 @@ for an elasticsearch DataType, with a CRUD-like interface</p>
 <tr><td><code>id</code></td><td>string[] \</td><td>string</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;boolean&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹boolean›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="find"></a><a href="#find" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>find</h3>
-<p>▸ <strong>find</strong>(<code>q</code>: string, <code>options</code>: <code>i.FindOptions&lt;T&gt;</code>, <code>queryAccess?</code>: <code>QueryAccess&lt;T&gt;</code>): <em><code>Promise&lt;T[]&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-model.ts#L203">index-model.ts:203</a></em></p>
+<p>▸ <strong>find</strong>(<code>q</code>: string, <code>options</code>: i.FindOptions‹T›, <code>queryAccess?</code>: QueryAccess‹T›): <em>Promise‹T[]›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-model.ts#L228">index-model.ts:228</a></em></p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -307,15 +316,15 @@ for an elasticsearch DataType, with a CRUD-like interface</p>
 </thead>
 <tbody>
 <tr><td><code>q</code></td><td>string</td><td>&quot;&quot;</td></tr>
-<tr><td><code>options</code></td><td><code>i.FindOptions&lt;T&gt;</code></td><td>{}</td></tr>
-<tr><td><code>queryAccess?</code></td><td><code>QueryAccess&lt;T&gt;</code></td><td>-</td></tr>
+<tr><td><code>options</code></td><td>i.FindOptions‹T›</td><td>{}</td></tr>
+<tr><td><code>queryAccess?</code></td><td>QueryAccess‹T›</td><td>-</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;T[]&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹T[]›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="findall"></a><a href="#findall" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>findAll</h3>
-<p>▸ <strong>findAll</strong>(<code>input</code>: string[] | string | undefined, <code>options?</code>: <code>i.FindOneOptions&lt;T&gt;</code>, <code>queryAccess?</code>: <code>QueryAccess&lt;T&gt;</code>): <em><code>Promise&lt;T[]&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-model.ts#L176">index-model.ts:176</a></em></p>
+<p>▸ <strong>findAll</strong>(<code>input</code>: string[] | string | undefined, <code>options?</code>: i.FindOneOptions‹T›, <code>queryAccess?</code>: QueryAccess‹T›): <em>Promise‹T[]›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-model.ts#L197">index-model.ts:197</a></em></p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -323,48 +332,48 @@ for an elasticsearch DataType, with a CRUD-like interface</p>
 </thead>
 <tbody>
 <tr><td><code>input</code></td><td>string[] \</td><td>string \</td><td>undefined</td></tr>
-<tr><td><code>options?</code></td><td><code>i.FindOneOptions&lt;T&gt;</code></td></tr>
-<tr><td><code>queryAccess?</code></td><td><code>QueryAccess&lt;T&gt;</code></td></tr>
+<tr><td><code>options?</code></td><td>i.FindOneOptions‹T›</td></tr>
+<tr><td><code>queryAccess?</code></td><td>QueryAccess‹T›</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;T[]&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹T[]›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="findandapply"></a><a href="#findandapply" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>findAndApply</h3>
-<p>▸ <strong>findAndApply</strong>(<code>updates</code>: <code>Partial&lt;T&gt;</code> | undefined, <code>options?</code>: <code>i.FindOneOptions&lt;T&gt;</code>, <code>queryAccess?</code>: <code>QueryAccess&lt;T&gt;</code>): <em><code>Promise&lt;Partial&lt;T&gt;&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-model.ts#L162">index-model.ts:162</a></em></p>
+<p>▸ <strong>findAndApply</strong>(<code>updates</code>: Partial‹T› | undefined, <code>options?</code>: i.FindOneOptions‹T›, <code>queryAccess?</code>: QueryAccess‹T›): <em>Promise‹Partial‹T››</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-model.ts#L179">index-model.ts:179</a></em></p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>updates</code></td><td><code>Partial&lt;T&gt;</code> \</td><td>undefined</td></tr>
-<tr><td><code>options?</code></td><td><code>i.FindOneOptions&lt;T&gt;</code></td></tr>
-<tr><td><code>queryAccess?</code></td><td><code>QueryAccess&lt;T&gt;</code></td></tr>
+<tr><td><code>updates</code></td><td>Partial‹T› \</td><td>undefined</td></tr>
+<tr><td><code>options?</code></td><td>i.FindOneOptions‹T›</td></tr>
+<tr><td><code>queryAccess?</code></td><td>QueryAccess‹T›</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;Partial&lt;T&gt;&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹Partial‹T››</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="findby"></a><a href="#findby" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>findBy</h3>
-<p>▸ <strong>findBy</strong>(<code>fields</code>: <code>AnyInput&lt;T&gt;</code>, <code>joinBy?</code>: <code>JoinBy</code>, <code>options?</code>: <code>i.FindOneOptions&lt;T&gt;</code>, <code>queryAccess?</code>: <code>QueryAccess&lt;T&gt;</code>): <em><code>Promise&lt;T&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-model.ts#L125">index-model.ts:125</a></em></p>
+<p>▸ <strong>findBy</strong>(<code>fields</code>: AnyInput‹T›, <code>joinBy?</code>: JoinBy, <code>options?</code>: i.FindOneOptions‹T›, <code>queryAccess?</code>: QueryAccess‹T›): <em>Promise‹T›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-model.ts#L133">index-model.ts:133</a></em></p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>fields</code></td><td><code>AnyInput&lt;T&gt;</code></td></tr>
-<tr><td><code>joinBy?</code></td><td><code>JoinBy</code></td></tr>
-<tr><td><code>options?</code></td><td><code>i.FindOneOptions&lt;T&gt;</code></td></tr>
-<tr><td><code>queryAccess?</code></td><td><code>QueryAccess&lt;T&gt;</code></td></tr>
+<tr><td><code>fields</code></td><td>AnyInput‹T›</td></tr>
+<tr><td><code>joinBy?</code></td><td>JoinBy</td></tr>
+<tr><td><code>options?</code></td><td>i.FindOneOptions‹T›</td></tr>
+<tr><td><code>queryAccess?</code></td><td>QueryAccess‹T›</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;T&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹T›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="findbyanyid"></a><a href="#findbyanyid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>findByAnyId</h3>
-<p>▸ <strong>findByAnyId</strong>(<code>anyId</code>: any, <code>options?</code>: <code>i.FindOneOptions&lt;T&gt;</code>, <code>queryAccess?</code>: <code>QueryAccess&lt;T&gt;</code>): <em><code>Promise&lt;T&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-model.ts#L152">index-model.ts:152</a></em></p>
+<p>▸ <strong>findByAnyId</strong>(<code>anyId</code>: any, <code>options?</code>: i.FindOneOptions‹T›, <code>queryAccess?</code>: QueryAccess‹T›): <em>Promise‹T›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-model.ts#L169">index-model.ts:169</a></em></p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -372,15 +381,15 @@ for an elasticsearch DataType, with a CRUD-like interface</p>
 </thead>
 <tbody>
 <tr><td><code>anyId</code></td><td>any</td></tr>
-<tr><td><code>options?</code></td><td><code>i.FindOneOptions&lt;T&gt;</code></td></tr>
-<tr><td><code>queryAccess?</code></td><td><code>QueryAccess&lt;T&gt;</code></td></tr>
+<tr><td><code>options?</code></td><td>i.FindOneOptions‹T›</td></tr>
+<tr><td><code>queryAccess?</code></td><td>QueryAccess‹T›</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;T&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹T›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="findbyid"></a><a href="#findbyid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>findById</h3>
-<p>▸ <strong>findById</strong>(<code>id</code>: string, <code>options?</code>: <code>i.FindOneOptions&lt;T&gt;</code>, <code>queryAccess?</code>: <code>QueryAccess&lt;T&gt;</code>): <em><code>Promise&lt;T&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-model.ts#L147">index-model.ts:147</a></em></p>
+<p>▸ <strong>findById</strong>(<code>id</code>: string, <code>options?</code>: i.FindOneOptions‹T›, <code>queryAccess?</code>: QueryAccess‹T›): <em>Promise‹T›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-model.ts#L160">index-model.ts:160</a></em></p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -388,36 +397,36 @@ for an elasticsearch DataType, with a CRUD-like interface</p>
 </thead>
 <tbody>
 <tr><td><code>id</code></td><td>string</td></tr>
-<tr><td><code>options?</code></td><td><code>i.FindOneOptions&lt;T&gt;</code></td></tr>
-<tr><td><code>queryAccess?</code></td><td><code>QueryAccess&lt;T&gt;</code></td></tr>
+<tr><td><code>options?</code></td><td>i.FindOneOptions‹T›</td></tr>
+<tr><td><code>queryAccess?</code></td><td>QueryAccess‹T›</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;T&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹T›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="initialize"></a><a href="#initialize" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>initialize</h3>
-<p>▸ <strong>initialize</strong>(): <em><code>Promise&lt;void&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-model.ts#L68">index-model.ts:68</a></em></p>
-<p><strong>Returns:</strong> <em><code>Promise&lt;void&gt;</code></em></p>
+<p>▸ <strong>initialize</strong>(): <em>Promise‹void›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-model.ts#L76">index-model.ts:76</a></em></p>
+<p><strong>Returns:</strong> <em>Promise‹void›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="shutdown"></a><a href="#shutdown" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>shutdown</h3>
-<p>▸ <strong>shutdown</strong>(): <em><code>Promise&lt;void&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-model.ts#L72">index-model.ts:72</a></em></p>
-<p><strong>Returns:</strong> <em><code>Promise&lt;void&gt;</code></em></p>
+<p>▸ <strong>shutdown</strong>(): <em>Promise‹void›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-model.ts#L80">index-model.ts:80</a></em></p>
+<p><strong>Returns:</strong> <em>Promise‹void›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="update"></a><a href="#update" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>update</h3>
-<p>▸ <strong>update</strong>(<code>record</code>: <code>i.UpdateRecordInput&lt;T&gt;</code>): <em><code>Promise&lt;void&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-model.ts#L207">index-model.ts:207</a></em></p>
+<p>▸ <strong>update</strong>(<code>record</code>: i.UpdateRecordInput‹T›): <em>Promise‹void›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-model.ts#L232">index-model.ts:232</a></em></p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>record</code></td><td><code>i.UpdateRecordInput&lt;T&gt;</code></td></tr>
+<tr><td><code>record</code></td><td>i.UpdateRecordInput‹T›</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;void&gt;</code></em></p>
-</span></div></article></div><div class="docLastUpdate"><em>Last updated on 8/7/2019</em></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#type-parameters">Type parameters</a></li><li><a href="#hierarchy">Hierarchy</a></li><li><a href="#index">Index</a><ul class="toc-headings"><li><a href="#constructors">Constructors</a></li><li><a href="#properties">Properties</a></li><li><a href="#methods">Methods</a></li></ul></li><li><a href="#constructors-1">Constructors</a><ul class="toc-headings"><li><a href="#constructor">constructor</a></li></ul></li><li><a href="#properties-1">Properties</a><ul class="toc-headings"><li><a href="#logger">logger</a></li><li><a href="#name">name</a></li><li><a href="#store">store</a></li></ul></li><li><a href="#methods-1">Methods</a><ul class="toc-headings"><li><a href="#protected-_appendtoarray"><code>Protected</code> _appendToArray</a></li><li><a href="#protected-_createjoinquery"><code>Protected</code> _createJoinQuery</a></li><li><a href="#protected-_ensureunique"><code>Protected</code> _ensureUnique</a></li><li><a href="#protected-_find"><code>Protected</code> _find</a></li><li><a href="#protected-_postprocess"><code>Protected</code> _postProcess</a></li><li><a href="#protected-_preprocess"><code>Protected</code> _preProcess</a></li><li><a href="#protected-_removefromarray"><code>Protected</code> _removeFromArray</a></li><li><a href="#protected-_sanitizerecord"><code>Protected</code> _sanitizeRecord</a></li><li><a href="#protected-_updatewith"><code>Protected</code> _updateWith</a></li><li><a href="#count">count</a></li><li><a href="#countby">countBy</a></li><li><a href="#create">create</a></li><li><a href="#deleteall">deleteAll</a></li><li><a href="#deletebyid">deleteById</a></li><li><a href="#exists">exists</a></li><li><a href="#find">find</a></li><li><a href="#findall">findAll</a></li><li><a href="#findandapply">findAndApply</a></li><li><a href="#findby">findBy</a></li><li><a href="#findbyanyid">findByAnyId</a></li><li><a href="#findbyid">findById</a></li><li><a href="#initialize">initialize</a></li><li><a href="#shutdown">shutdown</a></li><li><a href="#update">update</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/apis.html">API Reference</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+<p><strong>Returns:</strong> <em>Promise‹void›</em></p>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 8/28/2019</em></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#type-parameters">Type parameters</a></li><li><a href="#hierarchy">Hierarchy</a></li><li><a href="#index">Index</a><ul class="toc-headings"><li><a href="#constructors">Constructors</a></li><li><a href="#properties">Properties</a></li><li><a href="#accessors">Accessors</a></li><li><a href="#methods">Methods</a></li></ul></li><li><a href="#constructors-1">Constructors</a><ul class="toc-headings"><li><a href="#constructor">constructor</a></li></ul></li><li><a href="#properties-1">Properties</a><ul class="toc-headings"><li><a href="#logger">logger</a></li><li><a href="#name">name</a></li><li><a href="#store">store</a></li></ul></li><li><a href="#accessors-1">Accessors</a><ul class="toc-headings"><li><a href="#xlucenetypeconfig">xluceneTypeConfig</a></li></ul></li><li><a href="#methods-1">Methods</a><ul class="toc-headings"><li><a href="#protected-_appendtoarray"><code>Protected</code> _appendToArray</a></li><li><a href="#protected-_createjoinquery"><code>Protected</code> _createJoinQuery</a></li><li><a href="#protected-_ensureunique"><code>Protected</code> _ensureUnique</a></li><li><a href="#protected-_find"><code>Protected</code> _find</a></li><li><a href="#protected-_postprocess"><code>Protected</code> _postProcess</a></li><li><a href="#protected-_preprocess"><code>Protected</code> _preProcess</a></li><li><a href="#protected-_removefromarray"><code>Protected</code> _removeFromArray</a></li><li><a href="#protected-_sanitizerecord"><code>Protected</code> _sanitizeRecord</a></li><li><a href="#protected-_updatewith"><code>Protected</code> _updateWith</a></li><li><a href="#count">count</a></li><li><a href="#countby">countBy</a></li><li><a href="#create">create</a></li><li><a href="#deleteall">deleteAll</a></li><li><a href="#deletebyid">deleteById</a></li><li><a href="#exists">exists</a></li><li><a href="#find">find</a></li><li><a href="#findall">findAll</a></li><li><a href="#findandapply">findAndApply</a></li><li><a href="#findby">findBy</a></li><li><a href="#findbyanyid">findByAnyId</a></li><li><a href="#findbyid">findById</a></li><li><a href="#initialize">initialize</a></li><li><a href="#shutdown">shutdown</a></li><li><a href="#update">update</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/apis.html">API Reference</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
@@ -435,4 +444,4 @@ for an elasticsearch DataType, with a CRUD-like interface</p>
                 indexName: 'terascope_teraslice',
                 inputSelector: '#search_input_react'
               });
-            </script></body></html>
+            </script><script src="http://localhost:undefined/livereload.js"></script></body></html>

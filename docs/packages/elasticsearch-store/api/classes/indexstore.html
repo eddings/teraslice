@@ -1,8 +1,8 @@
 <!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Elasticsearch Store: `IndexStore` · Teraslice</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# Class: IndexStore &lt;**T, I**&gt;"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Elasticsearch Store: `IndexStore` · Teraslice"/><meta property="og:type" content="website"/><meta property="og:url" content="https://terascope.github.io/teraslice/"/><meta property="og:description" content="# Class: IndexStore &lt;**T, I**&gt;"/><meta property="og:image" content="https://terascope.github.io/teraslice/img/docusaurus.png"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://terascope.github.io/teraslice/img/docusaurus.png"/><link rel="shortcut icon" href="/teraslice/img/favicon.png"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css"/><link rel="stylesheet" href="/teraslice/css/copy-code-block.css"/><link rel="stylesheet" href="/teraslice/css/custom.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.0/clipboard.min.js"></script><script type="text/javascript" src="/teraslice/js/copy-code-block.js"></script><script src="/teraslice/js/scrollSpy.js"></script><link rel="stylesheet" href="/teraslice/css/main.css"/><script src="/teraslice/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/teraslice/"><img class="logo" src="/teraslice/img/logo.png" alt="Teraslice"/><h2 class="headerTitleWithLogo">Teraslice</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/teraslice/docs/overview" target="_self">Docs</a></li><li class=""><a href="/teraslice/docs/asset-bundles" target="_self">Assets</a></li><li class=""><a href="/teraslice/docs/packages" target="_self">Packages</a></li><li class=""><a href="https://github.com/terascope/teraslice" target="_self">GitHub</a></li><li class=""><a href="/teraslice/help" target="_self">Help</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Elasticsearch Store: `IndexStore`</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="class-indexstore-t-i"></a><a href="#class-indexstore-t-i" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Class: IndexStore &lt;<strong>T, I</strong>&gt;</h1>
 <p><strong><code>todo</code></strong> add the ability to enable/disable refresh by default</p>
 <h2><a class="anchor" aria-hidden="true" id="type-parameters"></a><a href="#type-parameters" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Type parameters</h2>
-<p>▪ <strong>T</strong>: <em><code>Object</code></em></p>
-<p>▪ <strong>I</strong>: <em><code>Partial&lt;T&gt;</code></em></p>
+<p>▪ <strong>T</strong>: <em>Record‹string, any›</em></p>
+<p>▪ <strong>I</strong>: <em>Partial‹T›</em></p>
 <h2><a class="anchor" aria-hidden="true" id="hierarchy"></a><a href="#hierarchy" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Hierarchy</h2>
 <ul>
 <li><strong>IndexStore</strong></li>
@@ -20,6 +20,7 @@
 <li><a href="/teraslice/docs/packages/elasticsearch-store/api/classes/indexstore#manager">manager</a></li>
 <li><a href="/teraslice/docs/packages/elasticsearch-store/api/classes/indexstore#refreshbydefault">refreshByDefault</a></li>
 <li><a href="/teraslice/docs/packages/elasticsearch-store/api/classes/indexstore#validaterecord">validateRecord</a></li>
+<li><a href="/teraslice/docs/packages/elasticsearch-store/api/classes/indexstore#xlucenetypeconfig">xluceneTypeConfig</a></li>
 </ul>
 <h3><a class="anchor" aria-hidden="true" id="methods"></a><a href="#methods" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Methods</h3>
 <ul>
@@ -46,47 +47,51 @@
 </ul>
 <h2><a class="anchor" aria-hidden="true" id="constructors-1"></a><a href="#constructors-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Constructors</h2>
 <h3><a class="anchor" aria-hidden="true" id="constructor"></a><a href="#constructor" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>constructor</h3>
-<p>+ <strong>new IndexStore</strong>(<code>client</code>: <code>Client</code>, <code>config</code>: <a href="/teraslice/docs/packages/elasticsearch-store/api/interfaces/indexconfig">IndexConfig</a>‹<em><code>T</code></em>›): <em><a href="/teraslice/docs/packages/elasticsearch-store/api/classes/indexstore">IndexStore</a></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L29">index-store.ts:29</a></em></p>
+<p>+ <strong>new IndexStore</strong>(<code>client</code>: Client, <code>config</code>: <a href="/teraslice/docs/packages/elasticsearch-store/api/interfaces/indexconfig">IndexConfig</a>‹T›): <em><a href="/teraslice/docs/packages/elasticsearch-store/api/classes/indexstore">IndexStore</a></em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L29">index-store.ts:29</a></em></p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>client</code></td><td><code>Client</code></td></tr>
-<tr><td><code>config</code></td><td><a href="/teraslice/docs/packages/elasticsearch-store/api/interfaces/indexconfig">IndexConfig</a>‹<em><code>T</code></em>›</td></tr>
+<tr><td><code>client</code></td><td>Client</td></tr>
+<tr><td><code>config</code></td><td><a href="/teraslice/docs/packages/elasticsearch-store/api/interfaces/indexconfig">IndexConfig</a>‹T›</td></tr>
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em><a href="/teraslice/docs/packages/elasticsearch-store/api/classes/indexstore">IndexStore</a></em></p>
 <h2><a class="anchor" aria-hidden="true" id="properties-1"></a><a href="#properties-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Properties</h2>
 <h3><a class="anchor" aria-hidden="true" id="client"></a><a href="#client" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>client</h3>
-<p>• <strong>client</strong>: <em><code>Client</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L13">index-store.ts:13</a></em></p>
+<p>• <strong>client</strong>: <em>Client</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L13">index-store.ts:13</a></em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="config"></a><a href="#config" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>config</h3>
 <p>• <strong>config</strong>: <em><a href="/teraslice/docs/packages/elasticsearch-store/api/interfaces/indexconfig">IndexConfig</a></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L14">index-store.ts:14</a></em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L14">index-store.ts:14</a></em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="indexquery"></a><a href="#indexquery" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>indexQuery</h3>
 <p>• <strong>indexQuery</strong>: <em>string</em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L15">index-store.ts:15</a></em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L15">index-store.ts:15</a></em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="manager"></a><a href="#manager" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>manager</h3>
 <p>• <strong>manager</strong>: <em><a href="/teraslice/docs/packages/elasticsearch-store/api/classes/indexmanager">IndexManager</a></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L16">index-store.ts:16</a></em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L16">index-store.ts:16</a></em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="refreshbydefault"></a><a href="#refreshbydefault" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>refreshByDefault</h3>
 <p>• <strong>refreshByDefault</strong>: <em>boolean</em> = true</p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L17">index-store.ts:17</a></em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L17">index-store.ts:17</a></em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="validaterecord"></a><a href="#validaterecord" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>validateRecord</h3>
-<p>• <strong>validateRecord</strong>: <em><code>ValidateFn&lt;I | T&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L19">index-store.ts:19</a></em></p>
+<p>• <strong>validateRecord</strong>: <em>ValidateFn‹I | T›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L20">index-store.ts:20</a></em></p>
+<hr>
+<h3><a class="anchor" aria-hidden="true" id="xlucenetypeconfig"></a><a href="#xlucenetypeconfig" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>xluceneTypeConfig</h3>
+<p>• <strong>xluceneTypeConfig</strong>: <em>TypeConfig | undefined</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L18">index-store.ts:18</a></em></p>
 <h2><a class="anchor" aria-hidden="true" id="methods-1"></a><a href="#methods-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Methods</h2>
 <h3><a class="anchor" aria-hidden="true" id="_count"></a><a href="#_count" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>_count</h3>
-<p>▸ <strong>_count</strong>(<code>params</code>: <code>CountParams</code>): <em><code>Promise&lt;number&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L158">index-store.ts:158</a></em></p>
+<p>▸ <strong>_count</strong>(<code>params</code>: CountParams): <em>Promise‹number›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L163">index-store.ts:163</a></em></p>
 <p>Count records by a given Elasticsearch Query DSL</p>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -94,14 +99,14 @@
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>params</code></td><td><code>CountParams</code></td></tr>
+<tr><td><code>params</code></td><td>CountParams</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;number&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹number›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="_search"></a><a href="#_search" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>_search</h3>
-<p>▸ <strong>_search</strong>(<code>params</code>: <code>PartialParam&lt;SearchParams&lt;T&gt;&gt;</code>): <em><code>Promise&lt;T[]&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L336">index-store.ts:336</a></em></p>
+<p>▸ <strong>_search</strong>(<code>params</code>: PartialParam‹SearchParams‹T››): <em>Promise‹T[]›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L332">index-store.ts:332</a></em></p>
 <p>Search an Elasticsearch Query DSL</p>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -109,14 +114,14 @@
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>params</code></td><td><code>PartialParam&lt;SearchParams&lt;T&gt;&gt;</code></td></tr>
+<tr><td><code>params</code></td><td>PartialParam‹SearchParams‹T››</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;T[]&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹T[]›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="bulk"></a><a href="#bulk" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>bulk</h3>
-<p>▸ <strong>bulk</strong>(<code>action</code>: &quot;delete&quot;, <code>id?</code>: undefined | string): <em><code>Promise&lt;void&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L110">index-store.ts:110</a></em></p>
+<p>▸ <strong>bulk</strong>(<code>action</code>: &quot;delete&quot;, <code>id?</code>: undefined | string): <em>Promise‹void›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L115">index-store.ts:115</a></em></p>
 <p>Safely add a create, index, or update requests to the bulk queue</p>
 <p>This method will batch messages using the configured
 bulk max size and wait configuration.</p>
@@ -131,9 +136,9 @@ bulk max size and wait configuration.</p>
 <tr><td><code>id?</code></td><td>undefined \</td><td>string</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;void&gt;</code></em></p>
-<p>▸ <strong>bulk</strong>(<code>action</code>: &quot;index&quot; | &quot;create&quot;, <code>doc?</code>: <a href="">I</a>, <code>id?</code>: undefined | string): <em><code>Promise&lt;void&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L111">index-store.ts:111</a></em></p>
+<p><strong>Returns:</strong> <em>Promise‹void›</em></p>
+<p>▸ <strong>bulk</strong>(<code>action</code>: &quot;index&quot; | &quot;create&quot;, <code>doc?</code>: <a href="">I</a>, <code>id?</code>: undefined | string): <em>Promise‹void›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L116">index-store.ts:116</a></em></p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -145,9 +150,9 @@ bulk max size and wait configuration.</p>
 <tr><td><code>id?</code></td><td>undefined \</td><td>string</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;void&gt;</code></em></p>
-<p>▸ <strong>bulk</strong>(<code>action</code>: &quot;update&quot;, <code>doc?</code>: <code>Partial&lt;T&gt;</code>, <code>id?</code>: undefined | string): <em><code>Promise&lt;void&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L112">index-store.ts:112</a></em></p>
+<p><strong>Returns:</strong> <em>Promise‹void›</em></p>
+<p>▸ <strong>bulk</strong>(<code>action</code>: &quot;update&quot;, <code>doc?</code>: Partial‹T›, <code>id?</code>: undefined | string): <em>Promise‹void›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L117">index-store.ts:117</a></em></p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -155,15 +160,15 @@ bulk max size and wait configuration.</p>
 </thead>
 <tbody>
 <tr><td><code>action</code></td><td>&quot;update&quot;</td></tr>
-<tr><td><code>doc?</code></td><td><code>Partial&lt;T&gt;</code></td></tr>
+<tr><td><code>doc?</code></td><td>Partial‹T›</td></tr>
 <tr><td><code>id?</code></td><td>undefined \</td><td>string</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;void&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹void›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="count"></a><a href="#count" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>count</h3>
-<p>▸ <strong>count</strong>(<code>query</code>: string, <code>params?</code>: <code>PartialParam&lt;CountParams, &quot;q&quot; | &quot;body&quot;&gt;</code>): <em><code>Promise&lt;number&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L150">index-store.ts:150</a></em></p>
+<p>▸ <strong>count</strong>(<code>query</code>: string, <code>params?</code>: PartialParam‹CountParams, &quot;q&quot; | &quot;body&quot;›): <em>Promise‹number›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L156">index-store.ts:156</a></em></p>
 <p>Count records by a given Lucene Query</p>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -172,14 +177,14 @@ bulk max size and wait configuration.</p>
 </thead>
 <tbody>
 <tr><td><code>query</code></td><td>string</td></tr>
-<tr><td><code>params?</code></td><td>`PartialParam&lt;CountParams, &quot;q&quot; \</td><td>&quot;body&quot;&gt;`</td></tr>
+<tr><td><code>params?</code></td><td>PartialParam‹CountParams, &quot;q&quot; \</td><td>&quot;body&quot;›</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;number&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹number›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="create"></a><a href="#create" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>create</h3>
-<p>▸ <strong>create</strong>(<code>doc</code>: <code>T</code> | <code>I</code>, <code>params?</code>: <code>PartialParam&lt;CreateDocumentParams, &quot;body&quot;&gt;</code>): <em><code>Promise&lt;T&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L179">index-store.ts:179</a></em></p>
+<p>▸ <strong>create</strong>(<code>doc</code>: T | I, <code>params?</code>: PartialParam‹CreateDocumentParams, &quot;body&quot;›): <em>Promise‹T›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L184">index-store.ts:184</a></em></p>
 <p>Create a document but will throw if doc already exists</p>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -187,16 +192,16 @@ bulk max size and wait configuration.</p>
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>doc</code></td><td><code>T</code> \</td><td><code>I</code></td></tr>
-<tr><td><code>params?</code></td><td><code>PartialParam&lt;CreateDocumentParams, &quot;body&quot;&gt;</code></td></tr>
+<tr><td><code>doc</code></td><td>T \</td><td>I</td></tr>
+<tr><td><code>params?</code></td><td>PartialParam‹CreateDocumentParams, &quot;body&quot;›</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;T&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹T›</em></p>
 <p>a boolean to indicate whether the document was created</p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="createwithid"></a><a href="#createwithid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>createWithId</h3>
-<p>▸ <strong>createWithId</strong>(<code>doc</code>: <code>T</code> | <code>I</code>, <code>id</code>: string, <code>params?</code>: <code>PartialParam&lt;CreateDocumentParams, &quot;id&quot; | &quot;body&quot;&gt;</code>): <em><code>Promise&lt;T&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L170">index-store.ts:170</a></em></p>
+<p>▸ <strong>createWithId</strong>(<code>doc</code>: T | I, <code>id</code>: string, <code>params?</code>: PartialParam‹CreateDocumentParams, &quot;id&quot; | &quot;body&quot;›): <em>Promise‹T›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L175">index-store.ts:175</a></em></p>
 <p>Create a document with an id</p>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -204,17 +209,17 @@ bulk max size and wait configuration.</p>
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>doc</code></td><td><code>T</code> \</td><td><code>I</code></td></tr>
+<tr><td><code>doc</code></td><td>T \</td><td>I</td></tr>
 <tr><td><code>id</code></td><td>string</td></tr>
-<tr><td><code>params?</code></td><td>`PartialParam&lt;CreateDocumentParams, &quot;id&quot; \</td><td>&quot;body&quot;&gt;`</td></tr>
+<tr><td><code>params?</code></td><td>PartialParam‹CreateDocumentParams, &quot;id&quot; \</td><td>&quot;body&quot;›</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;T&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹T›</em></p>
 <p>a boolean to indicate whether the document was created</p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="flush"></a><a href="#flush" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>flush</h3>
-<p>▸ <strong>flush</strong>(<code>flushAll</code>: boolean): <em><code>Promise&lt;void&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L194">index-store.ts:194</a></em></p>
+<p>▸ <strong>flush</strong>(<code>flushAll</code>: boolean): <em>Promise‹void›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L199">index-store.ts:199</a></em></p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -224,11 +229,11 @@ bulk max size and wait configuration.</p>
 <tr><td><code>flushAll</code></td><td>boolean</td><td>false</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;void&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹void›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="get"></a><a href="#get" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>get</h3>
-<p>▸ <strong>get</strong>(<code>id</code>: string, <code>params?</code>: <code>PartialParam&lt;GetParams&gt;</code>): <em><code>Promise&lt;T&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L213">index-store.ts:213</a></em></p>
+<p>▸ <strong>get</strong>(<code>id</code>: string, <code>params?</code>: PartialParam‹GetParams›): <em>Promise‹T›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L216">index-store.ts:216</a></em></p>
 <p>Get a single document</p>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -237,14 +242,14 @@ bulk max size and wait configuration.</p>
 </thead>
 <tbody>
 <tr><td><code>id</code></td><td>string</td></tr>
-<tr><td><code>params?</code></td><td><code>PartialParam&lt;GetParams&gt;</code></td></tr>
+<tr><td><code>params?</code></td><td>PartialParam‹GetParams›</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;T&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹T›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="getdefaultparams"></a><a href="#getdefaultparams" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>getDefaultParams</h3>
 <p>▸ <strong>getDefaultParams</strong>(...<code>params</code>: any[]): <em>any</em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L420">index-store.ts:420</a></em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L420">index-store.ts:420</a></em></p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -257,8 +262,8 @@ bulk max size and wait configuration.</p>
 <p><strong>Returns:</strong> <em>any</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="index-1"></a><a href="#index-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>index</h3>
-<p>▸ <strong>index</strong>(<code>doc</code>: <code>T</code> | <code>I</code>, <code>params?</code>: <code>PartialParam&lt;IndexDocumentParams&lt;T&gt;, &quot;body&quot;&gt;</code>): <em><code>Promise&lt;T&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L240">index-store.ts:240</a></em></p>
+<p>▸ <strong>index</strong>(<code>doc</code>: T | I, <code>params?</code>: PartialParam‹IndexDocumentParams‹T›, &quot;body&quot;›): <em>Promise‹T›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L243">index-store.ts:243</a></em></p>
 <p>Index a document</p>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -266,15 +271,15 @@ bulk max size and wait configuration.</p>
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>doc</code></td><td><code>T</code> \</td><td><code>I</code></td></tr>
-<tr><td><code>params?</code></td><td><code>PartialParam&lt;IndexDocumentParams&lt;T&gt;, &quot;body&quot;&gt;</code></td></tr>
+<tr><td><code>doc</code></td><td>T \</td><td>I</td></tr>
+<tr><td><code>params?</code></td><td>PartialParam‹IndexDocumentParams‹T›, &quot;body&quot;›</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;T&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹T›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="indexwithid"></a><a href="#indexwithid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>indexWithId</h3>
-<p>▸ <strong>indexWithId</strong>(<code>doc</code>: <code>T</code> | <code>I</code>, <code>id</code>: string, <code>params?</code>: <code>PartialParam&lt;IndexDocumentParams&lt;T&gt;, &quot;index&quot; | &quot;type&quot; | &quot;id&quot;&gt;</code>): <em><code>Promise&lt;T&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L258">index-store.ts:258</a></em></p>
+<p>▸ <strong>indexWithId</strong>(<code>doc</code>: T | I, <code>id</code>: string, <code>params?</code>: PartialParam‹IndexDocumentParams‹T›, &quot;index&quot; | &quot;type&quot; | &quot;id&quot;›): <em>Promise‹T›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L259">index-store.ts:259</a></em></p>
 <p>A convenience method for indexing a document with an ID</p>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -282,22 +287,22 @@ bulk max size and wait configuration.</p>
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>doc</code></td><td><code>T</code> \</td><td><code>I</code></td></tr>
+<tr><td><code>doc</code></td><td>T \</td><td>I</td></tr>
 <tr><td><code>id</code></td><td>string</td></tr>
-<tr><td><code>params?</code></td><td>`PartialParam&lt;IndexDocumentParams<T>, &quot;index&quot; \</td><td>&quot;type&quot; \</td><td>&quot;id&quot;&gt;`</td></tr>
+<tr><td><code>params?</code></td><td>PartialParam‹IndexDocumentParams‹T›, &quot;index&quot; \</td><td>&quot;type&quot; \</td><td>&quot;id&quot;›</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;T&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹T›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="initialize"></a><a href="#initialize" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>initialize</h3>
-<p>▸ <strong>initialize</strong>(): <em><code>Promise&lt;void&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L225">index-store.ts:225</a></em></p>
+<p>▸ <strong>initialize</strong>(): <em>Promise‹void›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L228">index-store.ts:228</a></em></p>
 <p>Connect and validate the index configuration.</p>
-<p><strong>Returns:</strong> <em><code>Promise&lt;void&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹void›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="mget"></a><a href="#mget" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>mget</h3>
-<p>▸ <strong>mget</strong>(<code>body</code>: any, <code>params?</code>: <code>PartialParam&lt;MGetParams&gt;</code>): <em><code>Promise&lt;T[]&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L263">index-store.ts:263</a></em></p>
+<p>▸ <strong>mget</strong>(<code>body</code>: any, <code>params?</code>: PartialParam‹MGetParams›): <em>Promise‹T[]›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L264">index-store.ts:264</a></em></p>
 <p>Get multiple documents at the same time</p>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -306,14 +311,14 @@ bulk max size and wait configuration.</p>
 </thead>
 <tbody>
 <tr><td><code>body</code></td><td>any</td></tr>
-<tr><td><code>params?</code></td><td><code>PartialParam&lt;MGetParams&gt;</code></td></tr>
+<tr><td><code>params?</code></td><td>PartialParam‹MGetParams›</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;T[]&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹T[]›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="migrateindex"></a><a href="#migrateindex" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>migrateIndex</h3>
-<p>▸ <strong>migrateIndex</strong>(<code>options</code>: <code>i.MigrateIndexStoreOptions</code>): <em><code>Promise&lt;any&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L274">index-store.ts:274</a></em></p>
+<p>▸ <strong>migrateIndex</strong>(<code>options</code>: i.MigrateIndexStoreOptions): <em>Promise‹any›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L275">index-store.ts:275</a></em></p>
 <p><strong><code>see</code></strong> IndexManager#migrateIndex</p>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -321,14 +326,14 @@ bulk max size and wait configuration.</p>
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>options</code></td><td><code>i.MigrateIndexStoreOptions</code></td></tr>
+<tr><td><code>options</code></td><td>i.MigrateIndexStoreOptions</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;any&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹any›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="refresh"></a><a href="#refresh" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>refresh</h3>
-<p>▸ <strong>refresh</strong>(<code>params?</code>: <code>PartialParam&lt;IndicesRefreshParams&gt;</code>): <em><code>Promise&lt;void&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L281">index-store.ts:281</a></em></p>
+<p>▸ <strong>refresh</strong>(<code>params?</code>: PartialParam‹IndicesRefreshParams›): <em>Promise‹void›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L282">index-store.ts:282</a></em></p>
 <p>Refreshes the current index</p>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -336,14 +341,14 @@ bulk max size and wait configuration.</p>
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>params?</code></td><td><code>PartialParam&lt;IndicesRefreshParams&gt;</code></td></tr>
+<tr><td><code>params?</code></td><td>PartialParam‹IndicesRefreshParams›</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;void&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹void›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="remove"></a><a href="#remove" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>remove</h3>
-<p>▸ <strong>remove</strong>(<code>id</code>: string, <code>params?</code>: <code>PartialParam&lt;DeleteDocumentParams&gt;</code>): <em><code>Promise&lt;void&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L297">index-store.ts:297</a></em></p>
+<p>▸ <strong>remove</strong>(<code>id</code>: string, <code>params?</code>: PartialParam‹DeleteDocumentParams›): <em>Promise‹void›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L296">index-store.ts:296</a></em></p>
 <p>Deletes a document for a given id</p>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -352,14 +357,14 @@ bulk max size and wait configuration.</p>
 </thead>
 <tbody>
 <tr><td><code>id</code></td><td>string</td></tr>
-<tr><td><code>params?</code></td><td><code>PartialParam&lt;DeleteDocumentParams&gt;</code></td></tr>
+<tr><td><code>params?</code></td><td>PartialParam‹DeleteDocumentParams›</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;void&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹void›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="search"></a><a href="#search" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>search</h3>
-<p>▸ <strong>search</strong>(<code>query</code>: string, <code>params?</code>: <code>PartialParam&lt;SearchParams&lt;T&gt;&gt;</code>): <em><code>Promise&lt;T[]&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L329">index-store.ts:329</a></em></p>
+<p>▸ <strong>search</strong>(<code>query</code>: string, <code>params?</code>: PartialParam‹SearchParams‹T››): <em>Promise‹T[]›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L326">index-store.ts:326</a></em></p>
 <p>Search with a given Lucene Query</p>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -368,20 +373,20 @@ bulk max size and wait configuration.</p>
 </thead>
 <tbody>
 <tr><td><code>query</code></td><td>string</td></tr>
-<tr><td><code>params?</code></td><td><code>PartialParam&lt;SearchParams&lt;T&gt;&gt;</code></td></tr>
+<tr><td><code>params?</code></td><td>PartialParam‹SearchParams‹T››</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;T[]&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹T[]›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="shutdown"></a><a href="#shutdown" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>shutdown</h3>
-<p>▸ <strong>shutdown</strong>(): <em><code>Promise&lt;void&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L316">index-store.ts:316</a></em></p>
+<p>▸ <strong>shutdown</strong>(): <em>Promise‹void›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L313">index-store.ts:313</a></em></p>
 <p>Shutdown, flush any pending requests and cleanup</p>
-<p><strong>Returns:</strong> <em><code>Promise&lt;void&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹void›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="update"></a><a href="#update" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>update</h3>
-<p>▸ <strong>update</strong>(<code>body</code>: object, <code>id</code>: string, <code>params?</code>: <code>PartialParam&lt;UpdateDocumentParams, &quot;body&quot; | &quot;id&quot;&gt;</code>): <em><code>Promise&lt;void&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L384">index-store.ts:384</a></em></p>
+<p>▸ <strong>update</strong>(<code>body</code>: object, <code>id</code>: string, <code>params?</code>: PartialParam‹UpdateDocumentParams, &quot;body&quot; | &quot;id&quot;›): <em>Promise‹void›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L378">index-store.ts:378</a></em></p>
 <p>Update a document with a given id</p>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -391,12 +396,12 @@ bulk max size and wait configuration.</p>
 <tbody>
 <tr><td><code>body</code></td><td>object</td></tr>
 <tr><td><code>id</code></td><td>string</td></tr>
-<tr><td><code>params?</code></td><td>`PartialParam&lt;UpdateDocumentParams, &quot;body&quot; \</td><td>&quot;id&quot;&gt;`</td></tr>
+<tr><td><code>params?</code></td><td>PartialParam‹UpdateDocumentParams, &quot;body&quot; \</td><td>&quot;id&quot;›</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;void&gt;</code></em></p>
-<p>▸ <strong>update</strong>(<code>body</code>: object, <code>id</code>: string, <code>params?</code>: <code>PartialParam&lt;UpdateDocumentParams, &quot;body&quot; | &quot;id&quot;&gt;</code>): <em><code>Promise&lt;void&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L385">index-store.ts:385</a></em></p>
+<p><strong>Returns:</strong> <em>Promise‹void›</em></p>
+<p>▸ <strong>update</strong>(<code>body</code>: object, <code>id</code>: string, <code>params?</code>: PartialParam‹UpdateDocumentParams, &quot;body&quot; | &quot;id&quot;›): <em>Promise‹void›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L379">index-store.ts:379</a></em></p>
 <p><strong>Parameters:</strong></p>
 <table>
 <thead>
@@ -405,14 +410,14 @@ bulk max size and wait configuration.</p>
 <tbody>
 <tr><td><code>body</code></td><td>object</td></tr>
 <tr><td><code>id</code></td><td>string</td></tr>
-<tr><td><code>params?</code></td><td>`PartialParam&lt;UpdateDocumentParams, &quot;body&quot; \</td><td>&quot;id&quot;&gt;`</td></tr>
+<tr><td><code>params?</code></td><td>PartialParam‹UpdateDocumentParams, &quot;body&quot; \</td><td>&quot;id&quot;›</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;void&gt;</code></em></p>
+<p><strong>Returns:</strong> <em>Promise‹void›</em></p>
 <hr>
 <h3><a class="anchor" aria-hidden="true" id="updatepartial"></a><a href="#updatepartial" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>updatePartial</h3>
-<p>▸ <strong>updatePartial</strong>(<code>id</code>: string, <code>applyChanges</code>: <code>ApplyPartialUpdates&lt;T&gt;</code>, <code>retriesOnConlfict</code>: number): <em><code>Promise&lt;void&gt;</code></em></p>
-<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/8286347/packages/elasticsearch-store/src/index-store.ts#L403">index-store.ts:403</a></em></p>
+<p>▸ <strong>updatePartial</strong>(<code>id</code>: string, <code>applyChanges</code>: ApplyPartialUpdates‹T›, <code>retriesOnConlfict</code>: number): <em>Promise‹void›</em></p>
+<p><em>Defined in <a href="https://github.com/terascope/teraslice/blob/d2d877b60/packages/elasticsearch-store/src/index-store.ts#L395">index-store.ts:395</a></em></p>
 <p>Safely apply updates to a document by applying the latest changes</p>
 <p><strong>Parameters:</strong></p>
 <table>
@@ -421,12 +426,12 @@ bulk max size and wait configuration.</p>
 </thead>
 <tbody>
 <tr><td><code>id</code></td><td>string</td><td>-</td></tr>
-<tr><td><code>applyChanges</code></td><td><code>ApplyPartialUpdates&lt;T&gt;</code></td><td>-</td></tr>
+<tr><td><code>applyChanges</code></td><td>ApplyPartialUpdates‹T›</td><td>-</td></tr>
 <tr><td><code>retriesOnConlfict</code></td><td>number</td><td>3</td></tr>
 </tbody>
 </table>
-<p><strong>Returns:</strong> <em><code>Promise&lt;void&gt;</code></em></p>
-</span></div></article></div><div class="docLastUpdate"><em>Last updated on 8/7/2019</em></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#type-parameters">Type parameters</a></li><li><a href="#hierarchy">Hierarchy</a></li><li><a href="#index">Index</a><ul class="toc-headings"><li><a href="#constructors">Constructors</a></li><li><a href="#properties">Properties</a></li><li><a href="#methods">Methods</a></li></ul></li><li><a href="#constructors-1">Constructors</a><ul class="toc-headings"><li><a href="#constructor">constructor</a></li></ul></li><li><a href="#properties-1">Properties</a><ul class="toc-headings"><li><a href="#client">client</a></li><li><a href="#config">config</a></li><li><a href="#indexquery">indexQuery</a></li><li><a href="#manager">manager</a></li><li><a href="#refreshbydefault">refreshByDefault</a></li><li><a href="#validaterecord">validateRecord</a></li></ul></li><li><a href="#methods-1">Methods</a><ul class="toc-headings"><li><a href="#_count">_count</a></li><li><a href="#_search">_search</a></li><li><a href="#bulk">bulk</a></li><li><a href="#count">count</a></li><li><a href="#create">create</a></li><li><a href="#createwithid">createWithId</a></li><li><a href="#flush">flush</a></li><li><a href="#get">get</a></li><li><a href="#getdefaultparams">getDefaultParams</a></li><li><a href="#index-1">index</a></li><li><a href="#indexwithid">indexWithId</a></li><li><a href="#initialize">initialize</a></li><li><a href="#mget">mget</a></li><li><a href="#migrateindex">migrateIndex</a></li><li><a href="#refresh">refresh</a></li><li><a href="#remove">remove</a></li><li><a href="#search">search</a></li><li><a href="#shutdown">shutdown</a></li><li><a href="#update">update</a></li><li><a href="#updatepartial">updatePartial</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/apis.html">API Reference</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+<p><strong>Returns:</strong> <em>Promise‹void›</em></p>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 8/28/2019</em></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#type-parameters">Type parameters</a></li><li><a href="#hierarchy">Hierarchy</a></li><li><a href="#index">Index</a><ul class="toc-headings"><li><a href="#constructors">Constructors</a></li><li><a href="#properties">Properties</a></li><li><a href="#methods">Methods</a></li></ul></li><li><a href="#constructors-1">Constructors</a><ul class="toc-headings"><li><a href="#constructor">constructor</a></li></ul></li><li><a href="#properties-1">Properties</a><ul class="toc-headings"><li><a href="#client">client</a></li><li><a href="#config">config</a></li><li><a href="#indexquery">indexQuery</a></li><li><a href="#manager">manager</a></li><li><a href="#refreshbydefault">refreshByDefault</a></li><li><a href="#validaterecord">validateRecord</a></li><li><a href="#xlucenetypeconfig">xluceneTypeConfig</a></li></ul></li><li><a href="#methods-1">Methods</a><ul class="toc-headings"><li><a href="#_count">_count</a></li><li><a href="#_search">_search</a></li><li><a href="#bulk">bulk</a></li><li><a href="#count">count</a></li><li><a href="#create">create</a></li><li><a href="#createwithid">createWithId</a></li><li><a href="#flush">flush</a></li><li><a href="#get">get</a></li><li><a href="#getdefaultparams">getDefaultParams</a></li><li><a href="#index-1">index</a></li><li><a href="#indexwithid">indexWithId</a></li><li><a href="#initialize">initialize</a></li><li><a href="#mget">mget</a></li><li><a href="#migrateindex">migrateIndex</a></li><li><a href="#refresh">refresh</a></li><li><a href="#remove">remove</a></li><li><a href="#search">search</a></li><li><a href="#shutdown">shutdown</a></li><li><a href="#update">update</a></li><li><a href="#updatepartial">updatePartial</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/apis.html">API Reference</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
@@ -444,4 +449,4 @@ bulk max size and wait configuration.</p>
                 indexName: 'terascope_teraslice',
                 inputSelector: '#search_input_react'
               });
-            </script></body></html>
+            </script><script src="http://localhost:undefined/livereload.js"></script></body></html>
