@@ -6,7 +6,8 @@ import { ensureBuffer, isBuffer } from '../buffers';
 import { parseJSON } from '../json';
 import * as i from './interfaces';
 import * as utils from './utils';
-import { locked } from '../decorators';
+import { locked } from '../misc';
+import * as e from './entity';
 
 /**
  * Acts as a thin wrapper around a data object to expose additional metadata
@@ -19,7 +20,7 @@ import { locked } from '../decorators';
 export class DataEntity<
     T = Record<string, any>,
     M = {}
-> {
+> implements e.Entity<T, M> {
     /**
      * A utility for safely converting an object a `DataEntity`.
      * If the input is a DataEntity it will return it and have no side-effect.
@@ -130,6 +131,13 @@ export class DataEntity<
     }
 
     /**
+     * Verify that an input is the `DataEntity`
+     */
+    static is(input: any): boolean {
+        return DataEntity.isDataEntity(input);
+    }
+
+    /**
      * Verify that an input is an Array of DataEntities,
      */
     static isDataEntityArray<T = Record<string, any>, M = {}>(
@@ -142,22 +150,10 @@ export class DataEntity<
     }
 
     /**
-     * Safely get the metadata from a `DataEntity`.
-     * If the input is object it will get the property from the object
-     *
-     * **DEPRECATED:** Since this isn't recommended to be used, and will
-     * be removed in future releases.
-     *
-     * @deprecated
+     * Verify that an input is the `DataEntity`
      */
-    static getMetadata(input: any, field?: any) {
-        if (input == null) return null;
-
-        if (DataEntity.isDataEntity(input)) {
-            return field ? input.getMetadata(field) : input.getMetadata();
-        }
-
-        return field ? input[field as string] : undefined;
+    static isArray(input: any): boolean {
+        return DataEntity.isDataEntityArray(input);
     }
 
     static [Symbol.hasInstance](instance: any): boolean {
@@ -169,7 +165,7 @@ export class DataEntity<
         return utils.isDataEntity(instance);
     }
 
-    private readonly [i.__ENTITY_METADATA_KEY]: {
+    private readonly [e.__ENTITY_METADATA_KEY]: {
         metadata: i._DataEntityMetadata<M>;
         rawData: Buffer|null;
     };
@@ -180,8 +176,7 @@ export class DataEntity<
             throw new Error(`Invalid data source, must be an object, got "${getTypeOf(data)}"`);
         }
 
-        utils.defineEntityProperties(this);
-        this[i.__ENTITY_METADATA_KEY].metadata = utils.makeMetadata(metadata);
+        utils.defineEntityProperties(this, metadata);
 
         if (data) {
             Object.assign(this, data);
@@ -198,9 +193,9 @@ export class DataEntity<
     @locked()
     getMetadata<K extends i.DataEntityMetadataValue<M>>(key?: K): i.EntityMetadataValue<M, K>|i._DataEntityMetadata<M> {
         if (key) {
-            return this[i.__ENTITY_METADATA_KEY].metadata[key];
+            return this[e.__ENTITY_METADATA_KEY].metadata[key];
         }
-        return this[i.__ENTITY_METADATA_KEY].metadata;
+        return this[e.__ENTITY_METADATA_KEY].metadata;
     }
 
     /**
@@ -217,7 +212,7 @@ export class DataEntity<
         if (field === '_createTime') {
             throw new Error(`Cannot set readonly metadata property ${field}`);
         }
-        this[i.__ENTITY_METADATA_KEY].metadata[field] = value as any;
+        this[e.__ENTITY_METADATA_KEY].metadata[field] = value as any;
     }
 
     /**
@@ -226,7 +221,7 @@ export class DataEntity<
     */
     @locked()
     getKey(): string|number {
-        const key = this[i.__ENTITY_METADATA_KEY].metadata._key;
+        const key = this[e.__ENTITY_METADATA_KEY].metadata._key;
         if (!utils.isValidKey(key)) {
             throw new Error('No key has been set in the metadata');
         }
@@ -242,7 +237,7 @@ export class DataEntity<
         if (!utils.isValidKey(key)) {
             throw new Error('Invalid key to set in metadata');
         }
-        this[i.__ENTITY_METADATA_KEY].metadata._key = key;
+        this[e.__ENTITY_METADATA_KEY].metadata._key = key;
     }
 
     /**
@@ -250,7 +245,7 @@ export class DataEntity<
     */
     @locked()
     getCreateTime(): Date {
-        const val = this[i.__ENTITY_METADATA_KEY].metadata._createTime;
+        const val = this[e.__ENTITY_METADATA_KEY].metadata._createTime;
         const date = getValidDate(val);
         if (date === false) {
             throw new Error('Missing _createTime');
@@ -266,7 +261,7 @@ export class DataEntity<
     */
     @locked()
     getIngestTime(): Date|false|undefined {
-        const val = this[i.__ENTITY_METADATA_KEY].metadata._ingestTime;
+        const val = this[e.__ENTITY_METADATA_KEY].metadata._ingestTime;
         if (val == null) return undefined;
         return getValidDate(val);
     }
@@ -283,7 +278,7 @@ export class DataEntity<
         if (unixTime === false) {
             throw new Error(`Invalid date format, got ${getTypeOf(val)}`);
         }
-        this[i.__ENTITY_METADATA_KEY].metadata._ingestTime = unixTime;
+        this[e.__ENTITY_METADATA_KEY].metadata._ingestTime = unixTime;
     }
 
     /**
@@ -294,7 +289,7 @@ export class DataEntity<
     */
     @locked()
     getProcessTime(): Date|false|undefined {
-        const val = this[i.__ENTITY_METADATA_KEY].metadata._ingestTime;
+        const val = this[e.__ENTITY_METADATA_KEY].metadata._ingestTime;
         if (val == null) return undefined;
         return getValidDate(val);
     }
@@ -311,7 +306,7 @@ export class DataEntity<
         if (unixTime === false) {
             throw new Error(`Invalid date format, got ${getTypeOf(val)}`);
         }
-        this[i.__ENTITY_METADATA_KEY].metadata._ingestTime = unixTime;
+        this[e.__ENTITY_METADATA_KEY].metadata._ingestTime = unixTime;
     }
 
     /**
@@ -322,7 +317,7 @@ export class DataEntity<
     */
     @locked()
     getEventTime(): Date|false|undefined {
-        const val = this[i.__ENTITY_METADATA_KEY].metadata._ingestTime;
+        const val = this[e.__ENTITY_METADATA_KEY].metadata._ingestTime;
         if (val == null) return undefined;
         return getValidDate(val);
     }
@@ -339,7 +334,7 @@ export class DataEntity<
         if (unixTime === false) {
             throw new Error(`Invalid date format, got ${getTypeOf(val)}`);
         }
-        this[i.__ENTITY_METADATA_KEY].metadata._ingestTime = unixTime;
+        this[e.__ENTITY_METADATA_KEY].metadata._ingestTime = unixTime;
     }
 
     /**
@@ -348,7 +343,7 @@ export class DataEntity<
     */
     @locked()
     getRawData(): Buffer {
-        const buf = this[i.__ENTITY_METADATA_KEY].rawData;
+        const buf = this[e.__ENTITY_METADATA_KEY].rawData;
         if (isBuffer(buf)) return buf;
         throw new Error('No data has been set');
     }
@@ -360,10 +355,10 @@ export class DataEntity<
     @locked()
     setRawData(buf: Buffer|string|null): void {
         if (buf === null) {
-            this[i.__ENTITY_METADATA_KEY].rawData = null;
+            this[e.__ENTITY_METADATA_KEY].rawData = null;
             return;
         }
-        this[i.__ENTITY_METADATA_KEY].rawData = ensureBuffer(buf, 'utf8');
+        this[e.__ENTITY_METADATA_KEY].rawData = ensureBuffer(buf, 'utf8');
     }
 
     /**

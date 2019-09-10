@@ -1,9 +1,10 @@
+import * as e from './entity';
 import * as i from './interfaces';
 import { isPlainObject } from '../objects';
 import { isString } from '../strings';
 import { isNumber } from '../numbers';
 
-export function defineEntityProperties(entity: any): void {
+export function defineEntityProperties(entity: any, metadata?: Record<string, any>): void {
     Object.defineProperty(entity, i.__IS_DATAENTITY_KEY, {
         value: true,
         configurable: false,
@@ -11,8 +12,10 @@ export function defineEntityProperties(entity: any): void {
         writable: false,
     });
 
-    Object.defineProperty(entity, i.__ENTITY_METADATA_KEY, {
-        value: {},
+    Object.defineProperty(entity, e.__ENTITY_METADATA_KEY, {
+        value: {
+            metadata: makeMetadata(metadata)
+        },
         configurable: false,
         enumerable: false,
         writable: false,
@@ -27,8 +30,10 @@ export function defineWindowProperties(entity: any, metadata?: Record<string, an
         writable: false,
     });
 
-    Object.defineProperty(entity, i.__DATAWINDOW_METADATA_KEY, {
-        value: makeMetadata(metadata),
+    Object.defineProperty(entity, e.__ENTITY_METADATA_KEY, {
+        value: {
+            metadata: makeMetadata(metadata)
+        },
         configurable: false,
         enumerable: false,
         writable: false,
@@ -63,7 +68,7 @@ export function isValidKey(key: any): key is string|number {
 }
 
 export function isDataEntity(input: any): boolean {
-    return Boolean(input != null && input[i.__IS_ENTITY_KEY] === true);
+    return Boolean(input != null && input[i.__IS_DATAENTITY_KEY] === true);
 }
 
 export function isDataWindow(input: any): boolean {

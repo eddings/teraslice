@@ -1,10 +1,9 @@
 import { AnyObject } from '../interfaces';
 
-export type TYPE_IS_DATAENTITY_KEY = '__isDataEntity';
-export type TYPE_ENTITY_METADATA_KEY = '___EntityMetadata';
-
-export const __IS_DATAENTITY_KEY: TYPE_IS_DATAENTITY_KEY = '__isDataEntity';
-export const __ENTITY_METADATA_KEY: TYPE_ENTITY_METADATA_KEY = '___EntityMetadata';
+export type TYPE_IS_ENTITY_KEY = '__isDataEntity';
+export const __IS_DATAENTITY_KEY: TYPE_IS_ENTITY_KEY = '__isDataEntity';
+export type TYPE_IS_WINDOW_KEY = '__isDataWindow';
+export const __IS_WINDOW_KEY: TYPE_IS_WINDOW_KEY = '__isDataWindow';
 
 export type _DataEntityMetadataType = DataEntityMetadata | AnyObject;
 export type _DataEntityMetadata<M> = M & DataEntityMetadata & AnyObject;
@@ -72,12 +71,6 @@ export interface EncodingConfig {
 
 /** A list of supported encoding formats */
 export const dataEncodings: readonly DataEncoding[] = Object.values(DataEncoding);
-
-export type TYPE_IS_WINDOW_KEY = '__isDataWindow';
-export type TYPE_DATAWINDOW_METADATA_KEY = '___DataWindowMetadata';
-
-export const __IS_WINDOW_KEY: TYPE_IS_WINDOW_KEY = '__isDataWindow';
-export const __DATAWINDOW_METADATA_KEY: TYPE_DATAWINDOW_METADATA_KEY = '___DataWindowMetadata';
 
 /**
  * DataWindows have conventional metadata properties

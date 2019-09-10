@@ -664,25 +664,6 @@ describe('DataEntity', () => {
         });
     });
 
-    describe('#getMetadata', () => {
-        it('should be able to get metadata from object', () => {
-            const input = { hello: true };
-            expect(DataEntity.getMetadata(input, 'hello')).toBeTrue();
-            expect(DataEntity.getMetadata(input, 'hi')).toBeNil();
-        });
-
-        it('should be able to get metadata from a DataEntity', () => {
-            const input = DataEntity.make({ name: 'Batman' }, { hello: true });
-            expect(DataEntity.getMetadata(input, 'hello')).toBeTrue();
-            expect(DataEntity.getMetadata(input, 'hi')).toBeNil();
-        });
-
-        it('should not be able to get metadata from null', () => {
-            // @ts-ignore
-            expect(DataEntity.getMetadata(null, 'hi')).toBeNil();
-        });
-    });
-
     describe('#fromBuffer', () => {
         it('should throw an error if given an unsupported encoding', () => {
             const buf = Buffer.from(JSON.stringify({ hi: 'there' }));
