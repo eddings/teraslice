@@ -86,7 +86,7 @@
 </code></pre>
 <p><code>NOTE</code>: it is constant to know that the key of the object returned  = require( init will be the name that must be used in the rules and the value is the actual class</p>
 <p><code>pluginRules.txt</code></p>
-<pre><code class="hljs css language-json">{ <span class="hljs-attr">"selector"</span>: <span class="hljs-string">"size:2"</span>, <span class="hljs-attr">"source_field"</span>: <span class="hljs-string">"size"</span>, <span class="hljs-attr">"target_field"</span>: <span class="hljs-string">"height"</span>, <span class="hljs-attr">"tag"</span>: <span class="hljs-string">"pluginTag"</span> }
+<pre><code class="hljs css language-json">{ <span class="hljs-attr">"selector"</span>: <span class="hljs-string">"size:2"</span>, <span class="hljs-attr">"source"</span>: <span class="hljs-string">"size"</span>, <span class="hljs-attr">"target"</span>: <span class="hljs-string">"height"</span>, <span class="hljs-attr">"tag"</span>: <span class="hljs-string">"pluginTag"</span> }
 { <span class="hljs-attr">"follow"</span>: <span class="hljs-string">"pluginTag"</span>, <span class="hljs-attr">"post_process"</span>: <span class="hljs-string">"double"</span> }
 </code></pre>
 <p>You insert an array of plugin classes at init</p>
@@ -114,7 +114,7 @@
 <p>It is constant to inherit  = require( the TransformOpBase class if at all possible as it does some normailization and validation. You can of course do things as you would like. You can also override the validateConfig method if you have another specific way to do so.</p>
 <p>The returning class must have a <code>run</code> method which is called by the framework and is given an object (DataEntity, which is just an object with a way to set and manipulate metadata transparently)</p>
 <p>Errors must not interupt the pipeline</p>
-<p>The configuration <code>source_field</code> and <code>target_field</code> are set to <code>this.source</code> and <code>this.target</code> respectively</p>
+<p>The configuration <code>source</code> and <code>target</code> are set to <code>this.source</code> and <code>this.target</code> respectively</p>
 <p><strong>Example:</strong></p>
 <pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> _  = <span class="hljs-built_in">require</span>(<span class="hljs-string">'lodash'</span>);
 <span class="hljs-keyword">const</span> { TransformOpBase } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'ts-transforms'</span>);
@@ -143,7 +143,7 @@
 <h4><a class="anchor" aria-hidden="true" id="validation-operations"></a><a href="#validation-operations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Validation Operations</h4>
 <p>It is constant to inherit  = require( the ValidationOpBase class if at all possible as it does some normailization, validation and other constant framework behaviour especially in regards to how <code>output:false</code> works.</p>
 <p>The returning class must have a <code>run</code> method (which is done through the ValidationOpBase class). If you are using the base class then you need to specify a <code>validate</code> method which takes in the value of the source key and must return a boolen if it is valid. You may also specify a <code>normalize</code> method which will alter the data before it hits the <code>validate</code> method. This will also normalize the output record itself</p>
-<p>The configuration <code>source_field</code> and <code>target_field</code> are set to <code>this.source</code> and <code>this.target</code> respectively</p>
+<p>The configuration <code>source</code> and <code>target</code> are set to <code>this.source</code> and <code>this.target</code> respectively</p>
 <p><strong>Example:</strong></p>
 <pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> _  = <span class="hljs-built_in">require</span>(<span class="hljs-string">'lodash'</span>);
 <span class="hljs-keyword">const</span> validator = <span class="hljs-built_in">require</span>(<span class="hljs-string">'validator'</span>);
@@ -175,7 +175,7 @@
 <span class="hljs-built_in">module</span>.exports = MacAddress;
 </code></pre>
 <h4><a class="anchor" aria-hidden="true" id="operation-cardinality"></a><a href="#operation-cardinality" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Operation Cardinality</h4>
-<p>Each operation is designed for a specify task. These operations work either work on a single input, several inputs (like the join operator) and return a single output. To differentiate the operators and to determine at validation time if the operator can take in multiple outputs each class must have a static varialble labeling what it is meant to do. The options are either <code>one-to-one</code> or <code>many-to-one</code>. If by using the tag/follow rules a <code>one-to-one</code> has several inputs then it will be cloned as many times as there are inputs so that each operation will have a single input. A <code>many-to-one</code> will take multiple outputs and set it at <code>source_fields</code> (note that it is the plural form). If you inherit  = require( the base clase then it will default to <code>one-to-one</code>.</p>
+<p>Each operation is designed for a specify task. These operations work either work on a single input, several inputs (like the join operator) and return a single output. To differentiate the operators and to determine at validation time if the operator can take in multiple outputs each class must have a static varialble labeling what it is meant to do. The options are either <code>one-to-one</code> or <code>many-to-one</code>. If by using the tag/follow rules a <code>one-to-one</code> has several inputs then it will be cloned as many times as there are inputs so that each operation will have a single input. A <code>many-to-one</code> will take multiple outputs and set it at <code>sources</code> (note that it is the plural form). If you inherit the base clase then it will default to <code>one-to-one</code>.</p>
 <pre><code class="hljs css language-js"><span class="hljs-comment">// the none inherited version of a plugin</span>
 <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Double</span> </span>{
     <span class="hljs-keyword">static</span> cardinality = <span class="hljs-string">'one-to-one'</span>;
@@ -186,7 +186,7 @@
 
     run(doc) {
         <span class="hljs-comment">// @ts-ignore</span>
-        doc[<span class="hljs-keyword">this</span>.config.source_field] = doc[<span class="hljs-keyword">this</span>.config.source_field] * <span class="hljs-number">2</span>;
+        doc[<span class="hljs-keyword">this</span>.config.source] = doc[<span class="hljs-keyword">this</span>.config.source] * <span class="hljs-number">2</span>;
         <span class="hljs-keyword">return</span> doc;
     }
 }
@@ -199,10 +199,10 @@
     <span class="hljs-keyword">static</span> cardinality = <span class="hljs-string">'many-to-one'</span>;
 
     <span class="hljs-keyword">constructor</span>(config:) {
-        <span class="hljs-comment">// this will look for the fields config or look for the multi input located at source_fields</span>
-        <span class="hljs-keyword">const</span> fields = config.fields || config.source_fields;
+        <span class="hljs-comment">// this will look for the fields config or look for the multi input located at sources</span>
+        <span class="hljs-keyword">const</span> fields = config.fields || config.sources;
         <span class="hljs-keyword">this</span>.fields = fields;
-        <span class="hljs-keyword">this</span>.target = config.target_field;
+        <span class="hljs-keyword">this</span>.target = config.target;
     }
 
     run(doc) {
@@ -218,7 +218,7 @@
 
 <span class="hljs-built_in">module</span>.exports = MakeArray;
 </code></pre>
-</span></div></article></div><div class="docLastUpdate"><em>Last updated on 8/19/2019</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/packages/teraslice-test-harness/api/overview"><span class="arrow-prev">← </span><span>API</span></a><a class="docs-next button" href="/teraslice/docs/packages/ts-transforms/overview"><span>Overview</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/asset-bundles.html">Asset Bundles</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 9/10/2019</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/packages/teraslice-test-harness/api/overview"><span class="arrow-prev">← </span><span>API</span></a><a class="docs-next button" href="/teraslice/docs/packages/ts-transforms/overview"><span>Overview</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/asset-bundles.html">Asset Bundles</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
