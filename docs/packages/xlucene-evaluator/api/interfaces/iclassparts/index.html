@@ -87,7 +87,7 @@ when they will be absent when used in a 'with' statement.</p>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td><code>...items</code></td><td>ConcatArray‹string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>›[]</td><td>Additional items to add to the end of array1.</td></tr>
+<tr><td><code>...items</code></td><td>ConcatArray‹string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>›[]</td><td>Additional items to add to the end of array1.</td></tr>
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</em></p>
@@ -101,7 +101,7 @@ when they will be absent when used in a 'with' statement.</p>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td><code>...items</code></td><td>T \</td><td>ConcatArray‹T›[]</td><td>Additional items to add to the end of array1.</td></tr>
+<tr><td><code>...items</code></td><td>T | ConcatArray‹T›[]</td><td>Additional items to add to the end of array1.</td></tr>
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</em></p>
@@ -120,7 +120,7 @@ to the same array starting at position target</p>
 <tbody>
 <tr><td><code>target</code></td><td>number</td><td>If target is negative, it is treated as length+target where length is the length of the array.</td></tr>
 <tr><td><code>start</code></td><td>number</td><td>If start is negative, it is treated as length+start. If end is negative, it is treated as length+end.</td></tr>
-<tr><td><code>end?</code></td><td>undefined \</td><td>number</td><td>If not specified, length of the this object is used as its default value.</td></tr>
+<tr><td><code>end?</code></td><td>undefined | number</td><td>If not specified, length of the this object is used as its default value.</td></tr>
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>this</em></p>
@@ -147,9 +147,9 @@ to the same array starting at position target</p>
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>value</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
+<tr><td><code>value</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
 <tr><td><code>index</code></td><td>number</td></tr>
-<tr><td><code>array</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
+<tr><td><code>array</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
 </tbody>
 </table>
 <p>▪<code>Optional</code>  <strong>thisArg</strong>: <em>any</em></p>
@@ -167,9 +167,9 @@ to the same array starting at position target</p>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td><code>value</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td><td>value to fill array section with</td></tr>
-<tr><td><code>start?</code></td><td>undefined \</td><td>number</td><td>index to start filling the array at. If start is negative, it is treated as length+start where length is the length of the array.</td></tr>
-<tr><td><code>end?</code></td><td>undefined \</td><td>number</td><td>index to stop filling the array at. If end is negative, it is treated as length+end.</td></tr>
+<tr><td><code>value</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td><td>value to fill array section with</td></tr>
+<tr><td><code>start?</code></td><td>undefined | number</td><td>index to start filling the array at. If start is negative, it is treated as length+start where length is the length of the array.</td></tr>
+<tr><td><code>end?</code></td><td>undefined | number</td><td>index to stop filling the array at. If end is negative, it is treated as length+end.</td></tr>
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>this</em></p>
@@ -191,9 +191,9 @@ to the same array starting at position target</p>
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>value</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
+<tr><td><code>value</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
 <tr><td><code>index</code></td><td>number</td></tr>
-<tr><td><code>array</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
+<tr><td><code>array</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
 </tbody>
 </table>
 <p>▪<code>Optional</code>  <strong>thisArg</strong>: <em>any</em></p>
@@ -213,9 +213,9 @@ to the same array starting at position target</p>
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>value</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
+<tr><td><code>value</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
 <tr><td><code>index</code></td><td>number</td></tr>
-<tr><td><code>array</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
+<tr><td><code>array</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
 </tbody>
 </table>
 <p>▪<code>Optional</code>  <strong>thisArg</strong>: <em>any</em></p>
@@ -243,9 +243,9 @@ immediately returns that element value. Otherwise, find returns undefined.</p>
 </thead>
 <tbody>
 <tr><td><code>this</code></td><td>void</td></tr>
-<tr><td><code>value</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
+<tr><td><code>value</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
 <tr><td><code>index</code></td><td>number</td></tr>
-<tr><td><code>obj</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
+<tr><td><code>obj</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
 </tbody>
 </table>
 <p>▪<code>Optional</code>  <strong>thisArg</strong>: <em>any</em></p>
@@ -264,9 +264,9 @@ predicate. If it is not provided, undefined is used instead.</p>
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>value</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
+<tr><td><code>value</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
 <tr><td><code>index</code></td><td>number</td></tr>
-<tr><td><code>obj</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
+<tr><td><code>obj</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
 </tbody>
 </table>
 <p>▪<code>Optional</code>  <strong>thisArg</strong>: <em>any</em></p>
@@ -290,9 +290,9 @@ findIndex immediately returns that element index. Otherwise, findIndex returns -
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>value</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
+<tr><td><code>value</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
 <tr><td><code>index</code></td><td>number</td></tr>
-<tr><td><code>obj</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
+<tr><td><code>obj</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
 </tbody>
 </table>
 <p>▪<code>Optional</code>  <strong>thisArg</strong>: <em>any</em></p>
@@ -315,9 +315,9 @@ predicate. If it is not provided, undefined is used instead.</p>
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>value</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
+<tr><td><code>value</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
 <tr><td><code>index</code></td><td>number</td></tr>
-<tr><td><code>array</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
+<tr><td><code>array</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
 </tbody>
 </table>
 <p>▪<code>Optional</code>  <strong>thisArg</strong>: <em>any</em></p>
@@ -335,8 +335,8 @@ predicate. If it is not provided, undefined is used instead.</p>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td><code>searchElement</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td><td>The element to search for.</td></tr>
-<tr><td><code>fromIndex?</code></td><td>undefined \</td><td>number</td><td>The position in this array at which to begin searching for searchElement.</td></tr>
+<tr><td><code>searchElement</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td><td>The element to search for.</td></tr>
+<tr><td><code>fromIndex?</code></td><td>undefined | number</td><td>The position in this array at which to begin searching for searchElement.</td></tr>
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>boolean</em></p>
@@ -352,8 +352,8 @@ predicate. If it is not provided, undefined is used instead.</p>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td><code>searchElement</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td><td>The value to locate in the array.</td></tr>
-<tr><td><code>fromIndex?</code></td><td>undefined \</td><td>number</td><td>The array index at which to begin the search. If fromIndex is omitted, the search starts at index 0.</td></tr>
+<tr><td><code>searchElement</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td><td>The value to locate in the array.</td></tr>
+<tr><td><code>fromIndex?</code></td><td>undefined | number</td><td>The array index at which to begin the search. If fromIndex is omitted, the search starts at index 0.</td></tr>
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>number</em></p>
@@ -369,7 +369,7 @@ predicate. If it is not provided, undefined is used instead.</p>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td><code>separator?</code></td><td>undefined \</td><td>string</td><td>A string used to separate one element of an array from the next in the resulting String. If omitted, the array elements are separated with a comma.</td></tr>
+<tr><td><code>separator?</code></td><td>undefined | string</td><td>A string used to separate one element of an array from the next in the resulting String. If omitted, the array elements are separated with a comma.</td></tr>
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>string</em></p>
@@ -392,8 +392,8 @@ predicate. If it is not provided, undefined is used instead.</p>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td><code>searchElement</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td><td>The value to locate in the array.</td></tr>
-<tr><td><code>fromIndex?</code></td><td>undefined \</td><td>number</td><td>The array index at which to begin the search. If fromIndex is omitted, the search starts at the last index in the array.</td></tr>
+<tr><td><code>searchElement</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td><td>The value to locate in the array.</td></tr>
+<tr><td><code>fromIndex?</code></td><td>undefined | number</td><td>The array index at which to begin the search. If fromIndex is omitted, the search starts at the last index in the array.</td></tr>
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>number</em></p>
@@ -415,9 +415,9 @@ predicate. If it is not provided, undefined is used instead.</p>
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>value</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
+<tr><td><code>value</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
 <tr><td><code>index</code></td><td>number</td></tr>
-<tr><td><code>array</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
+<tr><td><code>array</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
 </tbody>
 </table>
 <p>▪<code>Optional</code>  <strong>thisArg</strong>: <em>any</em></p>
@@ -442,7 +442,7 @@ predicate. If it is not provided, undefined is used instead.</p>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td><code>...items</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td><td>New elements of the Array.</td></tr>
+<tr><td><code>...items</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td><td>New elements of the Array.</td></tr>
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>number</em></p>
@@ -462,10 +462,10 @@ predicate. If it is not provided, undefined is used instead.</p>
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>previousValue</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
-<tr><td><code>currentValue</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
+<tr><td><code>previousValue</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
+<tr><td><code>currentValue</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
 <tr><td><code>currentIndex</code></td><td>number</td></tr>
-<tr><td><code>array</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
+<tr><td><code>array</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></em></p>
@@ -481,10 +481,10 @@ predicate. If it is not provided, undefined is used instead.</p>
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>previousValue</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
-<tr><td><code>currentValue</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
+<tr><td><code>previousValue</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
+<tr><td><code>currentValue</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
 <tr><td><code>currentIndex</code></td><td>number</td></tr>
-<tr><td><code>array</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
+<tr><td><code>array</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
 </tbody>
 </table>
 <p>▪ <strong>initialValue</strong>: <em>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></em></p>
@@ -506,9 +506,9 @@ predicate. If it is not provided, undefined is used instead.</p>
 </thead>
 <tbody>
 <tr><td><code>previousValue</code></td><td>U</td></tr>
-<tr><td><code>currentValue</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
+<tr><td><code>currentValue</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
 <tr><td><code>currentIndex</code></td><td>number</td></tr>
-<tr><td><code>array</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
+<tr><td><code>array</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
 </tbody>
 </table>
 <p>▪ <strong>initialValue</strong>: <em>U</em></p>
@@ -530,10 +530,10 @@ predicate. If it is not provided, undefined is used instead.</p>
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>previousValue</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
-<tr><td><code>currentValue</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
+<tr><td><code>previousValue</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
+<tr><td><code>currentValue</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
 <tr><td><code>currentIndex</code></td><td>number</td></tr>
-<tr><td><code>array</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
+<tr><td><code>array</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></em></p>
@@ -549,10 +549,10 @@ predicate. If it is not provided, undefined is used instead.</p>
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>previousValue</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
-<tr><td><code>currentValue</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
+<tr><td><code>previousValue</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
+<tr><td><code>currentValue</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
 <tr><td><code>currentIndex</code></td><td>number</td></tr>
-<tr><td><code>array</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
+<tr><td><code>array</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
 </tbody>
 </table>
 <p>▪ <strong>initialValue</strong>: <em>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></em></p>
@@ -574,9 +574,9 @@ predicate. If it is not provided, undefined is used instead.</p>
 </thead>
 <tbody>
 <tr><td><code>previousValue</code></td><td>U</td></tr>
-<tr><td><code>currentValue</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
+<tr><td><code>currentValue</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
 <tr><td><code>currentIndex</code></td><td>number</td></tr>
-<tr><td><code>array</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
+<tr><td><code>array</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
 </tbody>
 </table>
 <p>▪ <strong>initialValue</strong>: <em>U</em></p>
@@ -608,8 +608,8 @@ predicate. If it is not provided, undefined is used instead.</p>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td><code>start?</code></td><td>undefined \</td><td>number</td><td>The beginning of the specified portion of the array.</td></tr>
-<tr><td><code>end?</code></td><td>undefined \</td><td>number</td><td>The end of the specified portion of the array.</td></tr>
+<tr><td><code>start?</code></td><td>undefined | number</td><td>The beginning of the specified portion of the array.</td></tr>
+<tr><td><code>end?</code></td><td>undefined | number</td><td>The end of the specified portion of the array.</td></tr>
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</em></p>
@@ -629,9 +629,9 @@ predicate. If it is not provided, undefined is used instead.</p>
 <tr><th>Name</th><th>Type</th></tr>
 </thead>
 <tbody>
-<tr><td><code>value</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
+<tr><td><code>value</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a></td></tr>
 <tr><td><code>index</code></td><td>number</td></tr>
-<tr><td><code>array</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
+<tr><td><code>array</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td></tr>
 </tbody>
 </table>
 <p>▪<code>Optional</code>  <strong>thisArg</strong>: <em>any</em></p>
@@ -649,7 +649,7 @@ predicate. If it is not provided, undefined is used instead.</p>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td><code>compareFn?</code></td><td>undefined \</td><td>function</td><td>The name of the function used to determine the order of the elements. If omitted, the elements are sorted in ascending, ASCII character order.</td></tr>
+<tr><td><code>compareFn?</code></td><td>undefined | function</td><td>The name of the function used to determine the order of the elements. If omitted, the elements are sorted in ascending, ASCII character order.</td></tr>
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>this</em></p>
@@ -666,7 +666,7 @@ predicate. If it is not provided, undefined is used instead.</p>
 </thead>
 <tbody>
 <tr><td><code>start</code></td><td>number</td><td>The zero-based location in the array from which to start removing elements.</td></tr>
-<tr><td><code>deleteCount?</code></td><td>undefined \</td><td>number</td><td>The number of elements to remove.</td></tr>
+<tr><td><code>deleteCount?</code></td><td>undefined | number</td><td>The number of elements to remove.</td></tr>
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</em></p>
@@ -682,7 +682,7 @@ predicate. If it is not provided, undefined is used instead.</p>
 <tbody>
 <tr><td><code>start</code></td><td>number</td><td>The zero-based location in the array from which to start removing elements.</td></tr>
 <tr><td><code>deleteCount</code></td><td>number</td><td>The number of elements to remove.</td></tr>
-<tr><td><code>...items</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td><td>Elements to insert into the array in place of the deleted elements.</td></tr>
+<tr><td><code>...items</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td><td>Elements to insert into the array in place of the deleted elements.</td></tr>
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</em></p>
@@ -712,7 +712,7 @@ predicate. If it is not provided, undefined is used instead.</p>
 <tr><th>Name</th><th>Type</th><th>Description</th></tr>
 </thead>
 <tbody>
-<tr><td><code>...items</code></td><td>string \</td><td><a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td><td>Elements to insert at the start of the Array.</td></tr>
+<tr><td><code>...items</code></td><td>string | <a href="/teraslice/docs/packages/xlucene-evaluator/api/interfaces/iclassparts">IClassParts</a>[]</td><td>Elements to insert at the start of the Array.</td></tr>
 </tbody>
 </table>
 <p><strong>Returns:</strong> <em>number</em></p>
