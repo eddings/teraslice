@@ -1,6 +1,6 @@
 import 'jest-extended';
 import path from 'path';
-import { DataEntity, TestClientConfig } from '@terascope/job-components';
+import { DataEntity, TestClientConfig, DataWindow } from '@terascope/job-components';
 import SimpleClient from './fixtures/asset/simple-connector/client';
 import {
     JobTestHarness, newTestJobConfig, newTestSlice, SlicerTestHarness, WorkerTestHarness
@@ -77,6 +77,11 @@ describe('Example Asset', () => {
             const results = await harness.runSlice(testSlice);
 
             expect(results).toBeArrayOfSize(10);
+
+            if (DataWindow.isArray(results)) {
+                expect(DataWindow.isArray(results)).toBeFalse();
+                return;
+            }
 
             for (const result of results) {
                 expect(DataEntity.is(result)).toBe(true);
@@ -197,6 +202,11 @@ describe('Example Asset', () => {
             for (const results of batches) {
                 expect(results).toBeArrayOfSize(10);
 
+                if (DataWindow.isArray(results)) {
+                    expect(DataWindow.isArray(results)).toBeFalse();
+                    continue;
+                }
+
                 for (const result of results) {
                     expect(DataEntity.is(result)).toBe(true);
                     expect(result.scale).toBe(6);
@@ -218,6 +228,11 @@ describe('Example Asset', () => {
 
             for (const results of batches) {
                 expect(results).toBeArrayOfSize(10);
+
+                if (DataWindow.isArray(results)) {
+                    expect(DataWindow.isArray(results)).toBeFalse();
+                    continue;
+                }
 
                 for (const result of results) {
                     expect(DataEntity.is(result)).toBe(true);

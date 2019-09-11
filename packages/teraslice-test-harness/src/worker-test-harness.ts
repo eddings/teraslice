@@ -2,7 +2,6 @@ import {
     WorkerExecutionContext,
     JobConfig,
     Slice,
-    DataEntity,
     RunSliceResult,
     SliceRequest,
     newTestSlice,
@@ -10,6 +9,7 @@ import {
     OperationCore,
     OpConfig,
     newTestJobConfig,
+    DataWindow,
 } from '@terascope/job-components';
 import BaseTestHarness from './base-test-harness';
 import { JobHarnessOptions } from './interfaces';
@@ -93,11 +93,11 @@ export default class WorkerTestHarness extends BaseTestHarness<WorkerExecutionCo
      */
     async runSlice(
         input: Slice | SliceRequest
-    ): Promise<DataEntity[]>;
+    ): Promise<DataWindow|DataWindow[]>;
     async runSlice(
         input: Slice | SliceRequest,
         options: { fullResponse: false }
-    ): Promise<DataEntity[]>;
+    ): Promise<DataWindow|DataWindow[]>;
     async runSlice(
         input: Slice | SliceRequest,
         options: { fullResponse: true }
@@ -105,7 +105,7 @@ export default class WorkerTestHarness extends BaseTestHarness<WorkerExecutionCo
     async runSlice(
         input: Slice | SliceRequest,
         { fullResponse = false } = {}
-    ): Promise<DataEntity[] | RunSliceResult> {
+    ): Promise<DataWindow|DataWindow[] | RunSliceResult> {
         const slice: Slice = isSlice(input) ? input : newTestSlice(input);
 
         await this.executionContext.initializeSlice(slice);
@@ -135,8 +135,8 @@ export default class WorkerTestHarness extends BaseTestHarness<WorkerExecutionCo
     /**
      * Shutdown the Operations on the ExecutionContext
      */
-    async flush(): Promise<DataEntity[] | undefined>;
-    async flush(options: { fullResponse: false }): Promise<DataEntity[] | undefined>;
+    async flush(): Promise<DataWindow|DataWindow[] | undefined>;
+    async flush(options: { fullResponse: false }): Promise<DataWindow|DataWindow[] | undefined>;
     async flush(options: { fullResponse: true }): Promise<RunSliceResult | undefined>;
     async flush({ fullResponse = false } = {}) {
         const response = await this.executionContext.flush();

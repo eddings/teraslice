@@ -1,6 +1,7 @@
 import { Fetcher, DataEntity } from '../../../src';
 
 export default class FailingFetcher extends Fetcher {
+    // @ts-ignore
     async fetch() {
         return [
             // @ts-ignore

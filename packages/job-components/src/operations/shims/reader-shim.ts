@@ -1,7 +1,7 @@
 /* eslint-disable max-classes-per-file */
 
 import {
-    DataEntity, isInteger, isFunction, toString
+    DataEntity, isInteger, isFunction, toString, DataWindow
 } from '@terascope/utils';
 import {
     Context,
@@ -82,12 +82,11 @@ export default function readerShim<S = any>(legacy: LegacyReader): ReaderModule 
                 );
             }
 
-            async handle(sliceRequest: SliceRequest): Promise<DataEntity[]> {
+            async handle(sliceRequest: SliceRequest): Promise<DataWindow> {
                 if (this.fetcherFn) {
                     const result = await this.fetcherFn(sliceRequest, this.logger);
                     try {
-                        // @ts-ignore
-                        return convertResult(result);
+                        return convertResult(result) as DataWindow;
                     } catch (err) {
                         throw new Error(`${this.opConfig._op} failed to convert result: ${toString(err)}`);
                     }

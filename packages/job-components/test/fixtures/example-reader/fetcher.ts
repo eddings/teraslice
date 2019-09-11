@@ -1,4 +1,4 @@
-import { Fetcher } from '../../../src';
+import { DataEntity, Fetcher, DataWindow } from '../../../src';
 
 export default class ExampleFetcher extends Fetcher {
     _initialized = false;
@@ -15,12 +15,12 @@ export default class ExampleFetcher extends Fetcher {
     }
 
     async fetch() {
-        const result = [];
+        const result = new DataWindow();
         for (let i = 0; i < 10; i++) {
-            result.push({
+            result.push(DataEntity.make({
                 id: i,
                 data: [Math.random(), Math.random(), Math.random()],
-            });
+            }));
         }
         return result;
     }

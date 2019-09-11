@@ -34,7 +34,7 @@ export class DataEntity<
         input: T,
         metadata?: M
     ): T;
-    static make<T = Record<string, any>, M = {}>(
+    static make<T extends Record<string, any> = Record<string, any>, M extends i._DataEntityMetadataType = {}>(
         input: Record<string, any>,
         metadata?: M
     ): DataEntity<T, M>;
@@ -65,11 +65,12 @@ export class DataEntity<
         if (!Array.isArray(input)) {
             return [DataEntity.make(input)];
         }
-
+        if (utils.isDataWindow(input)) {
+            return input as DataEntity<T, M>[];
+        }
         if (DataEntity.isArray<T, M>(input)) {
             return input;
         }
-
         return input.map((d) => DataEntity.make(d));
     }
 
@@ -104,7 +105,7 @@ export class DataEntity<
      * defaults to "json"
      * @param metadata Optionally add any metadata
      */
-    static fromBuffer<T = Record<string, any>, M = {}>(
+    static fromBuffer<T extends Record<string, any> = Record<string, any>, M extends i._DataEntityMetadataType = {}>(
         input: Buffer|string,
         opConfig: i.EncodingConfig = {},
         metadata?: M
@@ -126,7 +127,7 @@ export class DataEntity<
     /**
      * Verify that an input is the `DataEntity`
      */
-    static is<T extends AnyObject = AnyObject, M extends i._DataEntityMetadataType = {}>(
+    static is<T extends Record<string, any> = Record<string, any>, M extends i._DataEntityMetadataType = {}>(
         input: any
     ): input is DataEntity<T, M> {
         return utils.isDataEntity(input);
@@ -135,7 +136,7 @@ export class DataEntity<
     /**
      * Verify that an input is an of `DataEntities`
      */
-    static isArray<T = AnyObject, M = {}>(
+    static isArray<T = Record<string, any>, M = {}>(
         input: any
     ): input is DataEntity<T, M>[] {
         if (input == null) return false;

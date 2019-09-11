@@ -1,4 +1,4 @@
-import { DataEntity, Collector } from '@terascope/utils';
+import { DataEntity, Collector, DataWindow } from '@terascope/utils';
 import { CollectConfig } from './interfaces';
 import { BatchProcessor } from '../../operations';
 import { WorkerContext, ExecutionConfig } from '../../interfaces';
@@ -11,8 +11,8 @@ export default class Collect extends BatchProcessor<CollectConfig> {
         this.collector = new Collector(opConfig);
     }
 
-    async onBatch(batch: DataEntity[]) {
-        this.collector.add(batch);
+    async onBatch(batch: DataWindow) {
+        this.collector.add(batch as DataEntity[]);
 
         return this.collector.getBatch() || [];
     }

@@ -540,10 +540,10 @@ describe('DataEntity', () => {
 
         it('should NOT convert an array of DataWindows', () => {
             const windows = [
-                new DataWindow({
+                DataWindow.make({
                     hello: 'there',
                 }),
-                new DataWindow({
+                DataWindow.make({
                     howdy: 'partner',
                 })
             ];

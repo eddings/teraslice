@@ -1,5 +1,5 @@
 import {
-    DataEntity,
+    DataWindow,
     JobConfig,
     Slice,
     RunSliceResult,
@@ -121,4 +121,4 @@ export default class JobTestHarness {
     }
 }
 
-export type BatchedResults = DataEntity[][];
+export type BatchedResults = (DataWindow|DataWindow[])[];

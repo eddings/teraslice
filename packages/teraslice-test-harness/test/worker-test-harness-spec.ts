@@ -1,7 +1,13 @@
 import 'jest-extended';
 import path from 'path';
 import {
-    newTestJobConfig, newTestSlice, DataEntity, Fetcher, BatchProcessor, NoopProcessor
+    newTestJobConfig,
+    newTestSlice,
+    DataEntity,
+    Fetcher,
+    BatchProcessor,
+    NoopProcessor,
+    DataWindow
 } from '@terascope/job-components';
 import { WorkerTestHarness } from '../src';
 
@@ -38,7 +44,7 @@ describe('WorkerTestHarness', () => {
             clients,
         });
 
-        workerHarness.processors[0].handle = jest.fn(async (data: DataEntity[]) => data);
+        workerHarness.processors[0].handle = jest.fn(async (data: DataWindow) => data);
 
         it('should be able to call initialize', () => expect(workerHarness.initialize()).resolves.toBeNil());
 
