@@ -1,8 +1,10 @@
-import { DataEntity, Fetcher, DataWindow } from '../../../src';
+import { times, DataEntity, DataWindow } from '@terascope/utils';
+import { Fetcher } from '../../../src';
 
 export default class ExampleFetcher extends Fetcher {
     _initialized = false;
     _shutdown = false;
+
 
     async initialize() {
         this._initialized = true;
@@ -15,13 +17,25 @@ export default class ExampleFetcher extends Fetcher {
     }
 
     async fetch() {
-        const result = new DataWindow();
-        for (let i = 0; i < 10; i++) {
-            result.push(DataEntity.make({
-                id: i,
-                data: [Math.random(), Math.random(), Math.random()],
-            }));
+        if (!this.opConfig.windows) {
+            return makeWindow(0);
         }
-        return result;
+        return times(this.opConfig.windows, makeWindow);
     }
+}
+
+function makeWindow(n: number) {
+    const window = new DataWindow();
+    for (let i = 0; i < 10; i++) {
+        window.push(DataEntity.make({
+            id: i,
+            data: [
+                Math.random(),
+                Math.random(),
+                Math.random()
+            ],
+        }));
+    }
+    window.setKey(`window-${n}`);
+    return window;
 }
