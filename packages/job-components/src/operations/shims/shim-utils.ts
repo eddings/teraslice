@@ -19,8 +19,8 @@ export function convertResult(input: DataInput[]|Buffer[]|string[]): DataEntity[
     if (input == null) return [];
     if (Array.isArray(input) && input.length === 0) return [];
 
-    if (DataEntity.isDataEntityArray(input)) return input;
-    if (DataEntity.isDataEntity(input)) return [input];
+    if (DataEntity.isArray(input)) return input;
+    if (DataEntity.is(input)) return [input];
     const first = getFirst<object|string|Buffer>(input);
     if (first == null) return [];
 

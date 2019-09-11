@@ -65,7 +65,7 @@ describe('phone number validation', () => {
         const results12 = test.run(data12);
         const results13 = test.run(data13);
 
-        expect(DataEntity.isDataEntity(results1)).toEqual(true);
+        expect(DataEntity.is(results1)).toEqual(true);
         expect(results1.getMetadata('selectors')).toEqual(metaData.selectors);
         expect(results1).toEqual({});
         expect(results2.getMetadata('selectors')).toEqual(metaData.selectors);

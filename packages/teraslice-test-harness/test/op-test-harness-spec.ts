@@ -45,7 +45,7 @@ describe('OpTestHarness', () => {
                 }
             ]) as DataEntity[];
             expect(result).toBeArray();
-            expect(DataEntity.isDataEntityArray(result)).toBeTrue();
+            expect(DataEntity.isArray(result)).toBeTrue();
             expect(result[0]).toHaveProperty('greeting', 'hello');
         });
 

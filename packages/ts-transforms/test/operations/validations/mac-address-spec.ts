@@ -59,7 +59,7 @@ describe('MacAddress validation', () => {
         const results9 = test.run(data9);
         const results10 = test.run(data10);
 
-        expect(DataEntity.isDataEntity(results1)).toEqual(true);
+        expect(DataEntity.is(results1)).toEqual(true);
         expect(results1.getMetadata('selectors')).toEqual(metaData.selectors);
         expect(results1).toEqual({});
         expect(results2.getMetadata('selectors')).toEqual(metaData.selectors);

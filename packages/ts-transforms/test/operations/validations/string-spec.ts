@@ -56,7 +56,7 @@ describe('string validation', () => {
             return obj;
         }
 
-        expect(DataEntity.isDataEntity(results1)).toEqual(true);
+        expect(DataEntity.is(results1)).toEqual(true);
         expect(results1.getMetadata('selectors')).toEqual(metaData.selectors);
         expect(results1).toEqual(data1);
         expect(results2.getMetadata('selectors')).toEqual(metaData.selectors);
@@ -83,7 +83,7 @@ describe('string validation', () => {
         const results1 = test.run(data1);
         const results2 = test.run(data2);
 
-        expect(DataEntity.isDataEntity(results1)).toEqual(true);
+        expect(DataEntity.is(results1)).toEqual(true);
         expect(results1.getMetadata('selectors')).toEqual(metaData.selectors);
         expect(results1).toEqual({});
         expect(results2.getMetadata('selectors')).toEqual(metaData.selectors);
@@ -119,6 +119,6 @@ describe('string validation', () => {
         expect(results4).toEqual(data2);
         expect(results5).toEqual(data5);
 
-        expect(DataEntity.isDataEntity(results1)).toEqual(true);
+        expect(DataEntity.is(results1)).toEqual(true);
     });
 });

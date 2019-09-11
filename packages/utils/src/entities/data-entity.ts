@@ -20,7 +20,7 @@ import * as e from './entity';
 export class DataEntity<
     T = Record<string, any>,
     M = {}
-> implements e.Entity<T, M> {
+> implements e.Entity<T, M & i.DataEntityMetadata> {
     /**
      * A utility for safely converting an object a `DataEntity`.
      * If the input is a DataEntity it will return it and have no side-effect.
@@ -40,7 +40,7 @@ export class DataEntity<
         T extends Record<string, any>|DataEntity<any, any> = Record<string, any>,
         M extends i._DataEntityMetadataType = {}
     >(input: T, metadata?: M): T|DataEntity<T, M> {
-        if (DataEntity.isDataEntity(input)) {
+        if (DataEntity.is(input)) {
             if (metadata) {
                 for (const [key, val] of Object.entries(metadata)) {
                     input.setMetadata(key, val);
@@ -64,7 +64,7 @@ export class DataEntity<
             return [DataEntity.make(input)];
         }
 
-        if (DataEntity.isDataEntityArray<T, M>(input)) {
+        if (DataEntity.isArray<T, M>(input)) {
             return input;
         }
 
@@ -83,7 +83,7 @@ export class DataEntity<
         input: T,
         withData = true
     ): T {
-        if (!DataEntity.isDataEntity(input)) {
+        if (!DataEntity.is(input)) {
             throw new Error(`Invalid input to fork, expected DataEntity, got ${getTypeOf(input)}`);
         }
         const { _createTime, ...metadata } = input.getMetadata();
@@ -124,36 +124,22 @@ export class DataEntity<
     /**
      * Verify that an input is the `DataEntity`
      */
-    static isDataEntity<T = Record<string, any>, M = {}>(
+    static is<T extends AnyObject = AnyObject, M extends i._DataEntityMetadataType = {}>(
         input: any
     ): input is DataEntity<T, M> {
         return utils.isDataEntity(input);
     }
 
     /**
-     * Verify that an input is the `DataEntity`
+     * Verify that an input is an of `DataEntities`
      */
-    static is(input: any): boolean {
-        return DataEntity.isDataEntity(input);
-    }
-
-    /**
-     * Verify that an input is an Array of DataEntities,
-     */
-    static isDataEntityArray<T = Record<string, any>, M = {}>(
+    static isArray<T = AnyObject, M = {}>(
         input: any
     ): input is DataEntity<T, M>[] {
         if (input == null) return false;
         if (!Array.isArray(input)) return false;
         if (input.length === 0) return true;
         return utils.isDataEntity(input[0]);
-    }
-
-    /**
-     * Verify that an input is the `DataEntity`
-     */
-    static isArray(input: any): boolean {
-        return DataEntity.isDataEntityArray(input);
     }
 
     static [Symbol.hasInstance](instance: any): boolean {

@@ -55,7 +55,7 @@ describe('url validation', () => {
         const results10 = test.run(data10);
         const results11 = test.run(data11);
 
-        expect(DataEntity.isDataEntity(results1)).toEqual(true);
+        expect(DataEntity.is(results1)).toEqual(true);
         expect(results1.getMetadata('selectors')).toEqual(metaData.selectors);
         expect(results1).toEqual({});
         expect(results2.getMetadata('selectors')).toEqual(metaData.selectors);
@@ -101,6 +101,6 @@ describe('url validation', () => {
         expect(results4).toEqual(data2);
         expect(results5).toEqual(data5);
 
-        expect(DataEntity.isDataEntity(results1)).toEqual(true);
+        expect(DataEntity.is(results1)).toEqual(true);
     });
 });

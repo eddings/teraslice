@@ -49,7 +49,7 @@ describe('boolean validation', () => {
         const results7 = test.run(data7);
         const results8 = test.run(data8);
 
-        expect(DataEntity.isDataEntity(results1)).toEqual(true);
+        expect(DataEntity.is(results1)).toEqual(true);
         expect(results1.getMetadata('selectors')).toEqual(metaData.selectors);
         expect(results1).toEqual({});
         expect(results2.getMetadata('selectors')).toEqual(metaData.selectors);
@@ -91,7 +91,7 @@ describe('boolean validation', () => {
         const isTrue = { isTall: true };
         const isFalse = { isTall: false };
 
-        expect(DataEntity.isDataEntity(results1)).toEqual(true);
+        expect(DataEntity.is(results1)).toEqual(true);
         expect(results1.getMetadata('selectors')).toEqual(metaData.selectors);
         expect(results1).toEqual(isTrue);
         expect(results2.getMetadata('selectors')).toEqual(metaData.selectors);
@@ -129,6 +129,6 @@ describe('boolean validation', () => {
         expect(results4).toEqual({ person: { isTall: true } });
         expect(results5).toEqual(data3);
 
-        expect(DataEntity.isDataEntity(results1)).toEqual(true);
+        expect(DataEntity.is(results1)).toEqual(true);
     });
 });

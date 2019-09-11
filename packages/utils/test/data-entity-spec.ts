@@ -60,7 +60,7 @@ describe('DataEntity', () => {
             const dataEntity = useClass ? new DataEntity(data) : DataEntity.make(data);
 
             it('should be a DataEntity', () => {
-                expect(DataEntity.isDataEntity(dataEntity)).toBeTrue();
+                expect(DataEntity.is(dataEntity)).toBeTrue();
             });
 
             it('should be to set an additional property', () => {
@@ -157,7 +157,7 @@ describe('DataEntity', () => {
                     const newMetadata = { _key: 'hello' };
                     const cloned = cloneMethods[cloneMethod](dataEntity);
                     if (cloneMethod === 'cloneDeep') {
-                        expect(DataEntity.isDataEntity(cloned)).toBeTrue();
+                        expect(DataEntity.is(cloned)).toBeTrue();
                         expect(Object.keys(cloned)).not.toContain(['__IS_DATAENTITY_KEY', '__ENTITY_METADATA_KEY']);
                     } else {
                         expect(DataEntity.isDataEntity(cloned)).toBeFalse();
@@ -490,7 +490,7 @@ describe('DataEntity', () => {
                 const dataEntity = DataEntity.make({
                     hello: 'there',
                 });
-                expect(DataEntity.isDataEntity(dataEntity)).toBeTrue();
+                expect(DataEntity.is(dataEntity)).toBeTrue();
                 expect(dataEntity).toHaveProperty('hello', 'there');
             });
         });
@@ -502,7 +502,7 @@ describe('DataEntity', () => {
                         hello: 'there',
                     })
                 );
-                expect(DataEntity.isDataEntity(dataEntity)).toBeTrue();
+                expect(DataEntity.is(dataEntity)).toBeTrue();
                 expect(dataEntity).toHaveProperty('hello', 'there');
             });
         });
@@ -514,7 +514,7 @@ describe('DataEntity', () => {
                 hello: 'there',
             });
 
-            expect(DataEntity.isDataEntityArray(dataEntities)).toBeTrue();
+            expect(DataEntity.isArray(dataEntities)).toBeTrue();
             expect(dataEntities).toBeArrayOfSize(1);
             expect(dataEntities[0]).toHaveProperty('hello', 'there');
 
@@ -565,7 +565,7 @@ describe('DataEntity', () => {
                 },
             ]);
 
-            expect(DataEntity.isDataEntityArray(dataEntities)).toBeTrue();
+            expect(DataEntity.isArray(dataEntities)).toBeTrue();
             expect(dataEntities).toBeArrayOfSize(2);
             expect(dataEntities[0]).toHaveProperty('hello', 'there');
             expect(dataEntities[1]).toHaveProperty('howdy', 'partner');
@@ -610,27 +610,27 @@ describe('DataEntity', () => {
 
     describe('#isDataEntity', () => {
         it('should return false when given object', () => {
-            expect(DataEntity.isDataEntity({})).toBeFalse();
+            expect(DataEntity.is({})).toBeFalse();
             expect({}).not.toBeInstanceOf(DataEntity);
         });
 
         it('should return false when given null', () => {
-            expect(DataEntity.isDataEntity(null)).toBeFalse();
+            expect(DataEntity.is(null)).toBeFalse();
         });
 
         it('should return false when given array of object', () => {
-            expect(DataEntity.isDataEntity([{}])).toBeFalse();
+            expect(DataEntity.is([{}])).toBeFalse();
             expect([{}]).not.toBeInstanceOf(DataEntity);
         });
 
         it('should return true when given a DataEntity', () => {
-            expect(DataEntity.isDataEntity(DataEntity.make({}))).toBeTrue();
+            expect(DataEntity.is(DataEntity.make({}))).toBeTrue();
             expect(DataEntity.make({})).toBeInstanceOf(DataEntity);
         });
 
         it('should return false when given an array of DataEntities', () => {
             const input = DataEntity.makeArray([{ hi: true }, { hi: true }]);
-            expect(DataEntity.isDataEntity(input)).toBeFalse();
+            expect(DataEntity.is(input)).toBeFalse();
         });
 
         it('should return false when called with another type of DataEntity', () => {
@@ -643,24 +643,24 @@ describe('DataEntity', () => {
 
     describe('#isDataEntityArray', () => {
         it('should return false when given object', () => {
-            expect(DataEntity.isDataEntityArray({})).toBeFalse();
+            expect(DataEntity.isArray({})).toBeFalse();
         });
 
         it('should return false when given null', () => {
-            expect(DataEntity.isDataEntityArray(null)).toBeFalse();
+            expect(DataEntity.isArray(null)).toBeFalse();
         });
 
         it('should return false when given array of object', () => {
-            expect(DataEntity.isDataEntityArray([{}])).toBeFalse();
+            expect(DataEntity.isArray([{}])).toBeFalse();
         });
 
         it('should return true when given an array of DataEntities', () => {
             const input = DataEntity.makeArray([{ hi: true }, { hi: true }]);
-            expect(DataEntity.isDataEntityArray(input)).toBeTrue();
+            expect(DataEntity.isArray(input)).toBeTrue();
         });
 
         it('should return true when given an empty array', () => {
-            expect(DataEntity.isDataEntityArray([])).toBeTrue();
+            expect(DataEntity.isArray([])).toBeTrue();
         });
     });
 

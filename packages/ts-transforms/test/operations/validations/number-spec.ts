@@ -47,7 +47,7 @@ describe('number validation', () => {
         const results6 = test.run(data6);
         const results7 = test.run(data7);
 
-        expect(DataEntity.isDataEntity(results1)).toEqual(true);
+        expect(DataEntity.is(results1)).toEqual(true);
         expect(results1.getMetadata('selectors')).toEqual(metaData.selectors);
         expect(results1).toEqual({});
         expect(results2.getMetadata('selectors')).toEqual(metaData.selectors);
@@ -56,7 +56,7 @@ describe('number validation', () => {
         expect(results4).toEqual({ bytes: [1324] });
         expect(results5).toEqual({});
         expect(results6).toEqual({});
-        expect(DataEntity.isDataEntity(results7)).toEqual(true);
+        expect(DataEntity.is(results7)).toEqual(true);
         expect(results7).toEqual({});
     });
 
@@ -84,7 +84,7 @@ describe('number validation', () => {
         expect(results4).toEqual(data4);
         expect(results5).toEqual(data2);
 
-        expect(DataEntity.isDataEntity(results1)).toEqual(true);
+        expect(DataEntity.is(results1)).toEqual(true);
     });
 
     it('can convert the field', async () => {
@@ -104,6 +104,6 @@ describe('number validation', () => {
         expect(results1).toEqual(answer);
         expect(results2).toEqual(answer);
 
-        expect(DataEntity.isDataEntity(results1)).toEqual(true);
+        expect(DataEntity.is(results1)).toEqual(true);
     });
 });

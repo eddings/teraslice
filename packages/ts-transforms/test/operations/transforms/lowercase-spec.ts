@@ -48,7 +48,7 @@ describe('Lowercase operator', () => {
         const results7 = test.run(data7);
         const results8 = test.run(data8);
 
-        expect(DataEntity.isDataEntity(results1)).toEqual(true);
+        expect(DataEntity.is(results1)).toEqual(true);
         expect(results1).toEqual({ someField: '56.234,95.234' });
         expect(results2).toEqual({});
         expect(results3).toEqual({ someField: 'data' });
