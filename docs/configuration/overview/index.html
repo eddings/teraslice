@@ -54,7 +54,7 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Teraslice Configuration</h1></header><article><div><span><p>Teraslice configuration is provided via a YAML configuration file. This file will typically have 2 sections.</p>
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 id="__docusaurus" class="postHeaderTitle">Teraslice Configuration</h1></header><article><div><span><p>Teraslice configuration is provided via a YAML configuration file. This file will typically have 2 sections.</p>
 <ol>
 <li><code>terafoundation</code> - Configuration related to the terafoundation runtime. Most significantly this is where you configure your datasource connectors.</li>
 <li><code>teraslice</code> - Configuration for the Teraslice node. When deploying a <code>native</code> clustering Teraslice you'll have separate configurations for the master and worker nodes. Otherwise a single configuration is all that is required.</li>
@@ -63,18 +63,18 @@
 <h4><a class="anchor" aria-hidden="true" id="example-config"></a><a href="#example-config" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example Config</h4>
 <pre><code class="hljs css language-yaml"><span class="hljs-string">```yaml</span>
 <span class="hljs-attr">terafoundation:</span>
-<span class="hljs-attr">    connectors:</span>
-<span class="hljs-attr">        elasticsearch:</span>
-<span class="hljs-attr">            default:</span>
-<span class="hljs-attr">                host:</span>
-<span class="hljs-attr">                    - localhost:</span><span class="hljs-number">9200</span>
+    <span class="hljs-attr">connectors:</span>
+        <span class="hljs-attr">elasticsearch:</span>
+            <span class="hljs-attr">default:</span>
+                <span class="hljs-attr">host:</span>
+                    <span class="hljs-bullet">-</span> <span class="hljs-string">localhost:9200</span>
 
 <span class="hljs-attr">teraslice:</span>
-<span class="hljs-attr">    workers:</span> <span class="hljs-number">8</span>
-<span class="hljs-attr">    master:</span> <span class="hljs-literal">true</span>
-<span class="hljs-attr">    master_hostname:</span> <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>
-<span class="hljs-attr">    name:</span> <span class="hljs-string">teraslice</span>
-<span class="hljs-attr">    hostname:</span> <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>
+    <span class="hljs-attr">workers:</span> <span class="hljs-number">8</span>
+    <span class="hljs-attr">master:</span> <span class="hljs-literal">true</span>
+    <span class="hljs-attr">master_hostname:</span> <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>
+    <span class="hljs-attr">name:</span> <span class="hljs-string">teraslice</span>
+    <span class="hljs-attr">hostname:</span> <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>
 
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="terafoundation-configuration-reference"></a><a href="#terafoundation-configuration-reference" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Terafoundation Configuration Reference</h2>
@@ -144,62 +144,62 @@
 <pre><code class="hljs css language-yaml"><span class="hljs-comment"># ...</span>
 <span class="hljs-attr">terafoundation:</span>
     <span class="hljs-comment"># ...</span>
-<span class="hljs-attr">    connectors:</span>
-<span class="hljs-attr">        elasticsearch:</span>
-<span class="hljs-attr">            default:</span>
-<span class="hljs-attr">                host:</span>
-<span class="hljs-bullet">                    -</span> <span class="hljs-string">'127.0.0.1:9200'</span>
-<span class="hljs-attr">                keepAlive:</span> <span class="hljs-literal">false</span>
-<span class="hljs-attr">                maxRetries:</span> <span class="hljs-number">5</span>
-<span class="hljs-attr">                maxSockets:</span> <span class="hljs-number">20</span>
-<span class="hljs-attr">            secondary:</span>
-<span class="hljs-attr">                host:</span>
-<span class="hljs-bullet">                    -</span> <span class="hljs-string">'some-other-ip:9200'</span>
-<span class="hljs-attr">                apiVersion:</span> <span class="hljs-string">'6.5'</span>
-<span class="hljs-attr">                maxRetries:</span> <span class="hljs-number">0</span>
-<span class="hljs-attr">        kafka:</span>
-<span class="hljs-attr">            default:</span>
-<span class="hljs-attr">                brokers:</span> <span class="hljs-string">"localhost:9092"</span>
+    <span class="hljs-attr">connectors:</span>
+        <span class="hljs-attr">elasticsearch:</span>
+            <span class="hljs-attr">default:</span>
+                <span class="hljs-attr">host:</span>
+                    <span class="hljs-bullet">-</span> <span class="hljs-string">'127.0.0.1:9200'</span>
+                <span class="hljs-attr">keepAlive:</span> <span class="hljs-literal">false</span>
+                <span class="hljs-attr">maxRetries:</span> <span class="hljs-number">5</span>
+                <span class="hljs-attr">maxSockets:</span> <span class="hljs-number">20</span>
+            <span class="hljs-attr">secondary:</span>
+                <span class="hljs-attr">host:</span>
+                    <span class="hljs-bullet">-</span> <span class="hljs-string">'some-other-ip:9200'</span>
+                <span class="hljs-attr">apiVersion:</span> <span class="hljs-string">'6.5'</span>
+                <span class="hljs-attr">maxRetries:</span> <span class="hljs-number">0</span>
+        <span class="hljs-attr">kafka:</span>
+            <span class="hljs-attr">default:</span>
+                <span class="hljs-attr">brokers:</span> <span class="hljs-string">"localhost:9092"</span>
 <span class="hljs-comment"># ...</span>
 </code></pre>
 <p>In this example we specify two different connector types: <code>elasticsearch</code> and <code>kafka</code>. Under each connector type you may then create custom endpoint configurations that will be validated against the defaults specified in node_modules/terafoundation/lib/connectors. In the elasticsearch example there is the <code>default</code> endpoint and the <code>secondary</code> endpoint which connects to a different elasticsearch cluster. Each endpoint has independent configuration options.</p>
 <p>These different endpoints can be retrieved through terafoundations's connector API. As it's name implies, the <code>default</code> connector is what will be provided if a connection is requested without providing a specific name. In general we don't recommend doing that if you have multiple clusters, but it's convenient if you only have one.</p>
-<h2><a class="anchor" aria-hidden="true" id="configuration-single-node-native-clustering-cluster-master"></a><a href="#configuration-single-node-native-clustering-cluster-master" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration Single Node / Native Clustering - Cluster Master</h2>
+<h2><a class="anchor" aria-hidden="true" id="configuration-single-node--native-clustering---cluster-master"></a><a href="#configuration-single-node--native-clustering---cluster-master" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration Single Node / Native Clustering - Cluster Master</h2>
 <p>If you're running a single Teraslice node or using the simple native clustering you'll need a master node configuration.</p>
 <p>The master node will still have workers available and this configuration is sufficient to do useful work if you don't yet have multiple nodes available. The workers will connect to the master on localhost and do work just as if they were in a real cluster. Then if you want to add workers you can use the worker configuration below as a starting point on adding more nodes.</p>
 <pre><code class="hljs css language-yaml"><span class="hljs-attr">teraslice:</span>
-<span class="hljs-attr">    workers:</span> <span class="hljs-number">8</span>
-<span class="hljs-attr">    master:</span> <span class="hljs-literal">true</span>
-<span class="hljs-attr">    master_hostname:</span> <span class="hljs-string">"127.0.0.1"</span>
-<span class="hljs-attr">    name:</span> <span class="hljs-string">"teracluster"</span>
+    <span class="hljs-attr">workers:</span> <span class="hljs-number">8</span>
+    <span class="hljs-attr">master:</span> <span class="hljs-literal">true</span>
+    <span class="hljs-attr">master_hostname:</span> <span class="hljs-string">"127.0.0.1"</span>
+    <span class="hljs-attr">name:</span> <span class="hljs-string">"teracluster"</span>
 
 <span class="hljs-attr">terafoundation:</span>
-<span class="hljs-attr">    log_path:</span> <span class="hljs-string">'/path/to/logs'</span>
+    <span class="hljs-attr">log_path:</span> <span class="hljs-string">'/path/to/logs'</span>
 
-<span class="hljs-attr">    connectors:</span>
-<span class="hljs-attr">        elasticsearch:</span>
-<span class="hljs-attr">            default:</span>
-<span class="hljs-attr">                host:</span>
-<span class="hljs-attr">                    - YOUR_ELASTICSEARCH_IP:</span><span class="hljs-number">9200</span>
+    <span class="hljs-attr">connectors:</span>
+        <span class="hljs-attr">elasticsearch:</span>
+            <span class="hljs-attr">default:</span>
+                <span class="hljs-attr">host:</span>
+                    <span class="hljs-bullet">-</span> <span class="hljs-string">YOUR_ELASTICSEARCH_IP:9200</span>
 </code></pre>
-<h2><a class="anchor" aria-hidden="true" id="configuration-native-clustering-worker-node"></a><a href="#configuration-native-clustering-worker-node" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration Native Clustering - Worker Node</h2>
+<h2><a class="anchor" aria-hidden="true" id="configuration-native-clustering---worker-node"></a><a href="#configuration-native-clustering---worker-node" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Configuration Native Clustering - Worker Node</h2>
 <p>Configuration for a worker node is very similar. You just set <code>master</code> to false and provide the IP address where the master node can be located.</p>
 <pre><code class="hljs css language-yaml"><span class="hljs-attr">teraslice:</span>
-<span class="hljs-attr">    workers:</span> <span class="hljs-number">8</span>
-<span class="hljs-attr">    master:</span> <span class="hljs-literal">false</span>
-<span class="hljs-attr">    master_hostname:</span> <span class="hljs-string">"YOUR_MASTER_IP"</span>
-<span class="hljs-attr">    name:</span> <span class="hljs-string">"teracluster"</span>
+    <span class="hljs-attr">workers:</span> <span class="hljs-number">8</span>
+    <span class="hljs-attr">master:</span> <span class="hljs-literal">false</span>
+    <span class="hljs-attr">master_hostname:</span> <span class="hljs-string">"YOUR_MASTER_IP"</span>
+    <span class="hljs-attr">name:</span> <span class="hljs-string">"teracluster"</span>
 
 <span class="hljs-attr">terafoundation:</span>
-<span class="hljs-attr">    log_path:</span> <span class="hljs-string">'/path/to/logs'</span>
+    <span class="hljs-attr">log_path:</span> <span class="hljs-string">'/path/to/logs'</span>
 
-<span class="hljs-attr">    connectors:</span>
-<span class="hljs-attr">        elasticsearch:</span>
-<span class="hljs-attr">            default:</span>
-<span class="hljs-attr">                host:</span>
-<span class="hljs-attr">                    - YOUR_ELASTICSEARCH_IP:</span><span class="hljs-number">9200</span>
+    <span class="hljs-attr">connectors:</span>
+        <span class="hljs-attr">elasticsearch:</span>
+            <span class="hljs-attr">default:</span>
+                <span class="hljs-attr">host:</span>
+                    <span class="hljs-bullet">-</span> <span class="hljs-string">YOUR_ELASTICSEARCH_IP:9200</span>
 </code></pre>
-</span></div></article></div><div class="docLastUpdate"><em>Last updated on 10/8/2019</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/terminology"><span class="arrow-prev">← </span><span>Terminology</span></a><a class="docs-next button" href="/teraslice/docs/configuration/clustering-native"><span>Native Clustering</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#terafoundation-configuration-reference">Terafoundation Configuration Reference</a></li><li><a href="#teraslice-configuration-reference">Teraslice Configuration Reference</a><ul class="toc-headings"><li><a href="#terafoundation-connectors">Terafoundation Connectors</a></li></ul></li><li><a href="#configuration-single-node-native-clustering-cluster-master">Configuration Single Node / Native Clustering - Cluster Master</a></li><li><a href="#configuration-native-clustering-worker-node">Configuration Native Clustering - Worker Node</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/asset-bundles.html">Asset Bundles</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 10/15/2019</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/terminology"><span class="arrow-prev">← </span><span>Terminology</span></a><a class="docs-next button" href="/teraslice/docs/configuration/clustering-native"><span>Native Clustering</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#terafoundation-configuration-reference">Terafoundation Configuration Reference</a></li><li><a href="#teraslice-configuration-reference">Teraslice Configuration Reference</a><ul class="toc-headings"><li><a href="#terafoundation-connectors">Terafoundation Connectors</a></li></ul></li><li><a href="#configuration-single-node--native-clustering---cluster-master">Configuration Single Node / Native Clustering - Cluster Master</a></li><li><a href="#configuration-native-clustering---worker-node">Configuration Native Clustering - Worker Node</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/asset-bundles.html">Asset Bundles</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2019 Terascope, LLC</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
