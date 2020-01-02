@@ -5,7 +5,6 @@ export default class ExampleFetcher extends Fetcher {
     _initialized = false;
     _shutdown = false;
 
-
     async initialize() {
         this._initialized = true;
         return super.initialize();
