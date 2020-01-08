@@ -172,58 +172,85 @@ yarn.lock <span class="hljs-comment"># or package-lock.json</span>
 <p>The processor will be added to the <code>asset</code> directory with an associated test file in the test directory.  If there is no asset directory in the cwd then the cli will not create the processor.  The cli will prompt for a name and type before creating the new processor.  The three processor types are batch, filter, and map.  The batch processor expects the entire slice array for the input while the filter and map functions expect one item at a time.  See example code in a generated processor.</p>
 <h2><a class="anchor" aria-hidden="true" id="tjm-teraslice-job-manager"></a><a href="#tjm-teraslice-job-manager" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>TJM (teraslice job manager)</h2>
 <p>Commands to manage jobs by referencing a job file.</p>
-<h3><a class="anchor" aria-hidden="true" id="tjm-register"></a><a href="#tjm-register" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>tjm register</h3>
-<p>Registers a job to a cluster and adds the metadata to a job file. Before a job can be registered set up cluster aliases as instructed above. Use <code>--start</code> to immediately start the job after registering, also accepts the abbreviation reg.</p>
-<pre><code class="hljs css language-sh">teraslice-cli tjm register &lt;cluster-alias&gt; jobFile.json
-teraslice-cli tjm reg &lt;cluster-alias&gt; jobFile.json --start
+<h3><a class="anchor" aria-hidden="true" id="tjm-register-or-reg"></a><a href="#tjm-register-or-reg" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>tjm register or reg</h3>
+<p>Registers a job to a cluster and adds the metadata to a job file. Before a job can be registered set up cluster aliases as instructed above.</p>
+<ul>
+<li><code>--start</code> Starts job after it is registered</li>
+</ul>
+<pre><code class="hljs css language-sh">teraslice-cli tjm register &lt;cluster-alias&gt; JOB.JSON
+teraslice-cli tjm reg &lt;cluster-alias&gt; JOB.JSON --start
 </code></pre>
 <p><strong>For all the commands below the job must be registered on the cluster and have metadata in the <code>jobsFile.json</code> to work</strong></p>
 <h3><a class="anchor" aria-hidden="true" id="tjm-convert"></a><a href="#tjm-convert" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>tjm convert</h3>
 <p>For anyone who was using the previous version of tjm this command converts the old metadata style to the current version so that jobs don't have to be re-registered with the cluster.  Just use convert and any of the below commands will work, this does break the use of any older versions of tjm.</p>
-<pre><code class="hljs css language-sh">teraslice-cli tjm convert jobFile.json
+<pre><code class="hljs css language-sh">teraslice-cli tjm convert JOB.JSON
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="tjm-errors"></a><a href="#tjm-errors" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>tjm errors</h3>
 <p>Displays errors for a job.</p>
-<pre><code class="hljs css language-sh">teraslice-cli tjm errors jobFile.json
+<pre><code class="hljs css language-sh">teraslice-cli tjm errors JOB.JSON
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="tjm-init"></a><a href="#tjm-init" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>tjm init</h3>
 <p>Creates an example teraslice-job in the current working directory</p>
-<pre><code class="hljs css language-sh">terasclie-cli tjm init jobFile.json
+<pre><code class="hljs css language-sh">terasclie-cli tjm init JOB.JSON
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="tjm-reset"></a><a href="#tjm-reset" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>tjm reset</h3>
 <p>Removes metadata from job file, useful if the job needs to be moved to a different cluster.</p>
-<pre><code class="hljs css language-sj">teraslice-cli tjm <span class="hljs-keyword">reset</span> jobFile.json
+<pre><code class="hljs css language-sj">teraslice-cli tjm <span class="hljs-keyword">reset</span> JOB.JSON
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="tjm-restart"></a><a href="#tjm-restart" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>tjm restart</h3>
 <p>Stops and restarts a job.</p>
-<pre><code class="hljs css language-sh">teraslice-cli tjm restart jobFile.json
+<pre><code class="hljs css language-sh">teraslice-cli tjm restart JOB.JSON
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="tjm-start"></a><a href="#tjm-start" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>tjm start</h3>
 <p>Starts a job, <code>run</code> is an alias to <code>start</code>.</p>
-<pre><code class="hljs css language-sh">teraslice-cli <span class="hljs-built_in">jobs</span> start jobFile.json
+<pre><code class="hljs css language-sh">teraslice-cli <span class="hljs-built_in">jobs</span> start JOB.JSON
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="tjm-status"></a><a href="#tjm-status" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>tjm status</h3>
 <p>Reports the status of a job.</p>
-<pre><code class="hljs css language-sh">teraslice-cli tjm status jobFile.json
+<pre><code class="hljs css language-sh">teraslice-cli tjm status JOB.JSON
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="tjm-stop"></a><a href="#tjm-stop" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>tjm stop</h3>
 <p>Stops a job.</p>
-<pre><code class="hljs css language-sh">teraslice-cli tjm stop jobFile.json
+<pre><code class="hljs css language-sh">teraslice-cli tjm stop JOB.JSON
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="tjm-await"></a><a href="#tjm-await" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>tjm await</h3>
+<p>Waits for job to reach specified status</p>
+<ul>
+<li><code>--status</code> The status to wait on, once the job gets to specified status the cli exits
+<ul>
+<li>defaults to stopped or completed if not specified</li>
+<li>can enter more than one status seperated by a space</li>
+</ul></li>
+<li><code>--timeout</code> Time in microseconds, how long to wait for the job to reach the status
+<ul>
+<li>default is forever</li>
+</ul></li>
+<li><code>--start</code> Start the job then await for status</li>
+</ul>
+<pre><code class="hljs css language-sh">teraslice-cli tjm await JOB.JSON
+teraslice-cli tjm await JOB.JSON --start
+teraslice-cli tjm await JOB.JSON --status completed
+teraslice-cli tjm await JOB.JSON --status completed --timeout 10000
+teraslice-cli tjm await JOB.JSON --status failing --timeout 10000 --start
+teraslice-cli tjm await JOB.JSON --status running failing initializing --start
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="tjm-update"></a><a href="#tjm-update" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>tjm update</h3>
-<p>Updates the job file on the cluster, can also set --start to restart the job after the update is complete.</p>
-<pre><code class="hljs css language-sh">teraslice-cli tjm update jobFile.json
-teraslice-cli tjm update jobFile.json --start
+<p>Updates the job file on the cluster</p>
+<ul>
+<li><code>--start</code> Starts job after update is complete</li>
+</ul>
+<pre><code class="hljs css language-sh">teraslice-cli tjm update JOB.JSON
+teraslice-cli tjm update JOB.JSON --start
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="tjm-view"></a><a href="#tjm-view" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>tjm view</h3>
 <p>Displays job file as it is saved on the cluster.</p>
-<pre><code class="hljs css language-sh">teraslice-cli tjm view jobFile.json
+<pre><code class="hljs css language-sh">teraslice-cli tjm view JOB.JSON
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="tjm-workers"></a><a href="#tjm-workers" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>tjm workers</h3>
 <p>Adjusts the number of workers for a job.  Only accepts add, remove and total.  Total will add or remove workers accordingly to get to the number specified.</p>
-<pre><code class="hljs css language-sh">teraslice-cli tjm workers add 10 jobFile.json
-teraslice-cli tjm workers remove 5 jobFile.json
-teraslice-cli tjm workers total 50 jobFile.json
+<pre><code class="hljs css language-sh">teraslice-cli tjm workers add 10 JOB.JSON
+teraslice-cli tjm workers remove 5 JOB.JSON
+teraslice-cli tjm workers total 50 JOB.JSON
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="jobs"></a><a href="#jobs" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Jobs</h2>
 <p>*** Job control commands start, stop, pause, resume, and restart all function with the same syntax.***</p>
@@ -246,6 +273,25 @@ teraslice-cli <span class="hljs-built_in">jobs</span> resume <span class="hljs-b
 teraslice-cli <span class="hljs-built_in">jobs</span> restart <span class="hljs-built_in">local</span> 99999999-9999-9999-9999-999999999999
 <span class="hljs-comment"># restart all jobs, no prompt</span>
 teraslice-cli <span class="hljs-built_in">jobs</span> restart <span class="hljs-built_in">local</span> --all -y
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="jobs-await"></a><a href="#jobs-await" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>jobs await</h3>
+<p>Waits for job to reach a specified status</p>
+<ul>
+<li><code>--status</code> The status to wait on, once the job gets to specified status the cli exits
+<ul>
+<li>defaults to stopped or completed if not specified</li>
+<li>can enter more than one status seperated by a space</li>
+</ul></li>
+<li><code>--timeout</code> Time in microseconds, how long to wait for the job to reach the status
+<ul>
+<li>default is forever</li>
+</ul></li>
+<li><code>--start</code> Start the job then await for status</li>
+</ul>
+<pre><code class="hljs css language-sh">teraslice-cli <span class="hljs-built_in">jobs</span> await &lt;cluster&gt; &lt;job_id&gt;
+teraslice-cli <span class="hljs-built_in">jobs</span> await LOCALHOST 99999999-9999-9999-9999-999999999999
+teraslice-cli <span class="hljs-built_in">jobs</span> await LOCALHOST 99999999-9999-9999-9999-999999999999 --start
+teraslice-cli <span class="hljs-built_in">jobs</span> await LOCALHOST 99999999-9999-9999-9999-999999999999 --status running failing --timeout 10000 --start
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="jobs-errors"></a><a href="#jobs-errors" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>jobs errors</h3>
 <p>List errors for a given job</p>
@@ -339,7 +385,7 @@ teraslice-cli controllers list <span class="hljs-built_in">local</span>
 <pre><code class="hljs css language-bash">teraslice-cli controllers stats &lt;cluster&gt;
 teraslice-cli controllers stats <span class="hljs-built_in">local</span>
 </code></pre>
-</span></div></article></div><div class="docLastUpdate"><em>Last updated on 11/8/2019</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/packages/teraslice/overview"><span class="arrow-prev">← </span><span>Overview</span></a><a class="docs-next button" href="/teraslice/docs/packages/teraslice-cli/api/overview"><span>API</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#installation">Installation</a></li><li><a href="#aliases">Aliases</a><ul class="toc-headings"><li><a href="#aliases-list">aliases list</a></li><li><a href="#aliases-add">aliases add</a></li><li><a href="#aliases-remove">aliases remove</a></li><li><a href="#aliases-update">aliases update</a></li></ul></li><li><a href="#assets">Assets</a><ul class="toc-headings"><li><a href="#asses-build">asses build</a></li><li><a href="#assets-deploy">assets deploy</a></li><li><a href="#assets-list">assets list</a></li><li><a href="#assets-remove">assets remove</a></li><li><a href="#assets-init">assets init</a></li></ul></li><li><a href="#tjm-teraslice-job-manager">TJM (teraslice job manager)</a><ul class="toc-headings"><li><a href="#tjm-register">tjm register</a></li><li><a href="#tjm-convert">tjm convert</a></li><li><a href="#tjm-errors">tjm errors</a></li><li><a href="#tjm-init">tjm init</a></li><li><a href="#tjm-reset">tjm reset</a></li><li><a href="#tjm-restart">tjm restart</a></li><li><a href="#tjm-start">tjm start</a></li><li><a href="#tjm-status">tjm status</a></li><li><a href="#tjm-stop">tjm stop</a></li><li><a href="#tjm-update">tjm update</a></li><li><a href="#tjm-view">tjm view</a></li><li><a href="#tjm-workers">tjm workers</a></li></ul></li><li><a href="#jobs">Jobs</a><ul class="toc-headings"><li><a href="#jobs-errors">jobs errors</a></li><li><a href="#jobs-status">jobs status</a></li><li><a href="#jobs-list">jobs list</a></li><li><a href="#jobs-view">jobs view</a></li><li><a href="#jobs-recover">jobs recover</a></li><li><a href="#jobs-workers">jobs workers</a></li></ul></li><li><a href="#executions">Executions</a><ul class="toc-headings"><li><a href="#ex-errors">ex errors</a></li><li><a href="#ex-status">ex status</a></li><li><a href="#ex-list">ex list</a></li></ul></li><li><a href="#nodes">Nodes</a><ul class="toc-headings"><li><a href="#nodes-list">nodes list</a></li><li><a href="#nodes-controllers">nodes controllers</a></li><li><a href="#nodes-stats">nodes stats</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/asset-bundles.html">Asset Bundles</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Terascope, LLC</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 1/7/2020</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/packages/teraslice/overview"><span class="arrow-prev">← </span><span>Overview</span></a><a class="docs-next button" href="/teraslice/docs/packages/teraslice-cli/api/overview"><span>API</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#installation">Installation</a></li><li><a href="#aliases">Aliases</a><ul class="toc-headings"><li><a href="#aliases-list">aliases list</a></li><li><a href="#aliases-add">aliases add</a></li><li><a href="#aliases-remove">aliases remove</a></li><li><a href="#aliases-update">aliases update</a></li></ul></li><li><a href="#assets">Assets</a><ul class="toc-headings"><li><a href="#asses-build">asses build</a></li><li><a href="#assets-deploy">assets deploy</a></li><li><a href="#assets-list">assets list</a></li><li><a href="#assets-remove">assets remove</a></li><li><a href="#assets-init">assets init</a></li></ul></li><li><a href="#tjm-teraslice-job-manager">TJM (teraslice job manager)</a><ul class="toc-headings"><li><a href="#tjm-register-or-reg">tjm register or reg</a></li><li><a href="#tjm-convert">tjm convert</a></li><li><a href="#tjm-errors">tjm errors</a></li><li><a href="#tjm-init">tjm init</a></li><li><a href="#tjm-reset">tjm reset</a></li><li><a href="#tjm-restart">tjm restart</a></li><li><a href="#tjm-start">tjm start</a></li><li><a href="#tjm-status">tjm status</a></li><li><a href="#tjm-stop">tjm stop</a></li><li><a href="#tjm-await">tjm await</a></li><li><a href="#tjm-update">tjm update</a></li><li><a href="#tjm-view">tjm view</a></li><li><a href="#tjm-workers">tjm workers</a></li></ul></li><li><a href="#jobs">Jobs</a><ul class="toc-headings"><li><a href="#jobs-await">jobs await</a></li><li><a href="#jobs-errors">jobs errors</a></li><li><a href="#jobs-status">jobs status</a></li><li><a href="#jobs-list">jobs list</a></li><li><a href="#jobs-view">jobs view</a></li><li><a href="#jobs-recover">jobs recover</a></li><li><a href="#jobs-workers">jobs workers</a></li></ul></li><li><a href="#executions">Executions</a><ul class="toc-headings"><li><a href="#ex-errors">ex errors</a></li><li><a href="#ex-status">ex status</a></li><li><a href="#ex-list">ex list</a></li></ul></li><li><a href="#nodes">Nodes</a><ul class="toc-headings"><li><a href="#nodes-list">nodes list</a></li><li><a href="#nodes-controllers">nodes controllers</a></li><li><a href="#nodes-stats">nodes stats</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/asset-bundles.html">Asset Bundles</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Terascope, LLC</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
