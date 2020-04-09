@@ -58,240 +58,898 @@
 <p>A teraslice library for validating and transforming data</p>
 </blockquote>
 <h2><a class="anchor" aria-hidden="true" id="installation"></a><a href="#installation" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Installation</h2>
-<pre><code class="hljs css language-bash"><span class="hljs-comment"># Using yarn</span>
+<pre><code class="hljs css language-javascript"># Using yarn
 yarn add @terascope/data-mate
-<span class="hljs-comment"># Using npm</span>
+# Using npm
 npm install --save @terascope/data-mate
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="usage"></a><a href="#usage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Usage</h2>
+<pre><code class="hljs"><span class="hljs-keyword">import</span> { FieldValidator, FieldTransform } from <span class="hljs-string">'@terascope/data-mate'</span>;
+
+<span class="hljs-keyword">const</span> <span class="hljs-keyword">data</span> = [<span class="hljs-string">'60,80'</span>, <span class="hljs-string">'not a point'</span>];
+
+<span class="hljs-keyword">const</span> points = <span class="hljs-keyword">data</span>
+    .filter(FieldValidator.isGeoPoint)
+    .map(FieldTransform.toGeoPoint);
+
+points === [{ lat: <span class="hljs-number">60</span>, lon: <span class="hljs-number">80</span> }]
+
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="functions"></a><a href="#functions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Functions</h2>
+<ul>
+<li><p><a href="/teraslice/docs/packages/data-mate/overview#Document-Matcher">Document Matcher</a></p></li>
+<li><p><a href="/teraslice/docs/packages/data-mate/overview#Field-Validations">Field Validations</a></p>
+<ul>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isString">isString</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isNumber">isNumber</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isInteger">isInteger</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isBoolean">isBoolean</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isBooleanLike">isBooleanLike</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isGeoPoint">isGeoPoint</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isGeoJSON">isGeoJSON</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isGeoShapePoint">isGeoShapePoint</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isGeoShapePolygon">isGeoShapePolygon</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isGeoShapeMultiPolygon">isGeoShapeMultiPolygon</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isEmpty">isEmpty</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isLength">isLength</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isAlpha">isAlpha</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isASCII">isASCII</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isBase64">isBase64</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isValidDate">isValidDate</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isISO8601">isISO8601</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isRFC3339">isRFC3339</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isJSON">isJSON</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isEmail">isEmail</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isFQDN">isFQDN</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isURL">isURL</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isIP">isIP</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isRoutableIP">isRoutableIP</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isNonRoutableIP">isNonRoutableIP</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isCIDR">isCIDR</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isISDN">isISDN</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isMACAddress">isMACAddress</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isUUID">isUUID</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isHash">isHash</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isArray">isArray</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isCountryCode">isCountryCode</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isMIMEType">isMIMEType</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isISSN">isISSN</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#isPostalCode">isPostalCode</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#inIPRange">inIPRange</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#inNumberRange">inNumberRange</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#guard">guard</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#exists">exists</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#contains">contains</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#equals">equals</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#some">some</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#every">every</a></li>
+</ul></li>
+<li><p><a href="/teraslice/docs/packages/data-mate/overview#Field-Transforms">Field Transforms</a></p>
+<ul>
+<li><a href="/teraslice/docs/packages/data-mate/overview#toBoolean">toBoolean</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#toString">toString</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#toNumber">toNumber</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#toUpperCase">toUpperCase</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#toLowerCase">toLowerCase</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#toCamelCase">toCamelCase</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#toKebabCase">toKebabCase</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#toPascalCase">toPascalCase</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#toSnakeCase">toSnakeCase</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#toTitleCase">toTitleCase</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#toJSON">toJSON</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#toGeoPoint">toGeoPoint</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#toArray">toArray</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#toUnixTime">toUnixTime</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#toISO8601">toISO8601</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#toISDN">toISDN</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#trim">trim</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#trimStart">trimStart</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#trimEnd">trimEnd</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#truncate">truncate</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#decodeBase64">decodeBase64</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#decodeURL">decodeURL</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#decodeHex">decodeHex</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#encodeBase64">encodeBase64</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#encodeURL">encodeURL</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#encodeHex">encodeHex</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#encodeMD5">encodeMD5</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#encodeSHA">encodeSHA</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#encodeSHA1">encodeSHA1</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#parseJSON">parseJSON</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#dedupe">dedupe</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#extract">extract</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#replaceRegex">replaceRegex</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#replaceLiteral">replaceLiteral</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#formatDate">formatDate</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#parseDate">parseDate</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#setDefault">setDefault</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#map">map</a></li>
+</ul></li>
+<li><p><a href="/teraslice/docs/packages/data-mate/overview#Record-Validations">Record Validations</a></p>
+<ul>
+<li><a href="/teraslice/docs/packages/data-mate/overview#required">required</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#select">select</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#reject">reject</a></li>
+</ul></li>
+<li><p><a href="/teraslice/docs/packages/data-mate/overview#Record-Transforms">Record Transforms</a></p>
+<ul>
+<li><a href="/teraslice/docs/packages/data-mate/overview#renameField">renameField</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#setField">setField</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#dropFields">dropFields</a></li>
+<li><a href="/teraslice/docs/packages/data-mate/overview#copyField">copyField</a></li>
+</ul></li>
+</ul>
 <h2><a class="anchor" aria-hidden="true" id="field-validations"></a><a href="#field-validations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Field Validations</h2>
 <blockquote>
-<p>Field validation functions accept an input and return a boolean.  Some functions also support an arg object.</p>
+<p>Field validation functions accept an input and return a Boolean.  If additional arguments are needed then an object containing parameters is passed in.</p>
 </blockquote>
-<p><code>functionName(INPUT, { arg1: 'ARG1', arg2: 'ARG2', etc... })</code></p>
-<h3><a class="anchor" aria-hidden="true" id="isboolean"></a><a href="#isboolean" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isBoolean</h3>
-<p><code>isBoolean(INPUT) - returns true if input is a boolean</code></p>
-<pre><code class="hljs css language-bash">isBoolean(<span class="hljs-literal">false</span>); <span class="hljs-comment"># true</span>
-isBoolean(<span class="hljs-string">'astring'</span>); <span class="hljs-comment"># false</span>
-isBoolean(0); <span class="hljs-comment"># false</span>
-</code></pre>
-<h3><a class="anchor" aria-hidden="true" id="isbooleanlike"></a><a href="#isbooleanlike" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isBooleanLike</h3>
-<p><code>isBooleanLike(INPUT) - returns true if input is a boolean, truthy, or falsy</code></p>
-<p><code>Additional truthy values are 1, '1', 'true', 'yes'</code></p>
-<p><code>Additional falsy values are 0, '0', 'false', 'no'</code></p>
-<pre><code class="hljs css language-bash">isBooleanLike(0); <span class="hljs-comment"># true</span>
-isBooleanLike(<span class="hljs-string">'true'</span>); <span class="hljs-comment"># true</span>
-isBooleanLike(<span class="hljs-string">'no'</span>); <span class="hljs-comment"># true</span>
-isBooleanLike(<span class="hljs-string">'a string'</span>) <span class="hljs-comment"># false</span>
+<p><code>functionName(input, { arg1: 'ARG1', arg2: 'ARG2', etc... })</code></p>
+<h3><a class="anchor" aria-hidden="true" id="isstring"></a><a href="#isstring" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isString</h3>
+<p><code>isString(input) - Validates that input is a string or a list of strings</code></p>
+<pre><code class="hljs css language-javascript">FieldValidator.isString(<span class="hljs-string">'this is a string'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isString(<span class="hljs-literal">true</span>); <span class="hljs-comment">// false</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="isnumber"></a><a href="#isnumber" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isNumber</h3>
-<p><code>isNumber(INPUT) - returns true if input is a valid number</code></p>
-<pre><code class="hljs css language-bash">isNumber(42.32); <span class="hljs-comment"># true;</span>
-isNumber(<span class="hljs-string">'NOT A NUMBER'</span>); <span class="hljs-comment"># false</span>
+<p><code>isNumber(input) - Validates that input is a number or a list of numbers</code></p>
+<pre><code class="hljs css language-javascript">FieldValidator.isNumber(<span class="hljs-number">42.32</span>); <span class="hljs-comment">// true;</span>
+FieldValidator.isNumber(<span class="hljs-string">'NOT A Number'</span>); <span class="hljs-comment">// false</span>
+FieldValidator.isNumber([<span class="hljs-number">42.32</span>, <span class="hljs-number">245</span>]); <span class="hljs-comment">// true;</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="isinteger"></a><a href="#isinteger" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isInteger</h3>
-<p><code>isInteger(INPUT) - returns true if input is a valid integer</code></p>
-<pre><code class="hljs css language-bash">isInteger(42); <span class="hljs-comment"># true</span>
-isInteger(3.14); <span class="hljs-comment"># false</span>
+<p><code>isInteger(input) - Validates that input is a integer or a list of integers</code></p>
+<pre><code class="hljs css language-javascript">FieldValidator.isInteger(<span class="hljs-number">42</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isInteger(<span class="hljs-number">3.14</span>); <span class="hljs-comment">// false</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="isboolean"></a><a href="#isboolean" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isBoolean</h3>
+<p><code>FieldValidator.isBoolean(input) - Checks to see if input is a Boolean. If given an array, will check if all values are booleans ignoring any null/undefined values</code></p>
+<pre><code class="hljs css language-javascript">FieldValidator.isBoolean(<span class="hljs-literal">false</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isBoolean(<span class="hljs-string">'astring'</span>); <span class="hljs-comment">// false</span>
+FieldValidator.isBoolean(<span class="hljs-number">0</span>); <span class="hljs-comment">// false</span>
+FieldValidator.isBoolean([<span class="hljs-literal">true</span>, <span class="hljs-literal">undefined</span>]); <span class="hljs-comment">// true</span>
+FieldValidator.isBoolean([<span class="hljs-string">'true'</span>, <span class="hljs-literal">undefined</span>]; <span class="hljs-comment">// false</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="isbooleanlike"></a><a href="#isbooleanlike" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isBooleanLike</h3>
+<p><code>isBooleanLike(input) - returns true if input is a Boolean, truthy, or falsy. If an given an array, it will check to see if all values in the array are Boolean-like, does NOT ignore null/undefined values</code></p>
+<p><code>Additional truthy values are 1, '1', 'true', 'yes'</code></p>
+<p><code>Additional falsy values are 0, '0', 'false', 'no'</code></p>
+<pre><code class="hljs css language-javascript">FieldValidator.isBooleanLike(<span class="hljs-number">0</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isBooleanLike(<span class="hljs-string">'true'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isBooleanLike(<span class="hljs-string">'no'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isBooleanLike(<span class="hljs-string">'a string'</span>) <span class="hljs-comment">// false</span>
+FieldValidator.isBooleanLike([<span class="hljs-string">'true'</span>, <span class="hljs-number">0</span>, <span class="hljs-string">'no'</span>]; <span class="hljs-comment">// true</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="isgeopoint"></a><a href="#isgeopoint" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isGeoPoint</h3>
+<p><code>FieldValidator.isGeoPoint(input) - Checks to see if input is a valid geo-point, or a list of valid geo-points excluding null/undefined values</code></p>
+<pre><code class="hljs css language-javascript"> FieldValidator.isGeoPoint(<span class="hljs-string">'60,80'</span>); <span class="hljs-comment">// true</span>
+ FieldValidator.isGeoPoint([<span class="hljs-number">80</span>, <span class="hljs-number">60</span>]); <span class="hljs-comment">// true</span>
+ FieldValidator.isGeoPoint({ <span class="hljs-attr">lat</span>: <span class="hljs-number">60</span>, <span class="hljs-attr">lon</span>: <span class="hljs-number">80</span> }); <span class="hljs-comment">// true</span>
+ FieldValidator.isGeoPoint({ <span class="hljs-attr">latitude</span>: <span class="hljs-number">60</span>, <span class="hljs-attr">longitude</span>: <span class="hljs-number">80</span> }); <span class="hljs-comment">// true</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="isgeojson"></a><a href="#isgeojson" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isGeoJSON</h3>
+<p>`FieldValidator.isGeoJSON(input) - Checks to see if input is a valid geo-json geometry, or a list of geo-json geometeries</p>
+<p>`</p>
+<pre><code class="hljs css language-javascript">  <span class="hljs-keyword">const</span> polygon = {
+     <span class="hljs-attr">type</span>: <span class="hljs-string">"Polygon"</span>,
+     <span class="hljs-attr">coordinates</span>: [
+        [[<span class="hljs-number">10</span>, <span class="hljs-number">10</span>], [<span class="hljs-number">10</span>, <span class="hljs-number">50</span>], [<span class="hljs-number">50</span>, <span class="hljs-number">50</span>], [<span class="hljs-number">50</span>, <span class="hljs-number">10</span>], [<span class="hljs-number">10</span>, <span class="hljs-number">10</span>]],
+     ]
+  };
+
+  FieldValidator.isGeoJSON(polygon); <span class="hljs-comment">// true</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="isgeoshapepoint"></a><a href="#isgeoshapepoint" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isGeoShapePoint</h3>
+<p><code>FieldValidator.isGeoShapePoint(input) - Checks to see if input is a valid geo-json point, or a list of geo-json points</code></p>
+<pre><code class="hljs css language-javascript">  <span class="hljs-keyword">const</span> polygon = {
+     <span class="hljs-attr">type</span>: <span class="hljs-string">"Polygon"</span>,
+     <span class="hljs-attr">coordinates</span>: [
+        [[<span class="hljs-number">10</span>, <span class="hljs-number">10</span>], [<span class="hljs-number">10</span>, <span class="hljs-number">50</span>], [<span class="hljs-number">50</span>, <span class="hljs-number">50</span>], [<span class="hljs-number">50</span>, <span class="hljs-number">10</span>], [<span class="hljs-number">10</span>, <span class="hljs-number">10</span>]],
+     ]
+  };
+
+  <span class="hljs-keyword">const</span> point = {
+    <span class="hljs-attr">type</span>: <span class="hljs-string">'Point'</span>,
+    <span class="hljs-attr">coordinates</span>: [<span class="hljs-number">12</span>, <span class="hljs-number">12</span>]
+  };
+
+  FieldValidator.isGeoShapePoint(polygon); <span class="hljs-comment">// false</span>
+  FieldValidator.isGeoShapePoint(point); <span class="hljs-comment">// true</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="isgeoshapepolygon"></a><a href="#isgeoshapepolygon" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isGeoShapePolygon</h3>
+<p><code>FieldValidator.isGeoShapePolygon(input) - Checks to see if input is a valid geo-json polygon, or a list of geo-json polygons</code></p>
+<pre><code class="hljs css language-javascript">  <span class="hljs-keyword">const</span> polygon = {
+     <span class="hljs-attr">type</span>: <span class="hljs-string">"Polygon"</span>,
+     <span class="hljs-attr">coordinates</span>: [
+        [[<span class="hljs-number">10</span>, <span class="hljs-number">10</span>], [<span class="hljs-number">10</span>, <span class="hljs-number">50</span>], [<span class="hljs-number">50</span>, <span class="hljs-number">50</span>], [<span class="hljs-number">50</span>, <span class="hljs-number">10</span>], [<span class="hljs-number">10</span>, <span class="hljs-number">10</span>]],
+     ]
+  };
+
+  <span class="hljs-keyword">const</span> point = {
+    <span class="hljs-attr">type</span>: <span class="hljs-string">'Point'</span>,
+    <span class="hljs-attr">coordinates</span>: [<span class="hljs-number">12</span>, <span class="hljs-number">12</span>]
+  };
+
+  FieldValidator.isGeoShapePolygon(polygon); <span class="hljs-comment">// true</span>
+  FieldValidator.isGeoShapePolygon(point); <span class="hljs-comment">// false</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="isgeoshapemultipolygon"></a><a href="#isgeoshapemultipolygon" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isGeoShapeMultiPolygon</h3>
+<p><code>FieldValidator.isGeoShapeMultiPolygon(input) - Checks to see if input is a valid geo-json multipolygon or a list of geo-json multipolygons</code></p>
+<pre><code class="hljs css language-javascript">  <span class="hljs-keyword">const</span> polygon = {
+     <span class="hljs-attr">type</span>: <span class="hljs-string">"Polygon"</span>,
+     <span class="hljs-attr">coordinates</span>: [
+        [[<span class="hljs-number">10</span>, <span class="hljs-number">10</span>], [<span class="hljs-number">10</span>, <span class="hljs-number">50</span>], [<span class="hljs-number">50</span>, <span class="hljs-number">50</span>], [<span class="hljs-number">50</span>, <span class="hljs-number">10</span>], [<span class="hljs-number">10</span>, <span class="hljs-number">10</span>]],
+     ]
+  };
+
+  <span class="hljs-keyword">const</span> point = {
+    <span class="hljs-attr">type</span>: <span class="hljs-string">'Point'</span>,
+    <span class="hljs-attr">coordinates</span>: [<span class="hljs-number">12</span>, <span class="hljs-number">12</span>]
+  };
+
+  <span class="hljs-keyword">const</span> multiPolygon = {
+    <span class="hljs-attr">type</span>: <span class="hljs-string">'MultiPolygon'</span>,
+    <span class="hljs-attr">coordinates</span>: [
+        [
+            [[<span class="hljs-number">10</span>, <span class="hljs-number">10</span>], [<span class="hljs-number">10</span>, <span class="hljs-number">50</span>], [<span class="hljs-number">50</span>, <span class="hljs-number">50</span>], [<span class="hljs-number">50</span>, <span class="hljs-number">10</span>], [<span class="hljs-number">10</span>, <span class="hljs-number">10</span>]],
+        ],
+        [
+            [[<span class="hljs-number">-10</span>, <span class="hljs-number">-10</span>], [<span class="hljs-number">-10</span>, <span class="hljs-number">-50</span>], [<span class="hljs-number">-50</span>, <span class="hljs-number">-50</span>], [<span class="hljs-number">-50</span>, <span class="hljs-number">-10</span>], [<span class="hljs-number">-10</span>, <span class="hljs-number">-10</span>]],
+        ]
+    ]
+  };
+
+  FieldValidator.isGeoShapeMultiPolygon(polygon); <span class="hljs-comment">// false</span>
+  FieldValidator.isGeoShapeMultiPolygon(point); <span class="hljs-comment">// false</span>
+  FieldValidator.isGeoShapeMultiPolygon(multiPolygon); <span class="hljs-comment">// true</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="innumberrange"></a><a href="#innumberrange" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>inNumberRange</h3>
-<p><code>inNumberRange(INPUT, args) - returns true if input is a number within the min and max boundaries.</code></p>
-<p><code>Required args: { min: NUMBER, max: NUMBER }</code></p>
-<p><code>Optional arg: { inclusive: BOOLEAN }</code></p>
-<pre><code class="hljs"><span class="hljs-string">inNumberRange(42,</span> <span class="hljs-string">{</span> <span class="hljs-attr">min:</span> <span class="hljs-number">0</span><span class="hljs-string">,</span> <span class="hljs-attr">max:</span> <span class="hljs-number">100</span><span class="hljs-string">});</span> <span class="hljs-comment"># true</span>
-<span class="hljs-string">inNumberRange(-42,</span> <span class="hljs-string">{</span> <span class="hljs-string">min:0</span> <span class="hljs-string">,</span> <span class="hljs-attr">max:</span> <span class="hljs-number">100</span> <span class="hljs-string">});</span> <span class="hljs-comment"># false</span>
-<span class="hljs-string">inNumberRange(42,</span> <span class="hljs-string">{</span> <span class="hljs-attr">min:</span> <span class="hljs-number">0</span><span class="hljs-string">,</span> <span class="hljs-attr">max:</span> <span class="hljs-number">42</span> <span class="hljs-string">});</span> <span class="hljs-comment"># false without the inclusive option</span>
-<span class="hljs-string">inNumberRange(42,</span> <span class="hljs-string">{</span> <span class="hljs-attr">min:</span> <span class="hljs-number">0</span><span class="hljs-string">,</span> <span class="hljs-attr">max:</span> <span class="hljs-number">42</span><span class="hljs-string">,</span> <span class="hljs-attr">inclusive:</span> <span class="hljs-literal">true</span> <span class="hljs-string">});</span> <span class="hljs-comment"># true with the inclusive option</span>
-</code></pre>
-<h3><a class="anchor" aria-hidden="true" id="isstring"></a><a href="#isstring" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isString:</h3>
-<p><code>isString(INPUT) - returns true for valid strings</code></p>
-<pre><code class="hljs css language-bash">isString(<span class="hljs-string">'this is a string'</span>); <span class="hljs-comment"># true</span>
-isString(<span class="hljs-literal">true</span>); <span class="hljs-comment"># false</span>
+<p><code>inNumberRange(input, args) - returns true if input is a Number within the min and max boundaries, or that the array on numbers are between the values</code></p>
+<p><code>args: { min: Number, max: Number, inclusive?: Boolean }</code></p>
+<pre><code class="hljs css language-javascript">FieldValidator.inNumberRange(<span class="hljs-number">42</span>, { <span class="hljs-attr">min</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">max</span>: <span class="hljs-number">100</span>}); <span class="hljs-comment">// true</span>
+FieldValidator.inNumberRange(<span class="hljs-number">-42</span>, { <span class="hljs-attr">min</span>:<span class="hljs-number">0</span> , <span class="hljs-attr">max</span>: <span class="hljs-number">100</span> }); <span class="hljs-comment">// false</span>
+FieldValidator.inNumberRange(<span class="hljs-number">42</span>, { <span class="hljs-attr">min</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">max</span>: <span class="hljs-number">42</span> }); <span class="hljs-comment">// false without the inclusive option</span>
+FieldValidator.inNumberRange(<span class="hljs-number">42</span>, { <span class="hljs-attr">min</span>: <span class="hljs-number">0</span>, <span class="hljs-attr">max</span>: <span class="hljs-number">42</span>, <span class="hljs-attr">inclusive</span>: <span class="hljs-literal">true</span> }); <span class="hljs-comment">// true with the inclusive option</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="isempty"></a><a href="#isempty" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isEmpty</h3>
-<p><code>isEmpty(INPUT) - returns true for an empty string, array, or object</code></p>
-<pre><code class="hljs css language-bash">isEmpty([]); <span class="hljs-comment"># true</span>
-isEmpty({ foo: <span class="hljs-string">'bar'</span> }); <span class="hljs-comment"># false</span>
+<p><code>isEmpty(input, args) - returns true for an empty string, array, or object</code></p>
+<p><code>args: { ignoreWhitespac?: Boolean }</code></p>
+<p><code>set ignoreWhitespac to true if you want the value to be trimed</code></p>
+<pre><code class="hljs css language-javascript">FieldValidator.isEmpty([]); <span class="hljs-comment">// true</span>
+FieldValidator.isEmpty({ <span class="hljs-attr">foo</span>: <span class="hljs-string">'bar'</span> }); <span class="hljs-comment">// false</span>
+FieldValidator.isEmpty(<span class="hljs-string">'     '</span>, { <span class="hljs-attr">ignoreWhitespace</span>: <span class="hljs-literal">true</span> }); <span class="hljs-comment">// true</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="contains"></a><a href="#contains" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>contains</h3>
-<p><code>contains(INPUT, args) - returns true if string contains args value</code></p>
-<p><code>Required args: { value: STRING }</code></p>
-<pre><code class="hljs css language-bash">contains(<span class="hljs-string">'hello'</span>, { value: <span class="hljs-string">'ell'</span> }); <span class="hljs-comment"># true</span>
-contains(<span class="hljs-string">'hello'</span>, { value: <span class="hljs-string">'bye'</span> }); <span class="hljs-comment"># bye</span>
+<p><code>contains(input, args) - returns true if input contains args value, or the list of inputs contains args value</code></p>
+<p><code>args: { value: String }</code></p>
+<pre><code class="hljs css language-javascript">FieldValidator.contains(<span class="hljs-string">'hello'</span>, { <span class="hljs-attr">value</span>: <span class="hljs-string">'ell'</span> }); <span class="hljs-comment">// true</span>
+FieldValidator.contains(<span class="hljs-string">'hello'</span>, { <span class="hljs-attr">value</span>: <span class="hljs-string">'bye'</span> }); <span class="hljs-comment">// bye</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="equals"></a><a href="#equals" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>equals</h3>
-<p><code>equals(INPUT, args) - returns true if input equals args value</code></p>
-<p><code>Required args: { value: 'STRING' }</code></p>
-<pre><code class="hljs css language-bash">equals(<span class="hljs-string">'hello'</span>, { value: <span class="hljs-string">'hello'</span> }); <span class="hljs-comment"># true</span>
-equals(<span class="hljs-string">'hello'</span>, { value: <span class="hljs-string">'ello'</span> }); <span class="hljs-comment"># false</span>
+<p><code>equals(input, args) - Validates that the input matches the value, of that the input array matches the value provided</code></p>
+<p><code>args: { value: 'String' }</code></p>
+<pre><code class="hljs css language-javascript">FieldValidator.equals(<span class="hljs-string">'hello'</span>, { <span class="hljs-attr">value</span>: <span class="hljs-string">'hello'</span> }); <span class="hljs-comment">// true</span>
+FieldValidator.equals(<span class="hljs-string">'hello'</span>, { <span class="hljs-attr">value</span>: <span class="hljs-string">'ello'</span> }); <span class="hljs-comment">// false</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="islength"></a><a href="#islength" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isLength</h3>
-<p><code>isLength(INPUT, args) - returns true if string is of specifid length or in a range</code></p>
-<p><code>Optional args: { length: NUMBER, min: NUMBER, max: NUMBER }</code></p>
-<pre><code class="hljs css language-bash">isLength(<span class="hljs-string">'astring'</span>, { size: 7 }); <span class="hljs-comment"># true</span>
-isLength(<span class="hljs-string">'astring'</span>, { min: 3, max: 10 }); <span class="hljs-comment"># true</span>
-isLength(<span class="hljs-string">'astring'</span>, { size: 10 }); <span class="hljs-comment"># false</span>
+<p><code>isLength(input, args) - Check to see if input is a string with given length ranges, or a list of valid string lengths</code></p>
+<p><code>Optional args: { length: Number, min: Number, max: Number }</code></p>
+<pre><code class="hljs css language-javascript">FieldValidator.isLength(<span class="hljs-string">'astring'</span>, { <span class="hljs-attr">size</span>: <span class="hljs-number">7</span> }); <span class="hljs-comment">// true</span>
+FieldValidator.isLength(<span class="hljs-string">'astring'</span>, { <span class="hljs-attr">min</span>: <span class="hljs-number">3</span>, <span class="hljs-attr">max</span>: <span class="hljs-number">10</span> }); <span class="hljs-comment">// true</span>
+FieldValidator.isLength(<span class="hljs-string">'astring'</span>, { <span class="hljs-attr">size</span>: <span class="hljs-number">10</span> }); <span class="hljs-comment">// false</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="isalpha"></a><a href="#isalpha" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isAlpha</h3>
-<p><code>isAlpha(INPUT, args) - returns true if input is a string of alphabet characters</code></p>
-<p><code>Optional arg: { locale: ANY LOCALE OPTION DEFINED BELOW }, default locale is en-US</code></p>
+<p><code>isAlpha(input, args) - Validates that the input is alpha or a list of alpha values</code></p>
+<p><code>arg: { locale?: ANY LOCALE OPTION DEFINED BELOW }, default locale is en-US</code></p>
 <p><code>Locale options: 'ar', 'ar-AE', 'ar-BH', 'ar-DZ', 'ar-EG', 'ar-IQ', 'ar-JO', 'ar-KW', 'ar-LB', 'ar-LY', 'ar-MA', 'ar-QA', 'ar-QM', 'ar-SA', 'ar-SD', 'ar-SY', 'ar-TN', 'ar-YE', 'bg-BG', 'cs-CZ', 'da-DK', 'de-DE', 'el-GR', 'en-AU', 'en-GB', 'en-HK', 'en-IN', 'en-NZ', 'en-US', 'en-ZA', 'en-ZM', 'es-ES', 'fr-FR', 'fa-IR', 'he', 'hu-HU', 'it-IT', 'ku-IQ', 'nb-NO', 'nl-NL', 'nn-NO', 'pl-PL', 'pt-BR', 'pt-PT', 'ru-RU', 'sl-SI', 'sk-SK', 'sr-RS', 'sr-RS@latin', 'sv-SE', 'tr-TR', 'uk-UA'</code></p>
-<pre><code class="hljs css language-bash">isAlpha(<span class="hljs-string">'validString'</span>); <span class="hljs-comment"># true</span>
-isAlpha(<span class="hljs-string">'ThisiZĄĆĘŚŁ'</span>, { locale: <span class="hljs-string">'pl-PL'</span> }); <span class="hljs-comment"># true</span>
-isAlpha(<span class="hljs-string">'1123_not-valid'</span>); <span class="hljs-comment"># false</span>
+<pre><code class="hljs css language-javascript">FieldValidator.isAlpha(<span class="hljs-string">'validString'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isAlpha(<span class="hljs-string">'ThisiZĄĆĘŚŁ'</span>, { <span class="hljs-attr">locale</span>: <span class="hljs-string">'pl-PL'</span> }); <span class="hljs-comment">// true</span>
+FieldValidator.isAlpha(<span class="hljs-string">'1123_not-valid'</span>); <span class="hljs-comment">// false</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="isalphanumeric"></a><a href="#isalphanumeric" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isAlphanumeric</h3>
-<p><code>isAlphanumeric(INPUT, args) - return true if input is alphabet or numeric characters</code></p>
+<p><code>isAlphanumeric(input, args) - Validates that the input is alphanumeric or a list of alphanumieric values</code></p>
 <p><code>Optional arg: { locale: ANY LOCALE OPTION DEFINED BELOW }, default locale is en-US</code></p>
 <p><code>Locale options: 'ar', 'ar-AE', 'ar-BH', 'ar-DZ', 'ar-EG', 'ar-IQ', 'ar-JO', 'ar-KW', 'ar-LB', 'ar-LY', 'ar-MA', 'ar-QA', 'ar-QM', 'ar-SA', 'ar-SD', 'ar-SY', 'ar-TN', 'ar-YE', 'bg-BG', 'cs-CZ', 'da-DK', 'de-DE', 'el-GR', 'en-AU', 'en-GB', 'en-HK', 'en-IN', 'en-NZ', 'en-US', 'en-ZA', 'en-ZM', 'es-ES', 'fr-FR', 'fa-IR', 'he', 'hu-HU', 'it-IT', 'ku-IQ', 'nb-NO', 'nl-NL', 'nn-NO', 'pl-PL', 'pt-BR', 'pt-PT', 'ru-RU', 'sl-SI', 'sk-SK', 'sr-RS', 'sr-RS@latin', 'sv-SE', 'tr-TR', 'uk-UA'</code></p>
-<pre><code class="hljs css language-bash">isAlphanumeric(<span class="hljs-string">'123validString'</span>); <span class="hljs-comment"># true</span>
-isAlphanumeric(<span class="hljs-string">'فڤقکگ1234'</span>, { locale: <span class="hljs-string">'ku-IQ'</span> }); <span class="hljs-comment"># true</span>
-isAlphanumeric(<span class="hljs-string">'-- not valid'</span>); <span class="hljs-comment"># false</span>
+<pre><code class="hljs css language-javascript">FieldValidator.isAlphanumeric(<span class="hljs-string">'123validString'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isAlphanumeric(<span class="hljs-string">'فڤقکگ1234'</span>, { <span class="hljs-attr">locale</span>: <span class="hljs-string">'ku-IQ'</span> }); <span class="hljs-comment">// true</span>
+FieldValidator.isAlphanumeric(<span class="hljs-string">'-- not valid'</span>); <span class="hljs-comment">// false</span>
 </code></pre>
-<h3><a class="anchor" aria-hidden="true" id="isascii"></a><a href="#isascii" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isAscii</h3>
-<p><code>isAscii(INPUT) - returns true for a string of ascii characters</code></p>
-<pre><code class="hljs css language-bash">isAscii(<span class="hljs-string">'ascii\s__'</span>); <span class="hljs-comment"># true;</span>
-isAscii(<span class="hljs-string">'˜∆˙©∂ß'</span>); <span class="hljs-comment"># false</span>
+<h3><a class="anchor" aria-hidden="true" id="isascii"></a><a href="#isascii" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isASCII</h3>
+<p><code>isASCII(input) - Validates that the input is ASCII chars or a list of ASCII chars</code></p>
+<pre><code class="hljs css language-javascript">FieldValidator.isASCII(<span class="hljs-string">'ascii\s__'</span>); <span class="hljs-comment">// true;</span>
+FieldValidator.isASCII(<span class="hljs-string">'˜∆˙©∂ß'</span>); <span class="hljs-comment">// false</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="isbase64"></a><a href="#isbase64" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isBase64</h3>
-<p><code>isBase64(INPUT) - returns true for a base64 encoded string</code></p>
-<pre><code class="hljs css language-bash">isBase64(<span class="hljs-string">'ZWFzdXJlLg=='</span>); <span class="hljs-comment"># true</span>
-isBase64(<span class="hljs-string">'not base 64'</span>); <span class="hljs-comment"># false</span>
+<p><code>isBase64(input) - Validates that the input is a base64 encoded string or a list of base64 encoded strings</code></p>
+<pre><code class="hljs css language-javascript">FieldValidator.isBase64(<span class="hljs-string">'ZWFzdXJlLg=='</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isBase64(<span class="hljs-string">'not base 64'</span>); <span class="hljs-comment">// false</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="isvaliddate"></a><a href="#isvaliddate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isValidDate</h3>
-<p><code>isValidDate(INPUT) - returns true for valid date strings, date objects, and integer dates (epoch/ unix time)</code></p>
-<pre><code class="hljs css language-bash">isValidDate(<span class="hljs-string">'2019-03-17'</span>); <span class="hljs-comment"># true</span>
-isValidDate(1552000139); <span class="hljs-comment"># true</span>
-isValidDate(<span class="hljs-string">'1552000139'</span>); <span class="hljs-comment"># false</span>
+<p><code>isValidDate(input) - Validates that the input is a valid date or a list of valid dates (epoch/ unix time)</code></p>
+<pre><code class="hljs css language-javascript">FieldValidator.isValidDate(<span class="hljs-string">'2019-03-17'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isValidDate(<span class="hljs-number">1552000139</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isValidDate(<span class="hljs-string">'1552000139'</span>); <span class="hljs-comment">// false</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="isiso8601"></a><a href="#isiso8601" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isISO8601</h3>
-<p><code>isISO8601(INPUT) - returns true if inuput is a ISO8601 date string</code></p>
-<pre><code class="hljs css language-bash">isISO8601(<span class="hljs-string">'2020-01-01T12:03:03.494Z'</span>); <span class="hljs-comment"># true</span>
-isISO8601(<span class="hljs-string">'Jan 1, 2020'</span>); <span class="hljs-comment"># false</span>
+<p><code>isISO8601(input) - Checks to see if input is a valid ISO8601 string dates or a list of valid dates</code></p>
+<pre><code class="hljs css language-javascript">FieldValidator.isISO8601(<span class="hljs-string">'2020-01-01T12:03:03.494Z'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isISO8601(<span class="hljs-string">'Jan 1, 2020'</span>); <span class="hljs-comment">// false</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="isrfc3339"></a><a href="#isrfc3339" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isRFC3339</h3>
-<p><code>isRFC3339(INPUT) - returns true if input is a valid RFC3339 date string</code></p>
-<pre><code class="hljs css language-bash">isRFC3339(<span class="hljs-string">'2020-01-01 12:05:05.001Z'</span>); <span class="hljs-comment"># true</span>
-isRFC3339(<span class="hljs-string">'2020-01-01'</span>); <span class="hljs-comment"># false</span>
+<p><code>isRFC3339(input) - Validates that input is a valid RFC3339 dates or a list of valid RFC3339 dates</code></p>
+<pre><code class="hljs css language-javascript">FieldValidator.isRFC3339(<span class="hljs-string">'2020-01-01 12:05:05.001Z'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isRFC3339(<span class="hljs-string">'2020-01-01'</span>); <span class="hljs-comment">// false</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="isjson"></a><a href="#isjson" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isJSON</h3>
-<p><code>isJSON(INPUT) - returns true if input is valid json</code></p>
-<pre><code class="hljs css language-bash"> isJSON(<span class="hljs-string">'{ "bob": "gibson" }'</span>); <span class="hljs-comment"># true</span>
- isJSON({ bob: <span class="hljs-string">'gibson'</span> }); <span class="hljs-comment"># false</span>
+<p><code>isJSON(input) - Validates that input is a valid JSON string or a list of valid JSON</code></p>
+<pre><code class="hljs css language-javascript"> FieldValidator.isJSON(<span class="hljs-string">'{ "bob": "gibson" }'</span>); <span class="hljs-comment">// true</span>
+ FieldValidator.isJSON({ <span class="hljs-attr">bob</span>: <span class="hljs-string">'gibson'</span> }); <span class="hljs-comment">// false</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="isemail"></a><a href="#isemail" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isEmail</h3>
-<p><code>isEmail(INPUT) - returns true if input is an email</code></p>
-<pre><code class="hljs css language-bash">isEmail(<span class="hljs-string">'email@example.com'</span>); <span class="hljs-comment"># true</span>
-isEmail(12345); <span class="hljs-comment"># false</span>
+<p><code>isEmail(input) - Return true if value is a valid email, or a list of valid emails</code></p>
+<pre><code class="hljs css language-javascript">FieldValidator.isEmail(<span class="hljs-string">'email@example.com'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isEmail(<span class="hljs-number">12345</span>); <span class="hljs-comment">// false</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="isfqdn"></a><a href="#isfqdn" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isFQDN</h3>
-<p><code>isFQDN(INPUT) - returns true for valid fully qualified domain names</code></p>
-<pre><code class="hljs css language-bash">isFQDN(<span class="hljs-string">'example.com.uk'</span>); <span class="hljs-comment"># true</span>
-isFQDN(<span class="hljs-string">'notadomain'</span>); <span class="hljs-comment"># false</span>
+<p><code>isFQDN(input, args) - Validate that the input is a valid domain name, or a list of domian names</code></p>
+<p><code>args: { require_tld = true, allow_underscores = false, allow_trailing_dot = false }</code></p>
+<pre><code class="hljs css language-javascript">FieldValidator.isFQDN(<span class="hljs-string">'example.com.uk'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isFQDN(<span class="hljs-string">'notadomain'</span>); <span class="hljs-comment">// false</span>
 </code></pre>
-<h3><a class="anchor" aria-hidden="true" id="isurl"></a><a href="#isurl" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isUrl</h3>
-<p><code>isUrl(INPUT) - returns true for valid url</code></p>
-<pre><code class="hljs css language-bash">isUrl(<span class="hljs-string">'http://example.com'</span>); <span class="hljs-comment"># true</span>
-isUrl(<span class="hljs-string">'BAD-URL'</span>); <span class="hljs-comment"># false</span>
+<h3><a class="anchor" aria-hidden="true" id="isurl"></a><a href="#isurl" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isURL</h3>
+<p><code>isURL(input) - Validates that the input is a url or a list of urls</code></p>
+<pre><code class="hljs css language-javascript">FieldValidator.isURL(<span class="hljs-string">'http://example.com'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isURL(<span class="hljs-string">'BAD-URL'</span>); <span class="hljs-comment">// false</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="isip"></a><a href="#isip" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isIP</h3>
-<p><code>isIP(INPUT) - returns true if input is an IPv4 or IPv6 address</code></p>
-<pre><code class="hljs css language-bash">isIP(<span class="hljs-string">'108.22.31.8'</span>); <span class="hljs-comment"># true</span>
-isIP([]); <span class="hljs-comment"># false</span>
+<p><code>isIP(input) - Validates that the input is an IP address, or a list of IP addresses</code></p>
+<pre><code class="hljs css language-javascript">FieldValidator.isIP(<span class="hljs-string">'108.22.31.8'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isIP([]); <span class="hljs-comment">// false</span>
+FieldValidator.isIP(<span class="hljs-string">'2001:DB8::1'</span>); <span class="hljs-comment">// true</span>
 </code></pre>
-<h3><a class="anchor" aria-hidden="true" id="isroutableip"></a><a href="#isroutableip" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isRoutableIp</h3>
-<p><code>isRoutableIP(INPUT) - returns true for routable ip addresses</code></p>
+<h3><a class="anchor" aria-hidden="true" id="isroutableip"></a><a href="#isroutableip" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isRoutableIP</h3>
+<p><code>isRoutableIP(input) - Validate is input is a routable IP, or a list of routable IP's</code></p>
 <p><code>Works for both IPv4 and IPv6 addresses</code></p>
-<pre><code class="hljs css language-bash">isRoutableIP(<span class="hljs-string">'8.8.8.8'</span>); <span class="hljs-comment"># true</span>
-isRoutableIP(<span class="hljs-string">'2001:db8::1'</span>); <span class="hljs-comment"># true</span>
-isRoutableIP(<span class="hljs-string">'192.168.0.1'</span>); <span class="hljs-comment"># false</span>
-isRoutableIP(<span class="hljs-string">'10.16.32.210'</span>); <span class="hljs-comment"># false</span>
-isRoutableIP(<span class="hljs-string">'fc00:db8::1'</span>); <span class="hljs-comment"># false</span>
+<pre><code class="hljs css language-javascript">FieldValidator.isRoutableIP(<span class="hljs-string">'8.8.8.8'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isRoutableIP(<span class="hljs-string">'2001:db8::1'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isRoutableIP(<span class="hljs-string">'192.168.0.1'</span>); <span class="hljs-comment">// false</span>
+FieldValidator.isRoutableIP(<span class="hljs-string">'10.16.32.210'</span>); <span class="hljs-comment">// false</span>
+FieldValidator.isRoutableIP(<span class="hljs-string">'fc00:db8::1'</span>); <span class="hljs-comment">// false</span>
 </code></pre>
-<h3><a class="anchor" aria-hidden="true" id="isnonroutableip"></a><a href="#isnonroutableip" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isNonRoutableIp</h3>
-<p><code>isNonRoutableIP(INPUT) - returns true for non routable ip addresses</code></p>
+<h3><a class="anchor" aria-hidden="true" id="isnonroutableip"></a><a href="#isnonroutableip" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isNonRoutableIP</h3>
+<p><code>isNonRoutableIP(input) - Validate is input is a non-routable IP, or a list of non-routable IP's</code></p>
 <p><code>Works for both IPv4 and IPv6 addresses</code></p>
-<pre><code class="hljs css language-bash">isNonRoutableIP(<span class="hljs-string">'192.168.0.1'</span>); <span class="hljs-comment"># true</span>
-isNonRoutableIP(<span class="hljs-string">'10.16.32.210'</span>); <span class="hljs-comment"># true</span>
-isNonRoutableIP(<span class="hljs-string">'fc00:db8::1'</span>); <span class="hljs-comment"># true</span>
-isNonRoutableIP(<span class="hljs-string">'8.8.8.8'</span>); <span class="hljs-comment"># false</span>
-isNonRoutableIP(<span class="hljs-string">'2001:db8::1'</span>); <span class="hljs-comment"># false</span>
+<pre><code class="hljs css language-javascript">FieldValidator.isNonRoutableIP(<span class="hljs-string">'192.168.0.1'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isNonRoutableIP(<span class="hljs-string">'10.16.32.210'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isNonRoutableIP(<span class="hljs-string">'fc00:db8::1'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isNonRoutableIP(<span class="hljs-string">'8.8.8.8'</span>); <span class="hljs-comment">// false</span>
+FieldValidator.isNonRoutableIP(<span class="hljs-string">'2001:db8::1'</span>); <span class="hljs-comment">// false</span>
 </code></pre>
-<h3><a class="anchor" aria-hidden="true" id="isipcidr"></a><a href="#isipcidr" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isIPCidr</h3>
-<p><code>isIPCidr(INPUT) - returns true if input is an IP address with cidr notation</code></p>
+<h3><a class="anchor" aria-hidden="true" id="iscidr"></a><a href="#iscidr" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isCIDR</h3>
+<p><code>isCIDR(input) - Validates that input is a CIDR or a list of CIDR values</code></p>
 <p><code>Works for both IPv4 and IPv6 addresses</code></p>
-<pre><code class="hljs css language-bash">isIPCidr(<span class="hljs-string">'8.8.0.0/12'</span>); <span class="hljs-comment"># true</span>
-isIPCidr(<span class="hljs-string">'2001::1234:5678/128'</span>); <span class="hljs-comment"># true</span>
-isIPCidr(<span class="hljs-string">'8.8.8.10'</span>); <span class="hljs-comment"># false</span>
+<pre><code class="hljs css language-javascript">FieldValidator.isCIDR(<span class="hljs-string">'8.8.0.0/12'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isCIDR(<span class="hljs-string">'2001::1234:5678/128'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isCIDR(<span class="hljs-string">'8.8.8.10'</span>); <span class="hljs-comment">// false</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="iniprange"></a><a href="#iniprange" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>inIPRange</h3>
-<p><code>inIPRange(INPUT, args) - returns true if input is in the provided IP range</code></p>
-<p><code>Optional args: { min: IP_ADDRESS, max: IP_ADDRESS, cidr: IP_ADDRESS/CIDR }</code></p>
+<p><code>inIPRange(input, args) - Validates if the input IP is within a given range of IP's, or that a list of inputs IP are in range</code></p>
+<p>`Optional args: { min?: IP_ADDRESS, max?: IP_ADDRESS, cidr?: IP_ADDRESS/CIDR }
+default values:</p>
+<ul>
+<li>MIN_IPV4_IP = '0.0.0.0';</li>
+<li>MAX_IPV4_IP = '255.255.255.255';</li>
+<li>MIN_IPV6_IP = '::';</li>
+<li>MAX_IPV6_IP = 'ffff.ffff.ffff.ffff.ffff.ffff.ffff.ffff';
+`</li>
+</ul>
 <p><code>Works for both IPv4 and IPv6 addresses</code></p>
-<pre><code class="hljs css language-bash">inIPRange(<span class="hljs-string">'8.8.8.8'</span>, { cidr: <span class="hljs-string">'8.8.8.0/24'</span> }); <span class="hljs-comment"># true</span>
-inIPRange(<span class="hljs-string">'fd00::b000'</span>, { min: <span class="hljs-string">'fd00::123'</span>, max: <span class="hljs-string">'fd00::ea00'</span> }); <span class="hljs-comment"># true;</span>
-inIPRange(<span class="hljs-string">'8.8.8.8'</span>, { cidr: <span class="hljs-string">'8.8.8.10/32'</span> }); <span class="hljs-comment"># false</span>
+<pre><code class="hljs css language-javascript">FieldValidator.inIPRange(<span class="hljs-string">'8.8.8.8'</span>, { <span class="hljs-attr">cidr</span>: <span class="hljs-string">'8.8.8.0/24'</span> }); <span class="hljs-comment">// true</span>
+FieldValidator.inIPRange(<span class="hljs-string">'fd00::b000'</span>, { <span class="hljs-attr">min</span>: <span class="hljs-string">'fd00::123'</span>, <span class="hljs-attr">max</span>: <span class="hljs-string">'fd00::ea00'</span> }); <span class="hljs-comment">// true;</span>
+FieldValidator.inIPRange(<span class="hljs-string">'8.8.8.8'</span>, { <span class="hljs-attr">cidr</span>: <span class="hljs-string">'8.8.8.10/32'</span> }); <span class="hljs-comment">// false</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="isisdn"></a><a href="#isisdn" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isISDN</h3>
-<p><code>isISDN(INPUT) - returns true for valid phone numbers. Based on googles libphonenumber library.</code></p>
-<pre><code class="hljs css language-bash">isISDN(<span class="hljs-string">'46707123456'</span>); <span class="hljs-comment"># true</span>
-isISDN(<span class="hljs-string">'1-808-915-6800'</span>); <span class="hljs-comment"># true</span>
-isISDN(<span class="hljs-string">'NOT A PHONE NUMBER'</span>); <span class="hljs-comment"># false</span>
+<p><code>isISDN(input) - Validates that the input is a valid phone Number, or a list of phone numbers. Based on googles libphonenumber library.</code></p>
+<pre><code class="hljs css language-javascript">FieldValidator.isISDN(<span class="hljs-string">'46707123456'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isISDN(<span class="hljs-string">'1-808-915-6800'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isISDN(<span class="hljs-string">'NOT A PHONE Number'</span>); <span class="hljs-comment">// false</span>
 </code></pre>
-<h3><a class="anchor" aria-hidden="true" id="ismacaddress"></a><a href="#ismacaddress" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isMacAddress</h3>
-<p><code>isMacAddress(INPUT, args) - returns true for valid mac address, othewise returns false</code></p>
-<p><code>Optional arg { delimiter: ['colon', 'dash', 'space', 'dot', 'none', 'any']</code></p>
+<h3><a class="anchor" aria-hidden="true" id="ismacaddress"></a><a href="#ismacaddress" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isMACAddress</h3>
+<p><code>isMACAddress(input, args) - Validates that the input is a MACAddress, or a list of MACAddressess</code></p>
+<p><code>Optional args { delimiter: ['colon', 'dash', 'space', 'dot', 'none', 'any']</code></p>
 <p><code>delimiter can be a string of one delimiter or an array of multiple delimiters</code></p>
 <p><code>'none' means no delimiter in the mac address and 'any' checks all delimiters for a valid mac address</code></p>
 <p><code>Default is 'any'</code></p>
-<pre><code class="hljs css language-bash">isMacAddress(<span class="hljs-string">'00:1f:f3:5b:2b:1f'</span>); <span class="hljs-comment"># true</span>
-isMacAddress(<span class="hljs-string">'001ff35b2b1f'</span>); <span class="hljs-comment"># true</span>
-isMacAddress(<span class="hljs-string">'001f.f35b.2b1f'</span>, { delimiter: <span class="hljs-string">'dot'</span> }); <span class="hljs-comment"># true</span>
-isMacAddress(<span class="hljs-string">'00-1f-f3-5b-2b-1f'</span>, { delimiter: [<span class="hljs-string">'dash'</span>, <span class="hljs-string">'colon'</span>, <span class="hljs-string">'space'</span>] }); <span class="hljs-comment"># true</span>
-isMacAddress(12345); <span class="hljs-comment"># false</span>
-isMacAddress(<span class="hljs-string">'00-1f-f3-5b-2b-1f'</span>, { delimiter: [<span class="hljs-string">'colon'</span>, <span class="hljs-string">'space'</span>] }); <span class="hljs-comment"># false, specified colon and space delimiter only</span>
+<pre><code class="hljs css language-javascript">FieldValidator.isMACAddress(<span class="hljs-string">'00:1f:f3:5b:2b:1f'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isMACAddress(<span class="hljs-string">'001ff35b2b1f'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isMACAddress(<span class="hljs-string">'001f.f35b.2b1f'</span>, { <span class="hljs-attr">delimiter</span>: <span class="hljs-string">'dot'</span> }); <span class="hljs-comment">// true</span>
+FieldValidator.isMACAddress(<span class="hljs-string">'00-1f-f3-5b-2b-1f'</span>, { <span class="hljs-attr">delimiter</span>: [<span class="hljs-string">'dash'</span>, <span class="hljs-string">'colon'</span>, <span class="hljs-string">'space'</span>] }); <span class="hljs-comment">// true</span>
+FieldValidator.isMACAddress(<span class="hljs-number">12345</span>); <span class="hljs-comment">// false</span>
+FieldValidator.isMACAddress(<span class="hljs-string">'00-1f-f3-5b-2b-1f'</span>, { <span class="hljs-attr">delimiter</span>: [<span class="hljs-string">'colon'</span>, <span class="hljs-string">'space'</span>] }); <span class="hljs-comment">// false, specified colon and space delimiter only</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="isuuid"></a><a href="#isuuid" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isUUID</h3>
-<p><code>isUUID(INPUT) - returns true for valid UUID</code></p>
-<pre><code class="hljs css language-bash">isUUID(<span class="hljs-string">'0668CF8B-27F8-2F4D-4F2D-763AC7C8F68B'</span>); <span class="hljs-comment"># true</span>
-isUUID(<span class="hljs-string">'BAD-UUID'</span>); <span class="hljs-comment"># false</span>
+<p><code>isUUID(input) - Validates that input is a UUID or a list of UUID's</code></p>
+<pre><code class="hljs css language-javascript">FieldValidator.isUUID(<span class="hljs-string">'0668CF8B-27F8-2F4D-4F2D-763AC7C8F68B'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isUUID(<span class="hljs-string">'BAD-UUID'</span>); <span class="hljs-comment">// false</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="ishash"></a><a href="#ishash" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isHash</h3>
-<p><code>isHash(INPUT, args) - returns true if string is a valid hash must include hash algorithm</code></p>
-<p><code>Required arg: { algo: 'ANY HASH OPTION DEFINED BELOW'}</code></p>
+<p><code>isHash(input, args) - Validates that the input is a hash, or a list of hashes</code></p>
+<p><code>arg: { algo: 'ANY HASH OPTION DEFINED BELOW'}</code></p>
 <p><code>Hash options: md4, md5, sha1, sha256, sha384, sha512, ripemd128, ripemd160, tiger128, tiger160, tiger192, crc32, crc32b</code></p>
-<pre><code class="hljs css language-bash">isHash(<span class="hljs-string">'6201b3d1815444c87e00963fcf008c1e'</span>, { algo: <span class="hljs-string">'md5'</span> }); <span class="hljs-comment"># true</span>
-isHas(<span class="hljs-string">'12345'</span>, { algo: <span class="hljs-string">'sha1'</span> }); <span class="hljs-comment"># false</span>
+<pre><code class="hljs css language-javascript">FieldValidator.isHash(<span class="hljs-string">'6201b3d1815444c87e00963fcf008c1e'</span>, { <span class="hljs-attr">algo</span>: <span class="hljs-string">'md5'</span> }); <span class="hljs-comment">// true</span>
+FieldValidator.isHas(<span class="hljs-string">'12345'</span>, { <span class="hljs-attr">algo</span>: <span class="hljs-string">'sha1'</span> }); <span class="hljs-comment">// false</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="iscountrycode"></a><a href="#iscountrycode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isCountryCode</h3>
-<p><code>isCountryCode(INPUT) - returns true if string is a ISO-31661 alpha-2 country code</code></p>
-<pre><code class="hljs css language-bash">isCountryCode(<span class="hljs-string">'IS'</span>); <span class="hljs-comment"># true</span>
-isCountryCode(<span class="hljs-string">'ru'</span>); <span class="hljs-comment"># true</span>
-isCountryCode(<span class="hljs-string">'USA'</span>); <span class="hljs-comment"># false</span>
+<p><code>isCountryCode(input) - Validates that input is a valid country code or a list of country codes</code></p>
+<pre><code class="hljs css language-javascript">FieldValidator.isCountryCode(<span class="hljs-string">'IS'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isCountryCode(<span class="hljs-string">'ru'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isCountryCode(<span class="hljs-string">'USA'</span>); <span class="hljs-comment">// false</span>
 </code></pre>
-<h3><a class="anchor" aria-hidden="true" id="ismimetype"></a><a href="#ismimetype" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isMimeType</h3>
-<p><code>isMimeType(INPUT) - returns true for valid mime types</code></p>
-<pre><code class="hljs css language-bash">isMimeType(<span class="hljs-string">'application/javascript'</span>); <span class="hljs-comment"># true</span>
-isMimeType(12345); <span class="hljs-comment"># false</span>
+<h3><a class="anchor" aria-hidden="true" id="ismimetype"></a><a href="#ismimetype" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isMIMEType</h3>
+<p><code>isMIMEType(input) - Validates that input is a valid mimeType or a list of mimeTypes</code></p>
+<pre><code class="hljs css language-javascript">FieldValidator.isMIMEType(<span class="hljs-string">'application/javascript'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isMIMEType(<span class="hljs-number">12345</span>); <span class="hljs-comment">// false</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="isissn"></a><a href="#isissn" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isISSN</h3>
-<p><code>isISSN(INPUT, args) - returns true if input is a valid international standard serial number</code></p>
-<p><code>Optional args: { require_hyphen: BOOLEAN, case_sensitive: BOOLEAN }</code></p>
-<pre><code class="hljs css language-bash">isISSN(<span class="hljs-string">'0378-5955'</span>); <span class="hljs-comment"># true</span>
-isISSN(<span class="hljs-string">'0000-006x'</span>, { require_hyphen, case_sensitive }); <span class="hljs-comment"># true</span>
+<p><code>isISSN(input, args) - returns true if input is a valid international standard serial Number or a list of valid ISSN's</code></p>
+<p><code>args: { require_hyphen = false, case_sensitive = false }</code></p>
+<pre><code class="hljs css language-javascript">FieldValidator.isISSN(<span class="hljs-string">'03785955'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.isISSN(<span class="hljs-string">'0378-5955'</span>, { <span class="hljs-attr">requireHyphen</span>: <span class="hljs-literal">true</span> }); <span class="hljs-comment">// true</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="guard"></a><a href="#guard" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>guard</h3>
+<p><code>guard(input) - Will throw if input is null or undefined</code></p>
+<pre><code class="hljs css language-javascript">FieldValidator.guard(<span class="hljs-string">'03785955'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.guard(); <span class="hljs-comment">// WILL THROW</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="exists"></a><a href="#exists" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>exists</h3>
+<p><code>exists(input) - Will return false if input is null or undefined</code></p>
+<pre><code class="hljs css language-javascript">FieldValidator.exists(<span class="hljs-string">'03785955'</span>); <span class="hljs-comment">// true</span>
+FieldValidator.exists(<span class="hljs-literal">null</span>); <span class="hljs-comment">// false</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="isarray"></a><a href="#isarray" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isArray</h3>
+<p><code>isArray(input) - Validates that the input is an array</code></p>
+<pre><code class="hljs css language-javascript">FieldValidator.isArray(<span class="hljs-string">'03785955'</span>); <span class="hljs-comment">// false</span>
+FieldValidator.isArray([]); <span class="hljs-comment">// true</span>
+FieldValidator.isArray([<span class="hljs-string">'some'</span>, <span class="hljs-string">'stuff'</span>]); <span class="hljs-comment">// true</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="some"></a><a href="#some" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>some</h3>
+<p><code>some(input, args) - Validates that the function specified returns true at least once on the list of values</code></p>
+<p><code>args: { fn: String, options: Any }</code></p>
+<p><code>fn - must be a function name from FieldValidator</code>
+<code>options - any additional parameters neccesary for the fn being envoked</code></p>
+<pre><code class="hljs css language-javascript">FieldValidator.some([<span class="hljs-string">'hello'</span>, <span class="hljs-number">3</span>, { <span class="hljs-attr">some</span>: <span class="hljs-string">'obj'</span> }], { <span class="hljs-attr">fn</span>: <span class="hljs-string">'isString'</span> }); <span class="hljs-comment">// true</span>
+FieldValidator.some([<span class="hljs-string">'hello'</span>, <span class="hljs-number">3</span>, { <span class="hljs-attr">some</span>: <span class="hljs-string">'obj'</span> }], { <span class="hljs-attr">fn</span>: <span class="hljs-string">'isBoolean'</span> }); <span class="hljs-comment">// false</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="every"></a><a href="#every" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>every</h3>
+<p><code>every(input, args) - Validates that the function specified returns true for every single value in the list</code></p>
+<p><code>args: { fn: String, options: Any }</code></p>
+<p><code>fn must be a function name from FieldValidator</code></p>
+<pre><code class="hljs css language-javascript">FieldValidator.every([<span class="hljs-string">'hello'</span>, <span class="hljs-number">3</span>, { <span class="hljs-attr">some</span>: <span class="hljs-string">'obj'</span> }], { <span class="hljs-attr">fn</span>: <span class="hljs-string">'isString'</span> }); <span class="hljs-comment">// false</span>
+FieldValidator.every([<span class="hljs-string">'hello'</span>, <span class="hljs-string">'world'</span>], { <span class="hljs-attr">fn</span>: <span class="hljs-string">'isString'</span> }); <span class="hljs-comment">// true</span>
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="ispostalcode"></a><a href="#ispostalcode" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>isPostalCode</h3>
-<p><code>isPostalCode(INPUT, args) - returns true for valid postal code</code></p>
-<p><code>Optional arg: { locale: 'ANY OF THE DEFINED LOCATIONS BELOW' }</code></p>
+<p><code>isPostalCode(input, args) - Validates that input is a valid postal code or a list of postal codes</code></p>
+<p><code>Optional arg: { locale?: 'ANY OF THE DEFINED LOCATIONS BELOW' }</code></p>
 <p><code>locations: AD, AT, AU, BE, BG, BR, CA, CH, CZ, DE, DK, DZ, EE, ES, FI, FR, GB, GR, HR, HU, ID, IE, IL, IN, IS, IT, JP, KE, LI, LT, LU, LV, MX, MT, NL, NO, NZ, PL, PR, PT, RO, RU, SA, SE, SI, SK, TN, TW, UA, US, ZA, ZM</code></p>
 <p><code>default locale is any</code></p>
-<pre><code class="hljs css language-bash">isPostalCode(<span class="hljs-string">'85249'</span>); <span class="hljs-comment"># true</span>
-isPostalCode(<span class="hljs-string">'885 49'</span>, { locale: <span class="hljs-string">'SE'</span> });<span class="hljs-comment"># true</span>
-isPostalCode(1234567890); <span class="hljs-comment"># false</span>
+<pre><code class="hljs css language-javascript">FieldValidator.isPostalCode('85249'); // true
+FieldValidator.isPostalCode('885 49', { locale: 'SE' });# true
+FieldValidator.isPostalCode(1234567890); // false
 </code></pre>
-<p>##Record Validations
-##Field Transforms
-##Record Transforms</p>
+<h2><a class="anchor" aria-hidden="true" id="field-transforms"></a><a href="#field-transforms" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Field Transforms</h2>
+<h3><a class="anchor" aria-hidden="true" id="toboolean"></a><a href="#toboolean" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>toBoolean</h3>
+<p><code>toBoolean(input) - Converts values to booleans, if given an array it will convert everything in the array excluding null/undefined values</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript">FieldTransform.toBoolean(<span class="hljs-string">'0'</span>); <span class="hljs-comment">// false</span>
+FieldTransform.toBoolean([<span class="hljs-string">'foo'</span>, <span class="hljs-string">'false'</span>, <span class="hljs-literal">null</span>]); <span class="hljs-comment">// [true, false];</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="tostring"></a><a href="#tostring" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>toString</h3>
+<p><code>toString(input) - Converts values to strings, if given an array it will convert everything in the array excluding null/undefined values</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript"> transform.toString(<span class="hljs-literal">true</span>); <span class="hljs-comment">// 'true';</span>
+ FieldTransform.toString([<span class="hljs-literal">true</span>, <span class="hljs-literal">undefined</span>, <span class="hljs-literal">false</span>]); <span class="hljs-comment">// ['true', 'false'];</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="tonumber"></a><a href="#tonumber" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>toNumber</h3>
+<p><code>toNumber(input) - Converts a value to a number if possible if given an array it will convert everything in the array excluding null/undefined values</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript">FieldTransform.toNumber(<span class="hljs-string">'12321'</span>); <span class="hljs-comment">// 12321;</span>
+FieldTransform.toNumber(<span class="hljs-string">'000011'</span>); <span class="hljs-comment">// 11;</span>
+FieldTransform.toNumber(<span class="hljs-string">'true'</span>, { <span class="hljs-attr">booleanLike</span>: <span class="hljs-literal">true</span> }); <span class="hljs-comment">// 1;</span>
+FieldTransform.toNumber(<span class="hljs-literal">null</span>, { <span class="hljs-attr">booleanLike</span>: <span class="hljs-literal">true</span> }); <span class="hljs-comment">// 0;</span>
+FieldTransform.toNumber(<span class="hljs-literal">null</span>); <span class="hljs-comment">// null;</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="touppercase"></a><a href="#touppercase" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>toUpperCase</h3>
+<p><code>toUpperCase(input) - Converts strings to UpperCase, if given an array it will convert everything in the array excluding null/undefined values</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript"> FieldTransform.toUpperCase(<span class="hljs-string">'lowercase'</span>); <span class="hljs-comment">// 'LOWERCASE';</span>
+ FieldTransform.toUpperCase([<span class="hljs-string">'MixEd'</span>, <span class="hljs-literal">null</span>, <span class="hljs-string">'lower'</span>]); <span class="hljs-comment">// ['MIXED', 'LOWER'];</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="tolowercase"></a><a href="#tolowercase" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>toLowerCase</h3>
+<p><code>toLowerCase(input) - Converts strings to lowercase, if given an array it will convert everything in the array excluding null/undefined values</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript"> FieldTransform.toLowerCase(<span class="hljs-string">'UPPERCASE'</span>); <span class="hljs-comment">// 'uppercase';</span>
+ FieldTransform.toLowerCase([<span class="hljs-string">'MixEd'</span>, <span class="hljs-literal">null</span>, <span class="hljs-string">'UPPER'</span>]); <span class="hljs-comment">// ['mixed', 'upper'];</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="tocamelcase"></a><a href="#tocamelcase" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>toCamelCase</h3>
+<p><code>toCamelCase(input) - Will convert a string, or an array of strings to camel case</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript">FieldTransform.toCamelCase(<span class="hljs-string">'I need camel case'</span>); <span class="hljs-comment">// 'iNeedCamelCase';</span>
+FieldTransform.toCamelCase(<span class="hljs-string">'happyBirthday'</span>); <span class="hljs-comment">// 'happyBirthday';</span>
+FieldTransform.toCamelCase(<span class="hljs-string">'what_is_this'</span>); <span class="hljs-comment">// 'whatIsThis';</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="tokebabcase"></a><a href="#tokebabcase" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>toKebabCase</h3>
+<p><code>toKebabCase(input) - Will convert a string, or an array of strings to kebab case</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript">FieldTransform.toKebabCase(<span class="hljs-string">'I need kebab case'</span>); <span class="hljs-comment">// 'i-need-kebab-case';</span>
+FieldTransform.toKebabCase(<span class="hljs-string">'happyBirthday'</span>); <span class="hljs-comment">// 'happy-birthday';</span>
+FieldTransform.toKebabCase(<span class="hljs-string">'what_is_this'</span>); <span class="hljs-comment">// 'what-is-this';</span>
+FieldTransform.toKebabCase(<span class="hljs-string">'this-should-be-kebab'</span>); <span class="hljs-comment">// 'this-should-be-kebab';</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="topascalcase"></a><a href="#topascalcase" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>toPascalCase</h3>
+<p><code>toPascalCase(input) - Converts a string to pascal case, or an array of strings</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript">FieldTransform.toPascalCase(<span class="hljs-string">'I need pascal case'</span>); <span class="hljs-comment">// 'INeedPascalCase';</span>
+FieldTransform.toPascalCase(<span class="hljs-string">'happyBirthday'</span>); <span class="hljs-comment">// 'HappyBirthday';</span>
+FieldTransform.toPascalCase(<span class="hljs-string">'what_is_this'</span>); <span class="hljs-comment">// 'WhatIsThis';</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="tosnakecase"></a><a href="#tosnakecase" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>toSnakeCase</h3>
+<p><code>toSnakeCase(input) - Converts a string, or an array of strings to snake case</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript">FieldTransform.toSnakeCase(<span class="hljs-string">'I need snake case'</span>); <span class="hljs-comment">// 'i_need_snake_case';</span>
+FieldTransform.toSnakeCase(<span class="hljs-string">'happyBirthday'</span>); <span class="hljs-comment">// 'happy_birthday';</span>
+FieldTransform.toSnakeCase(<span class="hljs-string">'what_is_this'</span>); <span class="hljs-comment">// 'what_is_this';</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="totitlecase"></a><a href="#totitlecase" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>toTitleCase</h3>
+<p><code>toTitleCase(input) - Converts a string, or an array of strings to title case</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript">FieldTransform.toTitleCase(<span class="hljs-string">'I need some capitols'</span>); <span class="hljs-comment">// 'I Need Some Capitols';</span>
+FieldTransform.toTitleCase(<span class="hljs-string">'happyBirthday'</span>); <span class="hljs-comment">// 'Happy Birthday';</span>
+FieldTransform.toTitleCase(<span class="hljs-string">'what_is_this'</span>); <span class="hljs-comment">// 'What Is This';</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="trim"></a><a href="#trim" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>trim</h3>
+<p><code>trim(input, args) - Will trim the input, if given an array it will convert everything in the array excluding null/undefined values</code></p>
+<p><code>args: { char?: String }</code></p>
+<p><code>char - if provided, are the chars/words to be cut out</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript">FieldTransform.trim(<span class="hljs-string">'right    '</span>); <span class="hljs-comment">// 'right';</span>
+FieldTransform.trim(<span class="hljs-string">'fast cars race fast'</span>, { <span class="hljs-attr">char</span>: <span class="hljs-string">'fast'</span> }); <span class="hljs-comment">// ' cars race ';</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="trimstart"></a><a href="#trimstart" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>trimStart</h3>
+<p><code>trimStart(input, args) - Will trim the beginning of the input if given an array it will convert everything in the array excluding null/undefined values</code></p>
+<p><code>args: { char?: String }</code></p>
+<p><code>char - if provided, are the chars/words to be cut out</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript">FieldTransform.trimStart(<span class="hljs-string">'    Hello Bob    '</span>); <span class="hljs-comment">// 'Hello Bob    ';</span>
+FieldTransform.trimStart(<span class="hljs-string">'iiii-wordiwords-iii'</span>, { <span class="hljs-attr">char</span>: <span class="hljs-string">'i'</span> }); <span class="hljs-comment">// '-wordiwords-iii';</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="trimend"></a><a href="#trimend" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>trimEnd</h3>
+<p><code>trimEnd(input, args) - Will trim the end of the input if given an array it will convert everything in the array excluding null/undefined values</code></p>
+<p><code>args: { char?: String }</code></p>
+<p><code>char - if provided, are the chars/words to be cut out</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript">FieldTransform.trimEnd(<span class="hljs-string">'    Hello Bob    '</span>); <span class="hljs-comment">// '    Hello Bob';</span>
+FieldTransform.trimEnd(<span class="hljs-string">'iiii-wordiwords-iii'</span>, { <span class="hljs-attr">char</span>: <span class="hljs-string">'i'</span> }); <span class="hljs-comment">// 'iiii-wordiwords';</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="truncate"></a><a href="#truncate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>truncate</h3>
+<p><code>truncate(input, args) - Will truncate the input to the length of the size given. If given an array it will convert everything in the array excluding null/undefined values</code></p>
+<p><code>args: { size: Number }</code></p>
+<p><code>size - the size that values should be truncated</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript">FieldTransform.truncate(<span class="hljs-string">'thisisalongstring'</span>, { <span class="hljs-attr">size</span>: <span class="hljs-number">4</span> }); <span class="hljs-comment">// 'this';</span>
+FieldTransform.truncate([<span class="hljs-string">'hello'</span>, <span class="hljs-literal">null</span>, <span class="hljs-string">'world'</span>], { <span class="hljs-attr">size</span>: <span class="hljs-number">2</span> }); <span class="hljs-comment">// ['he', 'wo'];</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="toisdn"></a><a href="#toisdn" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>toISDN</h3>
+<p><code>toISDN(input) - Parses a string or number to a fully validated phone number. If given an array it will convert everything in the array excluding null/undefined values</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript">FieldTransform.toISDN(<span class="hljs-string">'+33-1-22-33-44-55'</span>); <span class="hljs-comment">// '33122334455';</span>
+FieldTransform.toISDN(<span class="hljs-string">'1(800)FloWErs'</span>); <span class="hljs-comment">// '18003569377';</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="encodebase64"></a><a href="#encodebase64" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>encodeBase64</h3>
+<p><code>encodeBase64(input) - converts a value into a base64 encoded value if given an array it will convert everything in the array excluding null/undefined values</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> str = <span class="hljs-string">'hello world'</span>;
+
+<span class="hljs-keyword">const</span> encodedValue = FieldTransform.encodeBase64(str);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="encodeurl"></a><a href="#encodeurl" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>encodeURL</h3>
+<p><code>encodeURL(input) - URL encodes a value if given an array it will convert everything in the array excluding null/undefined values</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> source = <span class="hljs-string">'HELLO AND GOODBYE'</span>;
+<span class="hljs-keyword">const</span> encoded = <span class="hljs-string">'HELLO%20AND%20GOODBYE'</span>;
+
+FieldTransform.encodeURL(source); <span class="hljs-comment">// encoded;</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="encodehex"></a><a href="#encodehex" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>encodeHex</h3>
+<p><code>encodeHex(input) - hex encodes the input if given an array it will convert everything in the array excluding null/undefined values</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> source = <span class="hljs-string">'hello world'</span>;
+
+FieldTransform.encodeHex(source);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="encodemd5"></a><a href="#encodemd5" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>encodeMD5</h3>
+<p><code>encodeMD5(input) - MD5 encodes the input, if given an array it will convert everything in the array excluding null/undefined values</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> source = <span class="hljs-string">'hello world'</span>;
+
+FieldTransform.encodeMD5(source);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="encodesha"></a><a href="#encodesha" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>encodeSHA</h3>
+<p><code>encodeSHA(input, args) - SHA encodes the input to the hash specified if given an array it will convert everything in the array excluding null/undefined values</code></p>
+<p><code>args { hash = 'sha256', digest = 'hex' }</code></p>
+<p><code>hash - what ever is available on your node server, defaults to sha256</code>
+`possible digest values (defaults to hex):</p>
+<ul>
+<li>['ascii', 'utf8', 'utf16le', 'ucs2', 'base64', 'latin1', 'hex', 'binary']
+`</li>
+</ul>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> data = <span class="hljs-string">'some string'</span>;
+fieldTransform.encodeSHA(data { <span class="hljs-attr">hash</span>: <span class="hljs-string">'sha256'</span>, <span class="hljs-attr">digest</span>: <span class="hljs-string">'hex'</span>})
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="encodesha1"></a><a href="#encodesha1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>encodeSHA1</h3>
+<p><code>encodeSHA1(input) - converts the value to a SHA1 encoded value, if given an array it will convert everything in the array excluding null/undefined values</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> source = <span class="hljs-string">'hello world'</span>;
+
+FieldTransform.encodeSHA1(source);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="decodebase64"></a><a href="#decodebase64" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>decodeBase64</h3>
+<p><code>decodeBase64(input) - decodes a base64 encoded value, if given an array it will convert everything in the array excluding null/undefined values</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> str = <span class="hljs-string">'hello world'</span>;
+<span class="hljs-keyword">const</span> encoded = encodeBase64(str);
+
+<span class="hljs-keyword">const</span> results = FieldTransform.decodeBase64(encoded)
+results === str
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="decodehex"></a><a href="#decodehex" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>decodeHex</h3>
+<p><code>decodeHex(input) - decodes the hex encoded input if given an array it will convert everything in the array excluding null/undefined values</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> source = <span class="hljs-string">'hello world'</span>;
+<span class="hljs-keyword">const</span> encoded = encodeHex(source);
+
+FieldTransform.decodeHex(encoded); <span class="hljs-comment">// source;</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="decodeurl"></a><a href="#decodeurl" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>decodeURL</h3>
+<p><code>decodeURL(input) - decodes a URL encoded value if given an array it will convert everything in the array excluding null/undefined values</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> source = <span class="hljs-string">'HELLO AND GOODBYE'</span>;
+<span class="hljs-keyword">const</span> encoded = <span class="hljs-string">'HELLO%20AND%20GOODBYE'</span>;
+
+FieldTransform.decodeURL(encoded); <span class="hljs-comment">// source;</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="parsejson"></a><a href="#parsejson" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>parseJSON</h3>
+<p><code>parseJSON(input) - Parses the json input, if given an array it will convert everything in the array excluding null/undefined values</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript"> <span class="hljs-keyword">const</span> obj = { <span class="hljs-attr">hello</span>: <span class="hljs-string">'world'</span> };
+ <span class="hljs-keyword">const</span> json = <span class="hljs-built_in">JSON</span>.stringify(obj);
+ <span class="hljs-keyword">const</span> results = FieldTransform.parseJSON(json);
+ results === obj
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="tojson"></a><a href="#tojson" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>toJSON</h3>
+<p><code>toJSON(input) - Converts input to JSON if given an array it will convert everything in the array excluding null/undefined values</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript"> <span class="hljs-keyword">const</span> obj = { <span class="hljs-attr">hello</span>: <span class="hljs-string">'world'</span> };
+ <span class="hljs-keyword">const</span> results = FieldTransform.toJSON(json);
+ results === <span class="hljs-string">'{"hello": "world"}'</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="dedupe"></a><a href="#dedupe" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>dedupe</h3>
+<p><code>dedupe(input) - returns an array with only unique values</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> results = FieldTransform.dedupe([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-number">3</span>, <span class="hljs-literal">undefined</span>, <span class="hljs-number">4</span>])
+results === [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-literal">undefined</span>, <span class="hljs-number">4</span>]
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="togeopoint"></a><a href="#togeopoint" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>toGeoPoint</h3>
+<p><code>toGeoPoint(input) - Converts the value into a geo-point, if given an array it will convert everything in the array excluding null/undefined values</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript">fieldTransform.toGeoPoint(<span class="hljs-string">'60, 40'</span>) === { <span class="hljs-attr">lon</span>: <span class="hljs-number">40</span>, <span class="hljs-attr">lat</span>: <span class="hljs-number">60</span> };
+fieldTransform.toGeoPoint([<span class="hljs-number">40</span>, <span class="hljs-number">60</span>]) === { <span class="hljs-attr">lon</span>: <span class="hljs-number">40</span>, <span class="hljs-attr">lat</span>: <span class="hljs-number">60</span> };
+fieldTransform.toGeoPoint({ <span class="hljs-attr">lat</span>: <span class="hljs-number">40</span>, <span class="hljs-attr">lon</span>: <span class="hljs-number">60</span> }) === { <span class="hljs-attr">lon</span>: <span class="hljs-number">60</span>, <span class="hljs-attr">lat</span>: <span class="hljs-number">40</span> };
+fieldTransform.toGeoPoint({ <span class="hljs-attr">latitude</span>: <span class="hljs-number">40</span>, <span class="hljs-attr">longitude</span>: <span class="hljs-number">60</span> }) === { <span class="hljs-attr">lon</span>: <span class="hljs-number">60</span>, <span class="hljs-attr">lat</span>: <span class="hljs-number">40</span> };
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="extract"></a><a href="#extract" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>extract</h3>
+<p><code>extract(input, args) - Can extract values from a string input. You may either specify a regex, a jexl expression, or specify the start and end from which the extraction will take all values inbetween, if given an array it will convert everything in the array excluding null/undefined values</code></p>
+<p><code>args - { regex?: String, isMultiValue = true, jexlExp?: String, start?: String, end?: String }</code></p>
+<p><code>If regex is specified, it will run the regex against the value.</code></p>
+<p><code>If isMultiValue is true, then an array containing the return results will be returned. If it is set to false, then only the first possible extraction will be returned.</code></p>
+<p><code>start/end are used as boundaries for extraction, should not be used with jexlExp or regex</code></p>
+<p><code>jexlExp is a jexl expression =&gt; https://github.com/TomFrost/Jexl</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript"> <span class="hljs-keyword">const</span> results1 = FieldTransform.extract(<span class="hljs-string">'&lt;hello&gt;'</span>, { <span class="hljs-attr">start</span>: <span class="hljs-string">'&lt;'</span>, <span class="hljs-attr">end</span>: <span class="hljs-string">'&gt;'</span> });
+ results1; <span class="hljs-comment">// 'hello';</span>
+
+<span class="hljs-keyword">const</span> results2 = FieldTransform.extract({ <span class="hljs-attr">foo</span>: <span class="hljs-string">'bar'</span> }, { <span class="hljs-attr">jexlExp</span>: <span class="hljs-string">'[foo]'</span> });
+results2; <span class="hljs-comment">// ['bar'];</span>
+
+<span class="hljs-keyword">const</span> results3 = FieldTransform.extract(<span class="hljs-string">'hello'</span>, { <span class="hljs-attr">regex</span>: <span class="hljs-string">'he.*'</span> });
+results3; <span class="hljs-comment">// ['hello'];</span>
+
+<span class="hljs-keyword">const</span> results = FieldTransform.extract(<span class="hljs-string">'hello'</span>, { <span class="hljs-attr">regex</span>: <span class="hljs-string">'he.*'</span>, <span class="hljs-attr">isMultiValue</span>: <span class="hljs-literal">false</span> });
+results; <span class="hljs-comment">// 'hello';</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="replaceregex"></a><a href="#replaceregex" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>replaceRegex</h3>
+<p><code>replaceRegex(input, args) - This function replaces chars in a string based off the regex value provided</code></p>
+<p><code>args - { regex: String, replace: String, ignoreCase = false, global = false }</code>
+<code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> config1 =  { <span class="hljs-attr">regex</span>: <span class="hljs-string">'s|e'</span>, <span class="hljs-attr">replace</span>: <span class="hljs-string">'d'</span> };
+<span class="hljs-keyword">const</span> results1 = FieldTransform.replaceRegex(<span class="hljs-string">'somestring'</span>, config1)
+results1 === <span class="hljs-string">'domestring'</span>
+
+<span class="hljs-keyword">const</span> config2 = { <span class="hljs-attr">regex</span>: <span class="hljs-string">'s|e'</span>, <span class="hljs-attr">replace</span>: <span class="hljs-string">'d'</span>, <span class="hljs-attr">global</span>: <span class="hljs-literal">true</span> };
+<span class="hljs-keyword">const</span> results2 = FieldTransform.replaceRegex(<span class="hljs-string">'somestring'</span>, config)
+results2 === <span class="hljs-string">'domddtring'</span>
+
+<span class="hljs-keyword">const</span> config3 = {
+  <span class="hljs-attr">regex</span>: <span class="hljs-string">'m|t'</span>, <span class="hljs-attr">replace</span>: <span class="hljs-string">'W'</span>, <span class="hljs-attr">global</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">ignoreCase</span>: <span class="hljs-literal">true</span>
+};
+<span class="hljs-keyword">const</span> results3 = FieldTransform.replaceRegex(<span class="hljs-string">'soMesTring'</span>, config3))
+results3 === <span class="hljs-string">'soWesWring'</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="replaceliteral"></a><a href="#replaceliteral" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>replaceLiteral</h3>
+<p><code>replaceLiteral(input, args) - This function replaces the searched value with the replace value</code></p>
+<p>`args - { search: String, replace: String }</p>
+<p><code>search is the word that is to be changed to the value specified with the paramter replace</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript">FieldTransform.replaceLiteral(<span class="hljs-string">'Hi bob'</span>, { <span class="hljs-attr">search</span>: <span class="hljs-string">'bob'</span>, <span class="hljs-attr">replace</span>: <span class="hljs-string">'mel'</span> }) === <span class="hljs-string">'Hi mel'</span>;
+FieldTransform.replaceLiteral(<span class="hljs-string">'Hi Bob'</span>, { <span class="hljs-attr">search</span>: <span class="hljs-string">'bob'</span>, <span class="hljs-attr">replace</span>: <span class="hljs-string">'Mel '</span> }) ===  <span class="hljs-string">'Hi Bob'</span>;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="toarray"></a><a href="#toarray" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>toArray</h3>
+<p><code>toArray(input, args) - Converts a string to an array of characters split by the delimiter provided</code></p>
+<p>`args - { delimiter?: String }</p>
+<p><code>delimter defaults to an empty string</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript">FieldTransform.toArray(<span class="hljs-string">'astring'</span>); <span class="hljs-comment">// ['a', 's', 't', 'r', 'i', 'n', 'g'];</span>
+FieldTransform.toArray(<span class="hljs-string">'astring'</span>, { <span class="hljs-attr">delimiter</span>: <span class="hljs-string">','</span> }); <span class="hljs-comment">// ['astring'];</span>
+FieldTransform.toArray(<span class="hljs-string">'a-stri-ng'</span>, { <span class="hljs-attr">delimiter</span>: <span class="hljs-string">'-'</span> }); <span class="hljs-comment">// ['a', 'stri', 'ng'];</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="tounixtime"></a><a href="#tounixtime" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>toUnixTime</h3>
+<p><code>toUnixTime(input, args) - Converts a given date to its time in milliseconds or seconds</code></p>
+<p><code>args - { ms = false }</code>
+<code>set ms to true if you want time in milliseconds</code>
+<code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript">
+FieldTransform.toUnixTime(<span class="hljs-string">'2020-01-01'</span>); <span class="hljs-comment">// 1577836800;</span>
+FieldTransform.toUnixTime(<span class="hljs-string">'Jan 1, 2020 UTC'</span>); <span class="hljs-comment">// 1577836800;</span>
+FieldTransform.toUnixTime(<span class="hljs-string">'2020 Jan, 1 UTC'</span>); <span class="hljs-comment">// 1577836800;</span>
+
+FieldTransform.toUnixTime(<span class="hljs-number">1580418907000</span>); <span class="hljs-comment">// 1580418907;</span>
+FieldTransform.toUnixTime(<span class="hljs-number">1580418907000</span>, { <span class="hljs-attr">ms</span>: <span class="hljs-literal">true</span> }); <span class="hljs-comment">// 1580418907000;</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="toiso8601"></a><a href="#toiso8601" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>toISO8601</h3>
+<p><code>toISO8601(input, args) - Converts a date string or number to an ISO date</code></p>
+<p><code>args - { resolution?: String }</code>
+<code>resolution value: ['seconds', 'milliseconds'], defaults to seconds</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript">FieldTransform.toISO8601(<span class="hljs-string">'2020-01-01'</span>); <span class="hljs-comment">// '2020-01-01T00:00:00.000Z';</span>
+
+<span class="hljs-keyword">const</span> config = { <span class="hljs-attr">resolution</span>: <span class="hljs-string">'seconds'</span> };
+FieldTransform.toISO8601(<span class="hljs-number">1580418907</span>, config); <span class="hljs-comment">// '2020-01-30T21:15:07.000Z';</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="formatdate"></a><a href="#formatdate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>formatDate</h3>
+<p><code>formatDate(input, args) - Function that will format a number or date string to a given date format provided</code></p>
+<p><code>args - { format: String, resolution?: String }</code>
+<code>format is the shape that the date will be ie(M/d/yyyy)</code>
+<code>resolution value: ['seconds', 'milliseconds'], defaults to seconds, is only needed when input is a number</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> results1 = FieldTransform.formatDate(<span class="hljs-string">'2020-01-14T20:34:01.034Z'</span>, { <span class="hljs-attr">format</span>: <span class="hljs-string">'MMM do yy'</span> })
+results1 === <span class="hljs-string">'Jan 14th 20'</span>;
+
+<span class="hljs-keyword">const</span> results2 = FieldTransform.formatDate(<span class="hljs-string">'March 3, 2019'</span>, { <span class="hljs-attr">format</span>: <span class="hljs-string">'M/d/yyyy'</span> })
+results2 === <span class="hljs-string">'3/3/2019'</span>;
+
+<span class="hljs-keyword">const</span> config =  { <span class="hljs-attr">format</span>: <span class="hljs-string">'yyyy-MM-dd'</span>, <span class="hljs-attr">resolution</span>: <span class="hljs-string">'seconds'</span> };
+<span class="hljs-keyword">const</span> results3 = FieldTransform.formatDate(<span class="hljs-number">1581013130</span>, config)
+results3 === <span class="hljs-string">'2020-02-06'</span>;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="parsedate"></a><a href="#parsedate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>parseDate</h3>
+<p><code>parseDate(input, args) - Will use date-fns parse against the input and return a date object</code></p>
+<p><code>args - { format: String }</code></p>
+<p><code>format is the shape that the date will be ie(M/d/yyyy)</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> result = FieldTransform.parseDate(<span class="hljs-string">'2020-01-10-00:00'</span>, { <span class="hljs-attr">format</span>: <span class="hljs-string">'yyyy-MM-ddxxx'</span> })
+result === <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">'2020-01-10T00:00:00.000Z'</span>);
+
+<span class="hljs-keyword">const</span> result = FieldTransform.parseDate(<span class="hljs-string">'Jan 10, 2020-00:00'</span>, { <span class="hljs-attr">format</span>: <span class="hljs-string">'MMM dd, yyyyxxx'</span> })
+result === <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">'2020-01-10T00:00:00.000Z'</span>);
+
+<span class="hljs-keyword">const</span> result = FieldTransform.parseDate(<span class="hljs-number">1581025950223</span>, { <span class="hljs-attr">format</span>: <span class="hljs-string">'T'</span> })
+result === <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">'2020-02-06T21:52:30.223Z'</span>);
+
+<span class="hljs-keyword">const</span> result = FieldTransform.parseDate(<span class="hljs-number">1581025950</span>, { <span class="hljs-attr">format</span>: <span class="hljs-string">'t'</span> })
+result === <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">'2020-02-06T21:52:30.000Z'</span>);
+
+<span class="hljs-keyword">const</span> result = FieldTransform.parseDate(<span class="hljs-string">'1581025950'</span>, { <span class="hljs-attr">format</span>: <span class="hljs-string">'t'</span> })
+result === <span class="hljs-keyword">new</span> <span class="hljs-built_in">Date</span>(<span class="hljs-string">'2020-02-06T21:52:30.000Z'</span>);
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="setdefault"></a><a href="#setdefault" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>setDefault</h3>
+<p><code>setDefault(input, args) - This function is used to set a value if input is null or undefined, otherwise the input value is returned</code></p>
+<p><code>args: { value: Any }</code></p>
+<p><code>value is what will be given when input is null/undefined</code></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> results = FieldTransform.setDefault(<span class="hljs-literal">undefined</span>, { <span class="hljs-attr">value</span>: <span class="hljs-string">'someValue'</span> });
+results === <span class="hljs-string">'someValue'</span>;
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="map"></a><a href="#map" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>map</h3>
+<p><code>map(input, args) - This function is used to map an array of values with any FieldTransform method</code></p>
+<p><code>args: { fn: String, options: Any }</code></p>
+<p><code>returns null if input is null/undefined</code></p>
+<p><code>fn must be a function name from FieldTransform</code>
+<code>options are any additional parameters neccesary for the fn being envoked</code></p>
+<pre><code class="hljs css language-javascript"> <span class="hljs-keyword">const</span> array = [<span class="hljs-string">'hello'</span>, <span class="hljs-string">'world'</span>, <span class="hljs-string">'goodbye'</span>];
+ <span class="hljs-keyword">const</span> results = FieldTransform.map(array, { <span class="hljs-attr">fn</span>: <span class="hljs-string">'truncate'</span>, <span class="hljs-attr">options</span>: { <span class="hljs-attr">size</span>: <span class="hljs-number">3</span> } }
+ results === [<span class="hljs-string">'hel'</span>, <span class="hljs-string">'wor'</span>, <span class="hljs-string">'goo'</span>]
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="record-validations"></a><a href="#record-validations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Record Validations</h2>
+<h3><a class="anchor" aria-hidden="true" id="required"></a><a href="#required" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>required</h3>
+<p><code>required(input, args) - This function will return false if input record does not have all specified keys</code></p>
+<p><code>args - { fields: string[] }</code></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> obj1 = { <span class="hljs-attr">foo</span>: <span class="hljs-string">'hello'</span>, <span class="hljs-attr">bar</span>: <span class="hljs-string">'stuff'</span> };
+<span class="hljs-keyword">const</span> obj2 = { <span class="hljs-attr">foo</span>: <span class="hljs-number">123412</span> };
+<span class="hljs-keyword">const</span> fields = [<span class="hljs-string">'bar'</span>];
+
+<span class="hljs-keyword">const</span> results1 = RecordValidator.required(obj1, { fields });
+<span class="hljs-keyword">const</span> results2 = RecordValidator.required(obj2, { fields });
+
+results1; <span class="hljs-comment">// true;</span>
+results2; <span class="hljs-comment">// false;</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="select"></a><a href="#select" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>select</h3>
+<p><code>select(input, args) - Will return true if an object matches the xLucene expression</code></p>
+<p><code>args - { query: xLuceneQuery, type_config?: xLuceneTypeConfig, variables?: xLuceneVariables }</code></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> obj1 = { <span class="hljs-attr">foo</span>: <span class="hljs-string">'hello'</span>, <span class="hljs-attr">bar</span>: <span class="hljs-string">'stuff'</span> };
+<span class="hljs-keyword">const</span> obj2 = { <span class="hljs-attr">foo</span>: <span class="hljs-number">123412</span> };
+<span class="hljs-keyword">const</span> args = { <span class="hljs-attr">query</span>: <span class="hljs-string">'_exists_:bar'</span> };
+
+<span class="hljs-keyword">const</span> results1 = RecordValidator.select(obj1, args);
+<span class="hljs-keyword">const</span> results2 = RecordValidator.select(obj2, args);
+
+results1; <span class="hljs-comment">// true;</span>
+results2; <span class="hljs-comment">// false;</span>
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="reject"></a><a href="#reject" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>reject</h3>
+<p><code>reject(input, args) - Will return true if an object DOES NOT match the xLucene expression</code></p>
+<p><code>args - { query: xLuceneQuery, type_config?: xLuceneTypeConfig, variables?: xLuceneVariables }</code></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> obj1 = { <span class="hljs-attr">foo</span>: <span class="hljs-string">'hello'</span>, <span class="hljs-attr">bar</span>: <span class="hljs-string">'stuff'</span> };
+<span class="hljs-keyword">const</span> obj2 = { <span class="hljs-attr">foo</span>: <span class="hljs-number">123412</span> };
+<span class="hljs-keyword">const</span> args = { <span class="hljs-attr">query</span>: <span class="hljs-string">'_exists_:bar'</span> };
+
+<span class="hljs-keyword">const</span> results1 = RecordValidator.reject(obj1, args);
+<span class="hljs-keyword">const</span> results2 = RecordValidator.reject(obj2, args);
+
+results1; <span class="hljs-comment">// false;</span>
+results2; <span class="hljs-comment">// true;</span>
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="record-transforms"></a><a href="#record-transforms" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Record Transforms</h2>
+<h3><a class="anchor" aria-hidden="true" id="renamefield"></a><a href="#renamefield" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>renameField</h3>
+<p><code>renameField(input, args) - This will migrate a fields value to a new field name</code></p>
+<p><code>args - { from: string; to: string }</code></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> obj = { <span class="hljs-attr">hello</span>: <span class="hljs-string">'world'</span> };
+<span class="hljs-keyword">const</span> config = { <span class="hljs-attr">from</span>: <span class="hljs-string">'hello'</span>, <span class="hljs-attr">to</span>: <span class="hljs-string">'goodbye'</span> };
+<span class="hljs-keyword">const</span> results = RecordTransform.renameField(cloneDeep(obj), config);
+results === { <span class="hljs-attr">goodbye</span>: <span class="hljs-string">'world'</span> };
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="setfield"></a><a href="#setfield" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>setField</h3>
+<p><code>setField(input, args) - Sets a field on a record with the given value</code></p>
+<p><code>args - { field: string; value: Any }</code></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> obj = { <span class="hljs-attr">hello</span>: <span class="hljs-string">'world'</span> };
+<span class="hljs-keyword">const</span> config = { <span class="hljs-attr">field</span>: <span class="hljs-string">'other'</span>, <span class="hljs-attr">value</span>: <span class="hljs-string">'stuff'</span> };
+<span class="hljs-keyword">const</span> results = RecordTransform.setField(cloneDeep(obj), config);
+results === { <span class="hljs-attr">hello</span>: <span class="hljs-string">'world'</span>, <span class="hljs-attr">other</span>: <span class="hljs-string">'stuff'</span> };
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="dropfields"></a><a href="#dropfields" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>dropFields</h3>
+<p><code>dropFields(input, args) - removes fields from a record</code></p>
+<p><code>args - { fields: string[] }</code></p>
+<pre><code class="hljs css language-javascript">
+<span class="hljs-keyword">const</span> obj = { <span class="hljs-attr">hello</span>: <span class="hljs-string">'world'</span>, <span class="hljs-attr">other</span>: <span class="hljs-string">'stuff'</span>, <span class="hljs-attr">last</span>: <span class="hljs-string">'thing'</span> };
+<span class="hljs-keyword">const</span> config = { <span class="hljs-attr">fields</span>: [<span class="hljs-string">'other'</span>, <span class="hljs-string">'last'</span>]} ;
+<span class="hljs-keyword">const</span> results = RecordTransform.dropFields(cloneDeep(obj), config);
+results ===  { <span class="hljs-attr">hello</span>: <span class="hljs-string">'world'</span> };
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="copyfield"></a><a href="#copyfield" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>copyField</h3>
+<p><code>copyField(input, args) - Will copy a field to another field</code></p>
+<p><code>args - { from: string; to: string }</code></p>
+<pre><code class="hljs css language-javascript"><span class="hljs-keyword">const</span> obj = { <span class="hljs-attr">hello</span>: <span class="hljs-string">'world'</span>, <span class="hljs-attr">other</span>: <span class="hljs-string">'stuff'</span> };
+<span class="hljs-keyword">const</span> config = { <span class="hljs-attr">from</span>: <span class="hljs-string">'other'</span>, <span class="hljs-attr">to</span>: <span class="hljs-string">'myCopy'</span> };
+<span class="hljs-keyword">const</span> results = RecordTransform.copyField(cloneDeep(obj), config);
+results; <span class="hljs-comment">// { hello: 'world', other: 'stuff', myCopy: 'stuff' };</span>
+</code></pre>
 <h2><a class="anchor" aria-hidden="true" id="document-matcher"></a><a href="#document-matcher" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Document Matcher</h2>
 <p>This takes in a lucene based query along with some configuration and allows you to run data against it to see if it matches</p>
 <pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> { DocumentMatcher } = <span class="hljs-built_in">require</span>(<span class="hljs-string">'xlucene-evaluator'</span>);
@@ -520,8 +1178,8 @@ geoDistanceTypeMatcher.match(data2) <span class="hljs-comment">// false</span>
 <h4><a class="anchor" aria-hidden="true" id="regex-and-wildcard-queries"></a><a href="#regex-and-wildcard-queries" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Regex and Wildcard queries</h4>
 <p>For this types DO NOT need to be specified and is done by the query itself. A wildcard query can use the <code>?</code>to represent a single non empty char and a <code>*</code> to match anything. A regex value must be wrapped in a <code>/ expression_here /</code> and follows the regular expression standard. NOTE: all regex expressions are anchored!!! Design you regex accordingly</p>
 <p>ie &quot;abcde&quot;:</p>
-<p>ab.*     # match
-abcd     # no match</p>
+<p>ab.*     // match
+abcd     // no match</p>
 <pre><code class="hljs css language-js"><span class="hljs-keyword">const</span> data6 = { <span class="hljs-attr">key</span> : <span class="hljs-string">'abbccc'</span> };
 <span class="hljs-keyword">const</span> data7 = { <span class="hljs-attr">key</span> : <span class="hljs-string">'abc'</span> };
 <span class="hljs-keyword">const</span> data8 = { <span class="hljs-attr">key</span> : <span class="hljs-string">'zabcde'</span> };
@@ -566,7 +1224,7 @@ wildcardMatcher2.match(data7) <span class="hljs-comment">// false</span>
 wildcardMatcher2.match(data8) <span class="hljs-comment">// false</span>
 wildcardMatcher2.match(data9) <span class="hljs-comment">// true</span>
 </code></pre>
-</span></div></article></div><div class="docLastUpdate"><em>Last updated on 4/3/2020</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/packages/data-types/api/overview"><span class="arrow-prev">← </span><span>API</span></a><a class="docs-next button" href="/teraslice/docs/packages/data-mate/api/overview"><span>API</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#installation">Installation</a></li><li><a href="#usage">Usage</a></li><li><a href="#field-validations">Field Validations</a><ul class="toc-headings"><li><a href="#isboolean">isBoolean</a></li><li><a href="#isbooleanlike">isBooleanLike</a></li><li><a href="#isnumber">isNumber</a></li><li><a href="#isinteger">isInteger</a></li><li><a href="#innumberrange">inNumberRange</a></li><li><a href="#isstring">isString:</a></li><li><a href="#isempty">isEmpty</a></li><li><a href="#contains">contains</a></li><li><a href="#equals">equals</a></li><li><a href="#islength">isLength</a></li><li><a href="#isalpha">isAlpha</a></li><li><a href="#isalphanumeric">isAlphanumeric</a></li><li><a href="#isascii">isAscii</a></li><li><a href="#isbase64">isBase64</a></li><li><a href="#isvaliddate">isValidDate</a></li><li><a href="#isiso8601">isISO8601</a></li><li><a href="#isrfc3339">isRFC3339</a></li><li><a href="#isjson">isJSON</a></li><li><a href="#isemail">isEmail</a></li><li><a href="#isfqdn">isFQDN</a></li><li><a href="#isurl">isUrl</a></li><li><a href="#isip">isIP</a></li><li><a href="#isroutableip">isRoutableIp</a></li><li><a href="#isnonroutableip">isNonRoutableIp</a></li><li><a href="#isipcidr">isIPCidr</a></li><li><a href="#iniprange">inIPRange</a></li><li><a href="#isisdn">isISDN</a></li><li><a href="#ismacaddress">isMacAddress</a></li><li><a href="#isuuid">isUUID</a></li><li><a href="#ishash">isHash</a></li><li><a href="#iscountrycode">isCountryCode</a></li><li><a href="#ismimetype">isMimeType</a></li><li><a href="#isissn">isISSN</a></li><li><a href="#ispostalcode">isPostalCode</a></li></ul></li><li><a href="#document-matcher">Document Matcher</a><ul class="toc-headings"><li><a href="#ranges">Ranges</a></li><li><a href="#types">Types</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/asset-bundles.html">Asset Bundles</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Terascope, LLC</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 4/9/2020</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/teraslice/docs/packages/data-types/api/overview"><span class="arrow-prev">← </span><span>API</span></a><a class="docs-next button" href="/teraslice/docs/packages/data-mate/api/overview"><span>API</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#installation">Installation</a></li><li><a href="#usage">Usage</a></li><li><a href="#functions">Functions</a></li><li><a href="#field-validations">Field Validations</a><ul class="toc-headings"><li><a href="#isstring">isString</a></li><li><a href="#isnumber">isNumber</a></li><li><a href="#isinteger">isInteger</a></li><li><a href="#isboolean">isBoolean</a></li><li><a href="#isbooleanlike">isBooleanLike</a></li><li><a href="#isgeopoint">isGeoPoint</a></li><li><a href="#isgeojson">isGeoJSON</a></li><li><a href="#isgeoshapepoint">isGeoShapePoint</a></li><li><a href="#isgeoshapepolygon">isGeoShapePolygon</a></li><li><a href="#isgeoshapemultipolygon">isGeoShapeMultiPolygon</a></li><li><a href="#innumberrange">inNumberRange</a></li><li><a href="#isempty">isEmpty</a></li><li><a href="#contains">contains</a></li><li><a href="#equals">equals</a></li><li><a href="#islength">isLength</a></li><li><a href="#isalpha">isAlpha</a></li><li><a href="#isalphanumeric">isAlphanumeric</a></li><li><a href="#isascii">isASCII</a></li><li><a href="#isbase64">isBase64</a></li><li><a href="#isvaliddate">isValidDate</a></li><li><a href="#isiso8601">isISO8601</a></li><li><a href="#isrfc3339">isRFC3339</a></li><li><a href="#isjson">isJSON</a></li><li><a href="#isemail">isEmail</a></li><li><a href="#isfqdn">isFQDN</a></li><li><a href="#isurl">isURL</a></li><li><a href="#isip">isIP</a></li><li><a href="#isroutableip">isRoutableIP</a></li><li><a href="#isnonroutableip">isNonRoutableIP</a></li><li><a href="#iscidr">isCIDR</a></li><li><a href="#iniprange">inIPRange</a></li><li><a href="#isisdn">isISDN</a></li><li><a href="#ismacaddress">isMACAddress</a></li><li><a href="#isuuid">isUUID</a></li><li><a href="#ishash">isHash</a></li><li><a href="#iscountrycode">isCountryCode</a></li><li><a href="#ismimetype">isMIMEType</a></li><li><a href="#isissn">isISSN</a></li><li><a href="#guard">guard</a></li><li><a href="#exists">exists</a></li><li><a href="#isarray">isArray</a></li><li><a href="#some">some</a></li><li><a href="#every">every</a></li><li><a href="#ispostalcode">isPostalCode</a></li></ul></li><li><a href="#field-transforms">Field Transforms</a><ul class="toc-headings"><li><a href="#toboolean">toBoolean</a></li><li><a href="#tostring">toString</a></li><li><a href="#tonumber">toNumber</a></li><li><a href="#touppercase">toUpperCase</a></li><li><a href="#tolowercase">toLowerCase</a></li><li><a href="#tocamelcase">toCamelCase</a></li><li><a href="#tokebabcase">toKebabCase</a></li><li><a href="#topascalcase">toPascalCase</a></li><li><a href="#tosnakecase">toSnakeCase</a></li><li><a href="#totitlecase">toTitleCase</a></li><li><a href="#trim">trim</a></li><li><a href="#trimstart">trimStart</a></li><li><a href="#trimend">trimEnd</a></li><li><a href="#truncate">truncate</a></li><li><a href="#toisdn">toISDN</a></li><li><a href="#encodebase64">encodeBase64</a></li><li><a href="#encodeurl">encodeURL</a></li><li><a href="#encodehex">encodeHex</a></li><li><a href="#encodemd5">encodeMD5</a></li><li><a href="#encodesha">encodeSHA</a></li><li><a href="#encodesha1">encodeSHA1</a></li><li><a href="#decodebase64">decodeBase64</a></li><li><a href="#decodehex">decodeHex</a></li><li><a href="#decodeurl">decodeURL</a></li><li><a href="#parsejson">parseJSON</a></li><li><a href="#tojson">toJSON</a></li><li><a href="#dedupe">dedupe</a></li><li><a href="#togeopoint">toGeoPoint</a></li><li><a href="#extract">extract</a></li><li><a href="#replaceregex">replaceRegex</a></li><li><a href="#replaceliteral">replaceLiteral</a></li><li><a href="#toarray">toArray</a></li><li><a href="#tounixtime">toUnixTime</a></li><li><a href="#toiso8601">toISO8601</a></li><li><a href="#formatdate">formatDate</a></li><li><a href="#parsedate">parseDate</a></li><li><a href="#setdefault">setDefault</a></li><li><a href="#map">map</a></li></ul></li><li><a href="#record-validations">Record Validations</a><ul class="toc-headings"><li><a href="#required">required</a></li><li><a href="#select">select</a></li><li><a href="#reject">reject</a></li></ul></li><li><a href="#record-transforms">Record Transforms</a><ul class="toc-headings"><li><a href="#renamefield">renameField</a></li><li><a href="#setfield">setField</a></li><li><a href="#dropfields">dropFields</a></li><li><a href="#copyfield">copyField</a></li></ul></li><li><a href="#document-matcher">Document Matcher</a><ul class="toc-headings"><li><a href="#ranges">Ranges</a></li><li><a href="#types">Types</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/teraslice/" class="nav-home"></a><div><h5>Docs</h5><a href="/teraslice/docs/en/getting-started.html">Getting Started</a><a href="/teraslice/docs/en/packages.html">Packages</a><a href="/teraslice/docs/en/asset-bundles.html">Asset Bundles</a></div><div><h5>More</h5><a href="/teraslice/blog">Blog</a><a href="https://github.com/terascope/teraslice">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/terascope/teraslice/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></div></section><section class="copyright">Copyright © 2020 Terascope, LLC</section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
